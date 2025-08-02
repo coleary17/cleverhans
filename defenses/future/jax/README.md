@@ -1,1 +1,0 @@
-# Defenses implemented with JAX
