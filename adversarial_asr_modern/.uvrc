@@ -1,0 +1,21 @@
+# UV Configuration for Adversarial ASR Modern
+
+# Python version preference
+python-preference = "managed"
+python-version = "3.9"
+
+# Virtual environment settings
+venv = ".venv"
+venv-seed = true
+
+# Dependency resolution
+resolution = "highest"
+prerelease = "disallow"
+
+# Performance
+compile-bytecode = true
+concurrent-downloads = 5
+
+# Output
+quiet = false
+verbose = 0

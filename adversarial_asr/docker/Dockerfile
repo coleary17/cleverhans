@@ -26,17 +26,25 @@ RUN wget -q https://github.com/bazelbuild/bazel/releases/download/0.29.1/bazel-0
 # ---------- Python packages --------------------------------------------------
 # ---------- python packages --------------------------------------------------
 RUN pip install --upgrade pip==20.3.4 && \
-    pip install setuptools==44.1.1 wheel==0.37.1 && \
-    pip install \
-        tensorflow==1.14.0 \
-        cython==0.29.36 \
+    pip install setuptools==44.1.1 wheel==0.37.1
+
+# Install core dependencies first
+RUN pip install \
         numpy==1.16.6 \
+        cython==0.29.36
+
+# Install packages that depend on numpy
+RUN pip install \
         scipy==1.2.3 \
-        librosa==0.5.1 \
-        resampy==0.1.5 \          
-        audioread==2.1.8 \
+        resampy==0.1.5 \
         scikit-learn==0.20.4 \
-        joblib==0.14.1 \
+        joblib==0.14.1
+
+# Install remaining packages
+RUN pip install \
+        tensorflow==1.14.0 \
+        librosa==0.5.1 \
+        audioread==2.1.8 \
         soundfile==0.10.3.post1 \
         absl-py==0.9.0 \
         matplotlib==2.2.5

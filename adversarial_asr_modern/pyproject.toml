@@ -1,7 +1,7 @@
 [project]
 name = "adversarial-asr-modern"
 version = "0.1.0"
-description = "Modernized adversarial audio attack targeting ASR systems using OpenAI Whisper"
+description = "Modernized adversarial audio attack targeting ASR systems using OpenAI Whisper and wav2vec2 CTC models"
 readme = "README.md"
 requires-python = ">=3.9"
 dependencies = [

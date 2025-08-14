@@ -42,26 +42,45 @@ The attack uses 10 audio samples from the **LibriSpeech test-clean dataset** tha
 3. **Check results:**
    The adversarial audio files will be saved in the `output/` directory.
 
-### Alternative: Run without Docker
+### Alternative: Run without Docker (Recommended for Development)
 
-If you prefer to run locally:
+This project uses **UV** for package management - a fast, modern Python package manager.
 
-1. **Install UV:**
-   ```bash
-   curl -LsSf https://astral.sh/uv/install.sh | sh
-   source $HOME/.local/bin/env
-   ```
+#### Quick Setup
+```bash
+# One-time setup: Install UV and dependencies
+cd adversarial_asr_modern
+source setup_env.sh  # This installs UV if needed and sets up everything
+```
 
-2. **Install dependencies:**
-   ```bash
-   cd adversarial_asr_modern
-   uv sync
-   ```
+#### Running Commands
+**Always use `uv run` to ensure the correct environment:**
+```bash
+# Run attacks
+uv run python run_attack.py         # Whisper attack
+uv run python run_ctc_attack.py     # CTC attack
 
-3. **Run the attack:**
-   ```bash
-   uv run python run_attack.py
-   ```
+# Run tests
+uv run python test_gradients.py     # Test gradient flow
+uv run python test_installation.py  # Test installation
+
+# Debug
+uv run python debug_whisper.py
+```
+
+#### Managing Dependencies
+```bash
+# Add new packages
+uv add numpy scipy torch
+
+# Update all packages
+uv sync --upgrade
+
+# Remove packages
+uv remove package-name
+```
+
+See [UV_GUIDE.md](UV_GUIDE.md) for complete UV documentation.
 
 ## Project Structure
 

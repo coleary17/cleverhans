@@ -12,6 +12,7 @@ RUN apt-get update && apt-get install -y \
     python3-pip \
     python3-dev \
     curl \
+    wget \
     git \
     build-essential \
     libsndfile1-dev \
@@ -32,9 +33,12 @@ COPY . .
 # Install Python dependencies using uv
 RUN uv sync --frozen
 
-# Audio data will be mounted at runtime
-# Create directory for mounting LibriSpeech data
-RUN mkdir -p LibriSpeech
+# Download LibriSpeech test-clean dataset instead of mounting
+# This gives us 2620 FLAC files to work with
+RUN wget -q https://www.openslr.org/resources/12/test-clean.tar.gz && \
+    tar -xzf test-clean.tar.gz && \
+    rm test-clean.tar.gz && \
+    echo "LibriSpeech dataset downloaded: $(find LibriSpeech -name '*.flac' | wc -l) files"
 
 # Make run script executable
 RUN chmod +x run_attack.py

@@ -1,0 +1,44 @@
+UV CHEATSHEET - Adversarial ASR Modern
+======================================
+
+FIRST TIME SETUP:
+-----------------
+source setup_env.sh
+
+BEFORE ANY WORK SESSION:
+------------------------
+source $HOME/.local/bin/env
+
+RUNNING CODE:
+-------------
+uv run python run_attack.py           # Run Whisper attack
+uv run python run_ctc_attack.py       # Run CTC attack  
+uv run python test_gradients.py       # Test gradients
+uv run python test_installation.py    # Test installation
+
+MANAGING PACKAGES:
+------------------
+uv add package-name                   # Add new package
+uv remove package-name                # Remove package
+uv sync                                # Install/update from pyproject.toml
+uv sync --upgrade                      # Upgrade all packages
+uv run pip list                        # List installed packages
+
+TROUBLESHOOTING:
+----------------
+rm -rf .venv && uv sync                # Fresh reinstall
+source $HOME/.local/bin/env            # Fix "uv not found"
+
+IMPORTANT RULES:
+----------------
+✅ ALWAYS use "uv run python" not just "python"
+✅ ALWAYS commit uv.lock file
+✅ NEVER mix pip and uv commands
+✅ Run "uv sync" after pulling changes
+
+KEY FILES:
+----------
+pyproject.toml - Defines dependencies
+uv.lock        - Locks exact versions
+.venv/         - Virtual environment (auto-created)
+UV_GUIDE.md    - Full documentation
