@@ -43,19 +43,14 @@ echo "  - Batch size: ${BATCH_SIZE}"
 echo "  - Device: CUDA (GPU)"
 echo ""
 
-# Mount the original data file if it exists
-MOUNT_OPTS=""
-if [ -f "../adversarial_asr/util/read_data_full.txt" ]; then
-    echo "Mounting read_data_full.txt for full dataset..."
-    MOUNT_OPTS="-v $(pwd)/../adversarial_asr/util/read_data_full.txt:/app/read_data_full.txt:ro"
-fi
+# No need to mount - read_data_full.txt is now in the current directory
+# and will be copied into the Docker image
 
 # Note: LibriSpeech is now downloaded in the Docker image
 # No need to mount external volumes for audio data
 docker run --rm \
   --gpus all \
   -v "$(pwd)/output:/app/output" \
-  ${MOUNT_OPTS} \
   ${GPU_IMAGE_NAME} \
   bash -c "
     # Check if we have the full data file

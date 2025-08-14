@@ -27,8 +27,6 @@ echo ""
 echo "Running test (1 example from 1000-file dataset)..."
 docker run --rm \
   -v "$(pwd)/output_test:/app/output_test" \
-  -v "$(pwd)/convert_full_data.py:/app/convert_full_data.py:ro" \
-  -v "$(pwd)/../adversarial_asr/util/read_data_full.txt:/app/read_data_full.txt:ro" \
   adversarial-asr-test-full \
   bash -c "
     echo '=== Inside Docker Container ==='

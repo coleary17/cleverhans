@@ -9,7 +9,7 @@ from pathlib import Path
 
 
 def convert_full_data_to_flac(
-    original_file="../adversarial_asr/util/read_data_full.txt",
+    original_file="read_data_full.txt",
     output_file="full_data_flac.txt",
     format="csv"  # or "original" for comma-separated lines
 ):

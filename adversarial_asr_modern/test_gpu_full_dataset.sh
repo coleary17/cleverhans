@@ -74,12 +74,8 @@ echo "  - Stage 2 iterations: ${NUM_ITER_STAGE2}"
 echo "  - Output: ${OUTPUT_DIR}"
 echo ""
 
-# Mount the original data file if it exists
-MOUNT_OPTS=""
-if [ -f "../adversarial_asr/util/read_data_full.txt" ]; then
-    echo "Mounting read_data_full.txt for 1000-file dataset..."
-    MOUNT_OPTS="-v $(pwd)/../adversarial_asr/util/read_data_full.txt:/app/read_data_full.txt:ro"
-fi
+# No need to mount - read_data_full.txt is now in the current directory
+# and will be copied into the Docker image
 
 # Run the Docker container with GPU support
 echo "Starting attack..."
@@ -87,7 +83,6 @@ docker run --rm \
   --gpus all \
   -v "$(pwd)/${OUTPUT_DIR}:/app/output" \
   -v "$(pwd)/${RESULTS_DIR}:/app/results" \
-  ${MOUNT_OPTS} \
   ${GPU_IMAGE_NAME} \
   bash -c "
     set -e

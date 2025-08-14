@@ -43,10 +43,8 @@ def test_full_dataset(num_examples=1, num_iterations=10):
     if not full_data_file.exists():
         print("\nConverting read_data_full.txt to FLAC paths...")
         
-        # Check for original file
+        # Check for original file in current directory
         original_file = Path("read_data_full.txt")
-        if not original_file.exists():
-            original_file = Path("../adversarial_asr/util/read_data_full.txt")
         
         if original_file.exists():
             import subprocess
