@@ -1,59 +1,87 @@
 #!/bin/bash
-# Download LibriSpeech test-clean dataset for adversarial attacks
-# This dataset contains 2620 FLAC audio files from 40 speakers
+# Download LibriSpeech test-clean dataset for adversarial ASR experiments
 
 set -e
 
-echo "=========================================="
-echo "LibriSpeech Test-Clean Dataset Downloader"
-echo "=========================================="
-
-# Configuration
-DATASET_URL="https://www.openslr.org/resources/12/test-clean.tar.gz"
-DATASET_DIR="LibriSpeech"
-DATASET_SIZE="346MB"
+echo "============================================"
+echo "LibriSpeech Dataset Downloader"
+echo "============================================"
+echo ""
 
 # Check if dataset already exists
-if [ -d "${DATASET_DIR}/test-clean" ]; then
-    echo "Dataset already exists at ${DATASET_DIR}/test-clean"
-    echo "To re-download, remove the existing directory first"
-    exit 0
+if [ -d "LibriSpeech/test-clean" ]; then
+    FLAC_COUNT=$(find LibriSpeech/test-clean -name '*.flac' 2>/dev/null | wc -l)
+    echo "✅ LibriSpeech test-clean already exists"
+    echo "   Found ${FLAC_COUNT} FLAC files"
+    echo ""
+    read -p "Re-download? (y/n): " -n 1 -r
+    echo ""
+    if [[ ! $REPLY =~ ^[Yy]$ ]]; then
+        echo "Keeping existing dataset."
+        exit 0
+    fi
+    echo "Removing existing dataset..."
+    rm -rf LibriSpeech/
+fi
+
+echo "Downloading LibriSpeech test-clean dataset..."
+echo "Size: ~350MB"
+echo ""
+
+# Download function
+download_dataset() {
+    local url="http://www.openslr.org/resources/12/test-clean.tar.gz"
+    
+    if command -v wget &> /dev/null; then
+        echo "Using wget..."
+        wget -q --show-progress "$url" -O test-clean.tar.gz
+    elif command -v curl &> /dev/null; then
+        echo "Using curl..."
+        curl -L --progress-bar "$url" -o test-clean.tar.gz
+    else
+        echo "❌ Error: Neither wget nor curl found"
+        echo "Please install one:"
+        echo "  Ubuntu/Debian: sudo apt-get install wget"
+        echo "  macOS: brew install wget"
+        return 1
+    fi
+}
+
+# Download the dataset
+if download_dataset; then
+    echo ""
+    echo "Download complete. Extracting..."
+    
+    # Extract
+    tar -xzf test-clean.tar.gz
+    
+    # Verify
+    if [ -d "LibriSpeech/test-clean" ]; then
+        FLAC_COUNT=$(find LibriSpeech/test-clean -name '*.flac' 2>/dev/null | wc -l)
+        echo ""
+        echo "✅ SUCCESS: LibriSpeech test-clean installed"
+        echo "   Location: ./LibriSpeech/test-clean/"
+        echo "   Files: ${FLAC_COUNT} FLAC audio files"
+        
+        # Show sample structure
+        echo ""
+        echo "Sample directory structure:"
+        find LibriSpeech/test-clean -type d | head -5 | sed 's/^/  /'
+        
+        # Cleanup
+        rm -f test-clean.tar.gz
+        echo ""
+        echo "Archive removed to save space."
+    else
+        echo "❌ Error: Failed to extract dataset"
+        exit 1
+    fi
+else
+    echo "❌ Download failed"
+    exit 1
 fi
 
 echo ""
-echo "This will download the LibriSpeech test-clean dataset"
-echo "Dataset size: ${DATASET_SIZE} (compressed)"
-echo "Contains: 2620 FLAC audio files"
-echo ""
-
-# Create directory if it doesn't exist
-mkdir -p ${DATASET_DIR}
-
-# Download dataset
-echo "Downloading LibriSpeech test-clean..."
-wget -q --show-progress ${DATASET_URL} -O test-clean.tar.gz
-
-# Extract dataset
-echo ""
-echo "Extracting dataset..."
-tar -xzf test-clean.tar.gz
-
-# Clean up
-rm test-clean.tar.gz
-
-# Verify extraction
-FLAC_COUNT=$(find ${DATASET_DIR}/test-clean -name "*.flac" | wc -l)
-echo ""
-echo "=========================================="
-echo "Download complete!"
-echo "Location: ${DATASET_DIR}/test-clean/"
-echo "Files found: ${FLAC_COUNT} FLAC files"
-echo "=========================================="
-
-# Show sample structure
-echo ""
-echo "Sample directory structure:"
-find ${DATASET_DIR}/test-clean -name "*.flac" | head -3 | while read -r file; do
-    echo "  $file"
-done
-echo "  ..."
+echo "============================================"
+echo "Dataset ready for adversarial ASR attacks!"
+echo "============================================"
