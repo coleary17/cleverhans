@@ -93,3 +93,14 @@ ENV/
 
 # Mac related
 .DS_Store
+
+# Model files and checkpoints
+adversarial_asr/model/
+*.ckpt
+*.data-*
+*.meta
+*.index
+
+# Virtual environments
+.venv/
+adversarial_asr_modern/.venv/
