@@ -33,6 +33,8 @@ WORKDIR /app
 
 # Copy project files
 COPY pyproject.toml .
+COPY README.md .
+COPY ../adversarial_asr/util/read_full_data.txt .
 COPY src/ ./src/
 COPY *.py ./
 
