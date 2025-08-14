@@ -97,7 +97,7 @@ docker run --rm \
     
     # Check GPU availability
     echo 'Checking GPU...'
-    python -c 'import torch; print(f\"PyTorch CUDA available: {torch.cuda.is_available()}\"); print(f\"Device: {torch.cuda.get_device_name(0) if torch.cuda.is_available() else 'CPU'}\")'
+    uv run python -c 'import torch; print(f\"PyTorch CUDA available: {torch.cuda.is_available()}\"); print(f\"Device: {torch.cuda.get_device_name(0) if torch.cuda.is_available() else 'CPU'}\")'
     echo ''
     
     # Check LibriSpeech dataset
@@ -110,7 +110,7 @@ docker run --rm \
     echo 'Preparing data file...'
     if [ -f read_data_full.txt ]; then
         echo 'Converting read_data_full.txt to FLAC paths...'
-        python convert_full_data.py --format csv
+        uv run python convert_full_data.py --format csv
         
         # Check conversion
         if [ -f full_data_flac.txt ]; then
@@ -121,7 +121,7 @@ docker run --rm \
         fi
     else
         echo 'Creating data file from LibriSpeech FLAC files...'
-        python create_flac_data.py --num ${NUM_EXAMPLES} --output attack_data.txt
+        uv run python create_flac_data.py --num ${NUM_EXAMPLES} --output attack_data.txt
         
         if [ -f attack_data.txt ]; then
             echo \"✅ Created attack_data.txt with ${NUM_EXAMPLES} entries\"

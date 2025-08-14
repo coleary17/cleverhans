@@ -61,7 +61,7 @@ docker run --rm \
     # Check if we have the full data file
     if [ -f read_data_full.txt ]; then
       echo 'Converting full dataset (1000 files) to FLAC paths...'
-      python convert_full_data.py --format csv
+      uv run python convert_full_data.py --format csv
       
       # Create subset if needed
       if [ ${NUM_EXAMPLES} -lt 1000 ]; then
@@ -73,13 +73,13 @@ docker run --rm \
       fi
     else
       echo 'Creating data file from LibriSpeech FLAC files...'
-      python create_flac_data.py --num ${NUM_EXAMPLES} --output attack_data.txt
+      uv run python create_flac_data.py --num ${NUM_EXAMPLES} --output attack_data.txt
     fi
     
     # Check GPU availability
     echo ''
     echo 'GPU Status:'
-    python -c 'import torch; print(f\"CUDA available: {torch.cuda.is_available()}\"); print(f\"Device: {torch.cuda.get_device_name(0) if torch.cuda.is_available() else 'CPU'}\")'
+    uv run python -c 'import torch; print(f\"CUDA available: {torch.cuda.is_available()}\"); print(f\"Device: {torch.cuda.get_device_name(0) if torch.cuda.is_available() else 'CPU'}\")'
     echo ''
     
     # Run attack using the attack data file
