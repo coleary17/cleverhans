@@ -173,12 +173,18 @@ class WhisperASRModel:
                 add_special_tokens=True
             )
             target_ids = target_encoding.input_ids.to(self.device)
+            
+            # Create attention mask to avoid the warning
+            # For Whisper, we need to create the decoder attention mask
+            # All positions should be attended to (no padding in our case)
+            attention_mask = torch.ones_like(target_ids).to(self.device)
         
         # Use the model with labels to get loss directly
         # This is the standard way Whisper computes loss
         outputs = self.model(
             input_features=mel_spec,
             labels=target_ids,
+            decoder_attention_mask=attention_mask,  # Use decoder_attention_mask for decoder inputs
             return_dict=True
         )
         

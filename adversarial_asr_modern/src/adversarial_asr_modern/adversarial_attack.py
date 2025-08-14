@@ -356,6 +356,230 @@ class AdversarialAttack:
         
         return final_audio, attack_results
     
+    def stage2_attack(self, batch: Dict, stage1_audio: torch.Tensor) -> Tuple[torch.Tensor, List[Dict]]:
+        """
+        Stage 2: Refine perturbations to be imperceptible using psychoacoustic masking.
+        
+        This stage jointly optimizes:
+        1. Cross-entropy loss to maintain the adversarial transcription
+        2. Masking threshold loss to ensure imperceptibility
+        
+        Args:
+            batch: Batch data dictionary
+            stage1_audio: Adversarial audio from Stage 1
+            
+        Returns:
+            Tuple of (adversarial audio tensor, attack results)
+        """
+        print("=" * 60)
+        print("Starting Stage 2 Attack (Imperceptibility Refinement)...")
+        print(f"Logging predictions every {self.log_interval} iterations")
+        print("=" * 60)
+        
+        audios = batch['audios']
+        target_texts = batch['target_texts']
+        th_batch = batch['th_batch']
+        psd_max_batch = batch['psd_max_batch']
+        masks = batch['masks']
+        lengths = batch['lengths']
+        
+        # Initialize delta from Stage 1 results
+        stage1_delta = stage1_audio - audios
+        delta = stage1_delta.clone().detach().requires_grad_(True)
+        
+        # Initialize alpha parameters for balancing losses
+        alpha = torch.ones(self.batch_size, device=self.device) * 0.05
+        min_alpha = 0.0005
+        
+        # Optimizer with lower learning rate for Stage 2
+        optimizer = optim.Adam([delta], lr=self.lr_stage2)
+        
+        # Track best results
+        best_loss_th = [float('inf')] * self.batch_size
+        best_deltas = [None] * self.batch_size
+        best_alphas = [None] * self.batch_size
+        attack_results = []
+        
+        # Initial check
+        print("\n[STAGE 2 INITIAL STATE]")
+        for i in range(min(self.batch_size, audios.shape[0])):
+            perturbed = (audios[i] + delta[i] * masks[i]).clamp(-1.0, 1.0)
+            audio_np = perturbed[:lengths[i]].detach().cpu().numpy()
+            pred = self.asr_model.transcribe(audio_np)
+            print(f"Example {i}:")
+            print(f"  Target:  '{target_texts[i]}'")
+            print(f"  Current: '{pred}'")
+            
+        # Main optimization loop
+        for iteration in range(self.num_iter_stage2):
+            optimizer.zero_grad()
+            
+            # Apply perturbations with masking
+            perturbed_audio = (delta * masks + audios).clamp(-1.0, 1.0)
+            
+            # Compute ASR loss
+            total_asr_loss = 0
+            individual_asr_losses = []
+            
+            for i in range(min(self.batch_size, audios.shape[0])):
+                try:
+                    loss = self.asr_model.compute_loss(perturbed_audio[i, :lengths[i]], target_texts[i])
+                    total_asr_loss += loss
+                    individual_asr_losses.append(loss.item())
+                except Exception as e:
+                    print(f"Error computing ASR loss for example {i}: {e}")
+                    individual_asr_losses.append(float('inf'))
+            
+            # Compute masking threshold loss
+            total_th_loss = 0
+            individual_th_losses = []
+            
+            for i in range(min(self.batch_size, audios.shape[0])):
+                # Compute PSD of the perturbation
+                perturbation = delta[i, :lengths[i]] * masks[i, :lengths[i]]
+                
+                # Use Transform to compute PSD
+                # Convert psd_max to tensor if needed
+                psd_max_tensor = torch.tensor(psd_max_batch[i], dtype=torch.float32, device=self.device)
+                psd_delta = self.transform(perturbation.unsqueeze(0), psd_max_tensor)
+                
+                # Convert threshold to tensor
+                th_tensor = torch.from_numpy(th_batch[i]).float().to(self.device)
+                
+                # Compute threshold loss (penalize when exceeding threshold)
+                # Match dimensions - psd_delta shape: [1, freq_bins], th_tensor shape: [time_frames, freq_bins]
+                # Average over time dimension of threshold
+                th_mean = th_tensor.mean(dim=0, keepdim=True)
+                
+                # Ensure matching dimensions
+                if psd_delta.shape[-1] != th_mean.shape[-1]:
+                    min_dim = min(psd_delta.shape[-1], th_mean.shape[-1])
+                    psd_delta = psd_delta[:, :min_dim]
+                    th_mean = th_mean[:, :min_dim]
+                
+                loss_th = torch.mean(torch.relu(psd_delta - th_mean))
+                th_loss_weighted = alpha[i] * loss_th
+                total_th_loss += th_loss_weighted
+                individual_th_losses.append(loss_th.item())
+            
+            # Total loss combines ASR loss and threshold loss
+            total_loss = total_asr_loss + total_th_loss
+            
+            if total_loss > 0:
+                total_loss.backward()
+                
+                # Gradient clipping for stability
+                torch.nn.utils.clip_grad_norm_([delta], max_norm=1.0)
+                optimizer.step()
+            
+            # Adaptive learning rate adjustment at iteration 3000
+            if iteration == 3000:
+                for param_group in optimizer.param_groups:
+                    param_group['lr'] = self.lr_stage2 * 0.1
+                print(f"\n[Learning rate reduced to {param_group['lr']:.6f}]")
+            
+            # Logging and alpha adjustment
+            should_log = (iteration % self.log_interval == 0) or (iteration == self.num_iter_stage2 - 1)
+            
+            if should_log or (iteration % 20 == 0):
+                if should_log:
+                    print(f"\n[Iteration {iteration}/{self.num_iter_stage2}]")
+                    print(f"Total ASR Loss: {total_asr_loss:.4f}, Total Th Loss: {total_th_loss:.4f}")
+                
+                for i in range(min(self.batch_size, audios.shape[0])):
+                    # Get current prediction
+                    perturbed = (audios[i] + delta[i] * masks[i]).clamp(-1.0, 1.0)
+                    audio_sample_np = perturbed[:lengths[i]].detach().cpu().numpy()
+                    pred = self.asr_model.transcribe(audio_sample_np)
+                    
+                    # Check if maintaining target transcription
+                    success = pred.lower().strip() == target_texts[i].lower().strip()
+                    
+                    if success:
+                        # Save if this has lower threshold loss
+                        if individual_th_losses[i] < best_loss_th[i]:
+                            best_loss_th[i] = individual_th_losses[i]
+                            best_deltas[i] = perturbed.clone()
+                            best_alphas[i] = alpha[i].item()
+                            
+                            if should_log:
+                                print(f"Example {i}: ✓ IMPROVED")
+                                print(f"  Target: '{target_texts[i]}'")
+                                print(f"  Maintained: '{pred}'")
+                                print(f"  ASR Loss: {individual_asr_losses[i]:.4f}")
+                                print(f"  Th Loss: {individual_th_losses[i]:.6f}")
+                                print(f"  Alpha: {alpha[i].item():.6f}")
+                        
+                        # Increase alpha every 20 iterations to enforce stronger masking
+                        if iteration % 20 == 0:
+                            alpha[i] *= 1.2
+                    else:
+                        # Reduce alpha if failing to maintain transcription
+                        if iteration % 50 == 0:
+                            alpha[i] *= 0.8
+                            alpha[i] = max(alpha[i], min_alpha)
+                        
+                        if should_log:
+                            print(f"Example {i}: Failed")
+                            print(f"  Target: '{target_texts[i]}'")
+                            print(f"  Current: '{pred}'")
+                            print(f"  Alpha: {alpha[i].item():.6f}")
+                
+                if should_log:
+                    successful = sum(1 for b in best_deltas if b is not None)
+                    print(f"\nProgress: {successful}/{min(self.batch_size, audios.shape[0])} with improved imperceptibility")
+                    print("-" * 40)
+        
+        # Final results
+        print("\n" + "=" * 60)
+        print("STAGE 2 COMPLETE - FINAL RESULTS:")
+        
+        final_audio = torch.zeros_like(audios)
+        
+        for i in range(min(self.batch_size, audios.shape[0])):
+            # Use best delta if available, otherwise use Stage 1 result
+            if best_deltas[i] is not None:
+                final_audio[i] = best_deltas[i]
+            else:
+                final_audio[i] = stage1_audio[i]
+            
+            # Get final prediction
+            audio_sample_np = final_audio[i, :lengths[i]].detach().cpu().numpy()
+            final_pred = self.asr_model.transcribe(audio_sample_np)
+            
+            # Calculate final stats
+            perturbation = (final_audio[i, :lengths[i]] - audios[i, :lengths[i]]).detach()
+            max_pert = torch.max(torch.abs(perturbation)).item()
+            mean_pert = torch.mean(torch.abs(perturbation)).item()
+            
+            # Create result entry
+            result = {
+                'example_idx': i,
+                'target_text': target_texts[i],
+                'final_text': final_pred,
+                'success': final_pred.lower().strip() == target_texts[i].lower().strip(),
+                'final_loss_th': best_loss_th[i] if best_loss_th[i] != float('inf') else -1,
+                'final_alpha': best_alphas[i] if best_alphas[i] else alpha[i].item(),
+                'max_perturbation': max_pert,
+                'mean_perturbation': mean_pert,
+                'stage': 'stage2'
+            }
+            attack_results.append(result)
+            
+            # Print summary
+            if result['success']:
+                print(f"Example {i}: SUCCESS")
+                print(f"  Final Th Loss: {result['final_loss_th']:.6f}")
+                print(f"  Final Alpha: {result['final_alpha']:.6f}")
+            else:
+                print(f"Example {i}: FAILED to maintain target")
+                print(f"  Target: '{target_texts[i]}'")
+                print(f"  Final: '{final_pred}'")
+        
+        print("=" * 60)
+        
+        return final_audio, attack_results
+    
     def run_attack(self, data_file: str, root_dir: str = "./", output_dir: str = "./output", 
                    results_file: str = None):
         """
@@ -393,31 +617,75 @@ class AdversarialAttack:
                 batch = self.prepare_batch(batch_data, root_dir)
                 
                 # Stage 1 attack
-                stage1_results, batch_results = self.stage1_attack(batch)
+                stage1_audio, stage1_results = self.stage1_attack(batch)
                 
-                # Add file information to results
+                # Stage 2 attack (imperceptibility refinement)
+                stage2_audio, stage2_results = self.stage2_attack(batch, stage1_audio)
+                
+                # Process and save results for both stages
                 for i, audio_file in enumerate(audio_files):
-                    if i < len(batch_results):
+                    if i < len(stage1_results):
                         name = Path(audio_file).stem
-                        batch_results[i]['audio_file'] = audio_file
-                        batch_results[i]['audio_name'] = name
                         
-                        # Calculate distortion
-                        if i < stage1_results.shape[0]:
+                        # Add file information to Stage 1 results
+                        stage1_results[i]['audio_file'] = audio_file
+                        stage1_results[i]['audio_name'] = name
+                        
+                        # Calculate Stage 1 distortion
+                        if i < stage1_audio.shape[0]:
                             original_audio = batch['audios'][i, :batch['lengths'][i]].cpu().numpy()
-                            adversarial_audio = stage1_results[i, :batch['lengths'][i]].detach().cpu().numpy()
-                            distortion = np.max(np.abs(adversarial_audio - original_audio))
-                            batch_results[i]['stage1_distortion'] = distortion
-                            print(f"Stage 1 distortion for {name}: {distortion:.2f}")
+                            stage1_adversarial = stage1_audio[i, :batch['lengths'][i]].detach().cpu().numpy()
+                            stage1_distortion = np.max(np.abs(stage1_adversarial - original_audio))
+                            stage1_results[i]['stage1_distortion'] = stage1_distortion
+                            print(f"Stage 1 distortion for {name}: {stage1_distortion:.4f}")
                             
-                            # Save audio if requested
+                            # Save Stage 1 audio if requested
                             if self.save_audio:
                                 output_file = output_path / f"{name}_stage1.wav"
-                                audio_data = stage1_results[i, :batch['lengths'][i]].detach().cpu().numpy()
-                                save_audio_file(audio_data, str(output_file), 16000)
+                                save_audio_file(stage1_adversarial, str(output_file), 16000)
+                        
+                        # Add Stage 2 results if available
+                        if i < len(stage2_results):
+                            # Merge Stage 2 information into results
+                            stage2_results[i]['audio_file'] = audio_file
+                            stage2_results[i]['audio_name'] = name
+                            stage2_results[i]['original_text'] = stage1_results[i].get('original_text', '')
+                            
+                            # Calculate Stage 2 distortion
+                            if i < stage2_audio.shape[0]:
+                                stage2_adversarial = stage2_audio[i, :batch['lengths'][i]].detach().cpu().numpy()
+                                stage2_distortion = np.max(np.abs(stage2_adversarial - original_audio))
+                                stage2_results[i]['stage2_distortion'] = stage2_distortion
+                                print(f"Stage 2 distortion for {name}: {stage2_distortion:.4f}")
+                                
+                                # Save Stage 2 audio if requested
+                                if self.save_audio:
+                                    output_file = output_path / f"{name}_stage2.wav"
+                                    save_audio_file(stage2_adversarial, str(output_file), 16000)
                 
-                # Collect results
-                all_results.extend(batch_results)
+                # Collect results from both stages
+                # Combine Stage 1 and Stage 2 results
+                combined_results = []
+                for i in range(len(audio_files)):
+                    result = {}
+                    
+                    # Start with Stage 1 results
+                    if i < len(stage1_results):
+                        result.update(stage1_results[i])
+                    
+                    # Override/add Stage 2 results if available
+                    if i < len(stage2_results):
+                        # Keep Stage 1 info but update with Stage 2 final results
+                        result['stage1_success'] = stage1_results[i].get('success', False)
+                        result['stage1_distortion'] = stage1_results[i].get('stage1_distortion', -1)
+                        result.update(stage2_results[i])
+                        result['final_stage'] = 'stage2'
+                    else:
+                        result['final_stage'] = 'stage1'
+                    
+                    combined_results.append(result)
+                
+                all_results.extend(combined_results)
                 
             except Exception as e:
                 print(f"Error processing batch {batch_idx // self.batch_size + 1}: {e}")

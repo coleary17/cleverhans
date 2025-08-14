@@ -175,7 +175,7 @@ attack = AdversarialAttack(
     num_iter_stage2=${NUM_ITER_STAGE2},
     log_interval=10,
     verbose=False,
-    save_audio=False  # Save adversarial audio files
+    save_audio=True  # Save adversarial audio files
 )
 
 print('Running attack...')
