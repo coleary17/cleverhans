@@ -80,6 +80,33 @@ fi
 # Install project dependencies
 if [ -f "pyproject.toml" ] || [ -f "requirements.txt" ]; then
     echo "Installing Python dependencies..."
+    
+    # First, ensure PyTorch is installed with CUDA support
+    echo "Checking PyTorch CUDA support..."
+    python -c "import torch; has_cuda = torch.cuda.is_available()" 2>/dev/null || HAS_TORCH=false
+    
+    if [ "$HAS_TORCH" = "false" ] || ! python -c "import torch; exit(0 if torch.cuda.is_available() else 1)" 2>/dev/null; then
+        echo "Installing/Reinstalling PyTorch with CUDA support..."
+        # Detect CUDA version
+        if nvidia-smi &> /dev/null; then
+            CUDA_VERSION=$(nvidia-smi | grep "CUDA Version" | awk '{print $9}' | cut -d. -f1-2)
+            echo "Detected CUDA version: $CUDA_VERSION"
+            
+            # Install appropriate PyTorch version
+            if [[ "$CUDA_VERSION" == "11."* ]]; then
+                echo "Installing PyTorch for CUDA 11.8..."
+                uv pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu118
+            elif [[ "$CUDA_VERSION" == "12."* ]]; then
+                echo "Installing PyTorch for CUDA 12.1..."
+                uv pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu121
+            else
+                echo "Unknown CUDA version, installing CUDA 11.8 version..."
+                uv pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu118
+            fi
+        fi
+    fi
+    
+    # Now install other dependencies
     if [ -f "pyproject.toml" ]; then
         uv sync
     elif [ -f "requirements.txt" ]; then
