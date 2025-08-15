@@ -42,7 +42,8 @@ class AdversarialAttack:
                  num_iter_stage2: int = 4000,
                  log_interval: int = 10,
                  verbose: bool = False,
-                 save_audio: bool = False):
+                 save_audio: bool = False,
+                 skip_stage2_on_failure: bool = True):
         
         # Auto-detect best available device
         print(f"Using device: {device}")
@@ -80,6 +81,7 @@ class AdversarialAttack:
         self.log_interval = log_interval
         self.verbose = verbose
         self.save_audio = save_audio
+        self.skip_stage2_on_failure = skip_stage2_on_failure
         
         # Initialize ASR model
         self.asr_model = WhisperASRModel(model_name, device=self.device)
@@ -633,6 +635,79 @@ class AdversarialAttack:
         
         return final_audio, attack_results
     
+    def stage2_attack_selective(self, batch: Dict, stage1_audio: torch.Tensor, 
+                                stage1_results: List[Dict], successful_indices: List[int]) -> Tuple[torch.Tensor, List[Dict]]:
+        """
+        Run Stage 2 only on successful Stage 1 examples.
+        
+        Args:
+            batch: Original batch data
+            stage1_audio: All audio from Stage 1
+            stage1_results: Results from Stage 1
+            successful_indices: Indices of successful examples to process
+            
+        Returns:
+            Tuple of (audio tensor with Stage 2 for successful examples, Stage 2 results)
+        """
+        if not successful_indices:
+            return stage1_audio, []
+        
+        print(f"\nStage 2: Processing {len(successful_indices)} successful examples")
+        
+        # Extract only successful examples for Stage 2
+        audios = batch['audios']
+        lengths = batch['lengths']
+        
+        # Create sub-batch for successful examples
+        sub_batch_audios = torch.stack([audios[i] for i in successful_indices])
+        sub_batch_targets = [batch['target_texts'][i] for i in successful_indices]
+        sub_batch_th = [batch['th_batch'][i] for i in successful_indices]
+        sub_batch_psd_max = np.array([batch['psd_max_batch'][i] for i in successful_indices])
+        sub_batch_masks = torch.stack([batch['masks'][i] for i in successful_indices])
+        sub_batch_lengths = [lengths[i] for i in successful_indices]
+        sub_batch_stage1 = torch.stack([stage1_audio[i] for i in successful_indices])
+        
+        # Create filtered batch
+        filtered_batch = {
+            'audios': sub_batch_audios,
+            'original_texts': [batch['original_texts'][i] for i in successful_indices],
+            'target_texts': sub_batch_targets,
+            'th_batch': sub_batch_th,
+            'psd_max_batch': sub_batch_psd_max,
+            'masks': sub_batch_masks,
+            'lengths': sub_batch_lengths,
+            'max_length': batch['max_length']
+        }
+        
+        # Run Stage 2 on filtered batch
+        stage2_audio_filtered, stage2_results_filtered = self.stage2_attack(filtered_batch, sub_batch_stage1)
+        
+        # Reconstruct full results maintaining original indexing
+        final_audio = stage1_audio.clone()
+        stage2_results = []
+        
+        for orig_idx in range(len(stage1_results)):
+            if orig_idx in successful_indices:
+                # Get the position in the filtered results
+                filtered_idx = successful_indices.index(orig_idx)
+                
+                # Update audio for this example
+                final_audio[orig_idx] = stage2_audio_filtered[filtered_idx]
+                
+                # Add Stage 2 result
+                if filtered_idx < len(stage2_results_filtered):
+                    result = stage2_results_filtered[filtered_idx].copy()
+                    result['example_idx'] = orig_idx  # Maintain original index
+                    stage2_results.append(result)
+            else:
+                # For failed Stage 1, keep Stage 1 audio and no Stage 2 result
+                # Audio already in final_audio from clone
+                pass
+        
+        print(f"Stage 2 selective processing complete: {len(stage2_results)} results")
+        
+        return final_audio, stage2_results
+    
     def run_attack(self, data_file: str, root_dir: str = "./", output_dir: str = "./output", 
                    results_file: str = None):
         """
@@ -672,8 +747,33 @@ class AdversarialAttack:
                 # Stage 1 attack
                 stage1_audio, stage1_results = self.stage1_attack(batch)
                 
-                # Stage 2 attack (imperceptibility refinement)
-                stage2_audio, stage2_results = self.stage2_attack(batch, stage1_audio)
+                # Check Stage 1 success and conditionally run Stage 2
+                stage1_successes = [r.get('success', False) for r in stage1_results]
+                any_success = any(stage1_successes)
+                
+                if self.skip_stage2_on_failure and not any_success:
+                    # Skip Stage 2 entirely if no Stage 1 succeeded
+                    print("\n" + "=" * 60)
+                    print("SKIPPING STAGE 2 - No successful Stage 1 attacks")
+                    print("=" * 60)
+                    stage2_audio = stage1_audio
+                    stage2_results = []
+                elif self.skip_stage2_on_failure and any_success:
+                    # Run Stage 2 only on successful examples
+                    successful_count = sum(stage1_successes)
+                    print("\n" + "=" * 60)
+                    print(f"Running Stage 2 on {successful_count}/{len(stage1_results)} successful examples")
+                    print("=" * 60)
+                    
+                    # Create filtered batch for Stage 2
+                    successful_indices = [i for i, success in enumerate(stage1_successes) if success]
+                    stage2_audio, stage2_results = self.stage2_attack_selective(
+                        batch, stage1_audio, stage1_results, successful_indices
+                    )
+                else:
+                    # Original behavior - run Stage 2 on all examples
+                    print("\nRunning Stage 2 on all examples (skip_stage2_on_failure=False)")
+                    stage2_audio, stage2_results = self.stage2_attack(batch, stage1_audio)
                 
                 # Process and save results for both stages
                 for i, audio_file in enumerate(audio_files):
