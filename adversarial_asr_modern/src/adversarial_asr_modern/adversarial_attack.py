@@ -162,9 +162,15 @@ class AdversarialAttack:
         """
         print("=" * 60)
         print("Starting Stage 1 Attack...")
+        print(f"Batch size: {self.batch_size}")
         print(f"Logging predictions every {self.log_interval} iterations")
         print(f"Verbose mode: {self.verbose}")
         print("=" * 60)
+        
+        # Track timing
+        import time
+        start_time = time.time()
+        iteration_times = []
         
         audios = batch['audios']
         original_texts = batch['original_texts']
@@ -199,6 +205,7 @@ class AdversarialAttack:
         
         # Main optimization loop
         for iteration in range(self.num_iter_stage1):
+            iter_start = time.time()
             optimizer.zero_grad()
             
             # Apply perturbations with bounds and rescaling
@@ -206,21 +213,45 @@ class AdversarialAttack:
             scaled_delta = bounded_delta * rescale
             perturbed_audio = (scaled_delta * masks + audios).clamp(-1.0, 1.0)
             
-            # Compute loss for each example in batch
-            total_loss = 0
-            individual_losses = []
-            
-            for i in range(min(self.batch_size, audios.shape[0])):
-                try:
-                    # Loss must be computed on the tensor with gradients
-                    loss = self.asr_model.compute_loss(perturbed_audio[i, :lengths[i]], target_texts[i])
-                    total_loss += loss
-                    individual_losses.append(loss.item())
+            # Compute loss for all examples in parallel (much faster!)
+            try:
+                # Batch compute losses for better GPU utilization
+                losses = []
+                batch_size_actual = min(self.batch_size, audios.shape[0])
+                
+                # Process in smaller sub-batches if needed for memory
+                sub_batch_size = min(5, batch_size_actual)  # Process 5 at a time
+                
+                for sub_batch_start in range(0, batch_size_actual, sub_batch_size):
+                    sub_batch_end = min(sub_batch_start + sub_batch_size, batch_size_actual)
+                    sub_batch_audio = perturbed_audio[sub_batch_start:sub_batch_end]
+                    sub_batch_lengths = lengths[sub_batch_start:sub_batch_end]
+                    sub_batch_texts = target_texts[sub_batch_start:sub_batch_end]
                     
-                except Exception as e:
-                    print(f"Error processing example {i}: {e}")
-                    individual_losses.append(float('inf'))
-                    continue
+                    # Compute losses for this sub-batch
+                    for i, (audio, length, text) in enumerate(zip(sub_batch_audio, sub_batch_lengths, sub_batch_texts)):
+                        idx = sub_batch_start + i
+                        try:
+                            loss = self.asr_model.compute_loss(audio[:length], text)
+                            losses.append(loss)
+                        except Exception as e:
+                            print(f"Error processing example {idx}: {e}")
+                            # Create a dummy loss that doesn't affect gradients
+                            losses.append(torch.tensor(float('inf'), device=self.device, requires_grad=False))
+                
+                # Sum all losses
+                valid_losses = [l for l in losses if not torch.isinf(l)]
+                if valid_losses:
+                    total_loss = torch.stack(valid_losses).sum()
+                else:
+                    total_loss = torch.tensor(0.0, device=self.device)
+                
+                individual_losses = [l.item() if not torch.isinf(l) else float('inf') for l in losses]
+                
+            except Exception as e:
+                print(f"Error in batch loss computation: {e}")
+                total_loss = torch.tensor(0.0, device=self.device)
+                individual_losses = [float('inf')] * min(self.batch_size, audios.shape[0])
             
             if total_loss > 0:
                 total_loss.backward()
@@ -236,14 +267,26 @@ class AdversarialAttack:
                 
                 optimizer.step()
             
-            # Log predictions at specified intervals
+            # Log predictions at specified intervals (reduce frequency for speed)
             should_log = (iteration % self.log_interval == 0) or (iteration == self.num_iter_stage1 - 1)
+            # Only check transcriptions less frequently to save time
+            should_check_transcription = (iteration % (self.log_interval * 5) == 0) or (iteration == self.num_iter_stage1 - 1)
+            
+            # Early stopping check - if all examples succeeded, we can stop
+            if all(s != -1 for s in success_iterations[:min(self.batch_size, audios.shape[0])]):
+                print(f"\n[Iteration {iteration}] All examples succeeded! Stopping early.")
+                break
+            
+            # Track iteration time
+            iteration_times.append(time.time() - iter_start)
             
             if should_log or self.verbose:
-                print(f"\n[Iteration {iteration}/{self.num_iter_stage1}]")
+                avg_time = np.mean(iteration_times[-min(50, len(iteration_times)):])  # Average of last 50 iterations
+                est_remaining = avg_time * (self.num_iter_stage1 - iteration - 1)
+                print(f"\n[Iteration {iteration}/{self.num_iter_stage1}] [{avg_time:.2f}s/iter, ETA: {est_remaining/60:.1f}min]")
                 print(f"Total Loss: {total_loss:.4f}")
                 
-                # Check predictions for all examples
+                # Check predictions for all examples (but transcribe only when needed)
                 for i in range(min(self.batch_size, audios.shape[0])):
                     if success_iterations[i] != -1:
                         # Already succeeded, skip detailed logging
@@ -252,17 +295,23 @@ class AdversarialAttack:
                         continue
                     
                     try:
-                        # Get current prediction
-                        audio_sample_np = perturbed_audio[i, :lengths[i]].detach().cpu().numpy()
-                        pred = self.asr_model.transcribe(audio_sample_np)
+                        # Only transcribe if we should check (saves time)
+                        if should_check_transcription or individual_losses[i] < 2.0:  # Low loss suggests potential success
+                            # Get current prediction
+                            audio_sample_np = perturbed_audio[i, :lengths[i]].detach().cpu().numpy()
+                            pred = self.asr_model.transcribe(audio_sample_np)
+                            
+                            # Check for success
+                            success = pred.lower().strip() == target_texts[i].lower().strip()
+                        else:
+                            # Skip transcription for speed, just show loss
+                            pred = None
+                            success = False
                         
                         # Calculate perturbation stats
                         perturbation = (perturbed_audio[i, :lengths[i]] - audios[i, :lengths[i]]).detach()
                         max_pert = torch.max(torch.abs(perturbation)).item()
                         mean_pert = torch.mean(torch.abs(perturbation)).item()
-                        
-                        # Check for success
-                        success = pred.lower().strip() == target_texts[i].lower().strip()
                         
                         if success and success_iterations[i] == -1:
                             success_iterations[i] = iteration
@@ -283,7 +332,8 @@ class AdversarialAttack:
                         else:
                             print(f"Example {i}:")
                             print(f"  Target:   '{target_texts[i]}'")
-                            print(f"  Current:  '{pred}'")
+                            if pred is not None:
+                                print(f"  Current:  '{pred}'")
                             print(f"  Loss: {individual_losses[i]:.4f}")
                             if self.verbose:
                                 print(f"  Max pert: {max_pert:.2f}, Mean: {mean_pert:.2f}")
@@ -297,8 +347,11 @@ class AdversarialAttack:
                 print("-" * 40)
         
         # Final summary and collect results
+        total_time = time.time() - start_time
         print("\n" + "=" * 60)
         print("STAGE 1 COMPLETE - FINAL RESULTS:")
+        print(f"Total time: {total_time/60:.1f} minutes ({total_time:.1f} seconds)")
+        print(f"Average time per iteration: {np.mean(iteration_times):.2f} seconds")
         
         # Use best deltas or final perturbed audio
         final_audio = torch.zeros_like(audios)

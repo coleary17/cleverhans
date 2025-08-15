@@ -235,13 +235,13 @@ print('Initializing attack with GPU...')
 attack = AdversarialAttack(
     model_name='openai/whisper-base',
     device='cuda',  # Force GPU
-    batch_size=10,  # Larger batch for GPU
+    batch_size=20,  # Increased batch size for better GPU utilization
     initial_bound=0.15,
     lr_stage1=0.1,
     lr_stage2=0.01,
     num_iter_stage1=${NUM_ITER_STAGE1},
     num_iter_stage2=${NUM_ITER_STAGE2},
-    log_interval=10,
+    log_interval=50,  # Reduced logging frequency for speed
     verbose=False,
     save_audio=True  # Save adversarial audio files
 )
