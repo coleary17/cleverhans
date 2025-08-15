@@ -63,7 +63,7 @@ case $MODE in
         NUM_EXAMPLES=1000
         NUM_ITER_STAGE1=1000
         NUM_ITER_STAGE2=200
-        BATCH_SIZE=50
+        BATCH_SIZE=100
         ;;
     *)
         echo "Usage: $0 [quick|fast|standard|full]"
