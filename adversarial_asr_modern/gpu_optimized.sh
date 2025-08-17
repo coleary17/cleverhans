@@ -42,7 +42,7 @@ case $MODE in
         ;;
     "fast")
         echo "Running FAST test (20 examples, reduced iterations)..."
-        NUM_EXAMPLES=10
+        NUM_EXAMPLES=20
         NUM_ITER_STAGE1=1000
         NUM_ITER_STAGE2=50
         BATCH_SIZE=20
