@@ -16,7 +16,7 @@ import json
 from datetime import datetime
 
 from .audio_utils import (
-    WhisperASRModel, load_audio_file, save_audio_file, 
+    WhisperASRModel, ParallelWhisperASRModel, load_audio_file, save_audio_file, 
     audio_to_tensor, tensor_to_audio, parse_data_file
 )
 from .masking_threshold import generate_th, Transform
@@ -43,7 +43,9 @@ class AdversarialAttack:
                  log_interval: int = 10,
                  verbose: bool = False,
                  save_audio: bool = False,
-                 skip_stage2_on_failure: bool = True):
+                 skip_stage2_on_failure: bool = True,
+                 use_parallel: bool = True,
+                 num_parallel_models: int = 2):
         
         # Auto-detect best available device
         print(f"Using device: {device}")
@@ -82,9 +84,23 @@ class AdversarialAttack:
         self.verbose = verbose
         self.save_audio = save_audio
         self.skip_stage2_on_failure = skip_stage2_on_failure
+        self.use_parallel = use_parallel
+        self.num_parallel_models = num_parallel_models
         
-        # Initialize ASR model
-        self.asr_model = WhisperASRModel(model_name, device=self.device)
+        # Initialize ASR model (parallel or single)
+        if use_parallel and batch_size > 1:
+            print(f"Using parallel processing with {num_parallel_models} Whisper models")
+            self.asr_model = ParallelWhisperASRModel(
+                num_models=num_parallel_models, 
+                model_name=model_name, 
+                device=self.device
+            )
+            self.parallel_mode = True
+        else:
+            if use_parallel and batch_size <= 1:
+                print("Parallel mode disabled: batch_size <= 1")
+            self.asr_model = WhisperASRModel(model_name, device=self.device)
+            self.parallel_mode = False
         
         # Initialize transform for PSD computation
         self.transform = Transform(window_size, device=self.device)
@@ -165,6 +181,17 @@ class AdversarialAttack:
         print("=" * 60)
         print("Starting Stage 1 Attack...")
         print(f"Batch size: {self.batch_size}")
+        
+        # WARNING for large batch sizes
+        if self.batch_size > 20:
+            print("\n" + "⚠️ " * 20)
+            print(f"WARNING: Batch size {self.batch_size} is VERY LARGE!")
+            print(f"This will require {self.batch_size} SEQUENTIAL Whisper forward passes per iteration.")
+            print(f"Estimated time per iteration: {self.batch_size * 0.1:.1f}-{self.batch_size * 0.2:.1f} seconds")
+            print(f"Total estimated time for {self.num_iter_stage1} iterations: {self.batch_size * 0.15 * self.num_iter_stage1 / 3600:.1f} hours")
+            print(f"STRONGLY RECOMMEND: Reduce batch_size to 5-10 for reasonable performance.")
+            print("⚠️ " * 20 + "\n")
+        
         print(f"Logging predictions every {self.log_interval} iterations")
         print(f"Verbose mode: {self.verbose}")
         print("=" * 60)
@@ -221,6 +248,7 @@ class AdversarialAttack:
         # Main optimization loop
         for iteration in range(self.num_iter_stage1):
             iter_start = time.time()
+            timing_breakdown = {}  # Track where time is spent
             optimizer.zero_grad()
             
             # Apply perturbations with bounds and rescaling
@@ -228,31 +256,52 @@ class AdversarialAttack:
             scaled_delta = bounded_delta * rescale
             perturbed_audio = (scaled_delta * masks + audios).clamp(-1.0, 1.0)
             
-            # Compute loss for all examples in parallel (much faster!)
+            # Compute loss for all examples
+            loss_start = time.time()
             try:
-                # Batch compute losses for better GPU utilization
-                losses = []
                 batch_size_actual = min(self.batch_size, audios.shape[0])
                 
-                # Process in smaller sub-batches if needed for memory
-                sub_batch_size = min(50, batch_size_actual)  # Process 50 at a time for better GPU utilization
-                
-                for sub_batch_start in range(0, batch_size_actual, sub_batch_size):
-                    sub_batch_end = min(sub_batch_start + sub_batch_size, batch_size_actual)
-                    sub_batch_audio = perturbed_audio[sub_batch_start:sub_batch_end]
-                    sub_batch_lengths = lengths[sub_batch_start:sub_batch_end]
-                    sub_batch_texts = target_texts[sub_batch_start:sub_batch_end]
+                # Use parallel processing if available
+                if self.parallel_mode and batch_size_actual > 1:
+                    # PARALLEL PROCESSING - Much faster for large batches!
+                    if iteration == 0:
+                        print(f"🚀 Using parallel processing with {self.num_parallel_models} models for batch size {batch_size_actual}")
                     
-                    # Compute losses for this sub-batch
-                    for i, (audio, length, text) in enumerate(zip(sub_batch_audio, sub_batch_lengths, sub_batch_texts)):
-                        idx = sub_batch_start + i
-                        try:
-                            loss = self.asr_model.compute_loss(audio[:length], text)
-                            losses.append(loss)
-                        except Exception as e:
-                            print(f"Error processing example {idx}: {e}")
-                            # Create a dummy loss that doesn't affect gradients
-                            losses.append(torch.tensor(float('inf'), device=self.device, requires_grad=False))
+                    # Compute all losses in parallel
+                    losses = self.asr_model.compute_losses_parallel(
+                        perturbed_audio[:batch_size_actual],
+                        target_texts[:batch_size_actual],
+                        lengths[:batch_size_actual]
+                    )
+                else:
+                    # SEQUENTIAL PROCESSING - Original behavior
+                    losses = []
+                    
+                    # WARNING: Large batch sizes will be very slow with sequential processing!
+                    if batch_size_actual > 20 and iteration == 0 and not self.parallel_mode:
+                        print(f"⚠️  WARNING: Batch size {batch_size_actual} with sequential loss computation will be VERY SLOW!")
+                        print(f"   Each iteration will require {batch_size_actual} sequential Whisper forward passes.")
+                        print(f"   Consider enabling parallel mode or reducing batch_size to 5-10.")
+                    
+                    # Process in smaller sub-batches if needed for memory
+                    sub_batch_size = min(50, batch_size_actual)
+                    
+                    for sub_batch_start in range(0, batch_size_actual, sub_batch_size):
+                        sub_batch_end = min(sub_batch_start + sub_batch_size, batch_size_actual)
+                        sub_batch_audio = perturbed_audio[sub_batch_start:sub_batch_end]
+                        sub_batch_lengths = lengths[sub_batch_start:sub_batch_end]
+                        sub_batch_texts = target_texts[sub_batch_start:sub_batch_end]
+                        
+                        # Compute losses for this sub-batch (SEQUENTIAL - BOTTLENECK!)
+                        for i, (audio, length, text) in enumerate(zip(sub_batch_audio, sub_batch_lengths, sub_batch_texts)):
+                            idx = sub_batch_start + i
+                            try:
+                                loss = self.asr_model.compute_loss(audio[:length], text)
+                                losses.append(loss)
+                            except Exception as e:
+                                print(f"Error processing example {idx}: {e}")
+                                # Create a dummy loss that doesn't affect gradients
+                                losses.append(torch.tensor(float('inf'), device=self.device, requires_grad=False))
                 
                 # Sum all losses
                 valid_losses = [l for l in losses if not torch.isinf(l)]
@@ -267,6 +316,8 @@ class AdversarialAttack:
                 print(f"Error in batch loss computation: {e}")
                 total_loss = torch.tensor(0.0, device=self.device)
                 individual_losses = [float('inf')] * min(self.batch_size, audios.shape[0])
+            
+            timing_breakdown['loss_computation'] = time.time() - loss_start
             
             if total_loss > 0:
                 total_loss.backward()
@@ -301,8 +352,9 @@ class AdversarialAttack:
                     'perturbation_stats': []
                 }
                 
-                # Get transcriptions and stats for all examples
-                for i in range(min(self.batch_size, audios.shape[0])):
+                # Get transcriptions and stats (limit to 10 for large batches)
+                max_history_examples = 10 if batch_size_actual > 20 else batch_size_actual
+                for i in range(min(max_history_examples, audios.shape[0])):
                     audio_sample_np = perturbed_audio[i, :lengths[i]].detach().cpu().numpy()
                     
                     # Try to get transcription, handle both exceptions and empty results
@@ -350,7 +402,8 @@ class AdversarialAttack:
             if should_show_progress and not should_full_log:
                 avg_time = np.mean(iteration_times[-min(50, len(iteration_times)):])
                 est_remaining = avg_time * (self.num_iter_stage1 - iteration - 1)
-                print(f"[Iteration {iteration}/{self.num_iter_stage1}] Loss: {total_loss:.4f} [{avg_time:.2f}s/iter, ETA: {est_remaining/60:.1f}min]")
+                loss_time = timing_breakdown.get('loss_computation', 0)
+                print(f"[Iteration {iteration}/{self.num_iter_stage1}] Loss: {total_loss:.4f} [{avg_time:.2f}s/iter, Loss comp: {loss_time:.1f}s, ETA: {est_remaining/60:.1f}min]")
             
             # Full logging with transcriptions (every 100 iterations)
             if should_full_log:
@@ -416,8 +469,9 @@ class AdversarialAttack:
                 print(f"\nProgress: {successful}/{min(self.batch_size, audios.shape[0])} successful")
                 print("-" * 40)
             
-            # Check for early success on low-loss examples (opportunistic, without logging)
-            elif any(loss < 2.0 for loss in individual_losses):
+            # Check for early success on low-loss examples (DISABLED for large batches)
+            elif batch_size_actual <= 20 and any(loss < 2.0 for loss in individual_losses):
+                # Only do opportunistic checking for small batches
                 for i in range(min(self.batch_size, audios.shape[0])):
                     if success_iterations[i] == -1 and individual_losses[i] < 2.0:
                         try:

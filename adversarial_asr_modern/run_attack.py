@@ -110,6 +110,24 @@ def main():
         help="Learning rate for Stage 2 (default: 0.001)"
     )
     parser.add_argument(
+        "--parallel",
+        action="store_true",
+        default=True,
+        help="Use parallel processing with multiple Whisper models (default: True)"
+    )
+    parser.add_argument(
+        "--no-parallel",
+        dest="parallel",
+        action="store_false",
+        help="Disable parallel processing"
+    )
+    parser.add_argument(
+        "--num-models",
+        type=int,
+        default=2,
+        help="Number of parallel Whisper models to use (default: 2)"
+    )
+    parser.add_argument(
         "--initial-bound",
         type=float,
         default=0.05,
@@ -149,6 +167,8 @@ def main():
         batch_size=args.batch_size,
         num_iter_stage1=args.num_iter_stage1,
         num_iter_stage2=args.num_iter_stage2,
+        use_parallel=args.parallel,
+        num_parallel_models=args.num_models,
         log_interval=args.log_interval,
         verbose=args.verbose,
         lr_stage1=args.lr_stage1,

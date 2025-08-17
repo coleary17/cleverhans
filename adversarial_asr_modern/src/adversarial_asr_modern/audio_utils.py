@@ -201,6 +201,108 @@ class WhisperASRModel:
         return loss
 
 
+class ParallelWhisperASRModel:
+    """
+    Parallel wrapper for multiple Whisper models to improve GPU utilization.
+    Distributes loss computations across multiple model instances.
+    """
+    
+    def __init__(self, num_models=2, model_name="openai/whisper-base", device='auto'):
+        """
+        Initialize multiple Whisper models for parallel processing.
+        
+        Args:
+            num_models: Number of parallel models to create
+            model_name: Whisper model to use
+            device: Device for computation
+        """
+        print(f"Initializing {num_models} parallel Whisper models...")
+        
+        # Create multiple model instances
+        self.models = []
+        for i in range(num_models):
+            model = WhisperASRModel(model_name=model_name, device=device)
+            self.models.append(model)
+            print(f"  Model {i+1}/{num_models} initialized")
+        
+        self.num_models = num_models
+        self.device = self.models[0].device
+        
+        # Import threading tools
+        from concurrent.futures import ThreadPoolExecutor
+        self.executor = ThreadPoolExecutor(max_workers=num_models)
+        
+    def compute_losses_parallel(self, audio_batch, target_texts, lengths=None):
+        """
+        Compute losses for multiple audio-target pairs in parallel.
+        
+        Args:
+            audio_batch: List or tensor of audio samples
+            target_texts: List of target transcriptions
+            lengths: Optional list of audio lengths
+            
+        Returns:
+            List of loss tensors
+        """
+        import torch
+        
+        batch_size = len(target_texts)
+        if lengths is None:
+            lengths = [len(audio) if hasattr(audio, '__len__') else audio.shape[0] 
+                      for audio in audio_batch]
+        
+        # Split work across models
+        futures = []
+        losses = [None] * batch_size
+        
+        def compute_single_loss(model_idx, example_idx, audio, length, text):
+            """Helper to compute loss for a single example."""
+            try:
+                with torch.cuda.device(self.device):
+                    loss = self.models[model_idx].compute_loss(audio[:length], text)
+                return example_idx, loss
+            except Exception as e:
+                print(f"Error in parallel loss computation for example {example_idx}: {e}")
+                return example_idx, torch.tensor(float('inf'), device=self.device, requires_grad=False)
+        
+        # Submit all tasks to executor
+        for i in range(batch_size):
+            model_idx = i % self.num_models  # Round-robin distribution
+            future = self.executor.submit(
+                compute_single_loss,
+                model_idx,
+                i,
+                audio_batch[i] if isinstance(audio_batch, list) else audio_batch[i],
+                lengths[i],
+                target_texts[i]
+            )
+            futures.append(future)
+        
+        # Collect results
+        for future in futures:
+            idx, loss = future.result()
+            losses[idx] = loss
+        
+        return losses
+    
+    def transcribe(self, audio_array, sample_rate=16000):
+        """
+        Transcribe using the first model (for compatibility).
+        """
+        return self.models[0].transcribe(audio_array, sample_rate)
+    
+    def compute_loss(self, audio_tensor, target_text, sample_rate=16000):
+        """
+        Single loss computation using the first model (for compatibility).
+        """
+        return self.models[0].compute_loss(audio_tensor, target_text, sample_rate)
+    
+    def __del__(self):
+        """Clean up executor on deletion."""
+        if hasattr(self, 'executor'):
+            self.executor.shutdown(wait=False)
+
+
 def create_features(audio_batch: torch.Tensor, sample_rate: int = 16000) -> torch.Tensor:
     """
     Create features from audio batch for Whisper model.
