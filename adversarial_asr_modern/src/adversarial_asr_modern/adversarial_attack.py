@@ -230,7 +230,7 @@ class AdversarialAttack:
                 batch_size_actual = min(self.batch_size, audios.shape[0])
                 
                 # Process in smaller sub-batches if needed for memory
-                sub_batch_size = min(5, batch_size_actual)  # Process 5 at a time
+                sub_batch_size = min(50, batch_size_actual)  # Process 50 at a time for better GPU utilization
                 
                 for sub_batch_start in range(0, batch_size_actual, sub_batch_size):
                     sub_batch_end = min(sub_batch_start + sub_batch_size, batch_size_actual)
