@@ -277,12 +277,11 @@ class AdversarialAttack:
                     
                 optimizer.step()
             
-            # Log predictions at specified intervals (reduce frequency for speed)
-            should_log = (iteration % self.log_interval == 0) or (iteration == self.num_iter_stage1 - 1)
-            # Only check transcriptions less frequently to save time
-            should_check_transcription = (iteration % (self.log_interval * 5) == 0) or (iteration == self.num_iter_stage1 - 1)
-            # Save detailed history every 100 iterations
-            should_save_history = (iteration % 100 == 0) or (iteration == self.num_iter_stage1 - 1)
+            # Simplified logging intervals to avoid redundancy
+            # Light progress every 10 iterations (just loss, no transcription)
+            should_show_progress = (iteration % self.log_interval == 0) or (iteration == self.num_iter_stage1 - 1)
+            # Full logging with transcriptions and history every 100 iterations
+            should_full_log = (iteration % 100 == 0) or (iteration == self.num_iter_stage1 - 1)
             
             # Early stopping check - if all examples succeeded, we can stop
             if all(s != -1 for s in success_iterations[:min(self.batch_size, audios.shape[0])]):
@@ -292,8 +291,8 @@ class AdversarialAttack:
             # Track iteration time
             iteration_times.append(time.time() - iter_start)
             
-            # Save history every 100 iterations
-            if should_save_history:
+            # Full logging with history and transcriptions every 100 iterations
+            if should_full_log:
                 history_entry = {
                     'iteration': iteration,
                     'total_loss': total_loss.item() if torch.is_tensor(total_loss) else total_loss,
@@ -347,38 +346,38 @@ class AdversarialAttack:
                 if self.verbose:
                     print(f"[Iteration {iteration}] Saved history checkpoint")
             
-            if should_log or self.verbose:
-                avg_time = np.mean(iteration_times[-min(50, len(iteration_times)):])  # Average of last 50 iterations
+            # Light progress indicator (every 10 iterations - no transcription)
+            if should_show_progress and not should_full_log:
+                avg_time = np.mean(iteration_times[-min(50, len(iteration_times)):])
+                est_remaining = avg_time * (self.num_iter_stage1 - iteration - 1)
+                print(f"[Iteration {iteration}/{self.num_iter_stage1}] Loss: {total_loss:.4f} [{avg_time:.2f}s/iter, ETA: {est_remaining/60:.1f}min]")
+            
+            # Full logging with transcriptions (every 100 iterations)
+            if should_full_log:
+                avg_time = np.mean(iteration_times[-min(50, len(iteration_times)):])
                 est_remaining = avg_time * (self.num_iter_stage1 - iteration - 1)
                 print(f"\n[Iteration {iteration}/{self.num_iter_stage1}] [{avg_time:.2f}s/iter, ETA: {est_remaining/60:.1f}min]")
                 print(f"Total Loss: {total_loss:.4f}")
                 
-                # Check predictions for all examples (but transcribe only when needed)
+                # Check predictions for all examples with transcription
                 for i in range(min(self.batch_size, audios.shape[0])):
                     if success_iterations[i] != -1:
                         # Already succeeded, skip detailed logging
-                        if self.verbose:
-                            print(f"Example {i}: SUCCESS (achieved at iteration {success_iterations[i]})")
+                        print(f"Example {i}: SUCCESS (achieved at iteration {success_iterations[i]})")
                         continue
                     
                     try:
-                        # Only transcribe if we should check (saves time)
-                        if should_check_transcription or individual_losses[i] < 2.0:  # Low loss suggests potential success
-                            # Get current prediction
-                            audio_sample_np = perturbed_audio[i, :lengths[i]].detach().cpu().numpy()
-                            pred = self.asr_model.transcribe(audio_sample_np)
-                            
-                            # Handle empty transcriptions
-                            if not pred or not pred.strip():
-                                pred = "[empty]"
-                                success = False
-                            else:
-                                # Check for success
-                                success = pred.lower().strip() == target_texts[i].lower().strip()
-                        else:
-                            # Skip transcription for speed, just show loss
-                            pred = None
+                        # Always transcribe during full logging
+                        audio_sample_np = perturbed_audio[i, :lengths[i]].detach().cpu().numpy()
+                        pred = self.asr_model.transcribe(audio_sample_np)
+                        
+                        # Handle empty transcriptions
+                        if not pred or not pred.strip():
+                            pred = "[empty]"
                             success = False
+                        else:
+                            # Check for success
+                            success = pred.lower().strip() == target_texts[i].lower().strip()
                         
                         # Calculate perturbation stats
                         perturbation = (perturbed_audio[i, :lengths[i]] - audios[i, :lengths[i]]).detach()
@@ -404,8 +403,7 @@ class AdversarialAttack:
                         else:
                             print(f"Example {i}:")
                             print(f"  Target:   '{target_texts[i]}'")
-                            if pred is not None:
-                                print(f"  Current:  '{pred}'")
+                            print(f"  Current:  '{pred}'")
                             print(f"  Loss: {individual_losses[i]:.4f}")
                             if self.verbose:
                                 print(f"  Max pert: {max_pert:.2f}, Mean: {mean_pert:.2f}")
@@ -417,6 +415,35 @@ class AdversarialAttack:
                 successful = sum(1 for s in success_iterations if s != -1)
                 print(f"\nProgress: {successful}/{min(self.batch_size, audios.shape[0])} successful")
                 print("-" * 40)
+            
+            # Check for early success on low-loss examples (opportunistic, without logging)
+            elif any(loss < 2.0 for loss in individual_losses):
+                for i in range(min(self.batch_size, audios.shape[0])):
+                    if success_iterations[i] == -1 and individual_losses[i] < 2.0:
+                        try:
+                            # Quick check for potential success
+                            audio_sample_np = perturbed_audio[i, :lengths[i]].detach().cpu().numpy()
+                            pred = self.asr_model.transcribe(audio_sample_np)
+                            if pred and pred.lower().strip() == target_texts[i].lower().strip():
+                                success_iterations[i] = iteration
+                                # Calculate perturbation stats
+                                perturbation = (perturbed_audio[i, :lengths[i]] - audios[i, :lengths[i]]).detach()
+                                max_pert = torch.max(torch.abs(perturbation)).item()
+                                
+                                print(f"\n[Iteration {iteration}] Example {i}: ✓ SUCCESS!")
+                                print(f"  Target achieved: '{target_texts[i]}'")
+                                print(f"  Loss: {individual_losses[i]:.4f}, Max pert: {max_pert:.2f}")
+                                
+                                # Update rescale factor
+                                current_max = torch.max(torch.abs(bounded_delta[i]))
+                                if rescale[i] * self.initial_bound > current_max:
+                                    rescale[i] = current_max / self.initial_bound
+                                rescale[i] *= 0.8
+                                
+                                # Save best example
+                                best_deltas[i] = perturbed_audio[i].clone()
+                        except:
+                            pass  # Silent fail for opportunistic checks
         
         # Final summary and collect results
         total_time = time.time() - start_time
