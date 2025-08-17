@@ -78,6 +78,38 @@ class WhisperASRModel:
             
         return transcription.strip()
     
+    def transcribe_tensor(self, audio_tensor: torch.Tensor) -> str:
+        """
+        Transcribe audio directly from tensor (GPU-optimized).
+        
+        Args:
+            audio_tensor: Audio tensor already on device
+            
+        Returns:
+            Transcribed text as string
+        """
+        with torch.no_grad():
+            # Ensure tensor is on correct device (should already be)
+            if audio_tensor.device != self.device:
+                audio_tensor = audio_tensor.to(self.device)
+            
+            # Ensure proper shape
+            if audio_tensor.dim() == 2:
+                audio_tensor = audio_tensor.squeeze(0)
+            
+            # Compute mel-spectrogram directly from tensor
+            mel_spec = self.compute_mel_spectrogram_differentiable(audio_tensor)
+            
+            # Generate transcription with forced English
+            generated_ids = self.model.generate(
+                mel_spec, 
+                language="en",
+                task="transcribe"
+            )
+            transcription = self.processor.batch_decode(generated_ids, skip_special_tokens=True)[0]
+            
+            return transcription.strip()
+    
     def get_logits(self, audio_array: np.ndarray, sample_rate: int = 16000) -> torch.Tensor:
         """
         Get model logits for audio input (needed for adversarial attacks).

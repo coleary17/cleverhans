@@ -304,11 +304,9 @@ class AdversarialAttack:
                 
                 # Get transcriptions and stats for all examples
                 for i in range(min(self.batch_size, audios.shape[0])):
-                    audio_sample_np = perturbed_audio[i, :lengths[i]].detach().cpu().numpy()
-                    
-                    # Try to get transcription, handle both exceptions and empty results
+                    # Try to get transcription using GPU tensor, handle both exceptions and empty results
                     try:
-                        pred = self.asr_model.transcribe(audio_sample_np)
+                        pred = self.asr_model.transcribe_tensor(perturbed_audio[i, :lengths[i]])
                         # Check if transcription is empty or just whitespace
                         if not pred or not pred.strip():
                             pred = "[EMPTY_TRANSCRIPTION]"
@@ -364,9 +362,8 @@ class AdversarialAttack:
                     try:
                         # Only transcribe if we should check (saves time)
                         if should_check_transcription or individual_losses[i] < 2.0:  # Low loss suggests potential success
-                            # Get current prediction
-                            audio_sample_np = perturbed_audio[i, :lengths[i]].detach().cpu().numpy()
-                            pred = self.asr_model.transcribe(audio_sample_np)
+                            # Get current prediction using GPU tensor
+                            pred = self.asr_model.transcribe_tensor(perturbed_audio[i, :lengths[i]])
                             
                             # Handle empty transcriptions
                             if not pred or not pred.strip():
@@ -438,10 +435,9 @@ class AdversarialAttack:
                 # Fallback to final iteration
                 final_audio[i] = (scaled_delta[i] * masks[i] + audios[i]).clamp(-1.0, 1.0)
             
-            # Get final prediction
-            audio_sample_np = final_audio[i, :lengths[i]].detach().cpu().numpy()
+            # Get final prediction using GPU tensor
             try:
-                final_pred = self.asr_model.transcribe(audio_sample_np)
+                final_pred = self.asr_model.transcribe_tensor(final_audio[i, :lengths[i]])
                 # Handle empty transcriptions
                 if not final_pred or not final_pred.strip():
                     final_pred = "[EMPTY_TRANSCRIPTION]"
@@ -537,9 +533,9 @@ class AdversarialAttack:
         print("\n[STAGE 2 INITIAL STATE]")
         for i in range(min(self.batch_size, audios.shape[0])):
             perturbed = (audios[i] + delta[i] * masks[i]).clamp(-1.0, 1.0)
-            audio_np = perturbed[:lengths[i]].detach().cpu().numpy()
+            # Use GPU tensor for transcription
             try:
-                pred = self.asr_model.transcribe(audio_np)
+                pred = self.asr_model.transcribe_tensor(perturbed[:lengths[i]])
                 if not pred or not pred.strip():
                     pred = "[empty]"
             except Exception as e:
@@ -627,9 +623,9 @@ class AdversarialAttack:
                 for i in range(min(self.batch_size, audios.shape[0])):
                     # Get current prediction
                     perturbed = (audios[i] + delta[i] * masks[i]).clamp(-1.0, 1.0)
-                    audio_sample_np = perturbed[:lengths[i]].detach().cpu().numpy()
+                    # Use GPU tensor for transcription
                     try:
-                        pred = self.asr_model.transcribe(audio_sample_np)
+                        pred = self.asr_model.transcribe_tensor(perturbed[:lengths[i]])
                         if not pred or not pred.strip():
                             pred = "[empty]"
                     except Exception as e:
@@ -686,10 +682,9 @@ class AdversarialAttack:
             else:
                 final_audio[i] = stage1_audio[i]
             
-            # Get final prediction
-            audio_sample_np = final_audio[i, :lengths[i]].detach().cpu().numpy()
+            # Get final prediction using GPU tensor
             try:
-                final_pred = self.asr_model.transcribe(audio_sample_np)
+                final_pred = self.asr_model.transcribe_tensor(final_audio[i, :lengths[i]])
                 # Handle empty transcriptions
                 if not final_pred or not final_pred.strip():
                     final_pred = "[EMPTY_TRANSCRIPTION]"
