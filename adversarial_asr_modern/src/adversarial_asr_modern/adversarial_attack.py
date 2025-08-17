@@ -35,7 +35,7 @@ class AdversarialAttack:
                  device: str = 'auto',
                  batch_size: int = 5,
                  window_size: int = 2048,
-                 initial_bound: float = 0.1,
+                 initial_bound: float = 0.03,
                  lr_stage1: float = 0.05,
                  lr_stage2: float = 0.005,
                  num_iter_stage1: int = 1000,
