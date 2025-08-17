@@ -206,7 +206,12 @@ class AdversarialAttack:
         for i, (original_text, target_text) in enumerate(zip(original_texts, target_texts)):
             if i < audios.shape[0]:
                 audio_np = audios[i, :lengths[i]].cpu().numpy()
-                pred = self.asr_model.transcribe(audio_np)
+                try:
+                    pred = self.asr_model.transcribe(audio_np)
+                    if not pred or not pred.strip():
+                        pred = "[empty]"
+                except Exception as e:
+                    pred = f"[error: {str(e)[:30]}]"
                 print(f"Example {i}:")
                 print(f"  Original: '{original_text}'")
                 print(f"  Target:   '{target_text}'")
@@ -300,17 +305,32 @@ class AdversarialAttack:
                 # Get transcriptions and stats for all examples
                 for i in range(min(self.batch_size, audios.shape[0])):
                     audio_sample_np = perturbed_audio[i, :lengths[i]].detach().cpu().numpy()
-                    pred = self.asr_model.transcribe(audio_sample_np)
+                    
+                    # Try to get transcription, handle both exceptions and empty results
+                    try:
+                        pred = self.asr_model.transcribe(audio_sample_np)
+                        # Check if transcription is empty or just whitespace
+                        if not pred or not pred.strip():
+                            pred = "[EMPTY_TRANSCRIPTION]"
+                    except Exception as e:
+                        pred = f"[ERROR: {str(e)[:50]}]"
+                        if self.verbose:
+                            print(f"Warning: Transcription failed for example {i}: {e}")
                     
                     perturbation = (perturbed_audio[i, :lengths[i]] - audios[i, :lengths[i]]).detach()
                     max_pert = torch.max(torch.abs(perturbation)).item()
                     mean_pert = torch.mean(torch.abs(perturbation)).item()
                     
+                    # Only mark as success if we got a real transcription that matches
+                    success = (pred.lower().strip() == target_texts[i].lower().strip() 
+                              and not pred.startswith("["))
+                    
                     history_entry['transcriptions'].append({
                         'example_idx': i,
+                        'original': original_texts[i],
                         'target': target_texts[i],
                         'prediction': pred,
-                        'success': pred.lower().strip() == target_texts[i].lower().strip()
+                        'success': success
                     })
                     
                     history_entry['perturbation_stats'].append({
@@ -348,8 +368,13 @@ class AdversarialAttack:
                             audio_sample_np = perturbed_audio[i, :lengths[i]].detach().cpu().numpy()
                             pred = self.asr_model.transcribe(audio_sample_np)
                             
-                            # Check for success
-                            success = pred.lower().strip() == target_texts[i].lower().strip()
+                            # Handle empty transcriptions
+                            if not pred or not pred.strip():
+                                pred = "[empty]"
+                                success = False
+                            else:
+                                # Check for success
+                                success = pred.lower().strip() == target_texts[i].lower().strip()
                         else:
                             # Skip transcription for speed, just show loss
                             pred = None
@@ -415,7 +440,14 @@ class AdversarialAttack:
             
             # Get final prediction
             audio_sample_np = final_audio[i, :lengths[i]].detach().cpu().numpy()
-            final_pred = self.asr_model.transcribe(audio_sample_np)
+            try:
+                final_pred = self.asr_model.transcribe(audio_sample_np)
+                # Handle empty transcriptions
+                if not final_pred or not final_pred.strip():
+                    final_pred = "[EMPTY_TRANSCRIPTION]"
+            except Exception as e:
+                final_pred = f"[ERROR: {str(e)[:50]}]"
+                print(f"Warning: Final transcription failed for example {i}: {e}")
             
             # Calculate final perturbation stats
             perturbation = (final_audio[i, :lengths[i]] - audios[i, :lengths[i]]).detach()
@@ -506,7 +538,12 @@ class AdversarialAttack:
         for i in range(min(self.batch_size, audios.shape[0])):
             perturbed = (audios[i] + delta[i] * masks[i]).clamp(-1.0, 1.0)
             audio_np = perturbed[:lengths[i]].detach().cpu().numpy()
-            pred = self.asr_model.transcribe(audio_np)
+            try:
+                pred = self.asr_model.transcribe(audio_np)
+                if not pred or not pred.strip():
+                    pred = "[empty]"
+            except Exception as e:
+                pred = f"[error: {str(e)[:30]}]"
             print(f"Example {i}:")
             print(f"  Target:  '{target_texts[i]}'")
             print(f"  Current: '{pred}'")
@@ -591,7 +628,12 @@ class AdversarialAttack:
                     # Get current prediction
                     perturbed = (audios[i] + delta[i] * masks[i]).clamp(-1.0, 1.0)
                     audio_sample_np = perturbed[:lengths[i]].detach().cpu().numpy()
-                    pred = self.asr_model.transcribe(audio_sample_np)
+                    try:
+                        pred = self.asr_model.transcribe(audio_sample_np)
+                        if not pred or not pred.strip():
+                            pred = "[empty]"
+                    except Exception as e:
+                        pred = f"[error: {str(e)[:30]}]"
                     
                     # Check if maintaining target transcription
                     success = pred.lower().strip() == target_texts[i].lower().strip()
@@ -646,7 +688,14 @@ class AdversarialAttack:
             
             # Get final prediction
             audio_sample_np = final_audio[i, :lengths[i]].detach().cpu().numpy()
-            final_pred = self.asr_model.transcribe(audio_sample_np)
+            try:
+                final_pred = self.asr_model.transcribe(audio_sample_np)
+                # Handle empty transcriptions
+                if not final_pred or not final_pred.strip():
+                    final_pred = "[EMPTY_TRANSCRIPTION]"
+            except Exception as e:
+                final_pred = f"[ERROR: {str(e)[:50]}]"
+                print(f"Warning: Final transcription failed for example {i}: {e}")
             
             # Calculate final stats
             perturbation = (final_audio[i, :lengths[i]] - audios[i, :lengths[i]]).detach()
