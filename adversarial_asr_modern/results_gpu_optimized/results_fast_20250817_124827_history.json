@@ -1,0 +1,2727 @@
+{
+  "iterations": [
+    0,
+    100,
+    200,
+    300,
+    400,
+    500,
+    600,
+    700,
+    800,
+    900,
+    999
+  ],
+  "losses": [
+    [
+      7.854535102844238,
+      8.115549087524414,
+      8.391551971435547,
+      7.773188591003418,
+      8.088379859924316,
+      7.6718950271606445,
+      7.980932712554932,
+      8.141358375549316,
+      7.745527744293213,
+      7.802781581878662,
+      7.6546807289123535,
+      7.231932640075684,
+      8.32008171081543,
+      7.827447891235352,
+      7.85131311416626,
+      8.522168159484863,
+      7.670121192932129,
+      8.251553535461426,
+      8.266511917114258,
+      7.693260192871094
+    ],
+    [
+      2.4001147747039795,
+      2.819131374359131,
+      3.1816537380218506,
+      3.1640613079071045,
+      2.731572389602661,
+      2.8367459774017334,
+      3.1095316410064697,
+      3.610910415649414,
+      3.572127103805542,
+      4.1221137046813965,
+      1.7836960554122925,
+      5.130609035491943,
+      3.9482038021087646,
+      3.620455741882324,
+      2.5691940784454346,
+      2.7605044841766357,
+      3.4759273529052734,
+      3.742936372756958,
+      2.9634716510772705,
+      2.0739846229553223
+    ],
+    [
+      2.402273178100586,
+      2.8144614696502686,
+      3.1884450912475586,
+      3.1692333221435547,
+      2.734428644180298,
+      2.8377442359924316,
+      3.1144325733184814,
+      3.609083414077759,
+      3.576266050338745,
+      4.1187567710876465,
+      1.783019781112671,
+      5.130103588104248,
+      3.9477853775024414,
+      3.619666576385498,
+      2.5740513801574707,
+      2.7616899013519287,
+      3.4766762256622314,
+      3.737384796142578,
+      2.961380958557129,
+      2.0733141899108887
+    ],
+    [
+      2.4036331176757812,
+      2.8148531913757324,
+      3.1891133785247803,
+      3.1683807373046875,
+      2.739016056060791,
+      2.8402795791625977,
+      3.1158037185668945,
+      3.6160149574279785,
+      3.579108238220215,
+      4.122786045074463,
+      1.7854145765304565,
+      5.132386684417725,
+      3.952686309814453,
+      3.621638059616089,
+      2.5764620304107666,
+      2.7635257244110107,
+      3.480787992477417,
+      3.7402546405792236,
+      2.960759401321411,
+      2.0737640857696533
+    ],
+    [
+      2.40694522857666,
+      2.8144590854644775,
+      3.18924617767334,
+      3.1674773693084717,
+      2.741584062576294,
+      2.8360402584075928,
+      3.118533134460449,
+      3.6183876991271973,
+      3.5772080421447754,
+      4.123426914215088,
+      1.7890362739562988,
+      5.130860805511475,
+      3.9537861347198486,
+      3.6246626377105713,
+      2.5719492435455322,
+      2.762652635574341,
+      3.482531785964966,
+      3.7402408123016357,
+      2.960263967514038,
+      2.0694873332977295
+    ],
+    [
+      2.405534505844116,
+      2.8129825592041016,
+      3.1932153701782227,
+      3.169675588607788,
+      2.7416412830352783,
+      2.8400590419769287,
+      3.117669105529785,
+      3.6158034801483154,
+      3.579479217529297,
+      4.125255107879639,
+      1.7886295318603516,
+      5.131667613983154,
+      3.949575662612915,
+      3.6256158351898193,
+      2.579009532928467,
+      2.763211727142334,
+      3.48209547996521,
+      3.74261474609375,
+      2.9608805179595947,
+      2.0698068141937256
+    ],
+    [
+      2.4072349071502686,
+      2.8135671615600586,
+      3.1922690868377686,
+      3.169768810272217,
+      2.741770029067993,
+      2.840329647064209,
+      3.119586944580078,
+      3.6184284687042236,
+      3.5788633823394775,
+      4.124607563018799,
+      1.79215407371521,
+      5.132832050323486,
+      3.9541075229644775,
+      3.6277647018432617,
+      2.5771901607513428,
+      2.7630879878997803,
+      3.4802494049072266,
+      3.741868257522583,
+      2.9618983268737793,
+      2.0686757564544678
+    ],
+    [
+      2.407644271850586,
+      2.8133645057678223,
+      3.1923563480377197,
+      3.1705944538116455,
+      2.7435193061828613,
+      2.840986490249634,
+      3.121218681335449,
+      3.6180200576782227,
+      3.5795607566833496,
+      4.126266002655029,
+      1.7891572713851929,
+      5.131513595581055,
+      3.952665328979492,
+      3.627962827682495,
+      2.5801777839660645,
+      2.7640609741210938,
+      3.4824178218841553,
+      3.742966890335083,
+      2.9617860317230225,
+      2.072490692138672
+    ],
+    [
+      2.408578872680664,
+      2.811764717102051,
+      3.1946911811828613,
+      3.172961950302124,
+      2.7434468269348145,
+      2.839505910873413,
+      3.1197478771209717,
+      3.61698055267334,
+      3.5810680389404297,
+      4.125599384307861,
+      1.7937837839126587,
+      5.132097244262695,
+      3.9509449005126953,
+      3.6292059421539307,
+      2.577777624130249,
+      2.7627785205841064,
+      3.486079454421997,
+      3.744175910949707,
+      2.962876319885254,
+      2.07181453704834
+    ],
+    [
+      2.409359931945801,
+      2.812509298324585,
+      3.1955044269561768,
+      3.1724257469177246,
+      2.741124391555786,
+      2.8406474590301514,
+      3.1202492713928223,
+      3.618072509765625,
+      3.581835985183716,
+      4.126910209655762,
+      1.7920746803283691,
+      5.131292819976807,
+      3.956688642501831,
+      3.628234386444092,
+      2.580582857131958,
+      2.7631845474243164,
+      3.4829182624816895,
+      3.7438244819641113,
+      2.9613351821899414,
+      2.072237730026245
+    ],
+    [
+      2.4089033603668213,
+      2.833271026611328,
+      3.194756507873535,
+      3.172194480895996,
+      2.7441673278808594,
+      2.8418526649475098,
+      3.1218385696411133,
+      3.6195931434631348,
+      3.585773468017578,
+      4.125011920928955,
+      1.7937941551208496,
+      5.130712985992432,
+      3.955443859100342,
+      3.629794120788574,
+      2.583662271499634,
+      2.758742570877075,
+      3.4834084510803223,
+      3.743720054626465,
+      2.9629929065704346,
+      2.073479652404785
+    ]
+  ],
+  "transcriptions": [
+    [
+      {
+        "example_idx": 0,
+        "target": "OLD WILL IS A FINE FELLOW BUT POOR AND HELPLESS SINCE MISSUS ROGERS HAD HER ACCIDENT",
+        "prediction": "The more she's engaged in her proper duties, the less leisure will she have for it, even as an accomplishment and a recreation.",
+        "success": false
+      },
+      {
+        "example_idx": 1,
+        "target": "THE WOOD FLAMED UP SPLENDIDLY UNDER THE LARGE BREWING COPPER AND IT SIGHED SO DEEPLY",
+        "prediction": "And hence, we find the same sort of clumsiness in the timayas of Plato, which characterizes the philosophical poem of Lucretius.",
+        "success": false
+      },
+      {
+        "example_idx": 2,
+        "target": "I WOULD FAIN KNOW IF I AM DESTINED FOR SO GLORIOUS A CAREER CRIED THE TREE REJOICING",
+        "prediction": "Although the brethren with me are not apostles like myself, yet they are all of one mind with me, think, write, and teach as I do.",
+        "success": false
+      },
+      {
+        "example_idx": 3,
+        "target": "WE WILL GO OUT TOGETHER TO THE BOWER THERE IS A WAY DOWN TO THE COURT FROM MY WINDOW",
+        "prediction": "He obtained the desired speed and load with a friction break, also a regulator of speed, but waited for an indicator to verify it.",
+        "success": false
+      },
+      {
+        "example_idx": 4,
+        "target": "FINALLY THE ONE PARTY WENT OFF EXULTING AND THE OTHER WAS LEFT IN DESOLATION AND WOE",
+        "prediction": "There may be a specific feeling which could be called the feeling of pastness, especially where immediate memory is concerned.",
+        "success": false
+      },
+      {
+        "example_idx": 5,
+        "target": "SHE BLUSHED AND SMILED AND FUMBLED HIS CARD IN HER CONFUSION BEFORE SHE RAN UPSTAIRS",
+        "prediction": "By quick marches through these inaccessible mountains, that General freed himself from the superior forces of the Covenanters.",
+        "success": false
+      },
+      {
+        "example_idx": 6,
+        "target": "THE MODERN ORGANIZATION OF INDUSTRY WORKS IN THE SAME DIRECTION ALSO BY ANOTHER LINE",
+        "prediction": "Have your will, child, if the boy also wields it, Montfysche answered, feeling too ill to oppose anything very strongly just then.",
+        "success": false
+      },
+      {
+        "example_idx": 7,
+        "target": "ISN'T HE SPLENDID CRIED JASPER IN INTENSE PRIDE SWELLING UP FATHER KNEW HOW TO DO IT",
+        "prediction": "He gave way to the others very readily and retreated unperceived by the squire and Mistress Fitz Ooth to the rear of the tent.",
+        "success": false
+      },
+      {
+        "example_idx": 8,
+        "target": "HER REGARD SHIFTED TO THE GREEN STALKS AND LEAVES AGAIN AND SHE STARTED TO MOVE AWAY",
+        "prediction": "A little cracked, that, in the popular phrase, was my impression of the stranger who now made his appearance in the supper room.",
+        "success": false
+      },
+      {
+        "example_idx": 9,
+        "target": "WHEN WE WERE OUT IN THE DARKNESS OF THE QUADRANGLE WE AGAIN LOOKED UP AT THE WINDOWS",
+        "prediction": "The log and the compass, therefore, were able to be called upon to do the work of the sextant, which had become utterly useless.",
+        "success": false
+      },
+      {
+        "example_idx": 10,
+        "target": "HE WAS STILL SUFFERING FROM THIS SUDDEN DISTURBANCE OF THE QUIET ROUTINE OF HIS LIFE",
+        "prediction": "For a few miles, she followed the line hitherto presumably occupied by the coast of Algeria, but no land appeared to the south.",
+        "success": false
+      },
+      {
+        "example_idx": 11,
+        "target": "SEE THAT YOUR LIVES BE IN NOTHING WORSE THAN A BOY'S CLIMBING FOR HIS ENTANGLED KITE",
+        "prediction": "By this time the two gentlemen had reached the paling and had got down from their horses. It was plain they meant to come in.",
+        "success": false
+      },
+      {
+        "example_idx": 12,
+        "target": "WHEN CALLED BEFORE I TOLD HOW HASTILY I DROPPED MY FLOWERS OR BRAKE OFF FROM A GAME",
+        "prediction": "Ancus occupied a distant corner in a reclining attitude, being rigidly bound both hands and feet by strong and painful widths.",
+        "success": false
+      },
+      {
+        "example_idx": 13,
+        "target": "DEPARTING FROM FIVE HUNDRED THOUSAND THROATS THREE CHEERS BURST FORTH IN SUCCESSION",
+        "prediction": "I greatly mourn that one so well disposed should die in his ignorance, and I have sought a goodly him, can you lead me to him?",
+        "success": false
+      },
+      {
+        "example_idx": 14,
+        "target": "THEN SAID SIR FERDINANDO THERE IS NOTHING FOR IT BUT THAT HE MUST TAKE YOU WITH HIM",
+        "prediction": "It was a pain to see them, and a sword-like pain to see the signs of adolescence that made repellent their pitiable nakedness.",
+        "success": false
+      },
+      {
+        "example_idx": 15,
+        "target": "THE MILITARY FORCE PARTLY RABBLE PARTLY ORGANIZED HAD MEANWHILE MOVED INTO THE TOWN",
+        "prediction": "That evening, Trot gave a grand ball in the palace, to which the most important of the pinkies in the blue skins were invited.",
+        "success": false
+      },
+      {
+        "example_idx": 16,
+        "target": "UPON THIS MADAME DEIGNED TO TURN HER EYES LANGUISHINGLY TOWARDS THE COMTE OBSERVING",
+        "prediction": "But your power is so superior to any that I can advance, as to make us here feel that there is no disgrace in yielding to it.",
+        "success": false
+      },
+      {
+        "example_idx": 17,
+        "target": "TABLES WERE SPREAD ON THE LAWN AND A DAINTY BUT SUBSTANTIAL REPAST WAS TO BE SERVED",
+        "prediction": "That's summer's immigration, however, being mainly from the free states greatly changed the relative strengths of the two parties.",
+        "success": false
+      },
+      {
+        "example_idx": 18,
+        "target": "DON'T YOU KNOW ONE ABOUT BACON AND TALLOW CANDLES CAN'T YOU TELL ANY LARDER STORIES",
+        "prediction": "A fresh wholesome-looking boy was Tom Gates, with steady gray eyes, an intelligent forehead, but a sensitive, rather weak mouth.",
+        "success": false
+      },
+      {
+        "example_idx": 19,
+        "target": "WHEREUPON LAKE LAUGHED QUIETLY STILL LOOKING ON THE ACE OF HEARTS WITH HIS SLY EYES",
+        "prediction": "She spoke with a sudden energy which partook a fear and passion, and flushed her thin cheek and made her languid eyes flash.",
+        "success": false
+      }
+    ],
+    [
+      {
+        "example_idx": 0,
+        "target": "OLD WILL IS A FINE FELLOW BUT POOR AND HELPLESS SINCE MISSUS ROGERS HAD HER ACCIDENT",
+        "prediction": "More TV viewers, as well as the official phone number, please watch the video.",
+        "success": false
+      },
+      {
+        "example_idx": 1,
+        "target": "THE WOOD FLAMED UP SPLENDIDLY UNDER THE LARGE BREWING COPPER AND IT SIGHED SO DEEPLY",
+        "prediction": "Sanctuary, the C1 Indian for you, is the head of the Slytherin test with the Indian Indian Land, which is this high school. The Red and the Orange breathing goes up across the school and it's in the pursuit of you.",
+        "success": false
+      },
+      {
+        "example_idx": 2,
+        "target": "I WOULD FAIN KNOW IF I AM DESTINED FOR SO GLORIOUS A CAREER CRIED THE TREE REJOICING",
+        "prediction": "All those who are known with the many others are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who",
+        "success": false
+      },
+      {
+        "example_idx": 3,
+        "target": "WE WILL GO OUT TOGETHER TO THE BOWER THERE IS A WAY DOWN TO THE COURT FROM MY WINDOW",
+        "prediction": "The city of St. Louis is a place where you can see the beautiful scenery of the city.",
+        "success": false
+      },
+      {
+        "example_idx": 4,
+        "target": "FINALLY THE ONE PARTY WENT OFF EXULTING AND THE OTHER WAS LEFT IN DESOLATION AND WOE",
+        "prediction": "The final duel is the aid of the Italian army, the people take the one in part in it as well, and also the Uyghur as the main force.",
+        "success": false
+      },
+      {
+        "example_idx": 5,
+        "target": "SHE BLUSHED AND SMILED AND FUMBLED HIS CARD IN HER CONFUSION BEFORE SHE RAN UPSTAIRS",
+        "prediction": "This car is good luck to this team, please push through to the lane for the fish. But, it's grown in a strange condition for more specific reasons than the car was.",
+        "success": false
+      },
+      {
+        "example_idx": 6,
+        "target": "THE MODERN ORGANIZATION OF INDUSTRY WORKS IN THE SAME DIRECTION ALSO BY ANOTHER LINE",
+        "prediction": "Multi-girds are landed before landing. After the motion, they are still struggling with their players' injuries and their mom's surgery.",
+        "success": false
+      },
+      {
+        "example_idx": 7,
+        "target": "ISN'T HE SPLENDID CRIED JASPER IN INTENSE PRIDE SWELLING UP FATHER KNEW HOW TO DO IT",
+        "prediction": "This is Mage Land, the 40's Watt Sea, and the DPS. All of them are fighting their giant tail screws and huge plumber.",
+        "success": false
+      },
+      {
+        "example_idx": 8,
+        "target": "HER REGARD SHIFTED TO THE GREEN STALKS AND LEAVES AGAIN AND SHE STARTED TO MOVE AWAY",
+        "prediction": "Soon as the precipitation is on, the water will supply temperatures to the rainbow, which is made to be really good stalker.",
+        "success": false
+      },
+      {
+        "example_idx": 9,
+        "target": "WHEN WE WERE OUT IN THE DARKNESS OF THE QUADRANGLE WE AGAIN LOOKED UP AT THE WINDOWS",
+        "prediction": "If you want to see the hot corn, you'll be able to see the hot corn corn. And that's what I'm going to do to see that you're going to have to bother to get your school to do this.",
+        "success": false
+      },
+      {
+        "example_idx": 10,
+        "target": "HE WAS STILL SUFFERING FROM THIS SUDDEN DISTURBANCE OF THE QUIET ROUTINE OF HIS LIFE",
+        "prediction": "The first time I was able to accomplish this I was able to see the School of Research by the Department of Research at the University of New York, the 19th of July.",
+        "success": false
+      },
+      {
+        "example_idx": 11,
+        "target": "SEE THAT YOUR LIVES BE IN NOTHING WORSE THAN A BOY'S CLIMBING FOR HIS ENTANGLED KITE",
+        "prediction": "I would like to thank you for the pleasure of giving me this opportunity to call you my own group.",
+        "success": false
+      },
+      {
+        "example_idx": 12,
+        "target": "WHEN CALLED BEFORE I TOLD HOW HASTILY I DROPPED MY FLOWERS OR BRAKE OFF FROM A GAME",
+        "prediction": "Learn to watch how to get the food by your most mighty high choice during the days of time, as well as many my spirits from the jaw or the game they were in.",
+        "success": false
+      },
+      {
+        "example_idx": 13,
+        "target": "DEPARTING FROM FIVE HUNDRED THOUSAND THROATS THREE CHEERS BURST FORTH IN SUCCESSION",
+        "prediction": "The first race is born in the 23 years of the four-wheeled 3-cylinder engine. The total good in the 20 years. The NL-2 is now still having to stop.",
+        "success": false
+      },
+      {
+        "example_idx": 14,
+        "target": "THEN SAID SIR FERDINANDO THERE IS NOTHING FOR IT BUT THAT HE MUST TAKE YOU WITH HIM",
+        "prediction": "This would have been a huge advantage if you could build a lot of buildings to make some art for the Black Sea. That goes as hell, it says 35 years with a solution.",
+        "success": false
+      },
+      {
+        "example_idx": 15,
+        "target": "THE MILITARY FORCE PARTLY RABBLE PARTLY ORGANIZED HAD MEANWHILE MOVED INTO THE TOWN",
+        "prediction": "Tractory series, which has really amazing features, for places to experience incredible local parts of the planet's orbit as it's a tower.",
+        "success": false
+      },
+      {
+        "example_idx": 16,
+        "target": "UPON THIS MADAME DEIGNED TO TURN HER EYES LANGUISHINGLY TOWARDS THE COMTE OBSERVING",
+        "prediction": "of the power and the total courage to come into the last of the Maddening, is a tremendous experience to y'all as they are the only people to enjoy their children's rigged position.",
+        "success": false
+      },
+      {
+        "example_idx": 17,
+        "target": "TABLES WERE SPREAD ON THE LAWN AND A DAINTY BUT SUBSTANTIAL REPAST WAS TO BE SERVED",
+        "prediction": "W.D. Flint, Tata Lab, brings in the most beautiful places, which will finish rather than any headpiece by the police.",
+        "success": false
+      },
+      {
+        "example_idx": 18,
+        "target": "DON'T YOU KNOW ONE ABOUT BACON AND TALLOW CANDLES CAN'T YOU TELL ANY LARDER STORIES",
+        "prediction": "After 30 years, they have no idea that they will have a better line up, a better plan than they should. So they have got to go to my nearest home.",
+        "success": false
+      },
+      {
+        "example_idx": 19,
+        "target": "WHEREUPON LAKE LAUGHED QUIETLY STILL LOOKING ON THE ACE OF HEARTS WITH HIS SLY EYES",
+        "prediction": "The boat was very happy when it was so sweet and it was so warm and it was a lot of fun.",
+        "success": false
+      }
+    ],
+    [
+      {
+        "example_idx": 0,
+        "target": "OLD WILL IS A FINE FELLOW BUT POOR AND HELPLESS SINCE MISSUS ROGERS HAD HER ACCIDENT",
+        "prediction": "More TV viewers, as well as the official phone number, please watch the panel and help help us out more information about the M243 and the M243.com.",
+        "success": false
+      },
+      {
+        "example_idx": 1,
+        "target": "THE WOOD FLAMED UP SPLENDIDLY UNDER THE LARGE BREWING COPPER AND IT SIGHED SO DEEPLY",
+        "prediction": "Sanctuary, the C1 Indian for you, is the head of the Slytherin test with the Indian Indian Land, which is the satellite school. The Red and the Orange breathing code of the cross-ball and the Indian is the Indian for the Suede.",
+        "success": false
+      },
+      {
+        "example_idx": 2,
+        "target": "I WOULD FAIN KNOW IF I AM DESTINED FOR SO GLORIOUS A CAREER CRIED THE TREE REJOICING",
+        "prediction": "All those who are known with the many others are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who",
+        "success": false
+      },
+      {
+        "example_idx": 3,
+        "target": "WE WILL GO OUT TOGETHER TO THE BOWER THERE IS A WAY DOWN TO THE COURT FROM MY WINDOW",
+        "prediction": "The city of St. Louis is a place where you can see the beautiful scenery of the city.",
+        "success": false
+      },
+      {
+        "example_idx": 4,
+        "target": "FINALLY THE ONE PARTY WENT OFF EXULTING AND THE OTHER WAS LEFT IN DESOLATION AND WOE",
+        "prediction": "The final duel is the aid of the triangle of the West. The people take the one in part in it as well. It also the only way to make it.",
+        "success": false
+      },
+      {
+        "example_idx": 5,
+        "target": "SHE BLUSHED AND SMILED AND FUMBLED HIS CARD IN HER CONFUSION BEFORE SHE RAN UPSTAIRS",
+        "prediction": "This car is good luck to this family, so it's good to go and find some of this car. But, it's grown and has a great connection to the most sincere experience it has in the car.",
+        "success": false
+      },
+      {
+        "example_idx": 6,
+        "target": "THE MODERN ORGANIZATION OF INDUSTRY WORKS IN THE SAME DIRECTION ALSO BY ANOTHER LINE",
+        "prediction": "Multi-girds are landed before landing. After the motion, they are still struggling with their players' injuries and their mom's surgery.",
+        "success": false
+      },
+      {
+        "example_idx": 7,
+        "target": "ISN'T HE SPLENDID CRIED JASPER IN INTENSE PRIDE SWELLING UP FATHER KNEW HOW TO DO IT",
+        "prediction": "This is Mage Land, the 40th Watt Sea, and the D-Festile of the Black Sea, and the Cod of the KJS is the biggest part of the world.",
+        "success": false
+      },
+      {
+        "example_idx": 8,
+        "target": "HER REGARD SHIFTED TO THE GREEN STALKS AND LEAVES AGAIN AND SHE STARTED TO MOVE AWAY",
+        "prediction": "Good as well as the procedures and the law should apply express troops to the Green Bull which is made to be the only blue stalker.",
+        "success": false
+      },
+      {
+        "example_idx": 9,
+        "target": "WHEN WE WERE OUT IN THE DARKNESS OF THE QUADRANGLE WE AGAIN LOOKED UP AT THE WINDOWS",
+        "prediction": "If you want to see the hot corn, you'll be able to see the hot corn corn. You can also see the hot corn in the other side of the house.",
+        "success": false
+      },
+      {
+        "example_idx": 10,
+        "target": "HE WAS STILL SUFFERING FROM THIS SUDDEN DISTURBANCE OF THE QUIET ROUTINE OF HIS LIFE",
+        "prediction": "The first time I was able to accomplish this I was able to see the School of Research by the Department of Research at the University of New York, the 19th of July.",
+        "success": false
+      },
+      {
+        "example_idx": 11,
+        "target": "SEE THAT YOUR LIVES BE IN NOTHING WORSE THAN A BOY'S CLIMBING FOR HIS ENTANGLED KITE",
+        "prediction": "Ali Harif is a family of three, the one that I'm going to present to all my friends.",
+        "success": false
+      },
+      {
+        "example_idx": 12,
+        "target": "WHEN CALLED BEFORE I TOLD HOW HASTILY I DROPPED MY FLOWERS OR BRAKE OFF FROM A GAME",
+        "prediction": "Learn to watch the how to get the food by your most mighty high choice during the days of time, as both Mary and Spirit from a jaw or a game are ready.",
+        "success": false
+      },
+      {
+        "example_idx": 13,
+        "target": "DEPARTING FROM FIVE HUNDRED THOUSAND THROATS THREE CHEERS BURST FORTH IN SUCCESSION",
+        "prediction": "The first race is born in the 23 years of the four-wheeled 3-cylinder engine. The total good in the 20 years. The only new 2 is the new 2-hats.",
+        "success": false
+      },
+      {
+        "example_idx": 14,
+        "target": "THEN SAID SIR FERDINANDO THERE IS NOTHING FOR IT BUT THAT HE MUST TAKE YOU WITH HIM",
+        "prediction": "This would be a major injury to the Bailer's life and city, to the extent of the lack of a record that those assets have certified with this ambition.",
+        "success": false
+      },
+      {
+        "example_idx": 15,
+        "target": "THE MILITARY FORCE PARTLY RABBLE PARTLY ORGANIZED HAD MEANWHILE MOVED INTO THE TOWN",
+        "prediction": "Tractory series, which has really amazing features, for places to experience incredible local parts of gravity, or areas of the power.",
+        "success": false
+      },
+      {
+        "example_idx": 16,
+        "target": "UPON THIS MADAME DEIGNED TO TURN HER EYES LANGUISHINGLY TOWARDS THE COMTE OBSERVING",
+        "prediction": "of the power and the total courage to come into the last of the Madden. It's a tremendous experience to y'all as they are the only people to enjoy their children's rigged choices.",
+        "success": false
+      },
+      {
+        "example_idx": 17,
+        "target": "TABLES WERE SPREAD ON THE LAWN AND A DAINTY BUT SUBSTANTIAL REPAST WAS TO BE SERVED",
+        "prediction": "W.D. Flint, Tata Lab, bringing in the spread of the Great Lenses, which will parents rather than raise a large number of police.",
+        "success": false
+      },
+      {
+        "example_idx": 18,
+        "target": "DON'T YOU KNOW ONE ABOUT BACON AND TALLOW CANDLES CAN'T YOU TELL ANY LARDER STORIES",
+        "prediction": "After 30 years, they have no idea that they will have a better line up, a better plan than they should have. So they have got to go to my nearest agency.",
+        "success": false
+      },
+      {
+        "example_idx": 19,
+        "target": "WHEREUPON LAKE LAUGHED QUIETLY STILL LOOKING ON THE ACE OF HEARTS WITH HIS SLY EYES",
+        "prediction": "The boat was very happy when it was so sweet and it was so hot in the morning. After a week, it was a lot of Easter days, and there were three days to come and show fun.",
+        "success": false
+      }
+    ],
+    [
+      {
+        "example_idx": 0,
+        "target": "OLD WILL IS A FINE FELLOW BUT POOR AND HELPLESS SINCE MISSUS ROGERS HAD HER ACCIDENT",
+        "prediction": "More TV viewers, as well as the official phone number, please watch the panel and help help us out more information on the information that we have here today.",
+        "success": false
+      },
+      {
+        "example_idx": 1,
+        "target": "THE WOOD FLAMED UP SPLENDIDLY UNDER THE LARGE BREWING COPPER AND IT SIGHED SO DEEPLY",
+        "prediction": "Sanctuary, the C1 Indian for you, is the head of the Slytherin test with the Indian Indian Land, which is this high school. The Red and the Orange Breeding Road Opera School, and Indian Indian University University.",
+        "success": false
+      },
+      {
+        "example_idx": 2,
+        "target": "I WOULD FAIN KNOW IF I AM DESTINED FOR SO GLORIOUS A CAREER CRIED THE TREE REJOICING",
+        "prediction": "All those who are known with the many others are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who",
+        "success": false
+      },
+      {
+        "example_idx": 3,
+        "target": "WE WILL GO OUT TOGETHER TO THE BOWER THERE IS A WAY DOWN TO THE COURT FROM MY WINDOW",
+        "prediction": "The city of St. Louis is a place where you can see the beautiful scenery of the city.",
+        "success": false
+      },
+      {
+        "example_idx": 4,
+        "target": "FINALLY THE ONE PARTY WENT OFF EXULTING AND THE OTHER WAS LEFT IN DESOLATION AND WOE",
+        "prediction": "The final duel is the aid of the Italian army as they can protect the one in part with the sword and also the Uyghur as they make the sword.",
+        "success": false
+      },
+      {
+        "example_idx": 5,
+        "target": "SHE BLUSHED AND SMILED AND FUMBLED HIS CARD IN HER CONFUSION BEFORE SHE RAN UPSTAIRS",
+        "prediction": "This car is good luck to this family, so it's good to go and find some of this car. But, it's grown and has a great hand collection, and it's a material that's interesting to carers.",
+        "success": false
+      },
+      {
+        "example_idx": 6,
+        "target": "THE MODERN ORGANIZATION OF INDUSTRY WORKS IN THE SAME DIRECTION ALSO BY ANOTHER LINE",
+        "prediction": "Multi-girds are landed before landing. After the motion, they are still struggling with their players' injuries and their mom's surgery.",
+        "success": false
+      },
+      {
+        "example_idx": 7,
+        "target": "ISN'T HE SPLENDID CRIED JASPER IN INTENSE PRIDE SWELLING UP FATHER KNEW HOW TO DO IT",
+        "prediction": "This is Mage Land, the 40th Watt Sea, and the D-Festile of the Black Sea, and the Cod of the KJS is the biggest part of the world.",
+        "success": false
+      },
+      {
+        "example_idx": 8,
+        "target": "HER REGARD SHIFTED TO THE GREEN STALKS AND LEAVES AGAIN AND SHE STARTED TO MOVE AWAY",
+        "prediction": "Good as well as the procedures and the law should apply express troops to the Green Bull which is made to be the only blue stalker.",
+        "success": false
+      },
+      {
+        "example_idx": 9,
+        "target": "WHEN WE WERE OUT IN THE DARKNESS OF THE QUADRANGLE WE AGAIN LOOKED UP AT THE WINDOWS",
+        "prediction": "If you want to see the hot corn, you'll be able to see the hot corn corn. You can also see the corn in the other side of the house.",
+        "success": false
+      },
+      {
+        "example_idx": 10,
+        "target": "HE WAS STILL SUFFERING FROM THIS SUDDEN DISTURBANCE OF THE QUIET ROUTINE OF HIS LIFE",
+        "prediction": "The first time I was able to accomplish this I was able to see the School of Research by the Department of Research at the University of New York, the 19th of July.",
+        "success": false
+      },
+      {
+        "example_idx": 11,
+        "target": "SEE THAT YOUR LIVES BE IN NOTHING WORSE THAN A BOY'S CLIMBING FOR HIS ENTANGLED KITE",
+        "prediction": "I will have it perfectly clear that I am going to close it up to a whole line of clouds.",
+        "success": false
+      },
+      {
+        "example_idx": 12,
+        "target": "WHEN CALLED BEFORE I TOLD HOW HASTILY I DROPPED MY FLOWERS OR BRAKE OFF FROM A GAME",
+        "prediction": "Learn to watch the how to get the food by your most mighty high choice during the days of time, as both Mary and Spirit from a jaw or a game are ready.",
+        "success": false
+      },
+      {
+        "example_idx": 13,
+        "target": "DEPARTING FROM FIVE HUNDRED THOUSAND THROATS THREE CHEERS BURST FORTH IN SUCCESSION",
+        "prediction": "The first race is born in the 23 years of the four-wheeled 3-cylinder engine. The total good in the 20 years. The only new 2 is the new 2-hats.",
+        "success": false
+      },
+      {
+        "example_idx": 14,
+        "target": "THEN SAID SIR FERDINANDO THERE IS NOTHING FOR IT BUT THAT HE MUST TAKE YOU WITH HIM",
+        "prediction": "This would have been a huge advantage if we could build a lot of cities to make some fun of the Black Sea, and that goes as hell, since it's 35 years of his own history.",
+        "success": false
+      },
+      {
+        "example_idx": 15,
+        "target": "THE MILITARY FORCE PARTLY RABBLE PARTLY ORGANIZED HAD MEANWHILE MOVED INTO THE TOWN",
+        "prediction": "Tractory series, which has really amazing history, for places to experience incredible local parts of the planet's orbit as it is the tower.",
+        "success": false
+      },
+      {
+        "example_idx": 16,
+        "target": "UPON THIS MADAME DEIGNED TO TURN HER EYES LANGUISHINGLY TOWARDS THE COMTE OBSERVING",
+        "prediction": "of the power and the total courage to come into the last of the Madden. It's a tremendous experience to y'all as they are the only people to enjoy their children's rigged choices.",
+        "success": false
+      },
+      {
+        "example_idx": 17,
+        "target": "TABLES WERE SPREAD ON THE LAWN AND A DAINTY BUT SUBSTANTIAL REPAST WAS TO BE SERVED",
+        "prediction": "W.D. Blitz and Halab, bringing in the foot of the Blitz and the wrecked bridge for other countries' private police.",
+        "success": false
+      },
+      {
+        "example_idx": 18,
+        "target": "DON'T YOU KNOW ONE ABOUT BACON AND TALLOW CANDLES CAN'T YOU TELL ANY LARDER STORIES",
+        "prediction": "After 30 years, they have no idea that they will have a better line up, a better plan than they should. So they have got to go to my nearest home.",
+        "success": false
+      },
+      {
+        "example_idx": 19,
+        "target": "WHEREUPON LAKE LAUGHED QUIETLY STILL LOOKING ON THE ACE OF HEARTS WITH HIS SLY EYES",
+        "prediction": "The boat was very happy when it was so sweet and it was so hot in the morning. After a week, it was a lot of Easter days, and there were three days to come and show fun.",
+        "success": false
+      }
+    ],
+    [
+      {
+        "example_idx": 0,
+        "target": "OLD WILL IS A FINE FELLOW BUT POOR AND HELPLESS SINCE MISSUS ROGERS HAD HER ACCIDENT",
+        "prediction": "More TV viewers, as well as the official phone number, please watch the panel and help help us find more information about the M243 and the M243.com.",
+        "success": false
+      },
+      {
+        "example_idx": 1,
+        "target": "THE WOOD FLAMED UP SPLENDIDLY UNDER THE LARGE BREWING COPPER AND IT SIGHED SO DEEPLY",
+        "prediction": "Sanctuary, the C1 Indian for you, is the head of the Slytherin test with the Indian Indian Land, which is this high school. The Red and the Orange Breeding Road Opera School, and Indian Indian University University.",
+        "success": false
+      },
+      {
+        "example_idx": 2,
+        "target": "I WOULD FAIN KNOW IF I AM DESTINED FOR SO GLORIOUS A CAREER CRIED THE TREE REJOICING",
+        "prediction": "All those who are known with the many others are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who",
+        "success": false
+      },
+      {
+        "example_idx": 3,
+        "target": "WE WILL GO OUT TOGETHER TO THE BOWER THERE IS A WAY DOWN TO THE COURT FROM MY WINDOW",
+        "prediction": "The city of St. Louis is a place where you can see the beautiful scenery of the city.",
+        "success": false
+      },
+      {
+        "example_idx": 4,
+        "target": "FINALLY THE ONE PARTY WENT OFF EXULTING AND THE OTHER WAS LEFT IN DESOLATION AND WOE",
+        "prediction": "The final duel is the aid of the triangle of the West. The people take the one in part in it as well. It also the only way to make it.",
+        "success": false
+      },
+      {
+        "example_idx": 5,
+        "target": "SHE BLUSHED AND SMILED AND FUMBLED HIS CARD IN HER CONFUSION BEFORE SHE RAN UPSTAIRS",
+        "prediction": "This car is good luck to this family, so it's good to go and find some of this car. But, it's grown and has a great hand collection, and it's a material that's interesting to carers.",
+        "success": false
+      },
+      {
+        "example_idx": 6,
+        "target": "THE MODERN ORGANIZATION OF INDUSTRY WORKS IN THE SAME DIRECTION ALSO BY ANOTHER LINE",
+        "prediction": "Multi-girds are landed before landing. After the motion, they are still struggling with their successors during their mom's surgery.",
+        "success": false
+      },
+      {
+        "example_idx": 7,
+        "target": "ISN'T HE SPLENDID CRIED JASPER IN INTENSE PRIDE SWELLING UP FATHER KNEW HOW TO DO IT",
+        "prediction": "This is Mage Land, the 40th Watt Sea, and the D-Festile of the Black Sea, and the Cod of the KJS is the D-Festile of the Black Sea.",
+        "success": false
+      },
+      {
+        "example_idx": 8,
+        "target": "HER REGARD SHIFTED TO THE GREEN STALKS AND LEAVES AGAIN AND SHE STARTED TO MOVE AWAY",
+        "prediction": "Good as well as the procedures that are brought to mind and freshness to the brain, but we are making a new stalker.",
+        "success": false
+      },
+      {
+        "example_idx": 9,
+        "target": "WHEN WE WERE OUT IN THE DARKNESS OF THE QUADRANGLE WE AGAIN LOOKED UP AT THE WINDOWS",
+        "prediction": "If you want to see the hot corn, you'll be able to see the hot corn corn. You can also see the corn in the other side of the house.",
+        "success": false
+      },
+      {
+        "example_idx": 10,
+        "target": "HE WAS STILL SUFFERING FROM THIS SUDDEN DISTURBANCE OF THE QUIET ROUTINE OF HIS LIFE",
+        "prediction": "Superstimized, Australia-bombed, historic, and political history.",
+        "success": false
+      },
+      {
+        "example_idx": 11,
+        "target": "SEE THAT YOUR LIVES BE IN NOTHING WORSE THAN A BOY'S CLIMBING FOR HIS ENTANGLED KITE",
+        "prediction": "I would like to thank you for the pleasure of your whole life.",
+        "success": false
+      },
+      {
+        "example_idx": 12,
+        "target": "WHEN CALLED BEFORE I TOLD HOW HASTILY I DROPPED MY FLOWERS OR BRAKE OFF FROM A GAME",
+        "prediction": "Learn to watch the how to get the food by your most mighty high choice during the days of time, as both Mary and Spirit from a jaw or a game are ready.",
+        "success": false
+      },
+      {
+        "example_idx": 13,
+        "target": "DEPARTING FROM FIVE HUNDRED THOUSAND THROATS THREE CHEERS BURST FORTH IN SUCCESSION",
+        "prediction": "The first race is born in the 23 years of the four-wheeled 3-cylinder engine. The total good in the 20 years. The only new 2 is the new 2-hats.",
+        "success": false
+      },
+      {
+        "example_idx": 14,
+        "target": "THEN SAID SIR FERDINANDO THERE IS NOTHING FOR IT BUT THAT HE MUST TAKE YOU WITH HIM",
+        "prediction": "This would have been a huge advantage if we could build a lot of cities to make some fun of the Black Sea, and that goes as hell, since it's 35 years of his own history.",
+        "success": false
+      },
+      {
+        "example_idx": 15,
+        "target": "THE MILITARY FORCE PARTLY RABBLE PARTLY ORGANIZED HAD MEANWHILE MOVED INTO THE TOWN",
+        "prediction": "Tractory series, which has really amazing features, for places to experience incredible local parts of gravity, or areas of the power.",
+        "success": false
+      },
+      {
+        "example_idx": 16,
+        "target": "UPON THIS MADAME DEIGNED TO TURN HER EYES LANGUISHINGLY TOWARDS THE COMTE OBSERVING",
+        "prediction": "of the power and the total courage to come into the last of the Madden. It's a tremendous experience to y'all as they are the only people to enjoy their children's rigged choices.",
+        "success": false
+      },
+      {
+        "example_idx": 17,
+        "target": "TABLES WERE SPREAD ON THE LAWN AND A DAINTY BUT SUBSTANTIAL REPAST WAS TO BE SERVED",
+        "prediction": "W.D. Blitz and Halab, bringing in the foot of the Blitz and the wrecked bridge for other countries' private police.",
+        "success": false
+      },
+      {
+        "example_idx": 18,
+        "target": "DON'T YOU KNOW ONE ABOUT BACON AND TALLOW CANDLES CAN'T YOU TELL ANY LARDER STORIES",
+        "prediction": "After 30 years, today we've done a great night's day. We've got a lot of rain, a big and some planet-lessons can't take up to a tiny little storm.",
+        "success": false
+      },
+      {
+        "example_idx": 19,
+        "target": "WHEREUPON LAKE LAUGHED QUIETLY STILL LOOKING ON THE ACE OF HEARTS WITH HIS SLY EYES",
+        "prediction": "The boat was very happy when it was so sweet and it was so cool and it was so nice.",
+        "success": false
+      }
+    ],
+    [
+      {
+        "example_idx": 0,
+        "target": "OLD WILL IS A FINE FELLOW BUT POOR AND HELPLESS SINCE MISSUS ROGERS HAD HER ACCIDENT",
+        "prediction": "More TV viewers, as well as the official phone number, please watch the panel and help help us find more information about the M243 and the M243.com.",
+        "success": false
+      },
+      {
+        "example_idx": 1,
+        "target": "THE WOOD FLAMED UP SPLENDIDLY UNDER THE LARGE BREWING COPPER AND IT SIGHED SO DEEPLY",
+        "prediction": "Sanctuary, the C1 Indian for you, is the head of the Slytherin test with the Indian Indian Land, which is this high school. The Red and the Orange Breeding Road Opera School, and Indian Indian University University.",
+        "success": false
+      },
+      {
+        "example_idx": 2,
+        "target": "I WOULD FAIN KNOW IF I AM DESTINED FOR SO GLORIOUS A CAREER CRIED THE TREE REJOICING",
+        "prediction": "All those who are known with the many others are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who",
+        "success": false
+      },
+      {
+        "example_idx": 3,
+        "target": "WE WILL GO OUT TOGETHER TO THE BOWER THERE IS A WAY DOWN TO THE COURT FROM MY WINDOW",
+        "prediction": "The city of St. Louis is a place where you can see the beautiful scenery of the city.",
+        "success": false
+      },
+      {
+        "example_idx": 4,
+        "target": "FINALLY THE ONE PARTY WENT OFF EXULTING AND THE OTHER WAS LEFT IN DESOLATION AND WOE",
+        "prediction": "The final duel is the aid of the Italian army as they can protect the one in part with the sword and also the Uyghur as they make the sword.",
+        "success": false
+      },
+      {
+        "example_idx": 5,
+        "target": "SHE BLUSHED AND SMILED AND FUMBLED HIS CARD IN HER CONFUSION BEFORE SHE RAN UPSTAIRS",
+        "prediction": "This car is good luck to this family, so it's good to go and find some of this car. But, it's grown and has a great connection to the most sincere experience it has in the car.",
+        "success": false
+      },
+      {
+        "example_idx": 6,
+        "target": "THE MODERN ORGANIZATION OF INDUSTRY WORKS IN THE SAME DIRECTION ALSO BY ANOTHER LINE",
+        "prediction": "Multi-girds are landed before landing. After the motion, they are still struggling with their players' injuries and their mom's surgery.",
+        "success": false
+      },
+      {
+        "example_idx": 7,
+        "target": "ISN'T HE SPLENDID CRIED JASPER IN INTENSE PRIDE SWELLING UP FATHER KNEW HOW TO DO IT",
+        "prediction": "This is Mage Land, the 40th Watt Sea, and the D-Festile of the Black Sea, and the Cod of the KJS is the biggest part of the world.",
+        "success": false
+      },
+      {
+        "example_idx": 8,
+        "target": "HER REGARD SHIFTED TO THE GREEN STALKS AND LEAVES AGAIN AND SHE STARTED TO MOVE AWAY",
+        "prediction": "Good as well as the procedures and the law should apply express troops to the Green Bull which is made to be the only blue stalker.",
+        "success": false
+      },
+      {
+        "example_idx": 9,
+        "target": "WHEN WE WERE OUT IN THE DARKNESS OF THE QUADRANGLE WE AGAIN LOOKED UP AT THE WINDOWS",
+        "prediction": "If you want to see the hot corn, you'll be able to see the hot corn corn. You can also see the corn in the other side of the house.",
+        "success": false
+      },
+      {
+        "example_idx": 10,
+        "target": "HE WAS STILL SUFFERING FROM THIS SUDDEN DISTURBANCE OF THE QUIET ROUTINE OF HIS LIFE",
+        "prediction": "The first time I was able to accomplish this I was able to see the School of Research by the Department of Research at the University of New York, the 19th of July.",
+        "success": false
+      },
+      {
+        "example_idx": 11,
+        "target": "SEE THAT YOUR LIVES BE IN NOTHING WORSE THAN A BOY'S CLIMBING FOR HIS ENTANGLED KITE",
+        "prediction": "I would like to thank you for the pleasure of your whole life.",
+        "success": false
+      },
+      {
+        "example_idx": 12,
+        "target": "WHEN CALLED BEFORE I TOLD HOW HASTILY I DROPPED MY FLOWERS OR BRAKE OFF FROM A GAME",
+        "prediction": "Learn to watch the how to get the food by your most mighty high choice during the days of time, as both Mary and Spirit from a jaw or a game are ready.",
+        "success": false
+      },
+      {
+        "example_idx": 13,
+        "target": "DEPARTING FROM FIVE HUNDRED THOUSAND THROATS THREE CHEERS BURST FORTH IN SUCCESSION",
+        "prediction": "The first race is born in the 23 years of the four-wheeled 3-cylinder engine. The total good in the 20 years. And then you do it in the two hand-dose.",
+        "success": false
+      },
+      {
+        "example_idx": 14,
+        "target": "THEN SAID SIR FERDINANDO THERE IS NOTHING FOR IT BUT THAT HE MUST TAKE YOU WITH HIM",
+        "prediction": "This would have been a huge advantage if we could build a lot of cities to make some fun of the Black Sea, and that goes as hell, since it's 35 years of his own history.",
+        "success": false
+      },
+      {
+        "example_idx": 15,
+        "target": "THE MILITARY FORCE PARTLY RABBLE PARTLY ORGANIZED HAD MEANWHILE MOVED INTO THE TOWN",
+        "prediction": "Tractory series, which has really amazing features, for places to experience incredible local parts of gravity, or areas of the power.",
+        "success": false
+      },
+      {
+        "example_idx": 16,
+        "target": "UPON THIS MADAME DEIGNED TO TURN HER EYES LANGUISHINGLY TOWARDS THE COMTE OBSERVING",
+        "prediction": "of the power and the total courage to come into the last of the Madden. It's a tremendous experience to y'all as they are the only people to enjoy their children's rigged choices.",
+        "success": false
+      },
+      {
+        "example_idx": 17,
+        "target": "TABLES WERE SPREAD ON THE LAWN AND A DAINTY BUT SUBSTANTIAL REPAST WAS TO BE SERVED",
+        "prediction": "W.D. Blitz and Halab, bringing in the foot of the Blitz and the wrecked bridge for other countries' private police.",
+        "success": false
+      },
+      {
+        "example_idx": 18,
+        "target": "DON'T YOU KNOW ONE ABOUT BACON AND TALLOW CANDLES CAN'T YOU TELL ANY LARDER STORIES",
+        "prediction": "After 30 years, today we've done a great night's day. We've got a lot of rain, a big and some planet-lessons can't take up to a tiny little storm.",
+        "success": false
+      },
+      {
+        "example_idx": 19,
+        "target": "WHEREUPON LAKE LAUGHED QUIETLY STILL LOOKING ON THE ACE OF HEARTS WITH HIS SLY EYES",
+        "prediction": "The boat was very happy when it was so sweet and it was so cool and it was so nice.",
+        "success": false
+      }
+    ],
+    [
+      {
+        "example_idx": 0,
+        "target": "OLD WILL IS A FINE FELLOW BUT POOR AND HELPLESS SINCE MISSUS ROGERS HAD HER ACCIDENT",
+        "prediction": "More TV viewers, as well as the official phone number, please watch the video.",
+        "success": false
+      },
+      {
+        "example_idx": 1,
+        "target": "THE WOOD FLAMED UP SPLENDIDLY UNDER THE LARGE BREWING COPPER AND IT SIGHED SO DEEPLY",
+        "prediction": "Sanctuary, the C1 Indian for you, is the head of the Slytherin test with the Indian Indian Land, which is this high school. The Red and the Orange Breeding Road Opera School, and Indian Indian University University.",
+        "success": false
+      },
+      {
+        "example_idx": 2,
+        "target": "I WOULD FAIN KNOW IF I AM DESTINED FOR SO GLORIOUS A CAREER CRIED THE TREE REJOICING",
+        "prediction": "All those who are known with the many others are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who",
+        "success": false
+      },
+      {
+        "example_idx": 3,
+        "target": "WE WILL GO OUT TOGETHER TO THE BOWER THERE IS A WAY DOWN TO THE COURT FROM MY WINDOW",
+        "prediction": "The city of St. Louis is a place where you can see the beautiful scenery of the city.",
+        "success": false
+      },
+      {
+        "example_idx": 4,
+        "target": "FINALLY THE ONE PARTY WENT OFF EXULTING AND THE OTHER WAS LEFT IN DESOLATION AND WOE",
+        "prediction": "The final duel is the aid of the triangle of the West. The people take the one in part in it as well. It also the only way to make it.",
+        "success": false
+      },
+      {
+        "example_idx": 5,
+        "target": "SHE BLUSHED AND SMILED AND FUMBLED HIS CARD IN HER CONFUSION BEFORE SHE RAN UPSTAIRS",
+        "prediction": "This car is good luck to this family, so it's good to go and find some of this car. But, it's grown and has a great hand collection, and it's a material that's interesting to carers.",
+        "success": false
+      },
+      {
+        "example_idx": 6,
+        "target": "THE MODERN ORGANIZATION OF INDUSTRY WORKS IN THE SAME DIRECTION ALSO BY ANOTHER LINE",
+        "prediction": "Multi-girds are landed before landing. After the motion, they are still struggling with their players' injuries and their mom's surgery.",
+        "success": false
+      },
+      {
+        "example_idx": 7,
+        "target": "ISN'T HE SPLENDID CRIED JASPER IN INTENSE PRIDE SWELLING UP FATHER KNEW HOW TO DO IT",
+        "prediction": "This is Mage Land, the 40th Watt Sea, and the D-Festile of the Black Sea, and the Cod of the KJS is the biggest part of the world.",
+        "success": false
+      },
+      {
+        "example_idx": 8,
+        "target": "HER REGARD SHIFTED TO THE GREEN STALKS AND LEAVES AGAIN AND SHE STARTED TO MOVE AWAY",
+        "prediction": "Good as well as the procedures and the law should apply express troops to the Green Bull which is made to be the only blue stalker.",
+        "success": false
+      },
+      {
+        "example_idx": 9,
+        "target": "WHEN WE WERE OUT IN THE DARKNESS OF THE QUADRANGLE WE AGAIN LOOKED UP AT THE WINDOWS",
+        "prediction": "If you want to see the hot corn, you'll be able to see the hot corn corn. You can also see the corn in the other side of the house.",
+        "success": false
+      },
+      {
+        "example_idx": 10,
+        "target": "HE WAS STILL SUFFERING FROM THIS SUDDEN DISTURBANCE OF THE QUIET ROUTINE OF HIS LIFE",
+        "prediction": "Superstimized, Australia-bombed, historic, and political history.",
+        "success": false
+      },
+      {
+        "example_idx": 11,
+        "target": "SEE THAT YOUR LIVES BE IN NOTHING WORSE THAN A BOY'S CLIMBING FOR HIS ENTANGLED KITE",
+        "prediction": "I would like to thank you for the pleasure of your whole life.",
+        "success": false
+      },
+      {
+        "example_idx": 12,
+        "target": "WHEN CALLED BEFORE I TOLD HOW HASTILY I DROPPED MY FLOWERS OR BRAKE OFF FROM A GAME",
+        "prediction": "Learn to watch the how to get the food by your most mighty high choice during the days of time, as both Mary and Spirit from a jaw or a game are ready.",
+        "success": false
+      },
+      {
+        "example_idx": 13,
+        "target": "DEPARTING FROM FIVE HUNDRED THOUSAND THROATS THREE CHEERS BURST FORTH IN SUCCESSION",
+        "prediction": "The first race is born in the 23 years of the four-wheeled 3-cylinder engine. The total good in the 20 years. The only new 2 is the new 2-hats.",
+        "success": false
+      },
+      {
+        "example_idx": 14,
+        "target": "THEN SAID SIR FERDINANDO THERE IS NOTHING FOR IT BUT THAT HE MUST TAKE YOU WITH HIM",
+        "prediction": "This would be danger in the future if we could go as loud as you can to make some fun of you in my forever, and that goes as I said, that's 35 years with this ambition.",
+        "success": false
+      },
+      {
+        "example_idx": 15,
+        "target": "THE MILITARY FORCE PARTLY RABBLE PARTLY ORGANIZED HAD MEANWHILE MOVED INTO THE TOWN",
+        "prediction": "Tractory series, which has really amazing features, for places to experience incredible local parts of gravity, or areas of the power.",
+        "success": false
+      },
+      {
+        "example_idx": 16,
+        "target": "UPON THIS MADAME DEIGNED TO TURN HER EYES LANGUISHINGLY TOWARDS THE COMTE OBSERVING",
+        "prediction": "of the power and the total courage to come into the last of the Madden. It's a tremendous experience to y'all as they are the only people to enjoy their children's rigged choices.",
+        "success": false
+      },
+      {
+        "example_idx": 17,
+        "target": "TABLES WERE SPREAD ON THE LAWN AND A DAINTY BUT SUBSTANTIAL REPAST WAS TO BE SERVED",
+        "prediction": "W.D. Blitz and Halab, bringing in the foot of the Blitz and the wrecked bridge for other countries' private police.",
+        "success": false
+      },
+      {
+        "example_idx": 18,
+        "target": "DON'T YOU KNOW ONE ABOUT BACON AND TALLOW CANDLES CAN'T YOU TELL ANY LARDER STORIES",
+        "prediction": "After 30 years, today we've done a great night's day. We've got a lot of rain, a big and some planet-lessons can't take up to a tiny little storm.",
+        "success": false
+      },
+      {
+        "example_idx": 19,
+        "target": "WHEREUPON LAKE LAUGHED QUIETLY STILL LOOKING ON THE ACE OF HEARTS WITH HIS SLY EYES",
+        "prediction": "The boat was very happy when it was so sweet and it was so cool and it was so nice.",
+        "success": false
+      }
+    ],
+    [
+      {
+        "example_idx": 0,
+        "target": "OLD WILL IS A FINE FELLOW BUT POOR AND HELPLESS SINCE MISSUS ROGERS HAD HER ACCIDENT",
+        "prediction": "More TV viewers, as well as the official phone number, please watch the video.",
+        "success": false
+      },
+      {
+        "example_idx": 1,
+        "target": "THE WOOD FLAMED UP SPLENDIDLY UNDER THE LARGE BREWING COPPER AND IT SIGHED SO DEEPLY",
+        "prediction": "Sanctuary, the C1 Indian for you, is the head of the Slytherin test with the Indian Indian Land, which is this high school. The Red and the Orange Breeding Road Opera School, and Indian Indian University University.",
+        "success": false
+      },
+      {
+        "example_idx": 2,
+        "target": "I WOULD FAIN KNOW IF I AM DESTINED FOR SO GLORIOUS A CAREER CRIED THE TREE REJOICING",
+        "prediction": "All those who are known with the many others are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who",
+        "success": false
+      },
+      {
+        "example_idx": 3,
+        "target": "WE WILL GO OUT TOGETHER TO THE BOWER THERE IS A WAY DOWN TO THE COURT FROM MY WINDOW",
+        "prediction": "The city of St. Louis is a place where you can see the beautiful scenery of the city.",
+        "success": false
+      },
+      {
+        "example_idx": 4,
+        "target": "FINALLY THE ONE PARTY WENT OFF EXULTING AND THE OTHER WAS LEFT IN DESOLATION AND WOE",
+        "prediction": "The final duel is the aid of the triangle of the West. The people take the one in part in it as well. It also the only way to make it.",
+        "success": false
+      },
+      {
+        "example_idx": 5,
+        "target": "SHE BLUSHED AND SMILED AND FUMBLED HIS CARD IN HER CONFUSION BEFORE SHE RAN UPSTAIRS",
+        "prediction": "This car is good luck to this family, so it's good to go and find some of this car. But, it's grown and has a great connection to the most sincere experience it has in the car.",
+        "success": false
+      },
+      {
+        "example_idx": 6,
+        "target": "THE MODERN ORGANIZATION OF INDUSTRY WORKS IN THE SAME DIRECTION ALSO BY ANOTHER LINE",
+        "prediction": "Multi-girds are landed before landing. After the motion, they are still struggling with their players' injuries and their mom's surgery.",
+        "success": false
+      },
+      {
+        "example_idx": 7,
+        "target": "ISN'T HE SPLENDID CRIED JASPER IN INTENSE PRIDE SWELLING UP FATHER KNEW HOW TO DO IT",
+        "prediction": "This is Mage Land, the 40th Watt Sea, and the D-Festile of the Black Sea, and the Cod of the KJS is the biggest part of the world.",
+        "success": false
+      },
+      {
+        "example_idx": 8,
+        "target": "HER REGARD SHIFTED TO THE GREEN STALKS AND LEAVES AGAIN AND SHE STARTED TO MOVE AWAY",
+        "prediction": "Good as well as the procedures and the law should apply express troops to the Green Bull which is made to be the only blue stalker.",
+        "success": false
+      },
+      {
+        "example_idx": 9,
+        "target": "WHEN WE WERE OUT IN THE DARKNESS OF THE QUADRANGLE WE AGAIN LOOKED UP AT THE WINDOWS",
+        "prediction": "If you want to see the hot corn, you'll be able to see the hot corn corn. You can also see the corn in the other side of the house.",
+        "success": false
+      },
+      {
+        "example_idx": 10,
+        "target": "HE WAS STILL SUFFERING FROM THIS SUDDEN DISTURBANCE OF THE QUIET ROUTINE OF HIS LIFE",
+        "prediction": "Superstimized, Australia-bombed, historic, and political history.",
+        "success": false
+      },
+      {
+        "example_idx": 11,
+        "target": "SEE THAT YOUR LIVES BE IN NOTHING WORSE THAN A BOY'S CLIMBING FOR HIS ENTANGLED KITE",
+        "prediction": "I would like to thank you for the pleasure of your whole life.",
+        "success": false
+      },
+      {
+        "example_idx": 12,
+        "target": "WHEN CALLED BEFORE I TOLD HOW HASTILY I DROPPED MY FLOWERS OR BRAKE OFF FROM A GAME",
+        "prediction": "Learn to watch the how to get the food by your most mighty high choice during the days of time, as both Mary and Spirit from a jaw or a game are ready.",
+        "success": false
+      },
+      {
+        "example_idx": 13,
+        "target": "DEPARTING FROM FIVE HUNDRED THOUSAND THROATS THREE CHEERS BURST FORTH IN SUCCESSION",
+        "prediction": "The first race is born in the 23 years of the four-wheeled 3-cylinder engine. The total good in the 20 years. The only new 2 is the new 2-hats.",
+        "success": false
+      },
+      {
+        "example_idx": 14,
+        "target": "THEN SAID SIR FERDINANDO THERE IS NOTHING FOR IT BUT THAT HE MUST TAKE YOU WITH HIM",
+        "prediction": "This would be danger in the future if we could go as loud as you can to make some fun of you in my forever, and that goes as I say, that's 35 years of this industry.",
+        "success": false
+      },
+      {
+        "example_idx": 15,
+        "target": "THE MILITARY FORCE PARTLY RABBLE PARTLY ORGANIZED HAD MEANWHILE MOVED INTO THE TOWN",
+        "prediction": "Tractory series, which has really amazing features, for places to experience incredible local parts of the planet's orbit as it is the tower.",
+        "success": false
+      },
+      {
+        "example_idx": 16,
+        "target": "UPON THIS MADAME DEIGNED TO TURN HER EYES LANGUISHINGLY TOWARDS THE COMTE OBSERVING",
+        "prediction": "of the power and the total courage to come into the last of the Madden. It's a tremendous experience to y'all as they are the only people to dig into the regular choice.",
+        "success": false
+      },
+      {
+        "example_idx": 17,
+        "target": "TABLES WERE SPREAD ON THE LAWN AND A DAINTY BUT SUBSTANTIAL REPAST WAS TO BE SERVED",
+        "prediction": "W.D. Blitz and Halab, bringing in the foot of the Blitz and the wrecked bridge for other countries' private police.",
+        "success": false
+      },
+      {
+        "example_idx": 18,
+        "target": "DON'T YOU KNOW ONE ABOUT BACON AND TALLOW CANDLES CAN'T YOU TELL ANY LARDER STORIES",
+        "prediction": "After 30 years, today we've done a great night's day. We've got a lot of rain, a big and some planet-lessons can't take up to until I get used to it.",
+        "success": false
+      },
+      {
+        "example_idx": 19,
+        "target": "WHEREUPON LAKE LAUGHED QUIETLY STILL LOOKING ON THE ACE OF HEARTS WITH HIS SLY EYES",
+        "prediction": "The boat was very happy when it was so sweet and it was so cool and it was so nice.",
+        "success": false
+      }
+    ],
+    [
+      {
+        "example_idx": 0,
+        "target": "OLD WILL IS A FINE FELLOW BUT POOR AND HELPLESS SINCE MISSUS ROGERS HAD HER ACCIDENT",
+        "prediction": "More TV viewers, as well as the official phone number, please watch the panel and help help us find more information about the M243 and the M243.com.",
+        "success": false
+      },
+      {
+        "example_idx": 1,
+        "target": "THE WOOD FLAMED UP SPLENDIDLY UNDER THE LARGE BREWING COPPER AND IT SIGHED SO DEEPLY",
+        "prediction": "Sanctuary, the C1 Indian for you, is the head of the Slytherin test with the Indian Indian Land, which is this high school. The Red and the Orange Breeding Road Opera School, and Indian Indian University University.",
+        "success": false
+      },
+      {
+        "example_idx": 2,
+        "target": "I WOULD FAIN KNOW IF I AM DESTINED FOR SO GLORIOUS A CAREER CRIED THE TREE REJOICING",
+        "prediction": "All those who are known with the many others are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who",
+        "success": false
+      },
+      {
+        "example_idx": 3,
+        "target": "WE WILL GO OUT TOGETHER TO THE BOWER THERE IS A WAY DOWN TO THE COURT FROM MY WINDOW",
+        "prediction": "The city of St. Louis is a place where you can see the beautiful scenery of the city.",
+        "success": false
+      },
+      {
+        "example_idx": 4,
+        "target": "FINALLY THE ONE PARTY WENT OFF EXULTING AND THE OTHER WAS LEFT IN DESOLATION AND WOE",
+        "prediction": "The final duel is the aid of the triangle of the West. The people take the one in part in it as well. It also the only way to make it.",
+        "success": false
+      },
+      {
+        "example_idx": 5,
+        "target": "SHE BLUSHED AND SMILED AND FUMBLED HIS CARD IN HER CONFUSION BEFORE SHE RAN UPSTAIRS",
+        "prediction": "This car is good luck to this family, so it's good to go and find some of this car. But, it's grown and has a great hand collection, and it's a material that's interesting to carers.",
+        "success": false
+      },
+      {
+        "example_idx": 6,
+        "target": "THE MODERN ORGANIZATION OF INDUSTRY WORKS IN THE SAME DIRECTION ALSO BY ANOTHER LINE",
+        "prediction": "Multi-girds are landed before landing. After the motion, they are still struggling with their players' injuries and their mom's surgery.",
+        "success": false
+      },
+      {
+        "example_idx": 7,
+        "target": "ISN'T HE SPLENDID CRIED JASPER IN INTENSE PRIDE SWELLING UP FATHER KNEW HOW TO DO IT",
+        "prediction": "This is Mage Land, the 40th Watt Sea, and the D-Festile of the Black Sea, and the Cod of the KJS is the biggest part of the world.",
+        "success": false
+      },
+      {
+        "example_idx": 8,
+        "target": "HER REGARD SHIFTED TO THE GREEN STALKS AND LEAVES AGAIN AND SHE STARTED TO MOVE AWAY",
+        "prediction": "Good as well as the procedures and the law should apply express troops to the Green Bull which is made to be the only blue stalker.",
+        "success": false
+      },
+      {
+        "example_idx": 9,
+        "target": "WHEN WE WERE OUT IN THE DARKNESS OF THE QUADRANGLE WE AGAIN LOOKED UP AT THE WINDOWS",
+        "prediction": "If you want to see the hot corn, you'll be able to see the hot corn corn. You can also see the corn in the other side of the house.",
+        "success": false
+      },
+      {
+        "example_idx": 10,
+        "target": "HE WAS STILL SUFFERING FROM THIS SUDDEN DISTURBANCE OF THE QUIET ROUTINE OF HIS LIFE",
+        "prediction": "Superstimized, luxury-commercial science, holistic skills of the factory by the company's third-star brand, the company's 19-year-old, is the best.",
+        "success": false
+      },
+      {
+        "example_idx": 11,
+        "target": "SEE THAT YOUR LIVES BE IN NOTHING WORSE THAN A BOY'S CLIMBING FOR HIS ENTANGLED KITE",
+        "prediction": "I would like to thank you for the pleasure of your whole life.",
+        "success": false
+      },
+      {
+        "example_idx": 12,
+        "target": "WHEN CALLED BEFORE I TOLD HOW HASTILY I DROPPED MY FLOWERS OR BRAKE OFF FROM A GAME",
+        "prediction": "Learn to watch the how to get the food by your most mighty high choice during the days of time, as both Mary and Spirit from a jaw or a game are ready.",
+        "success": false
+      },
+      {
+        "example_idx": 13,
+        "target": "DEPARTING FROM FIVE HUNDRED THOUSAND THROATS THREE CHEERS BURST FORTH IN SUCCESSION",
+        "prediction": "The first race is born in the 23 years of the four-wheeled 3-cylinder engine. The total good in the 20 years. The only new 2 is the new 2-hats.",
+        "success": false
+      },
+      {
+        "example_idx": 14,
+        "target": "THEN SAID SIR FERDINANDO THERE IS NOTHING FOR IT BUT THAT HE MUST TAKE YOU WITH HIM",
+        "prediction": "This would have been a huge advantage if we could build a lot of cities to make some fun of the Black Sea, and that goes as hell, since it's 35 years of his own history.",
+        "success": false
+      },
+      {
+        "example_idx": 15,
+        "target": "THE MILITARY FORCE PARTLY RABBLE PARTLY ORGANIZED HAD MEANWHILE MOVED INTO THE TOWN",
+        "prediction": "Tractory series, which has really amazing history, for places to experience incredible local parts of the planet's orbit as it is the tower.",
+        "success": false
+      },
+      {
+        "example_idx": 16,
+        "target": "UPON THIS MADAME DEIGNED TO TURN HER EYES LANGUISHINGLY TOWARDS THE COMTE OBSERVING",
+        "prediction": "of the power and the total courage to come into the last of the Madden. It's a tremendous experience to y'all as they are the only people to enjoy their children's rigged choices.",
+        "success": false
+      },
+      {
+        "example_idx": 17,
+        "target": "TABLES WERE SPREAD ON THE LAWN AND A DAINTY BUT SUBSTANTIAL REPAST WAS TO BE SERVED",
+        "prediction": "W.D. Blitz and Halab, bringing in the foot of the Blitz and the wrecked bridge for other countries' private police.",
+        "success": false
+      },
+      {
+        "example_idx": 18,
+        "target": "DON'T YOU KNOW ONE ABOUT BACON AND TALLOW CANDLES CAN'T YOU TELL ANY LARDER STORIES",
+        "prediction": "After 30 years, today we've done a great night's day. We've got a lot of rain, a big and some planet-lessons can't take up to a tiny little storm.",
+        "success": false
+      },
+      {
+        "example_idx": 19,
+        "target": "WHEREUPON LAKE LAUGHED QUIETLY STILL LOOKING ON THE ACE OF HEARTS WITH HIS SLY EYES",
+        "prediction": "The boat was very happy when it was so sweet and it was so cool and it was so nice.",
+        "success": false
+      }
+    ],
+    [
+      {
+        "example_idx": 0,
+        "target": "OLD WILL IS A FINE FELLOW BUT POOR AND HELPLESS SINCE MISSUS ROGERS HAD HER ACCIDENT",
+        "prediction": "More TV viewers, as well as the official phone number, please watch the panel and help help us find more information about the M243 and the M243.com.",
+        "success": false
+      },
+      {
+        "example_idx": 1,
+        "target": "THE WOOD FLAMED UP SPLENDIDLY UNDER THE LARGE BREWING COPPER AND IT SIGHED SO DEEPLY",
+        "prediction": "Sanctuary, the C1 Indian for you, is the head of the Slytherin test with the Indian Indian Land, which is this high school. The Red and the Orange Breeding Road Opera School, and Indian Indian University University.",
+        "success": false
+      },
+      {
+        "example_idx": 2,
+        "target": "I WOULD FAIN KNOW IF I AM DESTINED FOR SO GLORIOUS A CAREER CRIED THE TREE REJOICING",
+        "prediction": "All those who are known with the many others are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who",
+        "success": false
+      },
+      {
+        "example_idx": 3,
+        "target": "WE WILL GO OUT TOGETHER TO THE BOWER THERE IS A WAY DOWN TO THE COURT FROM MY WINDOW",
+        "prediction": "The city of St. Louis is a place where you can see the beautiful scenery of the city.",
+        "success": false
+      },
+      {
+        "example_idx": 4,
+        "target": "FINALLY THE ONE PARTY WENT OFF EXULTING AND THE OTHER WAS LEFT IN DESOLATION AND WOE",
+        "prediction": "The final duel is the aid of the triangle of the West. The people take the one in part in it as well. It also the only way to make it.",
+        "success": false
+      },
+      {
+        "example_idx": 5,
+        "target": "SHE BLUSHED AND SMILED AND FUMBLED HIS CARD IN HER CONFUSION BEFORE SHE RAN UPSTAIRS",
+        "prediction": "This car is good luck to this family, so it's good to go and find some of this car. But, it's grown and has a great hand collection, and it's a material that's important to the car.",
+        "success": false
+      },
+      {
+        "example_idx": 6,
+        "target": "THE MODERN ORGANIZATION OF INDUSTRY WORKS IN THE SAME DIRECTION ALSO BY ANOTHER LINE",
+        "prediction": "Multi-girds are landed before landing. After the motion, they are still struggling with their players' injuries and their mom's surgery.",
+        "success": false
+      },
+      {
+        "example_idx": 7,
+        "target": "ISN'T HE SPLENDID CRIED JASPER IN INTENSE PRIDE SWELLING UP FATHER KNEW HOW TO DO IT",
+        "prediction": "This is Mage Land, the 40th Watt Sea, and the D-Festile of the Black Sea, and the Cod of the KJS is the biggest part of the world.",
+        "success": false
+      },
+      {
+        "example_idx": 8,
+        "target": "HER REGARD SHIFTED TO THE GREEN STALKS AND LEAVES AGAIN AND SHE STARTED TO MOVE AWAY",
+        "prediction": "Good as well as the procedures and the law should apply express troops to the Green Bull which is made to be the only blue stalker.",
+        "success": false
+      },
+      {
+        "example_idx": 9,
+        "target": "WHEN WE WERE OUT IN THE DARKNESS OF THE QUADRANGLE WE AGAIN LOOKED UP AT THE WINDOWS",
+        "prediction": "If you want to see the hot corn, you'll be able to see the hot corn corn. You can also see the corn in the other side of the house.",
+        "success": false
+      },
+      {
+        "example_idx": 10,
+        "target": "HE WAS STILL SUFFERING FROM THIS SUDDEN DISTURBANCE OF THE QUIET ROUTINE OF HIS LIFE",
+        "prediction": "Superstimized, luxury-commercial science, holistic skills of the world, and the history of the country, so that it can be a wonderful, recognized society.",
+        "success": false
+      },
+      {
+        "example_idx": 11,
+        "target": "SEE THAT YOUR LIVES BE IN NOTHING WORSE THAN A BOY'S CLIMBING FOR HIS ENTANGLED KITE",
+        "prediction": "I would like to thank you for the pleasure of your whole life.",
+        "success": false
+      },
+      {
+        "example_idx": 12,
+        "target": "WHEN CALLED BEFORE I TOLD HOW HASTILY I DROPPED MY FLOWERS OR BRAKE OFF FROM A GAME",
+        "prediction": "Learn to watch the how to get the food by your most mighty high choice during the days of time, as both Mary and Spirit from a jaw or a game are ready.",
+        "success": false
+      },
+      {
+        "example_idx": 13,
+        "target": "DEPARTING FROM FIVE HUNDRED THOUSAND THROATS THREE CHEERS BURST FORTH IN SUCCESSION",
+        "prediction": "The first race is born in the 23 years of the four-wheeled 3-cylinder engine. The total good in the 20 years. The only new 2 is the new 2-hats.",
+        "success": false
+      },
+      {
+        "example_idx": 14,
+        "target": "THEN SAID SIR FERDINANDO THERE IS NOTHING FOR IT BUT THAT HE MUST TAKE YOU WITH HIM",
+        "prediction": "This would be danger in the future if we could go as loud as you can to make some fun of you in my forever, and that goes as I say, that's 35 years of this industry.",
+        "success": false
+      },
+      {
+        "example_idx": 15,
+        "target": "THE MILITARY FORCE PARTLY RABBLE PARTLY ORGANIZED HAD MEANWHILE MOVED INTO THE TOWN",
+        "prediction": "Tractory series, which has really amazing features, for places to experience incredible local parts of the planet's orbit as it is the tower.",
+        "success": false
+      },
+      {
+        "example_idx": 16,
+        "target": "UPON THIS MADAME DEIGNED TO TURN HER EYES LANGUISHINGLY TOWARDS THE COMTE OBSERVING",
+        "prediction": "of the power and the total courage to come into the last of the Madden. It's a tremendous experience to y'all as they are the only people to dig into the Rigid Church.",
+        "success": false
+      },
+      {
+        "example_idx": 17,
+        "target": "TABLES WERE SPREAD ON THE LAWN AND A DAINTY BUT SUBSTANTIAL REPAST WAS TO BE SERVED",
+        "prediction": "W.D. Blitz and Halab, bringing in the foot of the Blitz and the wrecked bridge for other countries' private police.",
+        "success": false
+      },
+      {
+        "example_idx": 18,
+        "target": "DON'T YOU KNOW ONE ABOUT BACON AND TALLOW CANDLES CAN'T YOU TELL ANY LARDER STORIES",
+        "prediction": "After 30 years, today we've done a great night's day. We've got a lot of rain, a big and some planet-lessons can't take up to a tiny little storm.",
+        "success": false
+      },
+      {
+        "example_idx": 19,
+        "target": "WHEREUPON LAKE LAUGHED QUIETLY STILL LOOKING ON THE ACE OF HEARTS WITH HIS SLY EYES",
+        "prediction": "The boat was very happy when it was so sweet and it was so cool and it was so nice.",
+        "success": false
+      }
+    ],
+    [
+      {
+        "example_idx": 0,
+        "target": "OLD WILL IS A FINE FELLOW BUT POOR AND HELPLESS SINCE MISSUS ROGERS HAD HER ACCIDENT",
+        "prediction": "More TV viewers, as well as the official phone number, please watch the video.",
+        "success": false
+      },
+      {
+        "example_idx": 1,
+        "target": "THE WOOD FLAMED UP SPLENDIDLY UNDER THE LARGE BREWING COPPER AND IT SIGHED SO DEEPLY",
+        "prediction": "Sanctuary, the C1 Indian for you, is the head of the Slytherin test with the Indian Indian Land, which is the Sly School. The Grand Yard is breathing a dog up across the school and it's evening of the shooting.",
+        "success": false
+      },
+      {
+        "example_idx": 2,
+        "target": "I WOULD FAIN KNOW IF I AM DESTINED FOR SO GLORIOUS A CAREER CRIED THE TREE REJOICING",
+        "prediction": "All those who are known with the many others are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who are not the people who",
+        "success": false
+      },
+      {
+        "example_idx": 3,
+        "target": "WE WILL GO OUT TOGETHER TO THE BOWER THERE IS A WAY DOWN TO THE COURT FROM MY WINDOW",
+        "prediction": "The city of St. Louis is a place where you can see the beautiful scenery of the city.",
+        "success": false
+      },
+      {
+        "example_idx": 4,
+        "target": "FINALLY THE ONE PARTY WENT OFF EXULTING AND THE OTHER WAS LEFT IN DESOLATION AND WOE",
+        "prediction": "The final duel is the aid of the triangle of the West. The people take the one in part in it as well. It also the only way to make it.",
+        "success": false
+      },
+      {
+        "example_idx": 5,
+        "target": "SHE BLUSHED AND SMILED AND FUMBLED HIS CARD IN HER CONFUSION BEFORE SHE RAN UPSTAIRS",
+        "prediction": "This car is good luck to this family, so it's good to go and find some of this car. But, it's grown and has a great connection to the most sincere experience it has in the car.",
+        "success": false
+      },
+      {
+        "example_idx": 6,
+        "target": "THE MODERN ORGANIZATION OF INDUSTRY WORKS IN THE SAME DIRECTION ALSO BY ANOTHER LINE",
+        "prediction": "Multi-girds are landed before landing. After the motion, they are still struggling with their players' injuries and their mom's surgery.",
+        "success": false
+      },
+      {
+        "example_idx": 7,
+        "target": "ISN'T HE SPLENDID CRIED JASPER IN INTENSE PRIDE SWELLING UP FATHER KNEW HOW TO DO IT",
+        "prediction": "This is Mage Land, the 40th Watt Sea, and the D-Festile of the Black Sea, and the Cod of the KJS is the biggest part of the world.",
+        "success": false
+      },
+      {
+        "example_idx": 8,
+        "target": "HER REGARD SHIFTED TO THE GREEN STALKS AND LEAVES AGAIN AND SHE STARTED TO MOVE AWAY",
+        "prediction": "Good as well as the procedures and the law should apply express troops to the Green Bull which is made to be the only blue stalker.",
+        "success": false
+      },
+      {
+        "example_idx": 9,
+        "target": "WHEN WE WERE OUT IN THE DARKNESS OF THE QUADRANGLE WE AGAIN LOOKED UP AT THE WINDOWS",
+        "prediction": "If you want to see the hot corn, you'll be able to see the hot corn corn. You can also see the corn in the other side of the house.",
+        "success": false
+      },
+      {
+        "example_idx": 10,
+        "target": "HE WAS STILL SUFFERING FROM THIS SUDDEN DISTURBANCE OF THE QUIET ROUTINE OF HIS LIFE",
+        "prediction": "Superstimized luxury-commercial design, holistic skills of the luxury-comedy service, and the ability to recognize it's life.",
+        "success": false
+      },
+      {
+        "example_idx": 11,
+        "target": "SEE THAT YOUR LIVES BE IN NOTHING WORSE THAN A BOY'S CLIMBING FOR HIS ENTANGLED KITE",
+        "prediction": "I would like to thank you for the pleasure of your whole life.",
+        "success": false
+      },
+      {
+        "example_idx": 12,
+        "target": "WHEN CALLED BEFORE I TOLD HOW HASTILY I DROPPED MY FLOWERS OR BRAKE OFF FROM A GAME",
+        "prediction": "Learn to watch the how to get the food by your most mighty high choice during the days of time, as both Mary and Spirit from a jaw or a game are ready.",
+        "success": false
+      },
+      {
+        "example_idx": 13,
+        "target": "DEPARTING FROM FIVE HUNDRED THOUSAND THROATS THREE CHEERS BURST FORTH IN SUCCESSION",
+        "prediction": "The first race is born in the 23 years of the four-wheeled 3-cylinder engine. The total good in the 20 years. The only new 2 is the new 2-hats.",
+        "success": false
+      },
+      {
+        "example_idx": 14,
+        "target": "THEN SAID SIR FERDINANDO THERE IS NOTHING FOR IT BUT THAT HE MUST TAKE YOU WITH HIM",
+        "prediction": "This would be a major injury to the Bailer's life and city, to the extent of the lack of a record that those assets have certified with this ambition.",
+        "success": false
+      },
+      {
+        "example_idx": 15,
+        "target": "THE MILITARY FORCE PARTLY RABBLE PARTLY ORGANIZED HAD MEANWHILE MOVED INTO THE TOWN",
+        "prediction": "Tractory series, which has really amazing features, for places to experience incredible vocal parts of the Orc region of the Tower.",
+        "success": false
+      },
+      {
+        "example_idx": 16,
+        "target": "UPON THIS MADAME DEIGNED TO TURN HER EYES LANGUISHINGLY TOWARDS THE COMTE OBSERVING",
+        "prediction": "of the power and the total courage to come into the last of the Madden. It's a tremendous experience to y'all as they are the only people to dig into the Rigid Church.",
+        "success": false
+      },
+      {
+        "example_idx": 17,
+        "target": "TABLES WERE SPREAD ON THE LAWN AND A DAINTY BUT SUBSTANTIAL REPAST WAS TO BE SERVED",
+        "prediction": "W.D. Blitz and Halab, bringing in the foot of the Blitz and the wrecked bridge for other countries' private police.",
+        "success": false
+      },
+      {
+        "example_idx": 18,
+        "target": "DON'T YOU KNOW ONE ABOUT BACON AND TALLOW CANDLES CAN'T YOU TELL ANY LARDER STORIES",
+        "prediction": "After 30 years, today we've done a great night's day. We've got a lot of rain, a big and some planet-lessons can't take up to until I get used to it.",
+        "success": false
+      },
+      {
+        "example_idx": 19,
+        "target": "WHEREUPON LAKE LAUGHED QUIETLY STILL LOOKING ON THE ACE OF HEARTS WITH HIS SLY EYES",
+        "prediction": "The boat was very happy when it was so sweet and it was so cool and it was a lot of fun.",
+        "success": false
+      }
+    ]
+  ],
+  "perturbation_stats": [
+    [
+      {
+        "example_idx": 0,
+        "max_perturbation": 0.0,
+        "mean_perturbation": 0.0
+      },
+      {
+        "example_idx": 1,
+        "max_perturbation": 0.0,
+        "mean_perturbation": 0.0
+      },
+      {
+        "example_idx": 2,
+        "max_perturbation": 0.0,
+        "mean_perturbation": 0.0
+      },
+      {
+        "example_idx": 3,
+        "max_perturbation": 0.0,
+        "mean_perturbation": 0.0
+      },
+      {
+        "example_idx": 4,
+        "max_perturbation": 0.0,
+        "mean_perturbation": 0.0
+      },
+      {
+        "example_idx": 5,
+        "max_perturbation": 0.0,
+        "mean_perturbation": 0.0
+      },
+      {
+        "example_idx": 6,
+        "max_perturbation": 0.0,
+        "mean_perturbation": 0.0
+      },
+      {
+        "example_idx": 7,
+        "max_perturbation": 0.0,
+        "mean_perturbation": 0.0
+      },
+      {
+        "example_idx": 8,
+        "max_perturbation": 0.0,
+        "mean_perturbation": 0.0
+      },
+      {
+        "example_idx": 9,
+        "max_perturbation": 0.0,
+        "mean_perturbation": 0.0
+      },
+      {
+        "example_idx": 10,
+        "max_perturbation": 0.0,
+        "mean_perturbation": 0.0
+      },
+      {
+        "example_idx": 11,
+        "max_perturbation": 0.0,
+        "mean_perturbation": 0.0
+      },
+      {
+        "example_idx": 12,
+        "max_perturbation": 0.0,
+        "mean_perturbation": 0.0
+      },
+      {
+        "example_idx": 13,
+        "max_perturbation": 0.0,
+        "mean_perturbation": 0.0
+      },
+      {
+        "example_idx": 14,
+        "max_perturbation": 0.0,
+        "mean_perturbation": 0.0
+      },
+      {
+        "example_idx": 15,
+        "max_perturbation": 0.0,
+        "mean_perturbation": 0.0
+      },
+      {
+        "example_idx": 16,
+        "max_perturbation": 0.0,
+        "mean_perturbation": 0.0
+      },
+      {
+        "example_idx": 17,
+        "max_perturbation": 0.0,
+        "mean_perturbation": 0.0
+      },
+      {
+        "example_idx": 18,
+        "max_perturbation": 0.0,
+        "mean_perturbation": 0.0
+      },
+      {
+        "example_idx": 19,
+        "max_perturbation": 0.0,
+        "mean_perturbation": 0.0
+      }
+    ],
+    [
+      {
+        "example_idx": 0,
+        "max_perturbation": 0.15000000596046448,
+        "mean_perturbation": 0.14943364262580872
+      },
+      {
+        "example_idx": 1,
+        "max_perturbation": 0.15000000596046448,
+        "mean_perturbation": 0.1488686501979828
+      },
+      {
+        "example_idx": 2,
+        "max_perturbation": 0.15000000596046448,
+        "mean_perturbation": 0.14953641593456268
+      },
+      {
+        "example_idx": 3,
+        "max_perturbation": 0.15000000596046448,
+        "mean_perturbation": 0.1494491845369339
+      },
+      {
+        "example_idx": 4,
+        "max_perturbation": 0.15000000596046448,
+        "mean_perturbation": 0.14957252144813538
+      },
+      {
+        "example_idx": 5,
+        "max_perturbation": 0.15000000596046448,
+        "mean_perturbation": 0.14964309334754944
+      },
+      {
+        "example_idx": 6,
+        "max_perturbation": 0.15000000596046448,
+        "mean_perturbation": 0.14946646988391876
+      },
+      {
+        "example_idx": 7,
+        "max_perturbation": 0.15000000596046448,
+        "mean_perturbation": 0.14945606887340546
+      },
+      {
+        "example_idx": 8,
+        "max_perturbation": 0.15000000596046448,
+        "mean_perturbation": 0.14944995939731598
+      },
+      {
+        "example_idx": 9,
+        "max_perturbation": 0.15000000596046448,
+        "mean_perturbation": 0.14937706291675568
+      },
+      {
+        "example_idx": 10,
+        "max_perturbation": 0.15000000596046448,
+        "mean_perturbation": 0.1495252102613449
+      },
+      {
+        "example_idx": 11,
+        "max_perturbation": 0.15000000596046448,
+        "mean_perturbation": 0.14966517686843872
+      },
+      {
+        "example_idx": 12,
+        "max_perturbation": 0.15000000596046448,
+        "mean_perturbation": 0.149546280503273
+      },
+      {
+        "example_idx": 13,
+        "max_perturbation": 0.15000000596046448,
+        "mean_perturbation": 0.14947067201137543
+      },
+      {
+        "example_idx": 14,
+        "max_perturbation": 0.15000000596046448,
+        "mean_perturbation": 0.14952291548252106
+      },
+      {
+        "example_idx": 15,
+        "max_perturbation": 0.15000000596046448,
+        "mean_perturbation": 0.14935272932052612
+      },
+      {
+        "example_idx": 16,
+        "max_perturbation": 0.15000000596046448,
+        "mean_perturbation": 0.1494145393371582
+      },
+      {
+        "example_idx": 17,
+        "max_perturbation": 0.15000000596046448,
+        "mean_perturbation": 0.14964964985847473
+      },
+      {
+        "example_idx": 18,
+        "max_perturbation": 0.15000000596046448,
+        "mean_perturbation": 0.1495162397623062
+      },
+      {
+        "example_idx": 19,
+        "max_perturbation": 0.15000000596046448,
+        "mean_perturbation": 0.14958515763282776
+      }
+    ],
+    [
+      {
+        "example_idx": 0,
+        "max_perturbation": 0.15000000596046448,
+        "mean_perturbation": 0.14961227774620056
+      },
+      {
+        "example_idx": 1,
+        "max_perturbation": 0.15000000596046448,
+        "mean_perturbation": 0.14892727136611938
+      },
+      {
+        "example_idx": 2,
+        "max_perturbation": 0.15000000596046448,
+        "mean_perturbation": 0.14965064823627472
+      },
+      {
+        "example_idx": 3,
+        "max_perturbation": 0.15000000596046448,
+        "mean_perturbation": 0.14957407116889954
+      },
+      {
+        "example_idx": 4,
+        "max_perturbation": 0.15000000596046448,
+        "mean_perturbation": 0.1496705561876297
+      },
+      {
+        "example_idx": 5,
+        "max_perturbation": 0.15000000596046448,
+        "mean_perturbation": 0.14974728226661682
+      },
+      {
+        "example_idx": 6,
+        "max_perturbation": 0.15000000596046448,
+        "mean_perturbation": 0.14962497353553772
+      },
+      {
+        "example_idx": 7,
+        "max_perturbation": 0.15000000596046448,
+        "mean_perturbation": 0.1495964229106903
+      },
+      {
+        "example_idx": 8,
+        "max_perturbation": 0.15000000596046448,
+        "mean_perturbation": 0.14958497881889343
+      },
+      {
+        "example_idx": 9,
+        "max_perturbation": 0.15000000596046448,
+        "mean_perturbation": 0.14954164624214172
+      },
+      {
+        "example_idx": 10,
+        "max_perturbation": 0.15000000596046448,
+        "mean_perturbation": 0.14967063069343567
+      },
+      {
+        "example_idx": 11,
+        "max_perturbation": 0.15000000596046448,
+        "mean_perturbation": 0.14981664717197418
+      },
+      {
+        "example_idx": 12,
+        "max_perturbation": 0.15000000596046448,
+        "mean_perturbation": 0.1496894210577011
+      },
+      {
+        "example_idx": 13,
+        "max_perturbation": 0.15000000596046448,
+        "mean_perturbation": 0.149606391787529
+      },
+      {
+        "example_idx": 14,
+        "max_perturbation": 0.15000000596046448,
+        "mean_perturbation": 0.14971111714839935
+      },
+      {
+        "example_idx": 15,
+        "max_perturbation": 0.15000000596046448,
+        "mean_perturbation": 0.14946915209293365
+      },
+      {
+        "example_idx": 16,
+        "max_perturbation": 0.15000000596046448,
+        "mean_perturbation": 0.1495288759469986
+      },
+      {
+        "example_idx": 17,
+        "max_perturbation": 0.15000000596046448,
+        "mean_perturbation": 0.14976656436920166
+      },
+      {
+        "example_idx": 18,
+        "max_perturbation": 0.15000000596046448,
+        "mean_perturbation": 0.14967887103557587
+      },
+      {
+        "example_idx": 19,
+        "max_perturbation": 0.15000000596046448,
+        "mean_perturbation": 0.14968347549438477
+      }
+    ],
+    [
+      {
+        "example_idx": 0,
+        "max_perturbation": 0.15000000596046448,
+        "mean_perturbation": 0.14964662492275238
+      },
+      {
+        "example_idx": 1,
+        "max_perturbation": 0.15000000596046448,
+        "mean_perturbation": 0.1489294022321701
+      },
+      {
+        "example_idx": 2,
+        "max_perturbation": 0.15000000596046448,
+        "mean_perturbation": 0.14970064163208008
+      },
+      {
+        "example_idx": 3,
+        "max_perturbation": 0.15000000596046448,
+        "mean_perturbation": 0.14961715042591095
+      },
+      {
+        "example_idx": 4,
+        "max_perturbation": 0.15000000596046448,
+        "mean_perturbation": 0.1496773362159729
+      },
+      {
+        "example_idx": 5,
+        "max_perturbation": 0.15000000596046448,
+        "mean_perturbation": 0.14976702630519867
+      },
+      {
+        "example_idx": 6,
+        "max_perturbation": 0.15000000596046448,
+        "mean_perturbation": 0.14966177940368652
+      },
+      {
+        "example_idx": 7,
+        "max_perturbation": 0.15000000596046448,
+        "mean_perturbation": 0.14964739978313446
+      },
+      {
+        "example_idx": 8,
+        "max_perturbation": 0.15000000596046448,
+        "mean_perturbation": 0.14961761236190796
+      },
+      {
+        "example_idx": 9,
+        "max_perturbation": 0.15000000596046448,
+        "mean_perturbation": 0.14958149194717407
+      },
+      {
+        "example_idx": 10,
+        "max_perturbation": 0.15000000596046448,
+        "mean_perturbation": 0.14970487356185913
+      },
+      {
+        "example_idx": 11,
+        "max_perturbation": 0.15000000596046448,
+        "mean_perturbation": 0.1498313844203949
+      },
+      {
+        "example_idx": 12,
+        "max_perturbation": 0.15000000596046448,
+        "mean_perturbation": 0.14973287284374237
+      },
+      {
+        "example_idx": 13,
+        "max_perturbation": 0.15000000596046448,
+        "mean_perturbation": 0.14963598549365997
+      },
+      {
+        "example_idx": 14,
+        "max_perturbation": 0.15000000596046448,
+        "mean_perturbation": 0.14975884556770325
+      },
+      {
+        "example_idx": 15,
+        "max_perturbation": 0.15000000596046448,
+        "mean_perturbation": 0.14950187504291534
+      },
+      {
+        "example_idx": 16,
+        "max_perturbation": 0.15000000596046448,
+        "mean_perturbation": 0.14957650005817413
+      },
+      {
+        "example_idx": 17,
+        "max_perturbation": 0.15000000596046448,
+        "mean_perturbation": 0.1498171091079712
+      },
+      {
+        "example_idx": 18,
+        "max_perturbation": 0.15000000596046448,
+        "mean_perturbation": 0.1497623175382614
+      },
+      {
+        "example_idx": 19,
+        "max_perturbation": 0.15000000596046448,
+        "mean_perturbation": 0.14974693953990936
+      }
+    ],
+    [
+      {
+        "example_idx": 0,
+        "max_perturbation": 0.15000000596046448,
+        "mean_perturbation": 0.14967437088489532
+      },
+      {
+        "example_idx": 1,
+        "max_perturbation": 0.15000000596046448,
+        "mean_perturbation": 0.14893269538879395
+      },
+      {
+        "example_idx": 2,
+        "max_perturbation": 0.15000000596046448,
+        "mean_perturbation": 0.14971263706684113
+      },
+      {
+        "example_idx": 3,
+        "max_perturbation": 0.15000000596046448,
+        "mean_perturbation": 0.1496403068304062
+      },
+      {
+        "example_idx": 4,
+        "max_perturbation": 0.15000000596046448,
+        "mean_perturbation": 0.14970751106739044
+      },
+      {
+        "example_idx": 5,
+        "max_perturbation": 0.15000000596046448,
+        "mean_perturbation": 0.1497812718153
+      },
+      {
+        "example_idx": 6,
+        "max_perturbation": 0.15000000596046448,
+        "mean_perturbation": 0.14968615770339966
+      },
+      {
+        "example_idx": 7,
+        "max_perturbation": 0.15000000596046448,
+        "mean_perturbation": 0.149665966629982
+      },
+      {
+        "example_idx": 8,
+        "max_perturbation": 0.15000000596046448,
+        "mean_perturbation": 0.14963757991790771
+      },
+      {
+        "example_idx": 9,
+        "max_perturbation": 0.15000000596046448,
+        "mean_perturbation": 0.1495916098356247
+      },
+      {
+        "example_idx": 10,
+        "max_perturbation": 0.15000000596046448,
+        "mean_perturbation": 0.1497391313314438
+      },
+      {
+        "example_idx": 11,
+        "max_perturbation": 0.15000000596046448,
+        "mean_perturbation": 0.14983870089054108
+      },
+      {
+        "example_idx": 12,
+        "max_perturbation": 0.15000000596046448,
+        "mean_perturbation": 0.14975161850452423
+      },
+      {
+        "example_idx": 13,
+        "max_perturbation": 0.15000000596046448,
+        "mean_perturbation": 0.1496427357196808
+      },
+      {
+        "example_idx": 14,
+        "max_perturbation": 0.15000000596046448,
+        "mean_perturbation": 0.1497870534658432
+      },
+      {
+        "example_idx": 15,
+        "max_perturbation": 0.15000000596046448,
+        "mean_perturbation": 0.14950917661190033
+      },
+      {
+        "example_idx": 16,
+        "max_perturbation": 0.15000000596046448,
+        "mean_perturbation": 0.14959366619586945
+      },
+      {
+        "example_idx": 17,
+        "max_perturbation": 0.15000000596046448,
+        "mean_perturbation": 0.1498328596353531
+      },
+      {
+        "example_idx": 18,
+        "max_perturbation": 0.15000000596046448,
+        "mean_perturbation": 0.1497950702905655
+      },
+      {
+        "example_idx": 19,
+        "max_perturbation": 0.15000000596046448,
+        "mean_perturbation": 0.14980480074882507
+      }
+    ],
+    [
+      {
+        "example_idx": 0,
+        "max_perturbation": 0.15000000596046448,
+        "mean_perturbation": 0.1496790647506714
+      },
+      {
+        "example_idx": 1,
+        "max_perturbation": 0.15000000596046448,
+        "mean_perturbation": 0.14892977476119995
+      },
+      {
+        "example_idx": 2,
+        "max_perturbation": 0.15000000596046448,
+        "mean_perturbation": 0.14973290264606476
+      },
+      {
+        "example_idx": 3,
+        "max_perturbation": 0.15000000596046448,
+        "mean_perturbation": 0.14965863525867462
+      },
+      {
+        "example_idx": 4,
+        "max_perturbation": 0.15000000596046448,
+        "mean_perturbation": 0.1497097760438919
+      },
+      {
+        "example_idx": 5,
+        "max_perturbation": 0.15000000596046448,
+        "mean_perturbation": 0.14979013800621033
+      },
+      {
+        "example_idx": 6,
+        "max_perturbation": 0.15000000596046448,
+        "mean_perturbation": 0.1496899127960205
+      },
+      {
+        "example_idx": 7,
+        "max_perturbation": 0.15000000596046448,
+        "mean_perturbation": 0.14967727661132812
+      },
+      {
+        "example_idx": 8,
+        "max_perturbation": 0.15000000596046448,
+        "mean_perturbation": 0.14966411888599396
+      },
+      {
+        "example_idx": 9,
+        "max_perturbation": 0.15000000596046448,
+        "mean_perturbation": 0.14959977567195892
+      },
+      {
+        "example_idx": 10,
+        "max_perturbation": 0.15000000596046448,
+        "mean_perturbation": 0.149751678109169
+      },
+      {
+        "example_idx": 11,
+        "max_perturbation": 0.15000000596046448,
+        "mean_perturbation": 0.14984339475631714
+      },
+      {
+        "example_idx": 12,
+        "max_perturbation": 0.15000000596046448,
+        "mean_perturbation": 0.14976190030574799
+      },
+      {
+        "example_idx": 13,
+        "max_perturbation": 0.15000000596046448,
+        "mean_perturbation": 0.14967337250709534
+      },
+      {
+        "example_idx": 14,
+        "max_perturbation": 0.15000000596046448,
+        "mean_perturbation": 0.14980080723762512
+      },
+      {
+        "example_idx": 15,
+        "max_perturbation": 0.15000000596046448,
+        "mean_perturbation": 0.14952068030834198
+      },
+      {
+        "example_idx": 16,
+        "max_perturbation": 0.15000000596046448,
+        "mean_perturbation": 0.149614617228508
+      },
+      {
+        "example_idx": 17,
+        "max_perturbation": 0.15000000596046448,
+        "mean_perturbation": 0.14985430240631104
+      },
+      {
+        "example_idx": 18,
+        "max_perturbation": 0.15000000596046448,
+        "mean_perturbation": 0.1498183012008667
+      },
+      {
+        "example_idx": 19,
+        "max_perturbation": 0.15000000596046448,
+        "mean_perturbation": 0.1498224437236786
+      }
+    ],
+    [
+      {
+        "example_idx": 0,
+        "max_perturbation": 0.15000000596046448,
+        "mean_perturbation": 0.14969442784786224
+      },
+      {
+        "example_idx": 1,
+        "max_perturbation": 0.15000000596046448,
+        "mean_perturbation": 0.14893275499343872
+      },
+      {
+        "example_idx": 2,
+        "max_perturbation": 0.15000000596046448,
+        "mean_perturbation": 0.14973486959934235
+      },
+      {
+        "example_idx": 3,
+        "max_perturbation": 0.15000000596046448,
+        "mean_perturbation": 0.14967305958271027
+      },
+      {
+        "example_idx": 4,
+        "max_perturbation": 0.15000000596046448,
+        "mean_perturbation": 0.1497107893228531
+      },
+      {
+        "example_idx": 5,
+        "max_perturbation": 0.15000000596046448,
+        "mean_perturbation": 0.1498050093650818
+      },
+      {
+        "example_idx": 6,
+        "max_perturbation": 0.15000000596046448,
+        "mean_perturbation": 0.1497124582529068
+      },
+      {
+        "example_idx": 7,
+        "max_perturbation": 0.15000000596046448,
+        "mean_perturbation": 0.14967665076255798
+      },
+      {
+        "example_idx": 8,
+        "max_perturbation": 0.15000000596046448,
+        "mean_perturbation": 0.1496717482805252
+      },
+      {
+        "example_idx": 9,
+        "max_perturbation": 0.15000000596046448,
+        "mean_perturbation": 0.14961346983909607
+      },
+      {
+        "example_idx": 10,
+        "max_perturbation": 0.15000000596046448,
+        "mean_perturbation": 0.14976200461387634
+      },
+      {
+        "example_idx": 11,
+        "max_perturbation": 0.15000000596046448,
+        "mean_perturbation": 0.14985111355781555
+      },
+      {
+        "example_idx": 12,
+        "max_perturbation": 0.15000000596046448,
+        "mean_perturbation": 0.14977648854255676
+      },
+      {
+        "example_idx": 13,
+        "max_perturbation": 0.15000000596046448,
+        "mean_perturbation": 0.14969582855701447
+      },
+      {
+        "example_idx": 14,
+        "max_perturbation": 0.15000000596046448,
+        "mean_perturbation": 0.14981000125408173
+      },
+      {
+        "example_idx": 15,
+        "max_perturbation": 0.15000000596046448,
+        "mean_perturbation": 0.14952576160430908
+      },
+      {
+        "example_idx": 16,
+        "max_perturbation": 0.15000000596046448,
+        "mean_perturbation": 0.14963139593601227
+      },
+      {
+        "example_idx": 17,
+        "max_perturbation": 0.15000000596046448,
+        "mean_perturbation": 0.14985504746437073
+      },
+      {
+        "example_idx": 18,
+        "max_perturbation": 0.15000000596046448,
+        "mean_perturbation": 0.14983141422271729
+      },
+      {
+        "example_idx": 19,
+        "max_perturbation": 0.15000000596046448,
+        "mean_perturbation": 0.14982923865318298
+      }
+    ],
+    [
+      {
+        "example_idx": 0,
+        "max_perturbation": 0.15000000596046448,
+        "mean_perturbation": 0.14970099925994873
+      },
+      {
+        "example_idx": 1,
+        "max_perturbation": 0.15000000596046448,
+        "mean_perturbation": 0.14893381297588348
+      },
+      {
+        "example_idx": 2,
+        "max_perturbation": 0.15000000596046448,
+        "mean_perturbation": 0.149749755859375
+      },
+      {
+        "example_idx": 3,
+        "max_perturbation": 0.15000000596046448,
+        "mean_perturbation": 0.1496838480234146
+      },
+      {
+        "example_idx": 4,
+        "max_perturbation": 0.15000000596046448,
+        "mean_perturbation": 0.14972715079784393
+      },
+      {
+        "example_idx": 5,
+        "max_perturbation": 0.15000000596046448,
+        "mean_perturbation": 0.14980241656303406
+      },
+      {
+        "example_idx": 6,
+        "max_perturbation": 0.15000000596046448,
+        "mean_perturbation": 0.14971879124641418
+      },
+      {
+        "example_idx": 7,
+        "max_perturbation": 0.15000000596046448,
+        "mean_perturbation": 0.14968904852867126
+      },
+      {
+        "example_idx": 8,
+        "max_perturbation": 0.15000000596046448,
+        "mean_perturbation": 0.14967989921569824
+      },
+      {
+        "example_idx": 9,
+        "max_perturbation": 0.15000000596046448,
+        "mean_perturbation": 0.14962352812290192
+      },
+      {
+        "example_idx": 10,
+        "max_perturbation": 0.15000000596046448,
+        "mean_perturbation": 0.14977231621742249
+      },
+      {
+        "example_idx": 11,
+        "max_perturbation": 0.15000000596046448,
+        "mean_perturbation": 0.14985421299934387
+      },
+      {
+        "example_idx": 12,
+        "max_perturbation": 0.15000000596046448,
+        "mean_perturbation": 0.14976967871189117
+      },
+      {
+        "example_idx": 13,
+        "max_perturbation": 0.15000000596046448,
+        "mean_perturbation": 0.14970135688781738
+      },
+      {
+        "example_idx": 14,
+        "max_perturbation": 0.15000000596046448,
+        "mean_perturbation": 0.14982940256595612
+      },
+      {
+        "example_idx": 15,
+        "max_perturbation": 0.15000000596046448,
+        "mean_perturbation": 0.14953264594078064
+      },
+      {
+        "example_idx": 16,
+        "max_perturbation": 0.15000000596046448,
+        "mean_perturbation": 0.14963550865650177
+      },
+      {
+        "example_idx": 17,
+        "max_perturbation": 0.15000000596046448,
+        "mean_perturbation": 0.14985975623130798
+      },
+      {
+        "example_idx": 18,
+        "max_perturbation": 0.15000000596046448,
+        "mean_perturbation": 0.14983300864696503
+      },
+      {
+        "example_idx": 19,
+        "max_perturbation": 0.15000000596046448,
+        "mean_perturbation": 0.14984148740768433
+      }
+    ],
+    [
+      {
+        "example_idx": 0,
+        "max_perturbation": 0.15000000596046448,
+        "mean_perturbation": 0.1497107446193695
+      },
+      {
+        "example_idx": 1,
+        "max_perturbation": 0.15000000596046448,
+        "mean_perturbation": 0.14893245697021484
+      },
+      {
+        "example_idx": 2,
+        "max_perturbation": 0.15000000596046448,
+        "mean_perturbation": 0.14974918961524963
+      },
+      {
+        "example_idx": 3,
+        "max_perturbation": 0.15000000596046448,
+        "mean_perturbation": 0.1496935337781906
+      },
+      {
+        "example_idx": 4,
+        "max_perturbation": 0.15000000596046448,
+        "mean_perturbation": 0.1497308909893036
+      },
+      {
+        "example_idx": 5,
+        "max_perturbation": 0.15000000596046448,
+        "mean_perturbation": 0.1498091220855713
+      },
+      {
+        "example_idx": 6,
+        "max_perturbation": 0.15000000596046448,
+        "mean_perturbation": 0.14972205460071564
+      },
+      {
+        "example_idx": 7,
+        "max_perturbation": 0.15000000596046448,
+        "mean_perturbation": 0.14969517290592194
+      },
+      {
+        "example_idx": 8,
+        "max_perturbation": 0.15000000596046448,
+        "mean_perturbation": 0.1496889889240265
+      },
+      {
+        "example_idx": 9,
+        "max_perturbation": 0.15000000596046448,
+        "mean_perturbation": 0.14962255954742432
+      },
+      {
+        "example_idx": 10,
+        "max_perturbation": 0.15000000596046448,
+        "mean_perturbation": 0.14978134632110596
+      },
+      {
+        "example_idx": 11,
+        "max_perturbation": 0.15000000596046448,
+        "mean_perturbation": 0.14986899495124817
+      },
+      {
+        "example_idx": 12,
+        "max_perturbation": 0.15000000596046448,
+        "mean_perturbation": 0.1497870832681656
+      },
+      {
+        "example_idx": 13,
+        "max_perturbation": 0.15000000596046448,
+        "mean_perturbation": 0.14970681071281433
+      },
+      {
+        "example_idx": 14,
+        "max_perturbation": 0.15000000596046448,
+        "mean_perturbation": 0.14983944594860077
+      },
+      {
+        "example_idx": 15,
+        "max_perturbation": 0.15000000596046448,
+        "mean_perturbation": 0.14953941106796265
+      },
+      {
+        "example_idx": 16,
+        "max_perturbation": 0.15000000596046448,
+        "mean_perturbation": 0.14964258670806885
+      },
+      {
+        "example_idx": 17,
+        "max_perturbation": 0.15000000596046448,
+        "mean_perturbation": 0.14985710382461548
+      },
+      {
+        "example_idx": 18,
+        "max_perturbation": 0.15000000596046448,
+        "mean_perturbation": 0.1498377025127411
+      },
+      {
+        "example_idx": 19,
+        "max_perturbation": 0.15000000596046448,
+        "mean_perturbation": 0.14983706176280975
+      }
+    ],
+    [
+      {
+        "example_idx": 0,
+        "max_perturbation": 0.15000000596046448,
+        "mean_perturbation": 0.149714395403862
+      },
+      {
+        "example_idx": 1,
+        "max_perturbation": 0.15000000596046448,
+        "mean_perturbation": 0.14893442392349243
+      },
+      {
+        "example_idx": 2,
+        "max_perturbation": 0.15000000596046448,
+        "mean_perturbation": 0.14975178241729736
+      },
+      {
+        "example_idx": 3,
+        "max_perturbation": 0.15000000596046448,
+        "mean_perturbation": 0.14969520270824432
+      },
+      {
+        "example_idx": 4,
+        "max_perturbation": 0.15000000596046448,
+        "mean_perturbation": 0.14973202347755432
+      },
+      {
+        "example_idx": 5,
+        "max_perturbation": 0.15000000596046448,
+        "mean_perturbation": 0.14980903267860413
+      },
+      {
+        "example_idx": 6,
+        "max_perturbation": 0.15000000596046448,
+        "mean_perturbation": 0.1497318595647812
+      },
+      {
+        "example_idx": 7,
+        "max_perturbation": 0.15000000596046448,
+        "mean_perturbation": 0.1497025191783905
+      },
+      {
+        "example_idx": 8,
+        "max_perturbation": 0.15000000596046448,
+        "mean_perturbation": 0.14969177544116974
+      },
+      {
+        "example_idx": 9,
+        "max_perturbation": 0.15000000596046448,
+        "mean_perturbation": 0.14962981641292572
+      },
+      {
+        "example_idx": 10,
+        "max_perturbation": 0.15000000596046448,
+        "mean_perturbation": 0.14979173243045807
+      },
+      {
+        "example_idx": 11,
+        "max_perturbation": 0.15000000596046448,
+        "mean_perturbation": 0.1498653143644333
+      },
+      {
+        "example_idx": 12,
+        "max_perturbation": 0.15000000596046448,
+        "mean_perturbation": 0.1497902125120163
+      },
+      {
+        "example_idx": 13,
+        "max_perturbation": 0.15000000596046448,
+        "mean_perturbation": 0.14971134066581726
+      },
+      {
+        "example_idx": 14,
+        "max_perturbation": 0.15000000596046448,
+        "mean_perturbation": 0.1498485952615738
+      },
+      {
+        "example_idx": 15,
+        "max_perturbation": 0.15000000596046448,
+        "mean_perturbation": 0.14953726530075073
+      },
+      {
+        "example_idx": 16,
+        "max_perturbation": 0.15000000596046448,
+        "mean_perturbation": 0.14964550733566284
+      },
+      {
+        "example_idx": 17,
+        "max_perturbation": 0.15000000596046448,
+        "mean_perturbation": 0.1498652845621109
+      },
+      {
+        "example_idx": 18,
+        "max_perturbation": 0.15000000596046448,
+        "mean_perturbation": 0.14984655380249023
+      },
+      {
+        "example_idx": 19,
+        "max_perturbation": 0.15000000596046448,
+        "mean_perturbation": 0.14984610676765442
+      }
+    ],
+    [
+      {
+        "example_idx": 0,
+        "max_perturbation": 0.15000000596046448,
+        "mean_perturbation": 0.1497219353914261
+      },
+      {
+        "example_idx": 1,
+        "max_perturbation": 0.15000000596046448,
+        "mean_perturbation": 0.14893507957458496
+      },
+      {
+        "example_idx": 2,
+        "max_perturbation": 0.15000000596046448,
+        "mean_perturbation": 0.14975474774837494
+      },
+      {
+        "example_idx": 3,
+        "max_perturbation": 0.15000000596046448,
+        "mean_perturbation": 0.14970076084136963
+      },
+      {
+        "example_idx": 4,
+        "max_perturbation": 0.15000000596046448,
+        "mean_perturbation": 0.1497316062450409
+      },
+      {
+        "example_idx": 5,
+        "max_perturbation": 0.15000000596046448,
+        "mean_perturbation": 0.1498108059167862
+      },
+      {
+        "example_idx": 6,
+        "max_perturbation": 0.15000000596046448,
+        "mean_perturbation": 0.14973099529743195
+      },
+      {
+        "example_idx": 7,
+        "max_perturbation": 0.15000000596046448,
+        "mean_perturbation": 0.14969569444656372
+      },
+      {
+        "example_idx": 8,
+        "max_perturbation": 0.15000000596046448,
+        "mean_perturbation": 0.14969834685325623
+      },
+      {
+        "example_idx": 9,
+        "max_perturbation": 0.15000000596046448,
+        "mean_perturbation": 0.14963074028491974
+      },
+      {
+        "example_idx": 10,
+        "max_perturbation": 0.15000000596046448,
+        "mean_perturbation": 0.14978675544261932
+      },
+      {
+        "example_idx": 11,
+        "max_perturbation": 0.15000000596046448,
+        "mean_perturbation": 0.14986537396907806
+      },
+      {
+        "example_idx": 12,
+        "max_perturbation": 0.15000000596046448,
+        "mean_perturbation": 0.14978979527950287
+      },
+      {
+        "example_idx": 13,
+        "max_perturbation": 0.15000000596046448,
+        "mean_perturbation": 0.14971505105495453
+      },
+      {
+        "example_idx": 14,
+        "max_perturbation": 0.15000000596046448,
+        "mean_perturbation": 0.14985784888267517
+      },
+      {
+        "example_idx": 15,
+        "max_perturbation": 0.15000000596046448,
+        "mean_perturbation": 0.14954233169555664
+      },
+      {
+        "example_idx": 16,
+        "max_perturbation": 0.15000000596046448,
+        "mean_perturbation": 0.14965075254440308
+      },
+      {
+        "example_idx": 17,
+        "max_perturbation": 0.15000000596046448,
+        "mean_perturbation": 0.14986534416675568
+      },
+      {
+        "example_idx": 18,
+        "max_perturbation": 0.15000000596046448,
+        "mean_perturbation": 0.14984378218650818
+      },
+      {
+        "example_idx": 19,
+        "max_perturbation": 0.15000000596046448,
+        "mean_perturbation": 0.14984625577926636
+      }
+    ]
+  ]
+}
