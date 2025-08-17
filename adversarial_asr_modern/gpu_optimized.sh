@@ -36,7 +36,7 @@ case $MODE in
     "quick")
         echo "Running QUICK test (5 examples, minimal iterations)..."
         NUM_EXAMPLES=5
-        NUM_ITER_STAGE1=50
+        NUM_ITER_STAGE1=1000
         NUM_ITER_STAGE2=10
         BATCH_SIZE=5
         ;;

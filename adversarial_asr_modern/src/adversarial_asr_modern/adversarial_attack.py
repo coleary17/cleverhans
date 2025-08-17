@@ -193,6 +193,14 @@ class AdversarialAttack:
         best_deltas = [None] * self.batch_size
         attack_results = []
         
+        # Track progress over iterations
+        iteration_history = {
+            'iterations': [],
+            'losses': [],
+            'transcriptions': [],
+            'perturbation_stats': []
+        }
+        
         # Initial transcriptions
         print("\n[INITIAL STATE]")
         for i, (original_text, target_text) in enumerate(zip(original_texts, target_texts)):
@@ -258,21 +266,18 @@ class AdversarialAttack:
             if total_loss > 0:
                 total_loss.backward()
                 
-                # CRITICAL: Use signed gradients like the original paper
-                # This is key to making the attack work!
                 if delta.grad is not None:
                     # Option 1: Sign the gradients (original method)
-                    # delta.grad.sign_()
+                    delta.grad.sign_()
                     
-                    # Option 2: Clip gradients
-                    torch.nn.utils.clip_grad_norm_([delta], max_norm=1.0)
-                
                 optimizer.step()
             
             # Log predictions at specified intervals (reduce frequency for speed)
             should_log = (iteration % self.log_interval == 0) or (iteration == self.num_iter_stage1 - 1)
             # Only check transcriptions less frequently to save time
             should_check_transcription = (iteration % (self.log_interval * 5) == 0) or (iteration == self.num_iter_stage1 - 1)
+            # Save detailed history every 100 iterations
+            should_save_history = (iteration % 100 == 0) or (iteration == self.num_iter_stage1 - 1)
             
             # Early stopping check - if all examples succeeded, we can stop
             if all(s != -1 for s in success_iterations[:min(self.batch_size, audios.shape[0])]):
@@ -281,6 +286,46 @@ class AdversarialAttack:
             
             # Track iteration time
             iteration_times.append(time.time() - iter_start)
+            
+            # Save history every 100 iterations
+            if should_save_history:
+                history_entry = {
+                    'iteration': iteration,
+                    'total_loss': total_loss.item() if torch.is_tensor(total_loss) else total_loss,
+                    'individual_losses': individual_losses.copy(),
+                    'transcriptions': [],
+                    'perturbation_stats': []
+                }
+                
+                # Get transcriptions and stats for all examples
+                for i in range(min(self.batch_size, audios.shape[0])):
+                    audio_sample_np = perturbed_audio[i, :lengths[i]].detach().cpu().numpy()
+                    pred = self.asr_model.transcribe(audio_sample_np)
+                    
+                    perturbation = (perturbed_audio[i, :lengths[i]] - audios[i, :lengths[i]]).detach()
+                    max_pert = torch.max(torch.abs(perturbation)).item()
+                    mean_pert = torch.mean(torch.abs(perturbation)).item()
+                    
+                    history_entry['transcriptions'].append({
+                        'example_idx': i,
+                        'target': target_texts[i],
+                        'prediction': pred,
+                        'success': pred.lower().strip() == target_texts[i].lower().strip()
+                    })
+                    
+                    history_entry['perturbation_stats'].append({
+                        'example_idx': i,
+                        'max_perturbation': max_pert,
+                        'mean_perturbation': mean_pert
+                    })
+                
+                iteration_history['iterations'].append(iteration)
+                iteration_history['losses'].append(history_entry['individual_losses'])
+                iteration_history['transcriptions'].append(history_entry['transcriptions'])
+                iteration_history['perturbation_stats'].append(history_entry['perturbation_stats'])
+                
+                if self.verbose:
+                    print(f"[Iteration {iteration}] Saved history checkpoint")
             
             if should_log or self.verbose:
                 avg_time = np.mean(iteration_times[-min(50, len(iteration_times)):])  # Average of last 50 iterations
@@ -395,7 +440,8 @@ class AdversarialAttack:
                 'final_loss': loss_val,
                 'max_perturbation': max_pert,
                 'mean_perturbation': mean_pert,
-                'stage': 'stage1'
+                'stage': 'stage1',
+                'iteration_history': iteration_history if i == 0 else None  # Add history only to first result to avoid duplication
             }
             attack_results.append(result)
             
@@ -872,7 +918,19 @@ class AdversarialAttack:
         """Save attack results to CSV or JSON file."""
         filepath = Path(filepath)
         
+        # Extract iteration history from results (if present)
+        iteration_history = None
+        for result in results:
+            if result.get('iteration_history'):
+                iteration_history = result['iteration_history']
+                # Remove from result to avoid issues with CSV format
+                del result['iteration_history']
+                break
+        
         if filepath.suffix == '.json':
+            # For JSON, we can include the iteration history
+            if iteration_history:
+                results[0]['iteration_history'] = iteration_history
             with open(filepath, 'w') as f:
                 json.dump(results, f, indent=2)
             print(f"\nResults saved to {filepath} (JSON format)")
@@ -881,6 +939,13 @@ class AdversarialAttack:
             df = pd.DataFrame(results)
             df.to_csv(filepath, index=False)
             print(f"\nResults saved to {filepath} (CSV format)")
+            
+            # Save iteration history to separate file if present
+            if iteration_history:
+                history_filepath = filepath.with_suffix('').with_name(filepath.stem + '_history.json')
+                with open(history_filepath, 'w') as f:
+                    json.dump(iteration_history, f, indent=2)
+                print(f"Iteration history saved to {history_filepath}")
     
     def print_summary(self, results: List[Dict]):
         """Print summary statistics of attack results."""
