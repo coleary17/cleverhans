@@ -16,7 +16,8 @@ import json
 from datetime import datetime
 
 from .audio_utils import (
-    WhisperASRModel, ParallelWhisperASRModel, load_audio_file, save_audio_file, 
+    WhisperASRModel, ParallelWhisperASRModel, DataParallelWhisperModel,
+    load_audio_file, save_audio_file, 
     audio_to_tensor, tensor_to_audio, parse_data_file
 )
 from .masking_threshold import generate_th, Transform
@@ -87,20 +88,33 @@ class AdversarialAttack:
         self.use_parallel = use_parallel
         self.num_parallel_models = num_parallel_models
         
-        # Initialize ASR model (parallel or single)
+        # Initialize ASR model (DataParallel, parallel threading, or single)
         if use_parallel and batch_size > 1:
-            print(f"Using parallel processing with {num_parallel_models} Whisper models")
-            self.asr_model = ParallelWhisperASRModel(
-                num_models=num_parallel_models, 
-                model_name=model_name, 
-                device=self.device
-            )
-            self.parallel_mode = True
+            # Try DataParallel first (best for GPU utilization)
+            if str(self.device).startswith('cuda'):
+                print(f"Using DataParallel for better GPU utilization")
+                self.asr_model = DataParallelWhisperModel(
+                    model_name=model_name, 
+                    device=self.device
+                )
+                self.parallel_mode = True
+                self.parallel_type = 'dataparallel'
+            else:
+                # Fall back to threading-based parallel for non-CUDA
+                print(f"Using thread-based parallel processing with {num_parallel_models} Whisper models")
+                self.asr_model = ParallelWhisperASRModel(
+                    num_models=num_parallel_models, 
+                    model_name=model_name, 
+                    device=self.device
+                )
+                self.parallel_mode = True
+                self.parallel_type = 'threading'
         else:
             if use_parallel and batch_size <= 1:
                 print("Parallel mode disabled: batch_size <= 1")
             self.asr_model = WhisperASRModel(model_name, device=self.device)
             self.parallel_mode = False
+            self.parallel_type = None
         
         # Initialize transform for PSD computation
         self.transform = Transform(window_size, device=self.device)
@@ -261,27 +275,63 @@ class AdversarialAttack:
             try:
                 batch_size_actual = min(self.batch_size, audios.shape[0])
                 
-                # Use parallel processing if available
-                if self.parallel_mode and batch_size_actual > 1:
-                    # PARALLEL PROCESSING - Much faster for large batches!
+                # Skip batched computation since it's not faster for Whisper
+                # Try batched computation first (fastest)
+                if False and hasattr(self.asr_model, 'compute_loss_batch') and batch_size_actual > 1:
+                    # BATCHED PROCESSING - Single forward pass for all examples!
                     if iteration == 0:
-                        print(f"🚀 Using parallel processing with {self.num_parallel_models} models for batch size {batch_size_actual}")
+                        print(f"⚡ Using BATCHED processing for batch size {batch_size_actual}")
+                        print(f"   Computing all {batch_size_actual} losses in a single forward pass")
+                    
+                    batch_start = time.time()
+                    # Prepare audio batch
+                    audio_list = [perturbed_audio[i, :lengths[i]] for i in range(batch_size_actual)]
+                    losses = self.asr_model.compute_loss_batch(audio_list, target_texts[:batch_size_actual])
+                    batch_time = time.time() - batch_start
+                    
+                    if iteration % 100 == 0:
+                        print(f"   [DEBUG] Batched loss computation took {batch_time:.3f}s for {batch_size_actual} examples")
+                
+                # Use parallel processing if available
+                elif self.parallel_mode and batch_size_actual > 1:
+                    if iteration == 0:
+                        if self.parallel_type == 'dataparallel':
+                            print(f"⚡ Using DataParallel for batch size {batch_size_actual}")
+                            print(f"   GPU-optimized parallel processing")
+                        else:
+                            print(f"🚀 Using thread-based parallel with {self.num_parallel_models} models for batch size {batch_size_actual}")
                     
                     # Compute all losses in parallel
-                    losses = self.asr_model.compute_losses_parallel(
-                        perturbed_audio[:batch_size_actual],
-                        target_texts[:batch_size_actual],
-                        lengths[:batch_size_actual]
-                    )
+                    parallel_start = time.time()
+                    
+                    if self.parallel_type == 'dataparallel':
+                        # Use DataParallel's optimized method
+                        audio_list = [perturbed_audio[i, :lengths[i]] for i in range(batch_size_actual)]
+                        losses = self.asr_model.compute_loss_parallel(audio_list, target_texts[:batch_size_actual])
+                    else:
+                        # Use threading-based parallel
+                        losses = self.asr_model.compute_losses_parallel(
+                            perturbed_audio[:batch_size_actual],
+                            target_texts[:batch_size_actual],
+                            lengths[:batch_size_actual]
+                        )
+                    
+                    parallel_time = time.time() - parallel_start
+                    if iteration % 100 == 0:
+                        method = "DataParallel" if self.parallel_type == 'dataparallel' else "Threading"
+                        print(f"   [DEBUG] {method} loss computation took {parallel_time:.3f}s for {batch_size_actual} examples")
                 else:
                     # SEQUENTIAL PROCESSING - Original behavior
                     losses = []
                     
                     # WARNING: Large batch sizes will be very slow with sequential processing!
-                    if batch_size_actual > 20 and iteration == 0 and not self.parallel_mode:
-                        print(f"⚠️  WARNING: Batch size {batch_size_actual} with sequential loss computation will be VERY SLOW!")
-                        print(f"   Each iteration will require {batch_size_actual} sequential Whisper forward passes.")
-                        print(f"   Consider enabling parallel mode or reducing batch_size to 5-10.")
+                    if iteration == 0:
+                        print(f"📊 Using SEQUENTIAL processing for batch size {batch_size_actual}")
+                        print(f"   Parallel mode: {self.parallel_mode}, Batch > 1: {batch_size_actual > 1}")
+                        if batch_size_actual > 20 and not self.parallel_mode:
+                            print(f"⚠️  WARNING: Batch size {batch_size_actual} with sequential loss computation will be VERY SLOW!")
+                            print(f"   Each iteration will require {batch_size_actual} sequential Whisper forward passes.")
+                            print(f"   Consider enabling parallel mode or reducing batch_size to 5-10.")
                     
                     # Process in smaller sub-batches if needed for memory
                     sub_batch_size = min(50, batch_size_actual)
@@ -403,7 +453,7 @@ class AdversarialAttack:
                 avg_time = np.mean(iteration_times[-min(50, len(iteration_times)):])
                 est_remaining = avg_time * (self.num_iter_stage1 - iteration - 1)
                 loss_time = timing_breakdown.get('loss_computation', 0)
-                print(f"[Iteration {iteration}/{self.num_iter_stage1}] Loss: {total_loss:.4f} [{avg_time:.2f}s/iter, Loss comp: {loss_time:.1f}s, ETA: {est_remaining/60:.1f}min]")
+                print(f"[Iteration {iteration}/{self.num_iter_stage1}] Loss: {total_loss:.4f} [{avg_time:.2f}s/iter, Loss comp: {loss_time:.4f}s, ETA: {est_remaining/60:.1f}min]")
             
             # Full logging with transcriptions (every 100 iterations)
             if should_full_log:
