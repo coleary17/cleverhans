@@ -1,0 +1,1518 @@
+{
+  "iterations": [
+    0,
+    100,
+    200,
+    300,
+    400,
+    500,
+    600,
+    700,
+    800,
+    900,
+    999
+  ],
+  "losses": [
+    [
+      10.183685302734375,
+      9.850528717041016,
+      10.1121826171875,
+      9.807785987854004,
+      10.610257148742676,
+      9.495201110839844,
+      10.384244918823242,
+      9.989006996154785,
+      Infinity,
+      9.807585716247559
+    ],
+    [
+      10.922760009765625,
+      10.672564506530762,
+      11.3681640625,
+      10.319841384887695,
+      11.073714256286621,
+      10.591629028320312,
+      11.340104103088379,
+      10.431249618530273,
+      Infinity,
+      11.41645622253418
+    ],
+    [
+      11.48175048828125,
+      10.817669868469238,
+      10.4129638671875,
+      11.140759468078613,
+      10.529359817504883,
+      Infinity,
+      10.648177146911621,
+      11.409486770629883,
+      Infinity,
+      9.920047760009766
+    ],
+    [
+      10.81756591796875,
+      10.592716217041016,
+      11.1962890625,
+      10.152950286865234,
+      11.546370506286621,
+      Infinity,
+      11.712890625,
+      10.406919479370117,
+      Infinity,
+      9.273500442504883
+    ],
+    [
+      10.583282470703125,
+      11.388786315917969,
+      10.5072021484375,
+      9.985991477966309,
+      11.723790168762207,
+      Infinity,
+      11.527604103088379,
+      11.052231788635254,
+      Infinity,
+      11.143082618713379
+    ],
+    [
+      11.15240478515625,
+      11.372587203979492,
+      10.3348388671875,
+      11.031856536865234,
+      11.390247344970703,
+      Infinity,
+      12.060286521911621,
+      10.278905868530273,
+      Infinity,
+      9.76877498626709
+    ],
+    [
+      11.36572265625,
+      11.434110641479492,
+      11.63671875,
+      10.987473487854004,
+      11.552041053771973,
+      Infinity,
+      12.581900596618652,
+      10.311049461364746,
+      Infinity,
+      9.827242851257324
+    ],
+    [
+      11.20123291015625,
+      11.588350296020508,
+      11.4796142578125,
+      9.887526512145996,
+      11.978200912475586,
+      Infinity,
+      10.836849212646484,
+      10.803460121154785,
+      Infinity,
+      9.855531692504883
+    ],
+    [
+      11.1922607421875,
+      11.453010559082031,
+      11.36767578125,
+      9.466460227966309,
+      11.34375,
+      Infinity,
+      10.917577743530273,
+      10.859431266784668,
+      Infinity,
+      10.25661563873291
+    ],
+    [
+      10.90484619140625,
+      10.58869457244873,
+      10.0660400390625,
+      Infinity,
+      11.257938385009766,
+      Infinity,
+      11.075780868530273,
+      10.703068733215332,
+      Infinity,
+      10.354083061218262
+    ],
+    [
+      10.91326904296875,
+      11.094783782958984,
+      10.8817138671875,
+      Infinity,
+      11.560483932495117,
+      Infinity,
+      11.946874618530273,
+      11.109709739685059,
+      Infinity,
+      10.855973243713379
+    ]
+  ],
+  "transcriptions": [
+    [
+      {
+        "example_idx": 0,
+        "original": "THE MORE SHE IS ENGAGED IN HER PROPER DUTIES THE LESS LEISURE WILL SHE HAVE FOR IT EVEN AS AN ACCOMPLISHMENT AND A RECREATION",
+        "target": "OLD WILL IS A FINE FELLOW BUT POOR AND HELPLESS SINCE MISSUS ROGERS HAD HER ACCIDENT",
+        "prediction": "The more she's engaged in her proper duties, the less leisure will she have for it, even as an accomplishment and a recreation.",
+        "success": false
+      },
+      {
+        "example_idx": 1,
+        "original": "AND HENCE WE FIND THE SAME SORT OF CLUMSINESS IN THE TIMAEUS OF PLATO WHICH CHARACTERIZES THE PHILOSOPHICAL POEM OF LUCRETIUS",
+        "target": "THE WOOD FLAMED UP SPLENDIDLY UNDER THE LARGE BREWING COPPER AND IT SIGHED SO DEEPLY",
+        "prediction": "And hence, we find the same sort of clumsiness in the timayas of Plato, which characterizes the philosophical poem of Lucretius.",
+        "success": false
+      },
+      {
+        "example_idx": 2,
+        "original": "ALTHOUGH THE BRETHREN WITH ME ARE NOT APOSTLES LIKE MYSELF YET THEY ARE ALL OF ONE MIND WITH ME THINK WRITE AND TEACH AS I DO",
+        "target": "I WOULD FAIN KNOW IF I AM DESTINED FOR SO GLORIOUS A CAREER CRIED THE TREE REJOICING",
+        "prediction": "Although the brethren with me are not apostles like myself, yet they are all of one mind with me, think, write, and teach as I do.",
+        "success": false
+      },
+      {
+        "example_idx": 3,
+        "original": "HE OBTAINED THE DESIRED SPEED AND LOAD WITH A FRICTION BRAKE ALSO REGULATOR OF SPEED BUT WAITED FOR AN INDICATOR TO VERIFY IT",
+        "target": "WE WILL GO OUT TOGETHER TO THE BOWER THERE IS A WAY DOWN TO THE COURT FROM MY WINDOW",
+        "prediction": "He obtained the desired speed and load with a friction break, also a regulator of speed, but waited for an indicator to verify it.",
+        "success": false
+      },
+      {
+        "example_idx": 4,
+        "original": "THERE MAY BE A SPECIFIC FEELING WHICH COULD BE CALLED THE FEELING OF PASTNESS ESPECIALLY WHERE IMMEDIATE MEMORY IS CONCERNED",
+        "target": "FINALLY THE ONE PARTY WENT OFF EXULTING AND THE OTHER WAS LEFT IN DESOLATION AND WOE",
+        "prediction": "There may be a specific feeling which could be called the feeling of pastness, especially where immediate memory is concerned.",
+        "success": false
+      },
+      {
+        "example_idx": 5,
+        "original": "BY QUICK MARCHES THROUGH THESE INACCESSIBLE MOUNTAINS THAT GENERAL FREED HIMSELF FROM THE SUPERIOR FORCES OF THE COVENANTERS",
+        "target": "SHE BLUSHED AND SMILED AND FUMBLED HIS CARD IN HER CONFUSION BEFORE SHE RAN UPSTAIRS",
+        "prediction": "By quick marches through these inaccessible mountains, that General freed himself from the superior forces of the Covenanters.",
+        "success": false
+      },
+      {
+        "example_idx": 6,
+        "original": "HAVE YOUR WILL CHILD IF THE BOY ALSO WILLS IT MONTFICHET ANSWERED FEELING TOO ILL TO OPPOSE ANYTHING VERY STRONGLY JUST THEN",
+        "target": "THE MODERN ORGANIZATION OF INDUSTRY WORKS IN THE SAME DIRECTION ALSO BY ANOTHER LINE",
+        "prediction": "Have your will, child, if the boy also wields it, Montfysche answered, feeling too ill to oppose anything very strongly just then.",
+        "success": false
+      },
+      {
+        "example_idx": 7,
+        "original": "HE GAVE WAY TO THE OTHERS VERY READILY AND RETREATED UNPERCEIVED BY THE SQUIRE AND MISTRESS FITZOOTH TO THE REAR OF THE TENT",
+        "target": "ISN'T HE SPLENDID CRIED JASPER IN INTENSE PRIDE SWELLING UP FATHER KNEW HOW TO DO IT",
+        "prediction": "He gave way to the others very readily and retreated unperceived by the squire and Mistress Fitz Ooth to the rear of the tent.",
+        "success": false
+      },
+      {
+        "example_idx": 8,
+        "original": "A LITTLE CRACKED THAT IN THE POPULAR PHRASE WAS MY IMPRESSION OF THE STRANGER WHO NOW MADE HIS APPEARANCE IN THE SUPPER ROOM",
+        "target": "HER REGARD SHIFTED TO THE GREEN STALKS AND LEAVES AGAIN AND SHE STARTED TO MOVE AWAY",
+        "prediction": "A little cracked, that, in the popular phrase, was my impression of the stranger who now made his appearance in the supper room.",
+        "success": false
+      },
+      {
+        "example_idx": 9,
+        "original": "THE LOG AND THE COMPASS THEREFORE WERE ABLE TO BE CALLED UPON TO DO THE WORK OF THE SEXTANT WHICH HAD BECOME UTTERLY USELESS",
+        "target": "WHEN WE WERE OUT IN THE DARKNESS OF THE QUADRANGLE WE AGAIN LOOKED UP AT THE WINDOWS",
+        "prediction": "The log and the compass, therefore, were able to be called upon to do the work of the sextant, which had become utterly useless.",
+        "success": false
+      }
+    ],
+    [
+      {
+        "example_idx": 0,
+        "original": "THE MORE SHE IS ENGAGED IN HER PROPER DUTIES THE LESS LEISURE WILL SHE HAVE FOR IT EVEN AS AN ACCOMPLISHMENT AND A RECREATION",
+        "target": "OLD WILL IS A FINE FELLOW BUT POOR AND HELPLESS SINCE MISSUS ROGERS HAD HER ACCIDENT",
+        "prediction": "The",
+        "success": false
+      },
+      {
+        "example_idx": 1,
+        "original": "AND HENCE WE FIND THE SAME SORT OF CLUMSINESS IN THE TIMAEUS OF PLATO WHICH CHARACTERIZES THE PHILOSOPHICAL POEM OF LUCRETIUS",
+        "target": "THE WOOD FLAMED UP SPLENDIDLY UNDER THE LARGE BREWING COPPER AND IT SIGHED SO DEEPLY",
+        "prediction": "and it's something that is a little bit difficult, as in what we're going to do in the future.",
+        "success": false
+      },
+      {
+        "example_idx": 2,
+        "original": "ALTHOUGH THE BRETHREN WITH ME ARE NOT APOSTLES LIKE MYSELF YET THEY ARE ALL OF ONE MIND WITH ME THINK WRITE AND TEACH AS I DO",
+        "target": "I WOULD FAIN KNOW IF I AM DESTINED FOR SO GLORIOUS A CAREER CRIED THE TREE REJOICING",
+        "prediction": "So, the problem with the email is that the email is the same as the email that the email is the same as the email that the email is the same as the email that the email is the same as the email that the email is the same as the email that the email is the same as the email that the email is the same as the email that the email is the same as the email that the email is the same as the email that the email is the same as the email that the email is the same as the email that the email is the same as the email that the email is the same as the email that the email is the same as the email that the email is the same as the email that the email is the same as the email that the email is the same as the email that the email is the same as the email that the email is the same as the email that the email is the same as the email that the email is the same as the email that the email is the same as the email that the email is the same as the email that the email is the same as the email that the email is the same as the email that the email is the same as the email that the email is the same as the email that the email is the same as the email that the email is the same as the email that the email is the same as the email that the email is the same as the email that the email is the same as the email that the email is the same as the email that the email is the same as the email that the email is the same as the email that the email is the same as the email that the email is the same as the email that the email is the same as the email that the email is the same as the email that the email is the same as the email that the email is the same as the email that the email is the same as the email that the email is the same as the email that the email that the email is the email that the email that the email is the email that the email that the email is the email that the email that the email is the email that the email that the email is the email that the email that",
+        "success": false
+      },
+      {
+        "example_idx": 3,
+        "original": "HE OBTAINED THE DESIRED SPEED AND LOAD WITH A FRICTION BRAKE ALSO REGULATOR OF SPEED BUT WAITED FOR AN INDICATOR TO VERIFY IT",
+        "target": "WE WILL GO OUT TOGETHER TO THE BOWER THERE IS A WAY DOWN TO THE COURT FROM MY WINDOW",
+        "prediction": "Where is it corn? Where is it corn? Where is it corn?",
+        "success": false
+      },
+      {
+        "example_idx": 4,
+        "original": "THERE MAY BE A SPECIFIC FEELING WHICH COULD BE CALLED THE FEELING OF PASTNESS ESPECIALLY WHERE IMMEDIATE MEMORY IS CONCERNED",
+        "target": "FINALLY THE ONE PARTY WENT OFF EXULTING AND THE OTHER WAS LEFT IN DESOLATION AND WOE",
+        "prediction": "This is the most beautiful thing in the world.",
+        "success": false
+      },
+      {
+        "example_idx": 5,
+        "original": "BY QUICK MARCHES THROUGH THESE INACCESSIBLE MOUNTAINS THAT GENERAL FREED HIMSELF FROM THE SUPERIOR FORCES OF THE COVENANTERS",
+        "target": "SHE BLUSHED AND SMILED AND FUMBLED HIS CARD IN HER CONFUSION BEFORE SHE RAN UPSTAIRS",
+        "prediction": "I'm",
+        "success": false
+      },
+      {
+        "example_idx": 6,
+        "original": "HAVE YOUR WILL CHILD IF THE BOY ALSO WILLS IT MONTFICHET ANSWERED FEELING TOO ILL TO OPPOSE ANYTHING VERY STRONGLY JUST THEN",
+        "target": "THE MODERN ORGANIZATION OF INDUSTRY WORKS IN THE SAME DIRECTION ALSO BY ANOTHER LINE",
+        "prediction": "The",
+        "success": false
+      },
+      {
+        "example_idx": 7,
+        "original": "HE GAVE WAY TO THE OTHERS VERY READILY AND RETREATED UNPERCEIVED BY THE SQUIRE AND MISTRESS FITZOOTH TO THE REAR OF THE TENT",
+        "target": "ISN'T HE SPLENDID CRIED JASPER IN INTENSE PRIDE SWELLING UP FATHER KNEW HOW TO DO IT",
+        "prediction": "The",
+        "success": false
+      },
+      {
+        "example_idx": 8,
+        "original": "A LITTLE CRACKED THAT IN THE POPULAR PHRASE WAS MY IMPRESSION OF THE STRANGER WHO NOW MADE HIS APPEARANCE IN THE SUPPER ROOM",
+        "target": "HER REGARD SHIFTED TO THE GREEN STALKS AND LEAVES AGAIN AND SHE STARTED TO MOVE AWAY",
+        "prediction": "A little cracked, that, in the popular phrase, was my impression of the stranger who now made his appearance in the supper room.",
+        "success": false
+      },
+      {
+        "example_idx": 9,
+        "original": "THE LOG AND THE COMPASS THEREFORE WERE ABLE TO BE CALLED UPON TO DO THE WORK OF THE SEXTANT WHICH HAD BECOME UTTERLY USELESS",
+        "target": "WHEN WE WERE OUT IN THE DARKNESS OF THE QUADRANGLE WE AGAIN LOOKED UP AT THE WINDOWS",
+        "prediction": "Thank you.",
+        "success": false
+      }
+    ],
+    [
+      {
+        "example_idx": 0,
+        "original": "THE MORE SHE IS ENGAGED IN HER PROPER DUTIES THE LESS LEISURE WILL SHE HAVE FOR IT EVEN AS AN ACCOMPLISHMENT AND A RECREATION",
+        "target": "OLD WILL IS A FINE FELLOW BUT POOR AND HELPLESS SINCE MISSUS ROGERS HAD HER ACCIDENT",
+        "prediction": "Some more students would be in the classroom room. It's about three years later when they were in the classroom. We've been allowed to attend to them.",
+        "success": false
+      },
+      {
+        "example_idx": 1,
+        "original": "AND HENCE WE FIND THE SAME SORT OF CLUMSINESS IN THE TIMAEUS OF PLATO WHICH CHARACTERIZES THE PHILOSOPHICAL POEM OF LUCRETIUS",
+        "target": "THE WOOD FLAMED UP SPLENDIDLY UNDER THE LARGE BREWING COPPER AND IT SIGHED SO DEEPLY",
+        "prediction": "The",
+        "success": false
+      },
+      {
+        "example_idx": 2,
+        "original": "ALTHOUGH THE BRETHREN WITH ME ARE NOT APOSTLES LIKE MYSELF YET THEY ARE ALL OF ONE MIND WITH ME THINK WRITE AND TEACH AS I DO",
+        "target": "I WOULD FAIN KNOW IF I AM DESTINED FOR SO GLORIOUS A CAREER CRIED THE TREE REJOICING",
+        "prediction": "The title of the title is, we want to also be able to enjoy the festival.",
+        "success": false
+      },
+      {
+        "example_idx": 3,
+        "original": "HE OBTAINED THE DESIRED SPEED AND LOAD WITH A FRICTION BRAKE ALSO REGULATOR OF SPEED BUT WAITED FOR AN INDICATOR TO VERIFY IT",
+        "target": "WE WILL GO OUT TOGETHER TO THE BOWER THERE IS A WAY DOWN TO THE COURT FROM MY WINDOW",
+        "prediction": "But when you're in with children, you're always in the house.",
+        "success": false
+      },
+      {
+        "example_idx": 4,
+        "original": "THERE MAY BE A SPECIFIC FEELING WHICH COULD BE CALLED THE FEELING OF PASTNESS ESPECIALLY WHERE IMMEDIATE MEMORY IS CONCERNED",
+        "target": "FINALLY THE ONE PARTY WENT OFF EXULTING AND THE OTHER WAS LEFT IN DESOLATION AND WOE",
+        "prediction": "The clinicals were unidimitably more than they were.",
+        "success": false
+      },
+      {
+        "example_idx": 5,
+        "original": "BY QUICK MARCHES THROUGH THESE INACCESSIBLE MOUNTAINS THAT GENERAL FREED HIMSELF FROM THE SUPERIOR FORCES OF THE COVENANTERS",
+        "target": "SHE BLUSHED AND SMILED AND FUMBLED HIS CARD IN HER CONFUSION BEFORE SHE RAN UPSTAIRS",
+        "prediction": "So, the blood is coming from the human's blood, and what is sensitive to the water is a different source of water. The water is a source of the sensitive water, so the water is forced to be sensitive, whether it is a specific water source.",
+        "success": false
+      },
+      {
+        "example_idx": 6,
+        "original": "HAVE YOUR WILL CHILD IF THE BOY ALSO WILLS IT MONTFICHET ANSWERED FEELING TOO ILL TO OPPOSE ANYTHING VERY STRONGLY JUST THEN",
+        "target": "THE MODERN ORGANIZATION OF INDUSTRY WORKS IN THE SAME DIRECTION ALSO BY ANOTHER LINE",
+        "prediction": "The",
+        "success": false
+      },
+      {
+        "example_idx": 7,
+        "original": "HE GAVE WAY TO THE OTHERS VERY READILY AND RETREATED UNPERCEIVED BY THE SQUIRE AND MISTRESS FITZOOTH TO THE REAR OF THE TENT",
+        "target": "ISN'T HE SPLENDID CRIED JASPER IN INTENSE PRIDE SWELLING UP FATHER KNEW HOW TO DO IT",
+        "prediction": "So you can enter the universe, the universe, the universe, the universe, the universe, the universe, the universe, the universe, the universe, the universe, the universe, the universe, the universe, the universe, the universe, the universe, the universe, the universe, the universe, the universe, the universe, the universe, the universe, the universe, the universe, the universe, the universe, the universe, the universe, the universe, the universe, the universe, the universe, the universe, the universe, the universe, the universe, the universe, the universe, the universe, the universe, the universe, the universe, the universe, the universe, the universe, the universe, the universe, the universe, the universe, the universe, the universe, the universe, the universe, the universe, the universe, the universe, the universe, the universe, the universe, the universe, the universe, the universe, the universe, the universe, the universe, the universe, the universe, the universe, the universe, the universe, the universe, the universe, the universe, the universe, the universe, the universe, the universe, the universe, the universe, the universe, the universe, the universe, the universe, the universe, the universe, the universe, the universe, the universe, the universe, the universe, the universe, the universe, the universe, the universe, the universe, the universe, the universe, the universe, the universe, the universe, the universe, the universe, the universe, the universe, the universe, the universe, the universe, the universe, the universe, the universe, the universe, the universe, the universe, the universe, the universe, the universe, the universe, the universe, the universe, the universe, the universe, the universe, the universe, the universe, the universe, the universe, the universe, the universe, the universe, the universe, the universe, the universe, the universe, the universe, the universe, the universe, the universe, the universe, the universe, the universe, the universe, the universe, the universe, the universe, the universe, the universe",
+        "success": false
+      },
+      {
+        "example_idx": 8,
+        "original": "A LITTLE CRACKED THAT IN THE POPULAR PHRASE WAS MY IMPRESSION OF THE STRANGER WHO NOW MADE HIS APPEARANCE IN THE SUPPER ROOM",
+        "target": "HER REGARD SHIFTED TO THE GREEN STALKS AND LEAVES AGAIN AND SHE STARTED TO MOVE AWAY",
+        "prediction": "A little cracked, that, in the popular phrase, was my impression of the stranger who now made his appearance in the supper room.",
+        "success": false
+      },
+      {
+        "example_idx": 9,
+        "original": "THE LOG AND THE COMPASS THEREFORE WERE ABLE TO BE CALLED UPON TO DO THE WORK OF THE SEXTANT WHICH HAD BECOME UTTERLY USELESS",
+        "target": "WHEN WE WERE OUT IN THE DARKNESS OF THE QUADRANGLE WE AGAIN LOOKED UP AT THE WINDOWS",
+        "prediction": "to",
+        "success": false
+      }
+    ],
+    [
+      {
+        "example_idx": 0,
+        "original": "THE MORE SHE IS ENGAGED IN HER PROPER DUTIES THE LESS LEISURE WILL SHE HAVE FOR IT EVEN AS AN ACCOMPLISHMENT AND A RECREATION",
+        "target": "OLD WILL IS A FINE FELLOW BUT POOR AND HELPLESS SINCE MISSUS ROGERS HAD HER ACCIDENT",
+        "prediction": "With the merit-cruising duty of helping the researchers, we fight the 700-year-old from half of their research. So we do all the 1000-year-old more than the simplest in the country.",
+        "success": false
+      },
+      {
+        "example_idx": 1,
+        "original": "AND HENCE WE FIND THE SAME SORT OF CLUMSINESS IN THE TIMAEUS OF PLATO WHICH CHARACTERIZES THE PHILOSOPHICAL POEM OF LUCRETIUS",
+        "target": "THE WOOD FLAMED UP SPLENDIDLY UNDER THE LARGE BREWING COPPER AND IT SIGHED SO DEEPLY",
+        "prediction": "and",
+        "success": false
+      },
+      {
+        "example_idx": 2,
+        "original": "ALTHOUGH THE BRETHREN WITH ME ARE NOT APOSTLES LIKE MYSELF YET THEY ARE ALL OF ONE MIND WITH ME THINK WRITE AND TEACH AS I DO",
+        "target": "I WOULD FAIN KNOW IF I AM DESTINED FOR SO GLORIOUS A CAREER CRIED THE TREE REJOICING",
+        "prediction": "The",
+        "success": false
+      },
+      {
+        "example_idx": 3,
+        "original": "HE OBTAINED THE DESIRED SPEED AND LOAD WITH A FRICTION BRAKE ALSO REGULATOR OF SPEED BUT WAITED FOR AN INDICATOR TO VERIFY IT",
+        "target": "WE WILL GO OUT TOGETHER TO THE BOWER THERE IS A WAY DOWN TO THE COURT FROM MY WINDOW",
+        "prediction": "Can you make a clean piece that's not only to see a meter moving but it's a clear point for it. Also, the car is already moving. What width is a core length of a clear river?",
+        "success": false
+      },
+      {
+        "example_idx": 4,
+        "original": "THERE MAY BE A SPECIFIC FEELING WHICH COULD BE CALLED THE FEELING OF PASTNESS ESPECIALLY WHERE IMMEDIATE MEMORY IS CONCERNED",
+        "target": "FINALLY THE ONE PARTY WENT OFF EXULTING AND THE OTHER WAS LEFT IN DESOLATION AND WOE",
+        "prediction": "or maybe the actual winter season is important because we call it the pink and the eye. So, eventually we're eliterate winter season.",
+        "success": false
+      },
+      {
+        "example_idx": 5,
+        "original": "BY QUICK MARCHES THROUGH THESE INACCESSIBLE MOUNTAINS THAT GENERAL FREED HIMSELF FROM THE SUPERIOR FORCES OF THE COVENANTERS",
+        "target": "SHE BLUSHED AND SMILED AND FUMBLED HIS CARD IN HER CONFUSION BEFORE SHE RAN UPSTAIRS",
+        "prediction": "So, the blood is coming from the human's blood, and what is sensitive to the water is a different source of water. The water is a source of the sensitive water, so the water is forced to be sensitive, whether it is a specific water source.",
+        "success": false
+      },
+      {
+        "example_idx": 6,
+        "original": "HAVE YOUR WILL CHILD IF THE BOY ALSO WILLS IT MONTFICHET ANSWERED FEELING TOO ILL TO OPPOSE ANYTHING VERY STRONGLY JUST THEN",
+        "target": "THE MODERN ORGANIZATION OF INDUSTRY WORKS IN THE SAME DIRECTION ALSO BY ANOTHER LINE",
+        "prediction": "the",
+        "success": false
+      },
+      {
+        "example_idx": 7,
+        "original": "HE GAVE WAY TO THE OTHERS VERY READILY AND RETREATED UNPERCEIVED BY THE SQUIRE AND MISTRESS FITZOOTH TO THE REAR OF THE TENT",
+        "target": "ISN'T HE SPLENDID CRIED JASPER IN INTENSE PRIDE SWELLING UP FATHER KNEW HOW TO DO IT",
+        "prediction": "The same state of concern bearing ties with the pair, which is the same as the fight of the hour, which is the first year of the anniversary of the year.",
+        "success": false
+      },
+      {
+        "example_idx": 8,
+        "original": "A LITTLE CRACKED THAT IN THE POPULAR PHRASE WAS MY IMPRESSION OF THE STRANGER WHO NOW MADE HIS APPEARANCE IN THE SUPPER ROOM",
+        "target": "HER REGARD SHIFTED TO THE GREEN STALKS AND LEAVES AGAIN AND SHE STARTED TO MOVE AWAY",
+        "prediction": "A little cracked, that, in the popular phrase, was my impression of the stranger who now made his appearance in the supper room.",
+        "success": false
+      },
+      {
+        "example_idx": 9,
+        "original": "THE LOG AND THE COMPASS THEREFORE WERE ABLE TO BE CALLED UPON TO DO THE WORK OF THE SEXTANT WHICH HAD BECOME UTTERLY USELESS",
+        "target": "WHEN WE WERE OUT IN THE DARKNESS OF THE QUADRANGLE WE AGAIN LOOKED UP AT THE WINDOWS",
+        "prediction": "I'm going to go to the next slide.",
+        "success": false
+      }
+    ],
+    [
+      {
+        "example_idx": 0,
+        "original": "THE MORE SHE IS ENGAGED IN HER PROPER DUTIES THE LESS LEISURE WILL SHE HAVE FOR IT EVEN AS AN ACCOMPLISHMENT AND A RECREATION",
+        "target": "OLD WILL IS A FINE FELLOW BUT POOR AND HELPLESS SINCE MISSUS ROGERS HAD HER ACCIDENT",
+        "prediction": "More diseases from the surrounding countries as well as we were able to get out of the desert. We came out of the temple chambers to answer the questions we had been asking for.",
+        "success": false
+      },
+      {
+        "example_idx": 1,
+        "original": "AND HENCE WE FIND THE SAME SORT OF CLUMSINESS IN THE TIMAEUS OF PLATO WHICH CHARACTERIZES THE PHILOSOPHICAL POEM OF LUCRETIUS",
+        "target": "THE WOOD FLAMED UP SPLENDIDLY UNDER THE LARGE BREWING COPPER AND IT SIGHED SO DEEPLY",
+        "prediction": "to the centre of the city.",
+        "success": false
+      },
+      {
+        "example_idx": 2,
+        "original": "ALTHOUGH THE BRETHREN WITH ME ARE NOT APOSTLES LIKE MYSELF YET THEY ARE ALL OF ONE MIND WITH ME THINK WRITE AND TEACH AS I DO",
+        "target": "I WOULD FAIN KNOW IF I AM DESTINED FOR SO GLORIOUS A CAREER CRIED THE TREE REJOICING",
+        "prediction": "Although the pleasure is the remodeled kind which is as much as the inside of the pit of the city, the place where a eye of one of the many dressed in the pit of the city is a place which is designed to be a place that is in the center of the city.",
+        "success": false
+      },
+      {
+        "example_idx": 3,
+        "original": "HE OBTAINED THE DESIRED SPEED AND LOAD WITH A FRICTION BRAKE ALSO REGULATOR OF SPEED BUT WAITED FOR AN INDICATOR TO VERIFY IT",
+        "target": "WE WILL GO OUT TOGETHER TO THE BOWER THERE IS A WAY DOWN TO THE COURT FROM MY WINDOW",
+        "prediction": "Oh, the place over there to the summit.",
+        "success": false
+      },
+      {
+        "example_idx": 4,
+        "original": "THERE MAY BE A SPECIFIC FEELING WHICH COULD BE CALLED THE FEELING OF PASTNESS ESPECIALLY WHERE IMMEDIATE MEMORY IS CONCERNED",
+        "target": "FINALLY THE ONE PARTY WENT OFF EXULTING AND THE OTHER WAS LEFT IN DESOLATION AND WOE",
+        "prediction": "The other words in the X, you have to look into the difference between the two. Your physicals are going to make it out of the difference. These functionally wear these in the X or the other.",
+        "success": false
+      },
+      {
+        "example_idx": 5,
+        "original": "BY QUICK MARCHES THROUGH THESE INACCESSIBLE MOUNTAINS THAT GENERAL FREED HIMSELF FROM THE SUPERIOR FORCES OF THE COVENANTERS",
+        "target": "SHE BLUSHED AND SMILED AND FUMBLED HIS CARD IN HER CONFUSION BEFORE SHE RAN UPSTAIRS",
+        "prediction": "So, the blood is coming from the human's blood, and what is sensitive to the water is a different source of water. The water is a source of the sensitive water, so the water is forced to be sensitive, whether it is a specific water source.",
+        "success": false
+      },
+      {
+        "example_idx": 6,
+        "original": "HAVE YOUR WILL CHILD IF THE BOY ALSO WILLS IT MONTFICHET ANSWERED FEELING TOO ILL TO OPPOSE ANYTHING VERY STRONGLY JUST THEN",
+        "target": "THE MODERN ORGANIZATION OF INDUSTRY WORKS IN THE SAME DIRECTION ALSO BY ANOTHER LINE",
+        "prediction": "The",
+        "success": false
+      },
+      {
+        "example_idx": 7,
+        "original": "HE GAVE WAY TO THE OTHERS VERY READILY AND RETREATED UNPERCEIVED BY THE SQUIRE AND MISTRESS FITZOOTH TO THE REAR OF THE TENT",
+        "target": "ISN'T HE SPLENDID CRIED JASPER IN INTENSE PRIDE SWELLING UP FATHER KNEW HOW TO DO IT",
+        "prediction": "0.2, which is, for example, 2 or 3, if we get 1, we have to get 1, so we have to get 1, so we have to get 1, so we have to get 1, so we have to get 1, so we have to get 1, so we have to get 1, so we have to get 1, so we have to get 1, so we have to get 1, so we have to get 1, so we have to get 1, so we have to get 1, so we have to get 1, so we have to get 1, so we have to get 1, so we have to get 1, so we have to get 1, so we have to get 1, so we have to get 1, so we have to get 1, so we have to get 1, so we have to get 1, so we have to get 1, so we have to get 1, so we have to get 1, so we have to get 1, so we have to get 1, so we have to get 1, so we have to get 1, so we have to get 1, so we have to get 1, so we have to get 1, so we have to get 1, so we have to get 1, so we have to get 1, so we have to get 1, so we have to get 1, so we have to get 1, so we have to get 1, so we have to get 1, so we have to get 1, so we have to get 1, so we have to get 1, so we have to get 1, so we have to get 1, so we have to get 1, so we have to get 1, so we have to get 1, so we have to get 1, so we have to get 1, so we have to get 1, so we have to get 1, so we have to get 1, so we have to get 1, so we have to get 1, so we have to get 1, so we have to get 1, so we have to get 1, so we have to get 1, so we have to get 1",
+        "success": false
+      },
+      {
+        "example_idx": 8,
+        "original": "A LITTLE CRACKED THAT IN THE POPULAR PHRASE WAS MY IMPRESSION OF THE STRANGER WHO NOW MADE HIS APPEARANCE IN THE SUPPER ROOM",
+        "target": "HER REGARD SHIFTED TO THE GREEN STALKS AND LEAVES AGAIN AND SHE STARTED TO MOVE AWAY",
+        "prediction": "A little cracked, that, in the popular phrase, was my impression of the stranger who now made his appearance in the supper room.",
+        "success": false
+      },
+      {
+        "example_idx": 9,
+        "original": "THE LOG AND THE COMPASS THEREFORE WERE ABLE TO BE CALLED UPON TO DO THE WORK OF THE SEXTANT WHICH HAD BECOME UTTERLY USELESS",
+        "target": "WHEN WE WERE OUT IN THE DARKNESS OF THE QUADRANGLE WE AGAIN LOOKED UP AT THE WINDOWS",
+        "prediction": "Thank you.",
+        "success": false
+      }
+    ],
+    [
+      {
+        "example_idx": 0,
+        "original": "THE MORE SHE IS ENGAGED IN HER PROPER DUTIES THE LESS LEISURE WILL SHE HAVE FOR IT EVEN AS AN ACCOMPLISHMENT AND A RECREATION",
+        "target": "OLD WILL IS A FINE FELLOW BUT POOR AND HELPLESS SINCE MISSUS ROGERS HAD HER ACCIDENT",
+        "prediction": "In the north, even in the UK, the highway is different from the one in the west, so the wide sea meters and the meter to the south coast, you can also see the pancine and the sea meters right through the pancine.",
+        "success": false
+      },
+      {
+        "example_idx": 1,
+        "original": "AND HENCE WE FIND THE SAME SORT OF CLUMSINESS IN THE TIMAEUS OF PLATO WHICH CHARACTERIZES THE PHILOSOPHICAL POEM OF LUCRETIUS",
+        "target": "THE WOOD FLAMED UP SPLENDIDLY UNDER THE LARGE BREWING COPPER AND IT SIGHED SO DEEPLY",
+        "prediction": "The",
+        "success": false
+      },
+      {
+        "example_idx": 2,
+        "original": "ALTHOUGH THE BRETHREN WITH ME ARE NOT APOSTLES LIKE MYSELF YET THEY ARE ALL OF ONE MIND WITH ME THINK WRITE AND TEACH AS I DO",
+        "target": "I WOULD FAIN KNOW IF I AM DESTINED FOR SO GLORIOUS A CAREER CRIED THE TREE REJOICING",
+        "prediction": "Although the weather is in the water, it's quite the same.",
+        "success": false
+      },
+      {
+        "example_idx": 3,
+        "original": "HE OBTAINED THE DESIRED SPEED AND LOAD WITH A FRICTION BRAKE ALSO REGULATOR OF SPEED BUT WAITED FOR AN INDICATOR TO VERIFY IT",
+        "target": "WE WILL GO OUT TOGETHER TO THE BOWER THERE IS A WAY DOWN TO THE COURT FROM MY WINDOW",
+        "prediction": "The external disease is always in mental health. It's a research environment. What is it going in which ways will it out?",
+        "success": false
+      },
+      {
+        "example_idx": 4,
+        "original": "THERE MAY BE A SPECIFIC FEELING WHICH COULD BE CALLED THE FEELING OF PASTNESS ESPECIALLY WHERE IMMEDIATE MEMORY IS CONCERNED",
+        "target": "FINALLY THE ONE PARTY WENT OFF EXULTING AND THE OTHER WAS LEFT IN DESOLATION AND WOE",
+        "prediction": "N-A-V-R-V-R-V-R-V-R-V-R-V-R-V-R-V-R-V-R-V-R-V-R-V-R-V-R-V-R-V-R-V-R-V-R-V-R-V-R-V-R-V-R-V-R-V-R-V-R-V-R-V-R-V-R-V-R-V-R-V-R-V-R-V-R-V-R-V-R-V-R-V-R-V-R-V-R-V-R-V-R-V-R-V-R-V-R-V-R-V-R-V-R-V-R-V-R-V-R-V-R-V-R-V-R-V-R-V-R-V-R-V-R-V-R-V-R-V-R-V-R-V-R-V-R-V-R-V-R-V-R-V-R-V-R-V-R-V-R-V-R-V-R-V-R-V-R-V-R-V-R-V-R-V-R-V-R-V-R-V-R-V-R-V-R-V-R-V-R-V-R-V-R-V-R-V-R-V-R-V-R-V-R-V-R-V-R-V-R-V-R-V-R-V-R-V-R-V-R-V-R-V-R-V-R-V-R-V-R-V-R-V-R-V-R-V-R-V-R-V-R-",
+        "success": false
+      },
+      {
+        "example_idx": 5,
+        "original": "BY QUICK MARCHES THROUGH THESE INACCESSIBLE MOUNTAINS THAT GENERAL FREED HIMSELF FROM THE SUPERIOR FORCES OF THE COVENANTERS",
+        "target": "SHE BLUSHED AND SMILED AND FUMBLED HIS CARD IN HER CONFUSION BEFORE SHE RAN UPSTAIRS",
+        "prediction": "So, the blood is coming from the human's blood, and what is sensitive to the water is a different source of water. The water is a source of the sensitive water, so the water is forced to be sensitive, whether it is a specific water source.",
+        "success": false
+      },
+      {
+        "example_idx": 6,
+        "original": "HAVE YOUR WILL CHILD IF THE BOY ALSO WILLS IT MONTFICHET ANSWERED FEELING TOO ILL TO OPPOSE ANYTHING VERY STRONGLY JUST THEN",
+        "target": "THE MODERN ORGANIZATION OF INDUSTRY WORKS IN THE SAME DIRECTION ALSO BY ANOTHER LINE",
+        "prediction": "Thank you for joining us, Mr. Chairman.",
+        "success": false
+      },
+      {
+        "example_idx": 7,
+        "original": "HE GAVE WAY TO THE OTHERS VERY READILY AND RETREATED UNPERCEIVED BY THE SQUIRE AND MISTRESS FITZOOTH TO THE REAR OF THE TENT",
+        "target": "ISN'T HE SPLENDID CRIED JASPER IN INTENSE PRIDE SWELLING UP FATHER KNEW HOW TO DO IT",
+        "prediction": "I really really like the great space right here. I think we can get a lot of time to buy a vehicle that is really cool.",
+        "success": false
+      },
+      {
+        "example_idx": 8,
+        "original": "A LITTLE CRACKED THAT IN THE POPULAR PHRASE WAS MY IMPRESSION OF THE STRANGER WHO NOW MADE HIS APPEARANCE IN THE SUPPER ROOM",
+        "target": "HER REGARD SHIFTED TO THE GREEN STALKS AND LEAVES AGAIN AND SHE STARTED TO MOVE AWAY",
+        "prediction": "A little cracked, that, in the popular phrase, was my impression of the stranger who now made his appearance in the supper room.",
+        "success": false
+      },
+      {
+        "example_idx": 9,
+        "original": "THE LOG AND THE COMPASS THEREFORE WERE ABLE TO BE CALLED UPON TO DO THE WORK OF THE SEXTANT WHICH HAD BECOME UTTERLY USELESS",
+        "target": "WHEN WE WERE OUT IN THE DARKNESS OF THE QUADRANGLE WE AGAIN LOOKED UP AT THE WINDOWS",
+        "prediction": "The",
+        "success": false
+      }
+    ],
+    [
+      {
+        "example_idx": 0,
+        "original": "THE MORE SHE IS ENGAGED IN HER PROPER DUTIES THE LESS LEISURE WILL SHE HAVE FOR IT EVEN AS AN ACCOMPLISHMENT AND A RECREATION",
+        "target": "OLD WILL IS A FINE FELLOW BUT POOR AND HELPLESS SINCE MISSUS ROGERS HAD HER ACCIDENT",
+        "prediction": "The Miller can easily withstand the fossil in the Philippines, or rather the Philippines, but for now, these are now so-called conquants in the Middle East.",
+        "success": false
+      },
+      {
+        "example_idx": 1,
+        "original": "AND HENCE WE FIND THE SAME SORT OF CLUMSINESS IN THE TIMAEUS OF PLATO WHICH CHARACTERIZES THE PHILOSOPHICAL POEM OF LUCRETIUS",
+        "target": "THE WOOD FLAMED UP SPLENDIDLY UNDER THE LARGE BREWING COPPER AND IT SIGHED SO DEEPLY",
+        "prediction": "So, the sign that forward has a sign that has a sign that has a sign that has a sign that has a sign that has a sign that has a sign that has a sign that has a sign that has a sign that has a sign that has a sign that has a sign that has a sign that has a sign that has a sign that has a sign that has a sign that has a sign that has a sign that has a sign that has a sign that has a sign that has a sign that has a sign that has a sign that has a sign that has a sign that has a sign that has a sign that has a sign that has a sign that has a sign that has a sign that has a sign that has a sign that has a sign that has a sign that has a sign that has a sign that has a sign that has a sign that has a sign that has a sign that has a sign that has a sign that has a sign that has a sign that has a sign that has a sign that has a sign that has a sign that has a sign that has a sign that has a sign that has a sign that has a sign that has a sign that has a sign that has a sign that has a sign that has a sign that has a sign that has a sign that has a sign that has a sign that has a sign that has a sign that has a sign that has a sign that has a sign that has a sign that has a sign that has a sign that has a sign that has a sign that has a sign that has a sign that has a sign that has a sign that has a sign that has a sign that has a sign that has a sign that has a sign that has a sign that has a sign that has a sign that has a sign that has a sign that has a sign that has a sign that has a sign that has a sign that has a sign that has a sign that has a sign that has a sign that has a sign that has a sign that has a sign that has a sign that has a sign that has a sign that has a sign that has a sign that has a sign that has a sign that has a sign that has a",
+        "success": false
+      },
+      {
+        "example_idx": 2,
+        "original": "ALTHOUGH THE BRETHREN WITH ME ARE NOT APOSTLES LIKE MYSELF YET THEY ARE ALL OF ONE MIND WITH ME THINK WRITE AND TEACH AS I DO",
+        "target": "I WOULD FAIN KNOW IF I AM DESTINED FOR SO GLORIOUS A CAREER CRIED THE TREE REJOICING",
+        "prediction": "The way to correct me would be the United States question itself.",
+        "success": false
+      },
+      {
+        "example_idx": 3,
+        "original": "HE OBTAINED THE DESIRED SPEED AND LOAD WITH A FRICTION BRAKE ALSO REGULATOR OF SPEED BUT WAITED FOR AN INDICATOR TO VERIFY IT",
+        "target": "WE WILL GO OUT TOGETHER TO THE BOWER THERE IS A WAY DOWN TO THE COURT FROM MY WINDOW",
+        "prediction": "What is going on?",
+        "success": false
+      },
+      {
+        "example_idx": 4,
+        "original": "THERE MAY BE A SPECIFIC FEELING WHICH COULD BE CALLED THE FEELING OF PASTNESS ESPECIALLY WHERE IMMEDIATE MEMORY IS CONCERNED",
+        "target": "FINALLY THE ONE PARTY WENT OFF EXULTING AND THE OTHER WAS LEFT IN DESOLATION AND WOE",
+        "prediction": "He is the one who will be the one who will be the one who will be the one who will be the one who will be the one who will be the one who will be the one who will be the one who will be the one who will be the one who will be the one who will be the one who will be the one who will be the one who will be the one who will be the one who will be the one who will be the one who will be the one who will be the one who will be the one who will be the one who will be the one who will be the one who will be the one who will be the one who will be the one who will be the one who will be the one who will be the one who will be the one who will be the one who will be the one who will be the one who will be the one who will be the one who will be the one who will be the one who will be the one who will be the one who will be the one who will be the one who will be the one who will be the one who will be the one who will be the one who will be the one who will be the one who will be the one who will be the one who will be the one who will be the one who will be the one who will be the one who will be the one who will be the one who will be the one who will be the one who will be the one who will be the one who will be the one who will be the one who will be the one who will be the one who will be the one who will be the one who will be the one who will be the one who will be the one who will be the one who will be the one who will be the one who will be the one who will be the one who will be the one who will be the one who will be the one who will be the one who will be the one who will be the one who will be the one who will be the one who will be the one who will be the one who will be the one who will be the one who will be the one who will be the one",
+        "success": false
+      },
+      {
+        "example_idx": 5,
+        "original": "BY QUICK MARCHES THROUGH THESE INACCESSIBLE MOUNTAINS THAT GENERAL FREED HIMSELF FROM THE SUPERIOR FORCES OF THE COVENANTERS",
+        "target": "SHE BLUSHED AND SMILED AND FUMBLED HIS CARD IN HER CONFUSION BEFORE SHE RAN UPSTAIRS",
+        "prediction": "So, the blood is coming from the human's blood, and what is sensitive to the water is a different source of water. The water is a source of the sensitive water, so the water is forced to be sensitive, whether it is a specific water source.",
+        "success": false
+      },
+      {
+        "example_idx": 6,
+        "original": "HAVE YOUR WILL CHILD IF THE BOY ALSO WILLS IT MONTFICHET ANSWERED FEELING TOO ILL TO OPPOSE ANYTHING VERY STRONGLY JUST THEN",
+        "target": "THE MODERN ORGANIZATION OF INDUSTRY WORKS IN THE SAME DIRECTION ALSO BY ANOTHER LINE",
+        "prediction": "Thank you for watching.",
+        "success": false
+      },
+      {
+        "example_idx": 7,
+        "original": "HE GAVE WAY TO THE OTHERS VERY READILY AND RETREATED UNPERCEIVED BY THE SQUIRE AND MISTRESS FITZOOTH TO THE REAR OF THE TENT",
+        "target": "ISN'T HE SPLENDID CRIED JASPER IN INTENSE PRIDE SWELLING UP FATHER KNEW HOW TO DO IT",
+        "prediction": "I'm sorry.",
+        "success": false
+      },
+      {
+        "example_idx": 8,
+        "original": "A LITTLE CRACKED THAT IN THE POPULAR PHRASE WAS MY IMPRESSION OF THE STRANGER WHO NOW MADE HIS APPEARANCE IN THE SUPPER ROOM",
+        "target": "HER REGARD SHIFTED TO THE GREEN STALKS AND LEAVES AGAIN AND SHE STARTED TO MOVE AWAY",
+        "prediction": "A little cracked, that, in the popular phrase, was my impression of the stranger who now made his appearance in the supper room.",
+        "success": false
+      },
+      {
+        "example_idx": 9,
+        "original": "THE LOG AND THE COMPASS THEREFORE WERE ABLE TO BE CALLED UPON TO DO THE WORK OF THE SEXTANT WHICH HAD BECOME UTTERLY USELESS",
+        "target": "WHEN WE WERE OUT IN THE DARKNESS OF THE QUADRANGLE WE AGAIN LOOKED UP AT THE WINDOWS",
+        "prediction": "This is what you found.",
+        "success": false
+      }
+    ],
+    [
+      {
+        "example_idx": 0,
+        "original": "THE MORE SHE IS ENGAGED IN HER PROPER DUTIES THE LESS LEISURE WILL SHE HAVE FOR IT EVEN AS AN ACCOMPLISHMENT AND A RECREATION",
+        "target": "OLD WILL IS A FINE FELLOW BUT POOR AND HELPLESS SINCE MISSUS ROGERS HAD HER ACCIDENT",
+        "prediction": "and they all have to be the ones that are quite important and they all have to be the ones that are important and they all have to be the ones that are important and they all have to be the ones that are important and they all have to be the ones that are important and they all have to be the ones that are important and they all have to be the ones that are important and they all have to be the ones that are important and they all have to be the ones that are important and they all have to be the ones that are important and they all have to be the ones that are important and they all have to be the ones that are important and they all have to be the ones that are important and they all have to be the ones that are important and they all have to be the ones that are important and they all have to be the ones that are important and they all have to be the ones that are important and they all have to be the ones that are important and they all have to be the ones that are important and they all have to be the ones that are important and they all have to be the ones that are important and they all have to be the ones that are important and they all have to be the ones that are important and they all have to be the ones that are important and they all have to be the ones that are important and they all have to be the ones that are important and they all have to be the ones that are important and they all have to be the ones that are important and they all have to be the ones that are important and they all have to be the ones that are important and they all have to be the ones that are important and they all have to be the ones that are important and they all have to be the ones that are important and they all have to be the ones that are important and they all have to be the ones that are important and they all have to be the ones that are important and they all have to be the ones that are important and they all have to be the ones that are important and they all have to be the ones that are important and they all have to be the ones that are important and they all",
+        "success": false
+      },
+      {
+        "example_idx": 1,
+        "original": "AND HENCE WE FIND THE SAME SORT OF CLUMSINESS IN THE TIMAEUS OF PLATO WHICH CHARACTERIZES THE PHILOSOPHICAL POEM OF LUCRETIUS",
+        "target": "THE WOOD FLAMED UP SPLENDIDLY UNDER THE LARGE BREWING COPPER AND IT SIGHED SO DEEPLY",
+        "prediction": "I think that's a good idea.",
+        "success": false
+      },
+      {
+        "example_idx": 2,
+        "original": "ALTHOUGH THE BRETHREN WITH ME ARE NOT APOSTLES LIKE MYSELF YET THEY ARE ALL OF ONE MIND WITH ME THINK WRITE AND TEACH AS I DO",
+        "target": "I WOULD FAIN KNOW IF I AM DESTINED FOR SO GLORIOUS A CAREER CRIED THE TREE REJOICING",
+        "prediction": "the",
+        "success": false
+      },
+      {
+        "example_idx": 3,
+        "original": "HE OBTAINED THE DESIRED SPEED AND LOAD WITH A FRICTION BRAKE ALSO REGULATOR OF SPEED BUT WAITED FOR AN INDICATOR TO VERIFY IT",
+        "target": "WE WILL GO OUT TOGETHER TO THE BOWER THERE IS A WAY DOWN TO THE COURT FROM MY WINDOW",
+        "prediction": "Will you explain the reason why you have to go to the hospital? Oh, the medical medical team. Will you explain the reason why you have to go to the hospital?",
+        "success": false
+      },
+      {
+        "example_idx": 4,
+        "original": "THERE MAY BE A SPECIFIC FEELING WHICH COULD BE CALLED THE FEELING OF PASTNESS ESPECIALLY WHERE IMMEDIATE MEMORY IS CONCERNED",
+        "target": "FINALLY THE ONE PARTY WENT OFF EXULTING AND THE OTHER WAS LEFT IN DESOLATION AND WOE",
+        "prediction": "This is the way the Earth's quick answer to the perhaps answer to this is we call the point of the question. This question is no different than the Earth's quick answer to this question.",
+        "success": false
+      },
+      {
+        "example_idx": 5,
+        "original": "BY QUICK MARCHES THROUGH THESE INACCESSIBLE MOUNTAINS THAT GENERAL FREED HIMSELF FROM THE SUPERIOR FORCES OF THE COVENANTERS",
+        "target": "SHE BLUSHED AND SMILED AND FUMBLED HIS CARD IN HER CONFUSION BEFORE SHE RAN UPSTAIRS",
+        "prediction": "So, the blood is coming from the human's blood, and what is sensitive to the water is a different source of water. The water is a source of the sensitive water, so the water is forced to be sensitive, whether it is a specific water source.",
+        "success": false
+      },
+      {
+        "example_idx": 6,
+        "original": "HAVE YOUR WILL CHILD IF THE BOY ALSO WILLS IT MONTFICHET ANSWERED FEELING TOO ILL TO OPPOSE ANYTHING VERY STRONGLY JUST THEN",
+        "target": "THE MODERN ORGANIZATION OF INDUSTRY WORKS IN THE SAME DIRECTION ALSO BY ANOTHER LINE",
+        "prediction": "The",
+        "success": false
+      },
+      {
+        "example_idx": 7,
+        "original": "HE GAVE WAY TO THE OTHERS VERY READILY AND RETREATED UNPERCEIVED BY THE SQUIRE AND MISTRESS FITZOOTH TO THE REAR OF THE TENT",
+        "target": "ISN'T HE SPLENDID CRIED JASPER IN INTENSE PRIDE SWELLING UP FATHER KNEW HOW TO DO IT",
+        "prediction": "The",
+        "success": false
+      },
+      {
+        "example_idx": 8,
+        "original": "A LITTLE CRACKED THAT IN THE POPULAR PHRASE WAS MY IMPRESSION OF THE STRANGER WHO NOW MADE HIS APPEARANCE IN THE SUPPER ROOM",
+        "target": "HER REGARD SHIFTED TO THE GREEN STALKS AND LEAVES AGAIN AND SHE STARTED TO MOVE AWAY",
+        "prediction": "A little cracked, that, in the popular phrase, was my impression of the stranger who now made his appearance in the supper room.",
+        "success": false
+      },
+      {
+        "example_idx": 9,
+        "original": "THE LOG AND THE COMPASS THEREFORE WERE ABLE TO BE CALLED UPON TO DO THE WORK OF THE SEXTANT WHICH HAD BECOME UTTERLY USELESS",
+        "target": "WHEN WE WERE OUT IN THE DARKNESS OF THE QUADRANGLE WE AGAIN LOOKED UP AT THE WINDOWS",
+        "prediction": "I think it's a good job.",
+        "success": false
+      }
+    ],
+    [
+      {
+        "example_idx": 0,
+        "original": "THE MORE SHE IS ENGAGED IN HER PROPER DUTIES THE LESS LEISURE WILL SHE HAVE FOR IT EVEN AS AN ACCOMPLISHMENT AND A RECREATION",
+        "target": "OLD WILL IS A FINE FELLOW BUT POOR AND HELPLESS SINCE MISSUS ROGERS HAD HER ACCIDENT",
+        "prediction": "The white trinket is somewhere that's not there during the desert. The layer of the sea is the height of the sea. Some thin algae that's not there during the desert, then the sand and the lemon is a little bit bigger than the other.",
+        "success": false
+      },
+      {
+        "example_idx": 1,
+        "original": "AND HENCE WE FIND THE SAME SORT OF CLUMSINESS IN THE TIMAEUS OF PLATO WHICH CHARACTERIZES THE PHILOSOPHICAL POEM OF LUCRETIUS",
+        "target": "THE WOOD FLAMED UP SPLENDIDLY UNDER THE LARGE BREWING COPPER AND IT SIGHED SO DEEPLY",
+        "prediction": "The",
+        "success": false
+      },
+      {
+        "example_idx": 2,
+        "original": "ALTHOUGH THE BRETHREN WITH ME ARE NOT APOSTLES LIKE MYSELF YET THEY ARE ALL OF ONE MIND WITH ME THINK WRITE AND TEACH AS I DO",
+        "target": "I WOULD FAIN KNOW IF I AM DESTINED FOR SO GLORIOUS A CAREER CRIED THE TREE REJOICING",
+        "prediction": "The",
+        "success": false
+      },
+      {
+        "example_idx": 3,
+        "original": "HE OBTAINED THE DESIRED SPEED AND LOAD WITH A FRICTION BRAKE ALSO REGULATOR OF SPEED BUT WAITED FOR AN INDICATOR TO VERIFY IT",
+        "target": "WE WILL GO OUT TOGETHER TO THE BOWER THERE IS A WAY DOWN TO THE COURT FROM MY WINDOW",
+        "prediction": "The two of us are going to be in the next episode.",
+        "success": false
+      },
+      {
+        "example_idx": 4,
+        "original": "THERE MAY BE A SPECIFIC FEELING WHICH COULD BE CALLED THE FEELING OF PASTNESS ESPECIALLY WHERE IMMEDIATE MEMORY IS CONCERNED",
+        "target": "FINALLY THE ONE PARTY WENT OFF EXULTING AND THE OTHER WAS LEFT IN DESOLATION AND WOE",
+        "prediction": "and the",
+        "success": false
+      },
+      {
+        "example_idx": 5,
+        "original": "BY QUICK MARCHES THROUGH THESE INACCESSIBLE MOUNTAINS THAT GENERAL FREED HIMSELF FROM THE SUPERIOR FORCES OF THE COVENANTERS",
+        "target": "SHE BLUSHED AND SMILED AND FUMBLED HIS CARD IN HER CONFUSION BEFORE SHE RAN UPSTAIRS",
+        "prediction": "So, the blood is coming from the human's blood, and what is sensitive to the water is a different source of water. The water is a source of the sensitive water, so the water is forced to be sensitive, whether it is a specific water source.",
+        "success": false
+      },
+      {
+        "example_idx": 6,
+        "original": "HAVE YOUR WILL CHILD IF THE BOY ALSO WILLS IT MONTFICHET ANSWERED FEELING TOO ILL TO OPPOSE ANYTHING VERY STRONGLY JUST THEN",
+        "target": "THE MODERN ORGANIZATION OF INDUSTRY WORKS IN THE SAME DIRECTION ALSO BY ANOTHER LINE",
+        "prediction": "but if you know what is a video, please subscribe and put your thoughts on the comments.",
+        "success": false
+      },
+      {
+        "example_idx": 7,
+        "original": "HE GAVE WAY TO THE OTHERS VERY READILY AND RETREATED UNPERCEIVED BY THE SQUIRE AND MISTRESS FITZOOTH TO THE REAR OF THE TENT",
+        "target": "ISN'T HE SPLENDID CRIED JASPER IN INTENSE PRIDE SWELLING UP FATHER KNEW HOW TO DO IT",
+        "prediction": "The chemical group becomes a completely different field of energy from two different fields to five, which is difficult to define.",
+        "success": false
+      },
+      {
+        "example_idx": 8,
+        "original": "A LITTLE CRACKED THAT IN THE POPULAR PHRASE WAS MY IMPRESSION OF THE STRANGER WHO NOW MADE HIS APPEARANCE IN THE SUPPER ROOM",
+        "target": "HER REGARD SHIFTED TO THE GREEN STALKS AND LEAVES AGAIN AND SHE STARTED TO MOVE AWAY",
+        "prediction": "A little cracked, that, in the popular phrase, was my impression of the stranger who now made his appearance in the supper room.",
+        "success": false
+      },
+      {
+        "example_idx": 9,
+        "original": "THE LOG AND THE COMPASS THEREFORE WERE ABLE TO BE CALLED UPON TO DO THE WORK OF THE SEXTANT WHICH HAD BECOME UTTERLY USELESS",
+        "target": "WHEN WE WERE OUT IN THE DARKNESS OF THE QUADRANGLE WE AGAIN LOOKED UP AT THE WINDOWS",
+        "prediction": "The",
+        "success": false
+      }
+    ],
+    [
+      {
+        "example_idx": 0,
+        "original": "THE MORE SHE IS ENGAGED IN HER PROPER DUTIES THE LESS LEISURE WILL SHE HAVE FOR IT EVEN AS AN ACCOMPLISHMENT AND A RECREATION",
+        "target": "OLD WILL IS A FINE FELLOW BUT POOR AND HELPLESS SINCE MISSUS ROGERS HAD HER ACCIDENT",
+        "prediction": "and more seasoned women are puzzled and sad because they like zero and tight because they are all kind of a sister. And with them, I'll do this for my sister.",
+        "success": false
+      },
+      {
+        "example_idx": 1,
+        "original": "AND HENCE WE FIND THE SAME SORT OF CLUMSINESS IN THE TIMAEUS OF PLATO WHICH CHARACTERIZES THE PHILOSOPHICAL POEM OF LUCRETIUS",
+        "target": "THE WOOD FLAMED UP SPLENDIDLY UNDER THE LARGE BREWING COPPER AND IT SIGHED SO DEEPLY",
+        "prediction": "the",
+        "success": false
+      },
+      {
+        "example_idx": 2,
+        "original": "ALTHOUGH THE BRETHREN WITH ME ARE NOT APOSTLES LIKE MYSELF YET THEY ARE ALL OF ONE MIND WITH ME THINK WRITE AND TEACH AS I DO",
+        "target": "I WOULD FAIN KNOW IF I AM DESTINED FOR SO GLORIOUS A CAREER CRIED THE TREE REJOICING",
+        "prediction": "The",
+        "success": false
+      },
+      {
+        "example_idx": 3,
+        "original": "HE OBTAINED THE DESIRED SPEED AND LOAD WITH A FRICTION BRAKE ALSO REGULATOR OF SPEED BUT WAITED FOR AN INDICATOR TO VERIFY IT",
+        "target": "WE WILL GO OUT TOGETHER TO THE BOWER THERE IS A WAY DOWN TO THE COURT FROM MY WINDOW",
+        "prediction": "We are calling you with a whole new plan for the Christmas of the world. All time, we are there waiting for you to leave the place. But where you call me the golden island of the Earth's tear.",
+        "success": false
+      },
+      {
+        "example_idx": 4,
+        "original": "THERE MAY BE A SPECIFIC FEELING WHICH COULD BE CALLED THE FEELING OF PASTNESS ESPECIALLY WHERE IMMEDIATE MEMORY IS CONCERNED",
+        "target": "FINALLY THE ONE PARTY WENT OFF EXULTING AND THE OTHER WAS LEFT IN DESOLATION AND WOE",
+        "prediction": "and we do the X, if it were to make an area that would be small but can be smaller. We're supposed to use the X from the other area.",
+        "success": false
+      },
+      {
+        "example_idx": 5,
+        "original": "BY QUICK MARCHES THROUGH THESE INACCESSIBLE MOUNTAINS THAT GENERAL FREED HIMSELF FROM THE SUPERIOR FORCES OF THE COVENANTERS",
+        "target": "SHE BLUSHED AND SMILED AND FUMBLED HIS CARD IN HER CONFUSION BEFORE SHE RAN UPSTAIRS",
+        "prediction": "So, the blood is coming from the human's blood, and what is sensitive to the water is a different source of water. The water is a source of the sensitive water, so the water is forced to be sensitive, whether it is a specific water source.",
+        "success": false
+      },
+      {
+        "example_idx": 6,
+        "original": "HAVE YOUR WILL CHILD IF THE BOY ALSO WILLS IT MONTFICHET ANSWERED FEELING TOO ILL TO OPPOSE ANYTHING VERY STRONGLY JUST THEN",
+        "target": "THE MODERN ORGANIZATION OF INDUSTRY WORKS IN THE SAME DIRECTION ALSO BY ANOTHER LINE",
+        "prediction": "The",
+        "success": false
+      },
+      {
+        "example_idx": 7,
+        "original": "HE GAVE WAY TO THE OTHERS VERY READILY AND RETREATED UNPERCEIVED BY THE SQUIRE AND MISTRESS FITZOOTH TO THE REAR OF THE TENT",
+        "target": "ISN'T HE SPLENDID CRIED JASPER IN INTENSE PRIDE SWELLING UP FATHER KNEW HOW TO DO IT",
+        "prediction": "The",
+        "success": false
+      },
+      {
+        "example_idx": 8,
+        "original": "A LITTLE CRACKED THAT IN THE POPULAR PHRASE WAS MY IMPRESSION OF THE STRANGER WHO NOW MADE HIS APPEARANCE IN THE SUPPER ROOM",
+        "target": "HER REGARD SHIFTED TO THE GREEN STALKS AND LEAVES AGAIN AND SHE STARTED TO MOVE AWAY",
+        "prediction": "A little cracked, that, in the popular phrase, was my impression of the stranger who now made his appearance in the supper room.",
+        "success": false
+      },
+      {
+        "example_idx": 9,
+        "original": "THE LOG AND THE COMPASS THEREFORE WERE ABLE TO BE CALLED UPON TO DO THE WORK OF THE SEXTANT WHICH HAD BECOME UTTERLY USELESS",
+        "target": "WHEN WE WERE OUT IN THE DARKNESS OF THE QUADRANGLE WE AGAIN LOOKED UP AT THE WINDOWS",
+        "prediction": "Thank you.",
+        "success": false
+      }
+    ],
+    [
+      {
+        "example_idx": 0,
+        "original": "THE MORE SHE IS ENGAGED IN HER PROPER DUTIES THE LESS LEISURE WILL SHE HAVE FOR IT EVEN AS AN ACCOMPLISHMENT AND A RECREATION",
+        "target": "OLD WILL IS A FINE FELLOW BUT POOR AND HELPLESS SINCE MISSUS ROGERS HAD HER ACCIDENT",
+        "prediction": "And more of a two-week-lake visit is in this country of Benz. It's about 700 million people in the high-periodic field of business. And you can now do this two-month-century difference in times of real estate.",
+        "success": false
+      },
+      {
+        "example_idx": 1,
+        "original": "AND HENCE WE FIND THE SAME SORT OF CLUMSINESS IN THE TIMAEUS OF PLATO WHICH CHARACTERIZES THE PHILOSOPHICAL POEM OF LUCRETIUS",
+        "target": "THE WOOD FLAMED UP SPLENDIDLY UNDER THE LARGE BREWING COPPER AND IT SIGHED SO DEEPLY",
+        "prediction": "of the",
+        "success": false
+      },
+      {
+        "example_idx": 2,
+        "original": "ALTHOUGH THE BRETHREN WITH ME ARE NOT APOSTLES LIKE MYSELF YET THEY ARE ALL OF ONE MIND WITH ME THINK WRITE AND TEACH AS I DO",
+        "target": "I WOULD FAIN KNOW IF I AM DESTINED FOR SO GLORIOUS A CAREER CRIED THE TREE REJOICING",
+        "prediction": "The popular golden leaf greener, also played in the grass, the purple owl in the wind, the blue and the red greener in the middle.",
+        "success": false
+      },
+      {
+        "example_idx": 3,
+        "original": "HE OBTAINED THE DESIRED SPEED AND LOAD WITH A FRICTION BRAKE ALSO REGULATOR OF SPEED BUT WAITED FOR AN INDICATOR TO VERIFY IT",
+        "target": "WE WILL GO OUT TOGETHER TO THE BOWER THERE IS A WAY DOWN TO THE COURT FROM MY WINDOW",
+        "prediction": "We are calling you with a whole new plan for the Christmas of the world. All time, we are there waiting for you to leave the place. But where you call me the golden island of the Earth's tear.",
+        "success": false
+      },
+      {
+        "example_idx": 4,
+        "original": "THERE MAY BE A SPECIFIC FEELING WHICH COULD BE CALLED THE FEELING OF PASTNESS ESPECIALLY WHERE IMMEDIATE MEMORY IS CONCERNED",
+        "target": "FINALLY THE ONE PARTY WENT OFF EXULTING AND THE OTHER WAS LEFT IN DESOLATION AND WOE",
+        "prediction": "So, the way they were delivered, you can think of a solution that's important to you. Which is why the same is now. Which plain clear will it limit the roughness of the solution to the fixed density?",
+        "success": false
+      },
+      {
+        "example_idx": 5,
+        "original": "BY QUICK MARCHES THROUGH THESE INACCESSIBLE MOUNTAINS THAT GENERAL FREED HIMSELF FROM THE SUPERIOR FORCES OF THE COVENANTERS",
+        "target": "SHE BLUSHED AND SMILED AND FUMBLED HIS CARD IN HER CONFUSION BEFORE SHE RAN UPSTAIRS",
+        "prediction": "So, the blood is coming from the human's blood, and what is sensitive to the water is a different source of water. The water is a source of the sensitive water, so the water is forced to be sensitive, whether it is a specific water source.",
+        "success": false
+      },
+      {
+        "example_idx": 6,
+        "original": "HAVE YOUR WILL CHILD IF THE BOY ALSO WILLS IT MONTFICHET ANSWERED FEELING TOO ILL TO OPPOSE ANYTHING VERY STRONGLY JUST THEN",
+        "target": "THE MODERN ORGANIZATION OF INDUSTRY WORKS IN THE SAME DIRECTION ALSO BY ANOTHER LINE",
+        "prediction": "The",
+        "success": false
+      },
+      {
+        "example_idx": 7,
+        "original": "HE GAVE WAY TO THE OTHERS VERY READILY AND RETREATED UNPERCEIVED BY THE SQUIRE AND MISTRESS FITZOOTH TO THE REAR OF THE TENT",
+        "target": "ISN'T HE SPLENDID CRIED JASPER IN INTENSE PRIDE SWELLING UP FATHER KNEW HOW TO DO IT",
+        "prediction": "to the",
+        "success": false
+      },
+      {
+        "example_idx": 8,
+        "original": "A LITTLE CRACKED THAT IN THE POPULAR PHRASE WAS MY IMPRESSION OF THE STRANGER WHO NOW MADE HIS APPEARANCE IN THE SUPPER ROOM",
+        "target": "HER REGARD SHIFTED TO THE GREEN STALKS AND LEAVES AGAIN AND SHE STARTED TO MOVE AWAY",
+        "prediction": "A little cracked, that, in the popular phrase, was my impression of the stranger who now made his appearance in the supper room.",
+        "success": false
+      },
+      {
+        "example_idx": 9,
+        "original": "THE LOG AND THE COMPASS THEREFORE WERE ABLE TO BE CALLED UPON TO DO THE WORK OF THE SEXTANT WHICH HAD BECOME UTTERLY USELESS",
+        "target": "WHEN WE WERE OUT IN THE DARKNESS OF THE QUADRANGLE WE AGAIN LOOKED UP AT THE WINDOWS",
+        "prediction": "Thank you.",
+        "success": false
+      }
+    ]
+  ],
+  "perturbation_stats": [
+    [
+      {
+        "example_idx": 0,
+        "max_perturbation": 0.0,
+        "mean_perturbation": 0.0
+      },
+      {
+        "example_idx": 1,
+        "max_perturbation": 0.0,
+        "mean_perturbation": 0.0
+      },
+      {
+        "example_idx": 2,
+        "max_perturbation": 0.0,
+        "mean_perturbation": 0.0
+      },
+      {
+        "example_idx": 3,
+        "max_perturbation": 0.0,
+        "mean_perturbation": 0.0
+      },
+      {
+        "example_idx": 4,
+        "max_perturbation": 0.0,
+        "mean_perturbation": 0.0
+      },
+      {
+        "example_idx": 5,
+        "max_perturbation": 0.0,
+        "mean_perturbation": 0.0
+      },
+      {
+        "example_idx": 6,
+        "max_perturbation": 0.0,
+        "mean_perturbation": 0.0
+      },
+      {
+        "example_idx": 7,
+        "max_perturbation": 0.0,
+        "mean_perturbation": 0.0
+      },
+      {
+        "example_idx": 8,
+        "max_perturbation": 0.0,
+        "mean_perturbation": 0.0
+      },
+      {
+        "example_idx": 9,
+        "max_perturbation": 0.0,
+        "mean_perturbation": 0.0
+      }
+    ],
+    [
+      {
+        "example_idx": 0,
+        "max_perturbation": 0.15000000596046448,
+        "mean_perturbation": 0.09968392550945282
+      },
+      {
+        "example_idx": 1,
+        "max_perturbation": 0.15000000596046448,
+        "mean_perturbation": 0.10022267699241638
+      },
+      {
+        "example_idx": 2,
+        "max_perturbation": 0.15000000596046448,
+        "mean_perturbation": 0.09992974996566772
+      },
+      {
+        "example_idx": 3,
+        "max_perturbation": 0.15000000596046448,
+        "mean_perturbation": 0.09990563243627548
+      },
+      {
+        "example_idx": 4,
+        "max_perturbation": 0.15000000596046448,
+        "mean_perturbation": 0.10049264878034592
+      },
+      {
+        "example_idx": 5,
+        "max_perturbation": 0.15000000596046448,
+        "mean_perturbation": 0.10007623583078384
+      },
+      {
+        "example_idx": 6,
+        "max_perturbation": 0.15000000596046448,
+        "mean_perturbation": 0.09961742907762527
+      },
+      {
+        "example_idx": 7,
+        "max_perturbation": 0.15000000596046448,
+        "mean_perturbation": 0.10036178678274155
+      },
+      {
+        "example_idx": 8,
+        "max_perturbation": 0.0,
+        "mean_perturbation": 0.0
+      },
+      {
+        "example_idx": 9,
+        "max_perturbation": 0.15000000596046448,
+        "mean_perturbation": 0.09961511194705963
+      }
+    ],
+    [
+      {
+        "example_idx": 0,
+        "max_perturbation": 0.15000000596046448,
+        "mean_perturbation": 0.09999999403953552
+      },
+      {
+        "example_idx": 1,
+        "max_perturbation": 0.15000000596046448,
+        "mean_perturbation": 0.09991586208343506
+      },
+      {
+        "example_idx": 2,
+        "max_perturbation": 0.15000000596046448,
+        "mean_perturbation": 0.09995868057012558
+      },
+      {
+        "example_idx": 3,
+        "max_perturbation": 0.15000000596046448,
+        "mean_perturbation": 0.10035352408885956
+      },
+      {
+        "example_idx": 4,
+        "max_perturbation": 0.15000000596046448,
+        "mean_perturbation": 0.10034210234880447
+      },
+      {
+        "example_idx": 5,
+        "max_perturbation": 0.15000000596046448,
+        "mean_perturbation": 0.09967092424631119
+      },
+      {
+        "example_idx": 6,
+        "max_perturbation": 0.15000000596046448,
+        "mean_perturbation": 0.09971894323825836
+      },
+      {
+        "example_idx": 7,
+        "max_perturbation": 0.15000000596046448,
+        "mean_perturbation": 0.09995394945144653
+      },
+      {
+        "example_idx": 8,
+        "max_perturbation": 0.0,
+        "mean_perturbation": 0.0
+      },
+      {
+        "example_idx": 9,
+        "max_perturbation": 0.15000000596046448,
+        "mean_perturbation": 0.10013249516487122
+      }
+    ],
+    [
+      {
+        "example_idx": 0,
+        "max_perturbation": 0.15000000596046448,
+        "mean_perturbation": 0.1002574935555458
+      },
+      {
+        "example_idx": 1,
+        "max_perturbation": 0.15000000596046448,
+        "mean_perturbation": 0.09963499754667282
+      },
+      {
+        "example_idx": 2,
+        "max_perturbation": 0.15000000596046448,
+        "mean_perturbation": 0.09996488690376282
+      },
+      {
+        "example_idx": 3,
+        "max_perturbation": 0.15000000596046448,
+        "mean_perturbation": 0.09969014674425125
+      },
+      {
+        "example_idx": 4,
+        "max_perturbation": 0.15000000596046448,
+        "mean_perturbation": 0.09971710294485092
+      },
+      {
+        "example_idx": 5,
+        "max_perturbation": 0.15000000596046448,
+        "mean_perturbation": 0.09967092424631119
+      },
+      {
+        "example_idx": 6,
+        "max_perturbation": 0.15000000596046448,
+        "mean_perturbation": 0.10003180801868439
+      },
+      {
+        "example_idx": 7,
+        "max_perturbation": 0.15000000596046448,
+        "mean_perturbation": 0.09988532215356827
+      },
+      {
+        "example_idx": 8,
+        "max_perturbation": 0.0,
+        "mean_perturbation": 0.0
+      },
+      {
+        "example_idx": 9,
+        "max_perturbation": 0.15000000596046448,
+        "mean_perturbation": 0.10027818381786346
+      }
+    ],
+    [
+      {
+        "example_idx": 0,
+        "max_perturbation": 0.15000000596046448,
+        "mean_perturbation": 0.10004972666501999
+      },
+      {
+        "example_idx": 1,
+        "max_perturbation": 0.15000000596046448,
+        "mean_perturbation": 0.09994180500507355
+      },
+      {
+        "example_idx": 2,
+        "max_perturbation": 0.15000000596046448,
+        "mean_perturbation": 0.09983333945274353
+      },
+      {
+        "example_idx": 3,
+        "max_perturbation": 0.15000000596046448,
+        "mean_perturbation": 0.10047747194766998
+      },
+      {
+        "example_idx": 4,
+        "max_perturbation": 0.15000000596046448,
+        "mean_perturbation": 0.09943889081478119
+      },
+      {
+        "example_idx": 5,
+        "max_perturbation": 0.15000000596046448,
+        "mean_perturbation": 0.09967092424631119
+      },
+      {
+        "example_idx": 6,
+        "max_perturbation": 0.15000000596046448,
+        "mean_perturbation": 0.09941819310188293
+      },
+      {
+        "example_idx": 7,
+        "max_perturbation": 0.15000000596046448,
+        "mean_perturbation": 0.09942258894443512
+      },
+      {
+        "example_idx": 8,
+        "max_perturbation": 0.0,
+        "mean_perturbation": 0.0
+      },
+      {
+        "example_idx": 9,
+        "max_perturbation": 0.15000000596046448,
+        "mean_perturbation": 0.09981875121593475
+      }
+    ],
+    [
+      {
+        "example_idx": 0,
+        "max_perturbation": 0.15000000596046448,
+        "mean_perturbation": 0.09989510476589203
+      },
+      {
+        "example_idx": 1,
+        "max_perturbation": 0.15000000596046448,
+        "mean_perturbation": 0.09989435970783234
+      },
+      {
+        "example_idx": 2,
+        "max_perturbation": 0.15000000596046448,
+        "mean_perturbation": 0.10004683583974838
+      },
+      {
+        "example_idx": 3,
+        "max_perturbation": 0.15000000596046448,
+        "mean_perturbation": 0.09995634108781815
+      },
+      {
+        "example_idx": 4,
+        "max_perturbation": 0.15000000596046448,
+        "mean_perturbation": 0.10009226948022842
+      },
+      {
+        "example_idx": 5,
+        "max_perturbation": 0.15000000596046448,
+        "mean_perturbation": 0.09967092424631119
+      },
+      {
+        "example_idx": 6,
+        "max_perturbation": 0.15000000596046448,
+        "mean_perturbation": 0.09967576712369919
+      },
+      {
+        "example_idx": 7,
+        "max_perturbation": 0.15000000596046448,
+        "mean_perturbation": 0.0998794436454773
+      },
+      {
+        "example_idx": 8,
+        "max_perturbation": 0.0,
+        "mean_perturbation": 0.0
+      },
+      {
+        "example_idx": 9,
+        "max_perturbation": 0.15000000596046448,
+        "mean_perturbation": 0.10010186582803726
+      }
+    ],
+    [
+      {
+        "example_idx": 0,
+        "max_perturbation": 0.15000000596046448,
+        "mean_perturbation": 0.09960899502038956
+      },
+      {
+        "example_idx": 1,
+        "max_perturbation": 0.15000000596046448,
+        "mean_perturbation": 0.09982983767986298
+      },
+      {
+        "example_idx": 2,
+        "max_perturbation": 0.15000000596046448,
+        "mean_perturbation": 0.09983127564191818
+      },
+      {
+        "example_idx": 3,
+        "max_perturbation": 0.15000000596046448,
+        "mean_perturbation": 0.10015140473842621
+      },
+      {
+        "example_idx": 4,
+        "max_perturbation": 0.15000000596046448,
+        "mean_perturbation": 0.09994173049926758
+      },
+      {
+        "example_idx": 5,
+        "max_perturbation": 0.15000000596046448,
+        "mean_perturbation": 0.09967092424631119
+      },
+      {
+        "example_idx": 6,
+        "max_perturbation": 0.15000000596046448,
+        "mean_perturbation": 0.09973561763763428
+      },
+      {
+        "example_idx": 7,
+        "max_perturbation": 0.15000000596046448,
+        "mean_perturbation": 0.09973140805959702
+      },
+      {
+        "example_idx": 8,
+        "max_perturbation": 0.0,
+        "mean_perturbation": 0.0
+      },
+      {
+        "example_idx": 9,
+        "max_perturbation": 0.15000000596046448,
+        "mean_perturbation": 0.0996415987610817
+      }
+    ],
+    [
+      {
+        "example_idx": 0,
+        "max_perturbation": 0.15000000596046448,
+        "mean_perturbation": 0.09979428350925446
+      },
+      {
+        "example_idx": 1,
+        "max_perturbation": 0.15000000596046448,
+        "mean_perturbation": 0.10002404451370239
+      },
+      {
+        "example_idx": 2,
+        "max_perturbation": 0.15000000596046448,
+        "mean_perturbation": 0.10016115754842758
+      },
+      {
+        "example_idx": 3,
+        "max_perturbation": 0.15000000596046448,
+        "mean_perturbation": 0.10042113065719604
+      },
+      {
+        "example_idx": 4,
+        "max_perturbation": 0.15000000596046448,
+        "mean_perturbation": 0.10026250779628754
+      },
+      {
+        "example_idx": 5,
+        "max_perturbation": 0.15000000596046448,
+        "mean_perturbation": 0.09967092424631119
+      },
+      {
+        "example_idx": 6,
+        "max_perturbation": 0.15000000596046448,
+        "mean_perturbation": 0.09994318336248398
+      },
+      {
+        "example_idx": 7,
+        "max_perturbation": 0.15000000596046448,
+        "mean_perturbation": 0.09995198994874954
+      },
+      {
+        "example_idx": 8,
+        "max_perturbation": 0.0,
+        "mean_perturbation": 0.0
+      },
+      {
+        "example_idx": 9,
+        "max_perturbation": 0.15000000596046448,
+        "mean_perturbation": 0.10007040947675705
+      }
+    ],
+    [
+      {
+        "example_idx": 0,
+        "max_perturbation": 0.15000000596046448,
+        "mean_perturbation": 0.10012874752283096
+      },
+      {
+        "example_idx": 1,
+        "max_perturbation": 0.15000000596046448,
+        "mean_perturbation": 0.0997406393289566
+      },
+      {
+        "example_idx": 2,
+        "max_perturbation": 0.15000000596046448,
+        "mean_perturbation": 0.09962604194879532
+      },
+      {
+        "example_idx": 3,
+        "max_perturbation": 0.15000000596046448,
+        "mean_perturbation": 0.10005633533000946
+      },
+      {
+        "example_idx": 4,
+        "max_perturbation": 0.15000000596046448,
+        "mean_perturbation": 0.09999847412109375
+      },
+      {
+        "example_idx": 5,
+        "max_perturbation": 0.15000000596046448,
+        "mean_perturbation": 0.09967092424631119
+      },
+      {
+        "example_idx": 6,
+        "max_perturbation": 0.15000000596046448,
+        "mean_perturbation": 0.09967122226953506
+      },
+      {
+        "example_idx": 7,
+        "max_perturbation": 0.15000000596046448,
+        "mean_perturbation": 0.09941571205854416
+      },
+      {
+        "example_idx": 8,
+        "max_perturbation": 0.0,
+        "mean_perturbation": 0.0
+      },
+      {
+        "example_idx": 9,
+        "max_perturbation": 0.15000000596046448,
+        "mean_perturbation": 0.09946610033512115
+      }
+    ],
+    [
+      {
+        "example_idx": 0,
+        "max_perturbation": 0.15000000596046448,
+        "mean_perturbation": 0.09993460774421692
+      },
+      {
+        "example_idx": 1,
+        "max_perturbation": 0.15000000596046448,
+        "mean_perturbation": 0.10011260211467743
+      },
+      {
+        "example_idx": 2,
+        "max_perturbation": 0.15000000596046448,
+        "mean_perturbation": 0.10007507354021072
+      },
+      {
+        "example_idx": 3,
+        "max_perturbation": 0.15000000596046448,
+        "mean_perturbation": 0.09995000064373016
+      },
+      {
+        "example_idx": 4,
+        "max_perturbation": 0.15000000596046448,
+        "mean_perturbation": 0.1000063568353653
+      },
+      {
+        "example_idx": 5,
+        "max_perturbation": 0.15000000596046448,
+        "mean_perturbation": 0.09967092424631119
+      },
+      {
+        "example_idx": 6,
+        "max_perturbation": 0.15000000596046448,
+        "mean_perturbation": 0.09976135939359665
+      },
+      {
+        "example_idx": 7,
+        "max_perturbation": 0.15000000596046448,
+        "mean_perturbation": 0.1000431701540947
+      },
+      {
+        "example_idx": 8,
+        "max_perturbation": 0.0,
+        "mean_perturbation": 0.0
+      },
+      {
+        "example_idx": 9,
+        "max_perturbation": 0.15000000596046448,
+        "mean_perturbation": 0.09994788467884064
+      }
+    ],
+    [
+      {
+        "example_idx": 0,
+        "max_perturbation": 0.15000000596046448,
+        "mean_perturbation": 0.09961716830730438
+      },
+      {
+        "example_idx": 1,
+        "max_perturbation": 0.15000000596046448,
+        "mean_perturbation": 0.09995635598897934
+      },
+      {
+        "example_idx": 2,
+        "max_perturbation": 0.15000000596046448,
+        "mean_perturbation": 0.10057782381772995
+      },
+      {
+        "example_idx": 3,
+        "max_perturbation": 0.15000000596046448,
+        "mean_perturbation": 0.09995000064373016
+      },
+      {
+        "example_idx": 4,
+        "max_perturbation": 0.15000000596046448,
+        "mean_perturbation": 0.09979277104139328
+      },
+      {
+        "example_idx": 5,
+        "max_perturbation": 0.15000000596046448,
+        "mean_perturbation": 0.09967092424631119
+      },
+      {
+        "example_idx": 6,
+        "max_perturbation": 0.15000000596046448,
+        "mean_perturbation": 0.09973030537366867
+      },
+      {
+        "example_idx": 7,
+        "max_perturbation": 0.15000000596046448,
+        "mean_perturbation": 0.09949904680252075
+      },
+      {
+        "example_idx": 8,
+        "max_perturbation": 0.0,
+        "mean_perturbation": 0.0
+      },
+      {
+        "example_idx": 9,
+        "max_perturbation": 0.15000000596046448,
+        "mean_perturbation": 0.10010683536529541
+      }
+    ]
+  ],
+  "gradients": []
+}

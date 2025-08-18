@@ -1,0 +1,50 @@
+{
+  "iterations": [
+    0,
+    9
+  ],
+  "losses": [
+    [
+      9.200479507446289
+    ],
+    [
+      6.913428783416748
+    ]
+  ],
+  "transcriptions": [
+    [
+      {
+        "example_idx": 0,
+        "original": "LibriSpeech/test-clean/2961/960/2961-960-0020.flac",
+        "target": "LibriSpeech/test-clean/2830/3980/2830-3980-0029.flac",
+        "prediction": "The more she's engaged in her proper duties, the less leisure will she have for it, even as an accomplishment and a recreation.",
+        "success": false
+      }
+    ],
+    [
+      {
+        "example_idx": 0,
+        "original": "LibriSpeech/test-clean/2961/960/2961-960-0020.flac",
+        "target": "LibriSpeech/test-clean/2830/3980/2830-3980-0029.flac",
+        "prediction": "My favorite tourist in my sub-evisory, Samaritan air, your favorite, the 3rd and 1st American American tourist.",
+        "success": false
+      }
+    ]
+  ],
+  "perturbation_stats": [
+    [
+      {
+        "example_idx": 0,
+        "max_perturbation": 0.0,
+        "mean_perturbation": 0.0
+      }
+    ],
+    [
+      {
+        "example_idx": 0,
+        "max_perturbation": 0.15000000596046448,
+        "mean_perturbation": 0.13188080489635468
+      }
+    ]
+  ]
+}
