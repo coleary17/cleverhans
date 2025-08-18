@@ -232,10 +232,10 @@ class AdversarialAttack:
         start_time = time.time()
         iteration_times = []
         
-        audios = batch['audios']
+        audios = batch['audios'].to(self.device)
         original_texts = batch['original_texts']
         target_texts = batch['target_texts']
-        masks = batch['masks']
+        masks = batch['masks'].to(self.device)
         lengths = batch['lengths']
         
         # Initialize adversarial perturbations
@@ -249,9 +249,11 @@ class AdversarialAttack:
         optimizer = optim.Adam([delta], lr=self.lr_stage1)
         
         # Track success iterations for each example
+        # -1: not yet successful, -999: impossible (inf loss), positive: iteration succeeded
         success_iterations = [-1] * self.batch_size
         best_deltas = [None] * self.batch_size
         attack_results = []
+        impossible_examples = set()  # Track which examples are impossible to attack
         
         # Track progress over iterations
         iteration_history = {
@@ -370,11 +372,27 @@ class AdversarialAttack:
                         # Compute losses for this sub-batch (SEQUENTIAL - BOTTLENECK!)
                         for i, (audio, length, text) in enumerate(zip(sub_batch_audio, sub_batch_lengths, sub_batch_texts)):
                             idx = sub_batch_start + i
+                            
+                            # Skip impossible examples to save computation
+                            if idx in impossible_examples:
+                                losses.append(torch.tensor(float('inf'), device=self.device, requires_grad=False))
+                                continue
+                            
                             try:
                                 loss = self.asr_model.compute_loss(audio[:length], text)
+                                
+                                # Check if loss is inf/nan on first few iterations
+                                if iteration < 5 and (torch.isinf(loss) or torch.isnan(loss)):
+                                    impossible_examples.add(idx)
+                                    success_iterations[idx] = -999
+                                    if iteration == 0:
+                                        print(f"  ❌ Example {idx} marked impossible (inf/nan loss for target: '{text[:30]}...')")
+                                
                                 losses.append(loss)
                             except Exception as e:
                                 print(f"Error processing example {idx}: {e}")
+                                impossible_examples.add(idx)
+                                success_iterations[idx] = -999
                                 # Create a dummy loss that doesn't affect gradients
                                 losses.append(torch.tensor(float('inf'), device=self.device, requires_grad=False))
                 
@@ -404,11 +422,16 @@ class AdversarialAttack:
                 valid_indices = []
                 valid_loss_list = []
                 for i, loss in enumerate(losses):
+                    if i in impossible_examples:
+                        continue  # Skip impossible examples
                     if not torch.isnan(loss) and not torch.isinf(loss) and loss > 0:
                         valid_indices.append(i)
                         valid_loss_list.append(loss)
-                    elif torch.isnan(loss) and self.verbose:
-                        print(f"  Warning: NaN loss for example {i}, target: '{target_texts[i][:30]}...'")
+                    elif (torch.isnan(loss) or torch.isinf(loss)) and self.verbose:
+                        if iteration < 5:  # Mark as impossible in early iterations
+                            impossible_examples.add(i)
+                            success_iterations[i] = -999
+                            print(f"  ❌ Example {i} marked impossible (inf/nan loss for target: '{target_texts[i][:30]}...'")
                 
                 if valid_loss_list:
                     # VECTORIZED gradient computation - ALL gradients in ONE pass!
@@ -471,9 +494,11 @@ class AdversarialAttack:
             # Full logging with transcriptions and history every 100 iterations
             should_full_log = (iteration % 100 == 0) or (iteration == self.num_iter_stage1 - 1)
             
-            # Early stopping check - if all examples succeeded, we can stop
-            if all(s != -1 for s in success_iterations[:min(self.batch_size, audios.shape[0])]):
-                print(f"\n[Iteration {iteration}] All examples succeeded! Stopping early.")
+            # Early stopping check - if all non-impossible examples succeeded, we can stop
+            active_examples = [i for i in range(min(self.batch_size, audios.shape[0])) if i not in impossible_examples]
+            if active_examples and all(success_iterations[i] != -1 for i in active_examples):
+                print(f"\n[Iteration {iteration}] All active examples succeeded! Stopping early.")
+                print(f"  ({len(impossible_examples)} examples were marked impossible)")
                 break
             
             # Track iteration time
@@ -542,7 +567,9 @@ class AdversarialAttack:
                 est_remaining = avg_time * (self.num_iter_stage1 - iteration - 1)
                 loss_time = timing_breakdown.get('loss_computation', 0)
                 avg_grad = np.mean([g for g in gradient_norms if g > 0]) if gradient_norms else 0
-                print(f"[Iteration {iteration}/{self.num_iter_stage1}] Loss: {total_loss:.4f}, Avg Grad: {avg_grad:.6f} [{avg_time:.2f}s/iter, Loss comp: {loss_time:.4f}s, ETA: {est_remaining/60:.1f}min]")
+                active_count = self.batch_size - len(impossible_examples)
+                status_str = f" Active: {active_count}/{self.batch_size}" if impossible_examples else ""
+                print(f"[Iteration {iteration}/{self.num_iter_stage1}] Loss: {total_loss:.4f}, Avg Grad: {avg_grad:.6f} [{avg_time:.2f}s/iter, Loss comp: {loss_time:.4f}s, ETA: {est_remaining/60:.1f}min]{status_str}")
             
             # Full logging with transcriptions (every 100 iterations)
             if should_full_log:
@@ -651,6 +678,27 @@ class AdversarialAttack:
         scaled_delta = bounded_delta * rescale
         
         for i in range(min(self.batch_size, audios.shape[0])):
+            # Handle impossible examples
+            if i in impossible_examples:
+                final_audio[i] = audios[i]  # Use original audio
+                result = {
+                    'example_idx': i,
+                    'original_text': original_texts[i],
+                    'target_text': target_texts[i],
+                    'final_text': '[IMPOSSIBLE - inf/nan loss]',
+                    'success': False,
+                    'success_iteration': -999,
+                    'final_loss': float('inf'),
+                    'max_perturbation': 0.0,
+                    'mean_perturbation': 0.0,
+                    'stage': 'stage1',
+                    'reason': 'impossible_target',
+                    'iteration_history': None
+                }
+                attack_results.append(result)
+                print(f"Example {i}: IMPOSSIBLE (inf/nan loss for target)")
+                continue
+            
             # Get final audio
             if best_deltas[i] is not None:
                 final_audio[i] = best_deltas[i]
