@@ -16,7 +16,6 @@ from datetime import datetime
 from typing import Dict, List, Tuple
 import torch
 import multiprocessing as mp
-from functools import partial
 
 sys.path.insert(0, str(Path(__file__).parent / "src"))
 
@@ -244,11 +243,9 @@ def run_grid_search(data_file: str, output_dir: str, parallel: bool = False,
     if parallel and max_workers > 1:
         print(f"\nRunning in parallel with {max_workers} workers...")
         with mp.Pool(max_workers) as pool:
-            run_func = partial(run_single_configuration, 
-                              data_file=data_file, 
-                              output_dir=output_path)
-            results = pool.starmap(run_func, 
-                                  [(cfg, cfg_id) for cfg, cfg_id in configurations])
+            results = pool.starmap(run_single_configuration, 
+                                  [(cfg, data_file, cfg_id, output_path) 
+                                   for cfg, cfg_id in configurations])
     else:
         print("\nRunning configurations sequentially...")
         for config, config_id in configurations:
