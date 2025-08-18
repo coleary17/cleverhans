@@ -39,7 +39,7 @@ class AdversarialAttack:
                  batch_size: int = 5,
                  window_size: int = 2048,
                  initial_bound: float = 0.03,
-                 lr_stage1: float = 0.015,
+                 lr_stage1: float = 0.1,
                  lr_stage2: float = 0.005,
                  num_iter_stage1: int = 1000,
                  num_iter_stage2: int = 4000,
