@@ -198,7 +198,7 @@ class AdversarialAttack:
             Adversarial audio tensor
         """
         print("=" * 60)
-        print("Starting Stage 1 Attack...")
+        print(f"Starting Stage 1 Attack... {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}")
         print(f"Batch size: {self.batch_size}")
         
         # WARNING for large batch sizes
@@ -232,6 +232,8 @@ class AdversarialAttack:
         # Initialize rescale factors
         rescale = torch.ones(self.batch_size, 1, device=self.device)
         
+        # Note: We'll use manual gradient updates instead of optimizer.step()
+        # to ensure per-example updates
         optimizer = optim.Adam([delta], lr=self.lr_stage1)
         
         # Track success iterations for each example
@@ -244,7 +246,8 @@ class AdversarialAttack:
             'iterations': [],
             'losses': [],
             'transcriptions': [],
-            'perturbation_stats': []
+            'perturbation_stats': [],
+            'gradients': []  # Track per-example gradient norms
         }
         
         # Initial transcriptions
@@ -374,14 +377,47 @@ class AdversarialAttack:
             
             timing_breakdown['loss_computation'] = time.time() - loss_start
             
-            if total_loss > 0:
-                total_loss.backward()
-                
-                if delta.grad is not None:
-                    # Option 1: Sign the gradients (original method)
-                    delta.grad.sign_()
-                    
-                optimizer.step()
+            # Track gradient norms for each example
+            gradient_norms = []
+            
+            # Apply per-example gradient updates
+            if valid_losses:
+                # Process each example independently
+                for i, loss in enumerate(losses):
+                    if not torch.isinf(loss) and loss > 0:
+                        # Zero out gradients for this specific example
+                        optimizer.zero_grad()
+                        
+                        # Backward pass for this example only
+                        # Use retain_graph=True since we'll compute gradients multiple times
+                        loss.backward(retain_graph=(i < len(losses) - 1))
+                        
+                        if delta.grad is not None:
+                            # Track gradient norm before update
+                            grad_norm = delta.grad[i].norm().item()
+                            gradient_norms.append(grad_norm)
+                            
+                            # Apply signed gradient update ONLY to this example
+                            with torch.no_grad():
+                                delta[i] += self.lr_stage1 * delta.grad[i].sign()
+                                # Clamp to bounds
+                                delta[i] = torch.clamp(delta[i], -self.initial_bound, self.initial_bound)
+                        else:
+                            gradient_norms.append(0.0)
+                        
+                        # Clear gradients after update
+                        if delta.grad is not None:
+                            delta.grad.zero_()
+                    else:
+                        gradient_norms.append(0.0)
+            else:
+                gradient_norms = [0.0] * len(losses)
+            
+            # Calculate total loss for logging (sum of valid losses)
+            if valid_losses:
+                total_loss = torch.stack(valid_losses).sum()
+            else:
+                total_loss = torch.tensor(0.0, device=self.device)
             
             # Simplified logging intervals to avoid redundancy
             # Light progress every 10 iterations (just loss, no transcription)
@@ -404,7 +440,8 @@ class AdversarialAttack:
                     'total_loss': total_loss.item() if torch.is_tensor(total_loss) else total_loss,
                     'individual_losses': individual_losses.copy(),
                     'transcriptions': [],
-                    'perturbation_stats': []
+                    'perturbation_stats': [],
+                    'gradient_norms': gradient_norms.copy()
                 }
                 
                 # Get transcriptions and stats (limit to 10 for large batches)
@@ -458,13 +495,14 @@ class AdversarialAttack:
                 avg_time = np.mean(iteration_times[-min(50, len(iteration_times)):])
                 est_remaining = avg_time * (self.num_iter_stage1 - iteration - 1)
                 loss_time = timing_breakdown.get('loss_computation', 0)
-                print(f"[Iteration {iteration}/{self.num_iter_stage1}] Loss: {total_loss:.4f} [{avg_time:.2f}s/iter, Loss comp: {loss_time:.4f}s, ETA: {est_remaining/60:.1f}min]")
+                avg_grad = np.mean([g for g in gradient_norms if g > 0]) if gradient_norms else 0
+                print(f"[Iteration {iteration}/{self.num_iter_stage1}] Loss: {total_loss:.4f}, Avg Grad: {avg_grad:.6f} [{avg_time:.2f}s/iter, Loss comp: {loss_time:.4f}s, ETA: {est_remaining/60:.1f}min]")
             
             # Full logging with transcriptions (every 100 iterations)
             if should_full_log:
                 avg_time = np.mean(iteration_times[-min(50, len(iteration_times)):])
                 est_remaining = avg_time * (self.num_iter_stage1 - iteration - 1)
-                print(f"\n[Iteration {iteration}/{self.num_iter_stage1}] [{avg_time:.2f}s/iter, ETA: {est_remaining/60:.1f}min]")
+                print(f"\n[Iteration {iteration}/{self.num_iter_stage1}] [{datetime.now().strftime('%Y-%m-%d %H:%M:%S')}]")
                 print(f"Total Loss: {total_loss:.4f}")
                 
                 # Check predictions for all examples with transcription
@@ -497,7 +535,7 @@ class AdversarialAttack:
                             print(f"Example {i}: ✓ SUCCESS!")
                             print(f"  Target:   '{target_texts[i]}'")
                             print(f"  Achieved: '{pred}'")
-                            print(f"  Loss: {individual_losses[i]:.4f}")
+                            print(f"  Loss: {individual_losses[i]:.4f}, Grad norm: {gradient_norms[i]:.6f}")
                             print(f"  Max perturbation: {max_pert:.2f}, Mean: {mean_pert:.2f}")
                             
                             # Update rescale factor
@@ -512,7 +550,7 @@ class AdversarialAttack:
                             print(f"Example {i}:")
                             print(f"  Target:   '{target_texts[i]}'")
                             print(f"  Current:  '{pred}'")
-                            print(f"  Loss: {individual_losses[i]:.4f}")
+                            print(f"  Loss: {individual_losses[i]:.4f}, Grad norm: {gradient_norms[i]:.6f}")
                             if self.verbose:
                                 print(f"  Max pert: {max_pert:.2f}, Mean: {mean_pert:.2f}")
                             
