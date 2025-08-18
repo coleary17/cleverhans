@@ -163,7 +163,7 @@ attack = AdversarialAttack(
     num_iter_stage2=${NUM_ITER_STAGE2},
     log_interval=${LOG_INTERVAL},
     verbose=False,
-    save_audio=True,  # Disable to save time
+    save_audio=False,  # Disable to save time
     skip_stage2_on_failure=True  # Skip Stage 2 for failed Stage 1 attacks
 )
 

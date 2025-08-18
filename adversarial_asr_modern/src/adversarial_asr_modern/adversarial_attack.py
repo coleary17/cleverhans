@@ -13,6 +13,7 @@ import time
 from typing import List, Tuple, Dict
 import pandas as pd
 import json
+import random
 from datetime import datetime
 
 from .audio_utils import (
@@ -87,7 +88,11 @@ class AdversarialAttack:
         self.skip_stage2_on_failure = skip_stage2_on_failure
         self.use_parallel = use_parallel
         self.num_parallel_models = num_parallel_models
-        
+
+        # For reproducibility
+        random.seed(17)  
+        np.random.seed(17)  
+        torch.manual_seed(17)  
         # Initialize ASR model (DataParallel, parallel threading, or single)
         if use_parallel and batch_size > 1:
             # Try DataParallel first (best for GPU utilization)
@@ -1099,13 +1104,15 @@ class AdversarialAttack:
         filepath = Path(filepath)
         
         # Extract iteration history from results (if present)
+        # Remove from ALL results to avoid CSV corruption when processing multiple batches
         iteration_history = None
         for result in results:
             if result.get('iteration_history'):
-                iteration_history = result['iteration_history']
-                # Remove from result to avoid issues with CSV format
+                if iteration_history is None:  # Keep the first one for saving
+                    iteration_history = result['iteration_history']
+                # Remove from ALL results to avoid CSV corruption
                 del result['iteration_history']
-                break
+        # Note: No break statement - we process ALL results
         
         if filepath.suffix == '.json':
             # For JSON, we can include the iteration history
