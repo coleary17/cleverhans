@@ -599,7 +599,11 @@ class ParallelWhisperASRModel:
         def compute_single_loss(model_idx, example_idx, audio, length, text):
             """Helper to compute loss for a single example."""
             try:
-                with torch.cuda.device(self.device):
+                # Don't use cuda.device context for MPS or CPU
+                if self.device.type == 'cuda':
+                    with torch.cuda.device(self.device):
+                        loss = self.models[model_idx].compute_loss(audio[:length], text)
+                else:
                     loss = self.models[model_idx].compute_loss(audio[:length], text)
                 return example_idx, loss
             except Exception as e:

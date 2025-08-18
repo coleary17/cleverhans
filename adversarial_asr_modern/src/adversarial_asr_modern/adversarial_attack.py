@@ -309,9 +309,37 @@ class AdversarialAttack:
                         print(f"   Computing all {batch_size_actual} losses in a single forward pass")
                     
                     batch_start = time.time()
-                    # Prepare audio batch
-                    audio_list = [perturbed_audio[i, :lengths[i]] for i in range(batch_size_actual)]
-                    losses = self.asr_model.compute_loss_batch(audio_list, target_texts[:batch_size_actual])
+                    # Prepare audio batch, handling impossible examples
+                    audio_list = []
+                    text_list = []
+                    valid_batch_indices = []
+                    for i in range(batch_size_actual):
+                        if i not in impossible_examples:
+                            audio_list.append(perturbed_audio[i, :lengths[i]])
+                            text_list.append(target_texts[i])
+                            valid_batch_indices.append(i)
+                    
+                    if audio_list:
+                        batch_losses = self.asr_model.compute_loss_batch(audio_list, text_list)
+                        # Map back to original indices
+                        losses = []
+                        batch_idx = 0
+                        for i in range(batch_size_actual):
+                            if i in impossible_examples:
+                                losses.append(torch.tensor(float('inf'), device=self.device, requires_grad=False))
+                            else:
+                                loss = batch_losses[batch_idx]
+                                # Check for new inf/nan
+                                if torch.isinf(loss) or torch.isnan(loss):
+                                    if i not in impossible_examples:
+                                        impossible_examples.add(i)
+                                        success_iterations[i] = -999
+                                        print(f"  ❌ Example {i} marked impossible at iteration {iteration} (inf/nan loss)")
+                                losses.append(loss)
+                                batch_idx += 1
+                    else:
+                        # All examples are impossible
+                        losses = [torch.tensor(float('inf'), device=self.device, requires_grad=False) for _ in range(batch_size_actual)]
                     batch_time = time.time() - batch_start
                     
                     if iteration % 100 == 0:
@@ -332,16 +360,69 @@ class AdversarialAttack:
                     # Wrap in AMP context if available
                     with torch.cuda.amp.autocast() if self.use_amp else nullcontext():
                         if self.parallel_type == 'dataparallel':
-                            # Use DataParallel's optimized method
-                            audio_list = [perturbed_audio[i, :lengths[i]] for i in range(batch_size_actual)]
-                            losses = self.asr_model.compute_loss_parallel(audio_list, target_texts[:batch_size_actual])
+                            # Use DataParallel's optimized method, handling impossible examples
+                            audio_list = []
+                            text_list = []
+                            valid_indices = []
+                            for i in range(batch_size_actual):
+                                if i not in impossible_examples:
+                                    audio_list.append(perturbed_audio[i, :lengths[i]])
+                                    text_list.append(target_texts[i])
+                                    valid_indices.append(i)
+                            
+                            if audio_list:
+                                parallel_losses = self.asr_model.compute_loss_parallel(audio_list, text_list)
+                                # Map back to original indices
+                                losses = []
+                                par_idx = 0
+                                for i in range(batch_size_actual):
+                                    if i in impossible_examples:
+                                        losses.append(torch.tensor(float('inf'), device=self.device, requires_grad=False))
+                                    else:
+                                        loss = parallel_losses[par_idx]
+                                        # Check for new inf/nan
+                                        if torch.isinf(loss) or torch.isnan(loss):
+                                            if i not in impossible_examples:
+                                                impossible_examples.add(i)
+                                                success_iterations[i] = -999
+                                                print(f"  ❌ Example {i} marked impossible at iteration {iteration} (inf/nan loss)")
+                                        losses.append(loss)
+                                        par_idx += 1
+                            else:
+                                losses = [torch.tensor(float('inf'), device=self.device, requires_grad=False) for _ in range(batch_size_actual)]
                         else:
-                            # Use threading-based parallel
-                            losses = self.asr_model.compute_losses_parallel(
-                                perturbed_audio[:batch_size_actual],
-                                target_texts[:batch_size_actual],
-                                lengths[:batch_size_actual]
-                            )
+                            # Use threading-based parallel - need to handle impossible examples
+                            losses = []
+                            for i in range(batch_size_actual):
+                                if i in impossible_examples:
+                                    losses.append(torch.tensor(float('inf'), device=self.device, requires_grad=False))
+                                else:
+                                    # Let parallel function handle this one
+                                    losses.append(None)
+                            
+                            # Get losses for non-impossible examples
+                            valid_audio = [perturbed_audio[i] for i in range(batch_size_actual) if i not in impossible_examples]
+                            valid_texts = [target_texts[i] for i in range(batch_size_actual) if i not in impossible_examples]
+                            valid_lengths = [lengths[i] for i in range(batch_size_actual) if i not in impossible_examples]
+                            
+                            if valid_audio:
+                                parallel_losses = self.asr_model.compute_losses_parallel(
+                                    valid_audio,
+                                    valid_texts,
+                                    valid_lengths
+                                )
+                                # Fill in the parallel results
+                                par_idx = 0
+                                for i in range(batch_size_actual):
+                                    if losses[i] is None:
+                                        losses[i] = parallel_losses[par_idx]
+                                        # Check for new inf/nan
+                                        if torch.isinf(losses[i]) or torch.isnan(losses[i]):
+                                            if i not in impossible_examples:
+                                                impossible_examples.add(i)
+                                                success_iterations[i] = -999
+                                                print(f"  ❌ Example {i} marked impossible at iteration {iteration} (inf/nan loss)")
+                                        par_idx += 1
                     
                     parallel_time = time.time() - parallel_start
                     if iteration % 100 == 0:
@@ -381,12 +462,12 @@ class AdversarialAttack:
                             try:
                                 loss = self.asr_model.compute_loss(audio[:length], text)
                                 
-                                # Check if loss is inf/nan on first few iterations
-                                if iteration < 5 and (torch.isinf(loss) or torch.isnan(loss)):
-                                    impossible_examples.add(idx)
-                                    success_iterations[idx] = -999
-                                    if iteration == 0:
-                                        print(f"  ❌ Example {idx} marked impossible (inf/nan loss for target: '{text[:30]}...')")
+                                # Check if loss is inf/nan - mark as impossible
+                                if torch.isinf(loss) or torch.isnan(loss):
+                                    if idx not in impossible_examples:
+                                        impossible_examples.add(idx)
+                                        success_iterations[idx] = -999
+                                        print(f"  ❌ Example {idx} marked impossible at iteration {iteration} (inf/nan loss for target: '{text[:30]}...')")
                                 
                                 losses.append(loss)
                             except Exception as e:
@@ -427,11 +508,12 @@ class AdversarialAttack:
                     if not torch.isnan(loss) and not torch.isinf(loss) and loss > 0:
                         valid_indices.append(i)
                         valid_loss_list.append(loss)
-                    elif (torch.isnan(loss) or torch.isinf(loss)) and self.verbose:
-                        if iteration < 5:  # Mark as impossible in early iterations
+                    elif torch.isnan(loss) or torch.isinf(loss):
+                        # Mark as impossible whenever we encounter inf/nan
+                        if i not in impossible_examples:
                             impossible_examples.add(i)
                             success_iterations[i] = -999
-                            print(f"  ❌ Example {i} marked impossible (inf/nan loss for target: '{target_texts[i][:30]}...'")
+                            print(f"  ❌ Example {i} marked impossible at iteration {iteration} (inf/nan loss for target: '{target_texts[i][:30]}...'")
                 
                 if valid_loss_list:
                     # VECTORIZED gradient computation - ALL gradients in ONE pass!
