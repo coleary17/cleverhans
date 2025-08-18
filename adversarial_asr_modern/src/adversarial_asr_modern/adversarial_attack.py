@@ -359,7 +359,7 @@ class AdversarialAttack:
                     parallel_start = time.time()
                     
                     # Wrap in AMP context if available
-                    with torch.cuda.amp.autocast() if self.use_amp else nullcontext():
+                    with torch.cuda.amp.autocast('cuda') if self.use_amp else nullcontext():
                         if self.parallel_type == 'dataparallel':
                             # Use DataParallel's optimized method, handling impossible examples
                             audio_list = []
