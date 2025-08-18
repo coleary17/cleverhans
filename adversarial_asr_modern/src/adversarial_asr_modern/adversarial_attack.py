@@ -294,6 +294,7 @@ class AdversarialAttack:
             
             # Compute loss for all examples
             loss_start = time.time()
+            valid_losses = []  # Initialize here so it's always defined
             try:
                 batch_size_actual = min(self.batch_size, audios.shape[0])
                 
@@ -821,7 +822,7 @@ class AdversarialAttack:
                 'target_text': target_texts[i],
                 'final_text': final_pred,
                 'success': success_iterations[i] > -1,  # Only positive values are success, -1 is failed, -999 is impossible
-                'success_iteration': success_iterations[i] if success_iterations[i] > -1 else self.num_iter_stage1,
+                'success_iteration': success_iterations[i],  # Keep -1 for failed, -999 for impossible
                 'final_loss': loss_val,
                 'max_perturbation': max_pert,
                 'mean_perturbation': mean_pert,
