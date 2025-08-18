@@ -1,0 +1,154 @@
+{
+  "iterations": [
+    0,
+    99
+  ],
+  "losses": [
+    [
+      7.854535102844238,
+      8.115549087524414,
+      8.391551971435547,
+      7.773188591003418,
+      8.088379859924316
+    ],
+    [
+      3.903536558151245,
+      2.323725700378418,
+      2.4031338691711426,
+      4.059398651123047,
+      3.4673988819122314
+    ]
+  ],
+  "transcriptions": [
+    [
+      {
+        "example_idx": 0,
+        "original": "THE MORE SHE IS ENGAGED IN HER PROPER DUTIES THE LESS LEISURE WILL SHE HAVE FOR IT EVEN AS AN ACCOMPLISHMENT AND A RECREATION",
+        "target": "OLD WILL IS A FINE FELLOW BUT POOR AND HELPLESS SINCE MISSUS ROGERS HAD HER ACCIDENT",
+        "prediction": "The more she's engaged in her proper duties, the less leisure will she have for it, even as an accomplishment and a recreation.",
+        "success": false
+      },
+      {
+        "example_idx": 1,
+        "original": "AND HENCE WE FIND THE SAME SORT OF CLUMSINESS IN THE TIMAEUS OF PLATO WHICH CHARACTERIZES THE PHILOSOPHICAL POEM OF LUCRETIUS",
+        "target": "THE WOOD FLAMED UP SPLENDIDLY UNDER THE LARGE BREWING COPPER AND IT SIGHED SO DEEPLY",
+        "prediction": "And hence, we find the same sort of clumsiness in the timayas of Plato, which characterizes the philosophical poem of Lucretius.",
+        "success": false
+      },
+      {
+        "example_idx": 2,
+        "original": "ALTHOUGH THE BRETHREN WITH ME ARE NOT APOSTLES LIKE MYSELF YET THEY ARE ALL OF ONE MIND WITH ME THINK WRITE AND TEACH AS I DO",
+        "target": "I WOULD FAIN KNOW IF I AM DESTINED FOR SO GLORIOUS A CAREER CRIED THE TREE REJOICING",
+        "prediction": "Although the brethren with me are not apostles like myself, yet they are all of one mind with me, think, write, and teach as I do.",
+        "success": false
+      },
+      {
+        "example_idx": 3,
+        "original": "HE OBTAINED THE DESIRED SPEED AND LOAD WITH A FRICTION BRAKE ALSO REGULATOR OF SPEED BUT WAITED FOR AN INDICATOR TO VERIFY IT",
+        "target": "WE WILL GO OUT TOGETHER TO THE BOWER THERE IS A WAY DOWN TO THE COURT FROM MY WINDOW",
+        "prediction": "He obtained the desired speed and load with a friction break, also a regulator of speed, but waited for an indicator to verify it.",
+        "success": false
+      },
+      {
+        "example_idx": 4,
+        "original": "THERE MAY BE A SPECIFIC FEELING WHICH COULD BE CALLED THE FEELING OF PASTNESS ESPECIALLY WHERE IMMEDIATE MEMORY IS CONCERNED",
+        "target": "FINALLY THE ONE PARTY WENT OFF EXULTING AND THE OTHER WAS LEFT IN DESOLATION AND WOE",
+        "prediction": "There may be a specific feeling which could be called the feeling of pastness, especially where immediate memory is concerned.",
+        "success": false
+      }
+    ],
+    [
+      {
+        "example_idx": 0,
+        "original": "THE MORE SHE IS ENGAGED IN HER PROPER DUTIES THE LESS LEISURE WILL SHE HAVE FOR IT EVEN AS AN ACCOMPLISHMENT AND A RECREATION",
+        "target": "OLD WILL IS A FINE FELLOW BUT POOR AND HELPLESS SINCE MISSUS ROGERS HAD HER ACCIDENT",
+        "prediction": "If more of these videos, please subscribe to the channel and like it. And when I be sent here, make sure to make a free video.",
+        "success": false
+      },
+      {
+        "example_idx": 1,
+        "original": "AND HENCE WE FIND THE SAME SORT OF CLUMSINESS IN THE TIMAEUS OF PLATO WHICH CHARACTERIZES THE PHILOSOPHICAL POEM OF LUCRETIUS",
+        "target": "THE WOOD FLAMED UP SPLENDIDLY UNDER THE LARGE BREWING COPPER AND IT SIGHED SO DEEPLY",
+        "prediction": "The next station is the primary train you need to do at the end of the college of physics. It's really under the control of the school. The entire large group is going up and down slowly and it's excited so much.",
+        "success": false
+      },
+      {
+        "example_idx": 2,
+        "original": "ALTHOUGH THE BRETHREN WITH ME ARE NOT APOSTLES LIKE MYSELF YET THEY ARE ALL OF ONE MIND WITH ME THINK WRITE AND TEACH AS I DO",
+        "target": "I WOULD FAIN KNOW IF I AM DESTINED FOR SO GLORIOUS A CAREER CRIED THE TREE REJOICING",
+        "prediction": "Although the ground will be a pioneer of the Art of Technology, it will play a role in the moment of the day in the future for the entire world to be free to take the emotions.",
+        "success": false
+      },
+      {
+        "example_idx": 3,
+        "original": "HE OBTAINED THE DESIRED SPEED AND LOAD WITH A FRICTION BRAKE ALSO REGULATOR OF SPEED BUT WAITED FOR AN INDICATOR TO VERIFY IT",
+        "target": "WE WILL GO OUT TOGETHER TO THE BOWER THERE IS A WAY DOWN TO THE COURT FROM MY WINDOW",
+        "prediction": "The sea is the only place where the sea is the only place where the sea is the only place where the sea is the only place where the sea is the only place where the sea is the only place where the sea is the only place where the sea is the only place where the sea is the only place where the sea is the only place where the sea is the only place where the sea is the only place where the sea is the only place where the sea is the only place where the sea is the only place where the sea is the only place where the sea is the only place where the sea is the only place where the sea is the only place where the sea is the only place where the sea is the only place where the sea is the only place where the sea is the only place where the sea is the only place where the sea is the only place where the sea is the only place where the sea is the only place where the sea is the only place where the sea is the only place where the sea is the only place where the sea is the only place where the sea is the only place where the sea is the only place where the sea is the only place where the sea is the only place where the sea is the only place where the sea is the only place where the sea is the only place where the sea is the only place where the sea is the only place where the sea is the only place where the sea is the only place where the sea is the only place where the sea is the only place where the sea is the only place where the sea is the only place where the sea is the only place where the sea is the only place where the sea is the only place where the sea is the only place where the sea is the only place where the sea is the only place where the sea is the only place where the sea is the only place where the sea is the only place where the sea is the only place where the sea is the only place where the sea is the only place where the sea is the only place where the sea is the only place where the sea is the only place where the sea is the only place where the sea is the only place where the sea is",
+        "success": false
+      },
+      {
+        "example_idx": 4,
+        "original": "THERE MAY BE A SPECIFIC FEELING WHICH COULD BE CALLED THE FEELING OF PASTNESS ESPECIALLY WHERE IMMEDIATE MEMORY IS CONCERNED",
+        "target": "FINALLY THE ONE PARTY WENT OFF EXULTING AND THE OTHER WAS LEFT IN DESOLATION AND WOE",
+        "prediction": "The final duo has to eat the pizza yalla cheese as I eat the pupa on the top of the other one as I eat the pizza. And top the other one as I eat the pizza.",
+        "success": false
+      }
+    ]
+  ],
+  "perturbation_stats": [
+    [
+      {
+        "example_idx": 0,
+        "max_perturbation": 0.0,
+        "mean_perturbation": 0.0
+      },
+      {
+        "example_idx": 1,
+        "max_perturbation": 0.0,
+        "mean_perturbation": 0.0
+      },
+      {
+        "example_idx": 2,
+        "max_perturbation": 0.0,
+        "mean_perturbation": 0.0
+      },
+      {
+        "example_idx": 3,
+        "max_perturbation": 0.0,
+        "mean_perturbation": 0.0
+      },
+      {
+        "example_idx": 4,
+        "max_perturbation": 0.0,
+        "mean_perturbation": 0.0
+      }
+    ],
+    [
+      {
+        "example_idx": 0,
+        "max_perturbation": 0.15000000596046448,
+        "mean_perturbation": 0.14954021573066711
+      },
+      {
+        "example_idx": 1,
+        "max_perturbation": 0.15000000596046448,
+        "mean_perturbation": 0.14953680336475372
+      },
+      {
+        "example_idx": 2,
+        "max_perturbation": 0.15000000596046448,
+        "mean_perturbation": 0.14949797093868256
+      },
+      {
+        "example_idx": 3,
+        "max_perturbation": 0.15000000596046448,
+        "mean_perturbation": 0.14974941313266754
+      },
+      {
+        "example_idx": 4,
+        "max_perturbation": 0.15000000596046448,
+        "mean_perturbation": 0.14949388802051544
+      }
+    ]
+  ]
+}
