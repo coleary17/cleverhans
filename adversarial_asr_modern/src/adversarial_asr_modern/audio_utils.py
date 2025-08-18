@@ -295,17 +295,34 @@ class WhisperASRModel:
         # Process features with attention mask for variable-length audio
         mel_spec, encoder_attention_mask = self.compute_mel_with_attention_mask(audio_tensor)
         
+        # Clean and normalize target text
+        import re
+        # Convert to lowercase, remove special chars except spaces
+        cleaned_target = target_text.lower()
+        cleaned_target = re.sub(r"[^a-z0-9\s]", "", cleaned_target)
+        cleaned_target = re.sub(r"\s+", " ", cleaned_target).strip()
+        
+        # Limit length to prevent token overflow
+        max_words = 20
+        words = cleaned_target.split()
+        if len(words) > max_words:
+            cleaned_target = " ".join(words[:max_words])
+        
         # Get target token IDs
         with torch.no_grad():
-            # Encode the target text with max length to prevent very long sequences
+            # Encode the cleaned target text
             target_encoding = self.processor.tokenizer(
-                target_text, 
+                cleaned_target, 
                 return_tensors="pt",
                 add_special_tokens=True,
-                max_length=100,  # Limit target length to prevent issues
+                max_length=50,  # Reduced limit for stability
                 truncation=True
             )
             target_ids = target_encoding.input_ids.to(self.device)
+            
+            # Debug long targets
+            if len(target_ids[0]) > 30:
+                print(f"Warning: Long target ({len(target_ids[0])} tokens): '{cleaned_target[:50]}...'")
             
             # Create decoder attention mask
             decoder_attention_mask = torch.ones_like(target_ids).to(self.device)
