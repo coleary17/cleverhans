@@ -400,12 +400,15 @@ class AdversarialAttack:
             # Apply per-example gradient updates using VECTORIZED computation
             if valid_losses:
                 # Prepare losses for vectorized gradient computation
+                # Filter out NaN, Inf, and zero/negative losses
                 valid_indices = []
                 valid_loss_list = []
                 for i, loss in enumerate(losses):
-                    if not torch.isinf(loss) and loss > 0:
+                    if not torch.isnan(loss) and not torch.isinf(loss) and loss > 0:
                         valid_indices.append(i)
                         valid_loss_list.append(loss)
+                    elif torch.isnan(loss) and self.verbose:
+                        print(f"  Warning: NaN loss for example {i}, target: '{target_texts[i][:30]}...'")
                 
                 if valid_loss_list:
                     # VECTORIZED gradient computation - ALL gradients in ONE pass!

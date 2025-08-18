@@ -101,12 +101,13 @@ class WhisperASRModel:
         
         return encoder_outputs.last_hidden_state
     
-    def compute_mel_spectrogram_differentiable(self, audio_tensor: torch.Tensor) -> torch.Tensor:
+    def compute_mel_spectrogram_differentiable(self, audio_tensor: torch.Tensor, pad_to_length: int = None) -> torch.Tensor:
         """
         Compute mel-spectrogram in a differentiable way.
         
         Args:
             audio_tensor: Audio tensor with gradients
+            pad_to_length: Optional target length for padding. If None, uses minimal padding.
             
         Returns:
             Mel-spectrogram tensor with gradients preserved
@@ -138,17 +139,81 @@ class WhisperASRModel:
         # Normalize to match Whisper's expected input range
         mel_spec = (mel_spec + 4.0) / 4.0  # Approximate normalization
         
-        # Pad/trim to match Whisper's expected sequence length (3000 frames for 30s audio)
-        target_length = 3000
-        if mel_spec.shape[-1] < target_length:
-            # Pad with zeros
-            padding = target_length - mel_spec.shape[-1]
-            mel_spec = torch.nn.functional.pad(mel_spec, (0, padding))
+        # Intelligent padding strategy
+        actual_length = mel_spec.shape[-1]
+        
+        if pad_to_length is not None:
+            # Use specified padding
+            if mel_spec.shape[-1] < pad_to_length:
+                padding = pad_to_length - mel_spec.shape[-1]
+                mel_spec = torch.nn.functional.pad(mel_spec, (0, padding))
+            else:
+                mel_spec = mel_spec[:, :, :pad_to_length]
         else:
-            # Trim
-            mel_spec = mel_spec[:, :, :target_length]
+            # Minimal padding for stability (at least 15 seconds = 1500 frames)
+            min_length = 1500
+            if mel_spec.shape[-1] < min_length:
+                padding = min_length - mel_spec.shape[-1]
+                mel_spec = torch.nn.functional.pad(mel_spec, (0, padding))
         
         return mel_spec
+    
+    def compute_mel_with_attention_mask(self, audio_tensor: torch.Tensor) -> Tuple[torch.Tensor, torch.Tensor]:
+        """
+        Compute mel-spectrogram with attention mask for variable-length audio.
+        
+        Args:
+            audio_tensor: Audio tensor with gradients
+            
+        Returns:
+            Tuple of (mel_spectrogram, attention_mask)
+        """
+        # Use torchaudio for differentiable mel-spectrogram
+        mel_transform = torchaudio.transforms.MelSpectrogram(
+            sample_rate=16000,
+            n_fft=400,
+            hop_length=160,
+            n_mels=80,
+            f_min=0,
+            f_max=8000
+        ).to(self.device)
+        
+        # Ensure audio is on correct device
+        if audio_tensor.device != self.device:
+            audio_tensor = audio_tensor.to(self.device)
+        
+        # Add batch dimension if needed
+        if audio_tensor.dim() == 1:
+            audio_tensor = audio_tensor.unsqueeze(0)
+        
+        # Compute mel-spectrogram
+        mel_spec = mel_transform(audio_tensor)
+        
+        # Apply log scaling (Whisper uses log-mel features)
+        mel_spec = torch.log10(torch.clamp(mel_spec, min=1e-10))
+        
+        # Normalize to match Whisper's expected input range
+        mel_spec = (mel_spec + 4.0) / 4.0
+        
+        # Track actual length
+        actual_length = mel_spec.shape[-1]
+        
+        # Whisper REQUIRES 3000 frames (30 seconds)
+        target_length = 3000
+        if mel_spec.shape[-1] < target_length:
+            padding = target_length - mel_spec.shape[-1]
+            mel_spec = torch.nn.functional.pad(mel_spec, (0, padding))
+            # Create attention mask: 1s for real audio, 0s for padding
+            attention_mask = torch.cat([
+                torch.ones(1, 1, actual_length, device=self.device),
+                torch.zeros(1, 1, padding, device=self.device)
+            ], dim=-1)
+        else:
+            # Trim if longer than 30 seconds
+            mel_spec = mel_spec[:, :, :target_length]
+            attention_mask = torch.ones(1, 1, target_length, device=self.device)
+        
+        return mel_spec, attention_mask
     
     def compute_loss_batch_fast(self, audio_batch: List[torch.Tensor], target_texts: List[str]) -> torch.Tensor:
         """
@@ -217,7 +282,7 @@ class WhisperASRModel:
     
     def compute_loss(self, audio_tensor: torch.Tensor, target_text: str, sample_rate: int = 16000) -> torch.Tensor:
         """
-        Compute adversarial loss for Whisper model using CTC-like approach.
+        Compute adversarial loss for Whisper model using attention masks for variable-length audio.
         
         Args:
             audio_tensor: Audio data as a tensor with gradients
@@ -227,42 +292,46 @@ class WhisperASRModel:
         Returns:
             Loss tensor
         """
-        # Process features while maintaining gradients
-        mel_spec = self.compute_mel_spectrogram_differentiable(audio_tensor)
+        # Process features with attention mask for variable-length audio
+        mel_spec, encoder_attention_mask = self.compute_mel_with_attention_mask(audio_tensor)
         
         # Get target token IDs
         with torch.no_grad():
-            # Encode the target text
+            # Encode the target text with max length to prevent very long sequences
             target_encoding = self.processor.tokenizer(
                 target_text, 
                 return_tensors="pt",
-                add_special_tokens=True
+                add_special_tokens=True,
+                max_length=100,  # Limit target length to prevent issues
+                truncation=True
             )
             target_ids = target_encoding.input_ids.to(self.device)
             
-            # Create attention mask to avoid the warning
-            # For Whisper, we need to create the decoder attention mask
-            # All positions should be attended to (no padding in our case)
-            attention_mask = torch.ones_like(target_ids).to(self.device)
+            # Create decoder attention mask
+            decoder_attention_mask = torch.ones_like(target_ids).to(self.device)
         
-        # Use the model with labels to get loss directly
-        # This is the standard way Whisper computes loss
-        outputs = self.model(
-            input_features=mel_spec,
-            labels=target_ids,
-            decoder_attention_mask=attention_mask,  # Use decoder_attention_mask for decoder inputs
-            return_dict=True
-        )
-        
-        # The model returns the loss when labels are provided
-        # This loss measures how well the model can produce the target text
-        # given the current audio input
-        loss = outputs.loss
-        
-        # Important: To make this work for adversarial attacks,
-        # we need to ensure gradients flow back to the input audio
-        # The key insight is that we're optimizing the INPUT to minimize
-        # the loss of producing the TARGET text
+        # Use the model with attention masks for proper handling of variable-length audio
+        try:
+            outputs = self.model(
+                input_features=mel_spec,
+                attention_mask=encoder_attention_mask.squeeze(1),  # Remove extra dimension
+                labels=target_ids,
+                decoder_attention_mask=decoder_attention_mask,
+                return_dict=True
+            )
+            
+            loss = outputs.loss
+            
+            # Check for NaN and return a large finite loss instead
+            if torch.isnan(loss):
+                print(f"Warning: NaN loss detected for target: '{target_text[:50]}...'")
+                loss = torch.tensor(100.0, device=self.device, requires_grad=True)
+            
+        except Exception as e:
+            print(f"Error in loss computation: {e}")
+            print(f"Target text: '{target_text[:50]}...'")
+            # Return a large but finite loss
+            loss = torch.tensor(100.0, device=self.device, requires_grad=True)
         
         return loss
 
