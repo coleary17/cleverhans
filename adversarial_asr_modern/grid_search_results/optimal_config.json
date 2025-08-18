@@ -1,0 +1,7 @@
+{
+  "lr_stage1": 0.1,
+  "lr_stage2": 0.001,
+  "initial_bound": 0.05,
+  "success_rate": 0.0,
+  "mean_final_loss": 9.838402339390345
+}

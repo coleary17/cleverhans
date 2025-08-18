@@ -1,0 +1,422 @@
+{
+  "iterations": [
+    0,
+    100,
+    199
+  ],
+  "losses": [
+    [
+      10.183685302734375,
+      9.294976234436035,
+      Infinity,
+      9.389299392700195,
+      9.406657218933105,
+      10.604883193969727,
+      Infinity,
+      9.76953125,
+      9.521661758422852,
+      11.76677417755127
+    ],
+    [
+      13.06640625,
+      Infinity,
+      Infinity,
+      12.569754600524902,
+      19.52376365661621,
+      12.716601371765137,
+      Infinity,
+      12.133223533630371,
+      Infinity,
+      13.743106842041016
+    ],
+    [
+      12.93896484375,
+      Infinity,
+      Infinity,
+      12.584123611450195,
+      18.53336524963379,
+      12.348437309265137,
+      Infinity,
+      12.319490432739258,
+      Infinity,
+      13.235064506530762
+    ]
+  ],
+  "transcriptions": [
+    [
+      {
+        "example_idx": 0,
+        "original": "THE MORE SHE IS ENGAGED IN HER PROPER DUTIES THE LESS LEISURE WILL SHE HAVE FOR IT EVEN AS AN ACCOMPLISHMENT AND A RECREATION",
+        "target": "OLD WILL IS A FINE FELLOW BUT POOR AND HELPLESS SINCE MISSUS ROGERS HAD HER ACCIDENT",
+        "prediction": "The more she's engaged in her proper duties, the less leisure will she have for it, even as an accomplishment and a recreation.",
+        "success": false
+      },
+      {
+        "example_idx": 1,
+        "original": "DOUBTS NOW AROSE AND SOME DISCUSSION FOLLOWED WHETHER OR NOT IT WAS DESIRABLE FOR BEN ZOOF TO ACCOMPANY HIS MASTER",
+        "target": "MARY TAYLOR HOWEVER RELATED THE TALE OF ZORA TO MISSUS GREY'S PRIVATE EAR LATER",
+        "prediction": "Doubt's now arose, and some discussion followed, whether or not it was desirable for Ben Zuf to accompany his master.",
+        "success": false
+      },
+      {
+        "example_idx": 2,
+        "original": "BUT THE AFFAIR WAS MAGNIFIED AS A CROWNING PROOF THAT THE FREE STATE MEN WERE INSURRECTIONISTS AND OUTLAWS",
+        "target": "THE MAN ENTERED AND TOOK THE PAPERS SHEET BY SHEET FROM THE CENTRAL TABLE",
+        "prediction": "But the affair was magnified as a crowning proof that the free state men were insurrectionists and outlaws.",
+        "success": false
+      },
+      {
+        "example_idx": 3,
+        "original": "ON ARRIVING AT HOME AT MY OWN RESIDENCE I FOUND THAT OUR SALON WAS FILLED WITH A BRILLIANT COMPANY",
+        "target": "THE SQUIRE HELPED TO THRUST THEM ALL IN AND ENTERED SWIFTLY HIMSELF",
+        "prediction": "On arriving at home at my own residence, I found that Arsalan was filled with a brilliant company.",
+        "success": false
+      },
+      {
+        "example_idx": 4,
+        "original": "NO THANK YOU I'LL JUST LOOK AT THE WHELPS AND LEAVE A MESSAGE ABOUT THEM WITH YOUR SHEPHERD",
+        "target": "WERE I IN THE WARM ROOM WITH ALL THE SPLENDOR AND MAGNIFICENCE",
+        "prediction": "No, thank you. I'll just look at the welps and leave a message about them with your shepherd.",
+        "success": false
+      },
+      {
+        "example_idx": 5,
+        "original": "OLD WILL IS A FINE FELLOW BUT POOR AND HELPLESS SINCE MISSUS ROGERS HAD HER ACCIDENT",
+        "target": "THE REAL HUMAN DIVISION IS THIS THE LUMINOUS AND THE SHADY",
+        "prediction": "Old Will is a fine fellow, but poor and helpless since Mrs. Rogers had her accident.",
+        "success": false
+      },
+      {
+        "example_idx": 6,
+        "original": "MARY TAYLOR HOWEVER RELATED THE TALE OF ZORA TO MISSUS GREY'S PRIVATE EAR LATER",
+        "target": "THAT WAS BUT RUSTLING OF DRIPPING PLANTS IN THE DARK",
+        "prediction": "Mary Taylor, however, related the tale of Zora to Mrs. Gray's private ear later.",
+        "success": false
+      },
+      {
+        "example_idx": 7,
+        "original": "THE MAN ENTERED AND TOOK THE PAPERS SHEET BY SHEET FROM THE CENTRAL TABLE",
+        "target": "HE STARTED AT THE THOUGHT HE HURRIED FORTH SADLY",
+        "prediction": "The man entered and took the papers sheet by sheet from the central table.",
+        "success": false
+      },
+      {
+        "example_idx": 8,
+        "original": "THE SQUIRE HELPED TO THRUST THEM ALL IN AND ENTERED SWIFTLY HIMSELF",
+        "target": "WHY ARE WE TO BE DENIED EACH OTHER'S SOCIETY",
+        "prediction": "The squire helped to thrust them all in and entered swiftly himself.",
+        "success": false
+      },
+      {
+        "example_idx": 9,
+        "original": "WERE I IN THE WARM ROOM WITH ALL THE SPLENDOR AND MAGNIFICENCE",
+        "target": "I SUPPOSE THAT'S THE WET SEASON TOO THEN",
+        "prediction": "where I in the warm room with all the splendor and magnificence.",
+        "success": false
+      }
+    ],
+    [
+      {
+        "example_idx": 0,
+        "original": "THE MORE SHE IS ENGAGED IN HER PROPER DUTIES THE LESS LEISURE WILL SHE HAVE FOR IT EVEN AS AN ACCOMPLISHMENT AND A RECREATION",
+        "target": "OLD WILL IS A FINE FELLOW BUT POOR AND HELPLESS SINCE MISSUS ROGERS HAD HER ACCIDENT",
+        "prediction": "The white fluid in the pentaderminal is quite over the red fluid. And we find a sense of the six-athorodromal rototovic, which is often better. There's when Al-Bigot-Cilar G's here and when the red fluid met in the red fluid.",
+        "success": false
+      },
+      {
+        "example_idx": 1,
+        "original": "DOUBTS NOW AROSE AND SOME DISCUSSION FOLLOWED WHETHER OR NOT IT WAS DESIRABLE FOR BEN ZOOF TO ACCOMPANY HIS MASTER",
+        "target": "MARY TAYLOR HOWEVER RELATED THE TALE OF ZORA TO MISSUS GREY'S PRIVATE EAR LATER",
+        "prediction": "the",
+        "success": false
+      },
+      {
+        "example_idx": 2,
+        "original": "BUT THE AFFAIR WAS MAGNIFIED AS A CROWNING PROOF THAT THE FREE STATE MEN WERE INSURRECTIONISTS AND OUTLAWS",
+        "target": "THE MAN ENTERED AND TOOK THE PAPERS SHEET BY SHEET FROM THE CENTRAL TABLE",
+        "prediction": "But the affair was magnified as a crowning proof that the free state men were insurrectionists and outlaws.",
+        "success": false
+      },
+      {
+        "example_idx": 3,
+        "original": "ON ARRIVING AT HOME AT MY OWN RESIDENCE I FOUND THAT OUR SALON WAS FILLED WITH A BRILLIANT COMPANY",
+        "target": "THE SQUIRE HELPED TO THRUST THEM ALL IN AND ENTERED SWIFTLY HIMSELF",
+        "prediction": "Now the wiring works the whole one's just about the room you'll be able to see for that.",
+        "success": false
+      },
+      {
+        "example_idx": 4,
+        "original": "NO THANK YOU I'LL JUST LOOK AT THE WHELPS AND LEAVE A MESSAGE ABOUT THEM WITH YOUR SHEPHERD",
+        "target": "WERE I IN THE WARM ROOM WITH ALL THE SPLENDOR AND MAGNIFICENCE",
+        "prediction": "I've been the pay-up in the weird for me, but pay my rent to my purple money, so I know they might be my would-pew-pew-pew-pew-pew-pew-pew-pew-pew-pew-pew-pew-pew-pew-pew-pew-pew-pew-pew-pew-pew-pew-pew-pew-pew-pew-pew-pew-pew-pew-pew-pew-pew-pew-pew-pew-pew-pew-pew-pew-pew-pew-pew-pew-pew-pew-pew-pew-pew-pew-pew-pew-pew-pew-pew-pew-pew-pew-pew-pew-pew-pew-pew-pew-pew-pew-pew-pew-pew-pew-pew-pew-pew-pew-pew-pew-pew-pew-pew-pew-pew-pew-pew-pew-pew-pew-pew-pew-pew-pew-pew-pew-pew-pew-pew-pew-pew-pew-pew-pew-pew-pew-pew-pew-pew-pew-pew-pew-pew-pew-pew-pew-pew-pew-pew-pew-pew-pew-pew-pew-pew-pew-pew-pew-pew-pew-pew-pew-pew-pew-pew-pew-pew-pew-pew-pew-pew-pew",
+        "success": false
+      },
+      {
+        "example_idx": 5,
+        "original": "OLD WILL IS A FINE FELLOW BUT POOR AND HELPLESS SINCE MISSUS ROGERS HAD HER ACCIDENT",
+        "target": "THE REAL HUMAN DIVISION IS THIS THE LUMINOUS AND THE SHADY",
+        "prediction": "So I'm able to find a formula and a lot of things to do. So I'm going to have your web skills this season.",
+        "success": false
+      },
+      {
+        "example_idx": 6,
+        "original": "MARY TAYLOR HOWEVER RELATED THE TALE OF ZORA TO MISSUS GREY'S PRIVATE EAR LATER",
+        "target": "THAT WAS BUT RUSTLING OF DRIPPING PLANTS IN THE DARK",
+        "prediction": "Mary Taylor, however, related the tale of Zora to Mrs. Gray's private ear later.",
+        "success": false
+      },
+      {
+        "example_idx": 7,
+        "original": "THE MAN ENTERED AND TOOK THE PAPERS SHEET BY SHEET FROM THE CENTRAL TABLE",
+        "target": "HE STARTED AT THE THOUGHT HE HURRIED FORTH SADLY",
+        "prediction": "of m l dc and some point of time when you find the 217, right?",
+        "success": false
+      },
+      {
+        "example_idx": 8,
+        "original": "THE SQUIRE HELPED TO THRUST THEM ALL IN AND ENTERED SWIFTLY HIMSELF",
+        "target": "WHY ARE WE TO BE DENIED EACH OTHER'S SOCIETY",
+        "prediction": "to get more of your family to survive in it, so don't get sick when you die.",
+        "success": false
+      },
+      {
+        "example_idx": 9,
+        "original": "WERE I IN THE WARM ROOM WITH ALL THE SPLENDOR AND MAGNIFICENCE",
+        "target": "I SUPPOSE THAT'S THE WET SEASON TOO THEN",
+        "prediction": "The report goes to Bill Niemtow at 11.4 and seat the vote of the committee and the committee's answer is in the room.",
+        "success": false
+      }
+    ],
+    [
+      {
+        "example_idx": 0,
+        "original": "THE MORE SHE IS ENGAGED IN HER PROPER DUTIES THE LESS LEISURE WILL SHE HAVE FOR IT EVEN AS AN ACCOMPLISHMENT AND A RECREATION",
+        "target": "OLD WILL IS A FINE FELLOW BUT POOR AND HELPLESS SINCE MISSUS ROGERS HAD HER ACCIDENT",
+        "prediction": "More cheating towards the people of Wattbeutil, than my words before. We run to the rivers and zones from Algebra to the Stradron, and from the Calderes here, when the time is of the ocean versus the Sun.",
+        "success": false
+      },
+      {
+        "example_idx": 1,
+        "original": "DOUBTS NOW AROSE AND SOME DISCUSSION FOLLOWED WHETHER OR NOT IT WAS DESIRABLE FOR BEN ZOOF TO ACCOMPANY HIS MASTER",
+        "target": "MARY TAYLOR HOWEVER RELATED THE TALE OF ZORA TO MISSUS GREY'S PRIVATE EAR LATER",
+        "prediction": "the",
+        "success": false
+      },
+      {
+        "example_idx": 2,
+        "original": "BUT THE AFFAIR WAS MAGNIFIED AS A CROWNING PROOF THAT THE FREE STATE MEN WERE INSURRECTIONISTS AND OUTLAWS",
+        "target": "THE MAN ENTERED AND TOOK THE PAPERS SHEET BY SHEET FROM THE CENTRAL TABLE",
+        "prediction": "But the affair was magnified as a crowning proof that the free state men were insurrectionists and outlaws.",
+        "success": false
+      },
+      {
+        "example_idx": 3,
+        "original": "ON ARRIVING AT HOME AT MY OWN RESIDENCE I FOUND THAT OUR SALON WAS FILLED WITH A BRILLIANT COMPANY",
+        "target": "THE SQUIRE HELPED TO THRUST THEM ALL IN AND ENTERED SWIFTLY HIMSELF",
+        "prediction": "to",
+        "success": false
+      },
+      {
+        "example_idx": 4,
+        "original": "NO THANK YOU I'LL JUST LOOK AT THE WHELPS AND LEAVE A MESSAGE ABOUT THEM WITH YOUR SHEPHERD",
+        "target": "WERE I IN THE WARM ROOM WITH ALL THE SPLENDOR AND MAGNIFICENCE",
+        "prediction": "We're on time with the pain of pain. While we blow up a flandoine, blame my dilemma, hang around, I would hand-play him, but it's my hope, pain-free.",
+        "success": false
+      },
+      {
+        "example_idx": 5,
+        "original": "OLD WILL IS A FINE FELLOW BUT POOR AND HELPLESS SINCE MISSUS ROGERS HAD HER ACCIDENT",
+        "target": "THE REAL HUMAN DIVISION IS THIS THE LUMINOUS AND THE SHADY",
+        "prediction": "The quarantine we are in is following.",
+        "success": false
+      },
+      {
+        "example_idx": 6,
+        "original": "MARY TAYLOR HOWEVER RELATED THE TALE OF ZORA TO MISSUS GREY'S PRIVATE EAR LATER",
+        "target": "THAT WAS BUT RUSTLING OF DRIPPING PLANTS IN THE DARK",
+        "prediction": "Mary Taylor, however, related the tale of Zora to Mrs. Gray's private ear later.",
+        "success": false
+      },
+      {
+        "example_idx": 7,
+        "original": "THE MAN ENTERED AND TOOK THE PAPERS SHEET BY SHEET FROM THE CENTRAL TABLE",
+        "target": "HE STARTED AT THE THOUGHT HE HURRIED FORTH SADLY",
+        "prediction": "So, we're going to see if we can find the solution.",
+        "success": false
+      },
+      {
+        "example_idx": 8,
+        "original": "THE SQUIRE HELPED TO THRUST THEM ALL IN AND ENTERED SWIFTLY HIMSELF",
+        "target": "WHY ARE WE TO BE DENIED EACH OTHER'S SOCIETY",
+        "prediction": "to get more of your family to survive in it, so don't get sick when you die.",
+        "success": false
+      },
+      {
+        "example_idx": 9,
+        "original": "WERE I IN THE WARM ROOM WITH ALL THE SPLENDOR AND MAGNIFICENCE",
+        "target": "I SUPPOSE THAT'S THE WET SEASON TOO THEN",
+        "prediction": "I see you say that to me if you swell, it suits most of your victims and you say that to me.",
+        "success": false
+      }
+    ]
+  ],
+  "perturbation_stats": [
+    [
+      {
+        "example_idx": 0,
+        "max_perturbation": 0.0,
+        "mean_perturbation": 0.0
+      },
+      {
+        "example_idx": 1,
+        "max_perturbation": 0.0,
+        "mean_perturbation": 0.0
+      },
+      {
+        "example_idx": 2,
+        "max_perturbation": 0.0,
+        "mean_perturbation": 0.0
+      },
+      {
+        "example_idx": 3,
+        "max_perturbation": 0.0,
+        "mean_perturbation": 0.0
+      },
+      {
+        "example_idx": 4,
+        "max_perturbation": 0.0,
+        "mean_perturbation": 0.0
+      },
+      {
+        "example_idx": 5,
+        "max_perturbation": 0.0,
+        "mean_perturbation": 0.0
+      },
+      {
+        "example_idx": 6,
+        "max_perturbation": 0.0,
+        "mean_perturbation": 0.0
+      },
+      {
+        "example_idx": 7,
+        "max_perturbation": 0.0,
+        "mean_perturbation": 0.0
+      },
+      {
+        "example_idx": 8,
+        "max_perturbation": 0.0,
+        "mean_perturbation": 0.0
+      },
+      {
+        "example_idx": 9,
+        "max_perturbation": 0.0,
+        "mean_perturbation": 0.0
+      }
+    ],
+    [
+      {
+        "example_idx": 0,
+        "max_perturbation": 0.15000000596046448,
+        "mean_perturbation": 0.08660490065813065
+      },
+      {
+        "example_idx": 1,
+        "max_perturbation": 0.15000000596046448,
+        "mean_perturbation": 0.08605534583330154
+      },
+      {
+        "example_idx": 2,
+        "max_perturbation": 0.0,
+        "mean_perturbation": 0.0
+      },
+      {
+        "example_idx": 3,
+        "max_perturbation": 0.15000000596046448,
+        "mean_perturbation": 0.08654797077178955
+      },
+      {
+        "example_idx": 4,
+        "max_perturbation": 0.15000000596046448,
+        "mean_perturbation": 0.08666842430830002
+      },
+      {
+        "example_idx": 5,
+        "max_perturbation": 0.15000000596046448,
+        "mean_perturbation": 0.0862632617354393
+      },
+      {
+        "example_idx": 6,
+        "max_perturbation": 0.0,
+        "mean_perturbation": 0.0
+      },
+      {
+        "example_idx": 7,
+        "max_perturbation": 0.15000000596046448,
+        "mean_perturbation": 0.08676697313785553
+      },
+      {
+        "example_idx": 8,
+        "max_perturbation": 0.15000000596046448,
+        "mean_perturbation": 0.08220583945512772
+      },
+      {
+        "example_idx": 9,
+        "max_perturbation": 0.15000000596046448,
+        "mean_perturbation": 0.08618335425853729
+      }
+    ],
+    [
+      {
+        "example_idx": 0,
+        "max_perturbation": 0.15000000596046448,
+        "mean_perturbation": 0.08628610521554947
+      },
+      {
+        "example_idx": 1,
+        "max_perturbation": 0.15000000596046448,
+        "mean_perturbation": 0.08605534583330154
+      },
+      {
+        "example_idx": 2,
+        "max_perturbation": 0.0,
+        "mean_perturbation": 0.0
+      },
+      {
+        "example_idx": 3,
+        "max_perturbation": 0.15000000596046448,
+        "mean_perturbation": 0.08698366582393646
+      },
+      {
+        "example_idx": 4,
+        "max_perturbation": 0.15000000596046448,
+        "mean_perturbation": 0.08692443370819092
+      },
+      {
+        "example_idx": 5,
+        "max_perturbation": 0.15000000596046448,
+        "mean_perturbation": 0.08623483031988144
+      },
+      {
+        "example_idx": 6,
+        "max_perturbation": 0.0,
+        "mean_perturbation": 0.0
+      },
+      {
+        "example_idx": 7,
+        "max_perturbation": 0.15000000596046448,
+        "mean_perturbation": 0.08619558811187744
+      },
+      {
+        "example_idx": 8,
+        "max_perturbation": 0.15000000596046448,
+        "mean_perturbation": 0.08220583945512772
+      },
+      {
+        "example_idx": 9,
+        "max_perturbation": 0.15000000596046448,
+        "mean_perturbation": 0.08627244085073471
+      }
+    ]
+  ],
+  "gradients": []
+}
