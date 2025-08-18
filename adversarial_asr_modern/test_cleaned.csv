@@ -1,0 +1,4 @@
+audio_file,audio_name,original_text,target_text,final_text,success,error,stage
+LibriSpeech/test-clean/61/70970/61-70970-0040.flac,61-70970-0040,LibriSpeech/test-clean/61/70970/61-70970-0017.flac,LibriSpeech/test-clean/61/70970/61-70970-0001.flac,,False,[Errno 2] No such file or directory: 'original',failed
+original,original,original,original,,False,[Errno 2] No such file or directory: 'original',failed
+DON'T YOU KNOW ABOUT BACON?,DON'T YOU KNOW ABOUT BACON?,hello world,this is a very long target phrase that should be truncated to twenty words maximum for stability,,False,[Errno 2] No such file or directory: 'original',failed

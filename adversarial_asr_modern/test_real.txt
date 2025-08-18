@@ -1,0 +1,2 @@
+LibriSpeech/test-clean/61/70970/61-70970-0040.flac,original,hello world
+LibriSpeech/test-clean/61/70970/61-70970-0017.flac,original,test attack

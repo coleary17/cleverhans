@@ -1,0 +1,77 @@
+{
+  "iterations": [
+    0,
+    29
+  ],
+  "losses": [
+    [
+      100.0,
+      100.0
+    ],
+    [
+      100.0,
+      100.0
+    ]
+  ],
+  "transcriptions": [
+    [
+      {
+        "example_idx": 0,
+        "original": "original",
+        "target": "hello world",
+        "prediction": "They regain their apartment, apparently, without disturbing the household of Gainwell.",
+        "success": false
+      },
+      {
+        "example_idx": 1,
+        "original": "original",
+        "target": "test attack",
+        "prediction": "Rest and be still until I warn you.",
+        "success": false
+      }
+    ],
+    [
+      {
+        "example_idx": 0,
+        "original": "original",
+        "target": "hello world",
+        "prediction": "They regain their apartment, apparently, without disturbing the household of Gainwell.",
+        "success": false
+      },
+      {
+        "example_idx": 1,
+        "original": "original",
+        "target": "test attack",
+        "prediction": "Rest and be still until I warn you.",
+        "success": false
+      }
+    ]
+  ],
+  "perturbation_stats": [
+    [
+      {
+        "example_idx": 0,
+        "max_perturbation": 0.0,
+        "mean_perturbation": 0.0
+      },
+      {
+        "example_idx": 1,
+        "max_perturbation": 0.0,
+        "mean_perturbation": 0.0
+      }
+    ],
+    [
+      {
+        "example_idx": 0,
+        "max_perturbation": 0.0,
+        "mean_perturbation": 0.0
+      },
+      {
+        "example_idx": 1,
+        "max_perturbation": 0.0,
+        "mean_perturbation": 0.0
+      }
+    ]
+  ],
+  "gradients": []
+}

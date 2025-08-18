@@ -1,0 +1,5 @@
+LibriSpeech/test-clean/908/157963/908-157963-0027.flac,orig,hello world
+LibriSpeech/test-clean/908/157963/908-157963-0001.flac,orig,testing attack
+LibriSpeech/test-clean/908/157963/908-157963-0010.flac,orig,simple phrase
+LibriSpeech/test-clean/908/157963/908-157963-0015.flac,orig,audio test
+LibriSpeech/test-clean/908/157963/908-157963-0026.flac,orig,whisper model

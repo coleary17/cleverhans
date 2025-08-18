@@ -1,0 +1,6 @@
+audio_file,audio_name,original_text,target_text,final_text,success,error,stage
+LibriSpeech/test-clean/908/157963/908-157963-0027.flac,908-157963-0027,orig,hello world,,False,[Errno 2] No such file or directory: 'LibriSpeech/test-clean/908/157963/908-157963-0027.flac',failed
+LibriSpeech/test-clean/908/157963/908-157963-0001.flac,908-157963-0001,orig,testing attack,,False,[Errno 2] No such file or directory: 'LibriSpeech/test-clean/908/157963/908-157963-0027.flac',failed
+LibriSpeech/test-clean/908/157963/908-157963-0010.flac,908-157963-0010,orig,simple phrase,,False,[Errno 2] No such file or directory: 'LibriSpeech/test-clean/908/157963/908-157963-0027.flac',failed
+LibriSpeech/test-clean/908/157963/908-157963-0015.flac,908-157963-0015,orig,audio test,,False,[Errno 2] No such file or directory: 'LibriSpeech/test-clean/908/157963/908-157963-0027.flac',failed
+LibriSpeech/test-clean/908/157963/908-157963-0026.flac,908-157963-0026,orig,whisper model,,False,[Errno 2] No such file or directory: 'LibriSpeech/test-clean/908/157963/908-157963-0027.flac',failed
