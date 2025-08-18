@@ -379,10 +379,11 @@ class AdversarialAttack:
             
             # Track gradient norms for each example
             gradient_norms = []
+            gradient_updates = []
             
             # Apply per-example gradient updates
             if valid_losses:
-                # Process each example independently
+                # First, collect all gradients without modifying delta
                 for i, loss in enumerate(losses):
                     if not torch.isinf(loss) and loss > 0:
                         # Zero out gradients for this specific example
@@ -393,23 +394,25 @@ class AdversarialAttack:
                         loss.backward(retain_graph=(i < len(losses) - 1))
                         
                         if delta.grad is not None:
-                            # Track gradient norm before update
+                            # Track gradient norm and save the update
                             grad_norm = delta.grad[i].norm().item()
                             gradient_norms.append(grad_norm)
-                            
-                            # Apply signed gradient update ONLY to this example
-                            with torch.no_grad():
-                                delta[i] += self.lr_stage1 * delta.grad[i].sign()
-                                # Clamp to bounds
-                                delta[i] = torch.clamp(delta[i], -self.initial_bound, self.initial_bound)
+                            # Store the signed gradient for this example
+                            gradient_updates.append(delta.grad[i].sign().clone())
                         else:
                             gradient_norms.append(0.0)
-                        
-                        # Clear gradients after update
-                        if delta.grad is not None:
-                            delta.grad.zero_()
+                            gradient_updates.append(None)
                     else:
                         gradient_norms.append(0.0)
+                        gradient_updates.append(None)
+                
+                # Now apply all updates at once (outside the backward loop)
+                with torch.no_grad():
+                    for i, grad_update in enumerate(gradient_updates):
+                        if grad_update is not None:
+                            delta[i] += self.lr_stage1 * grad_update
+                            # Clamp to bounds
+                            delta[i] = torch.clamp(delta[i], -self.initial_bound, self.initial_bound)
             else:
                 gradient_norms = [0.0] * len(losses)
             
