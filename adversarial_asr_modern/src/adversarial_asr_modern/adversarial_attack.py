@@ -385,7 +385,7 @@ class AdversarialAttack:
                 else:
                     total_loss = torch.tensor(0.0, device=self.device)
                 
-                individual_losses = [l.item() if not torch.isinf(l) else float('inf') for l in losses]
+                individual_losses = [l.item() if not torch.isnan(l) and not torch.isinf(l) else float('inf') for l in losses]
                 
             except Exception as e:
                 print(f"Error in batch loss computation: {e}")
