@@ -1,0 +1,11 @@
+audio_file,audio_name,original_text,target_text,final_text,success,error,stage
+LibriSpeech/test-clean/61/70968/61-70968-0000.flac,61-70968-0000,orig0,target0,,False,[Errno 2] No such file or directory: 'LibriSpeech/test-clean/61/70968/61-70968-0000.flac',failed
+LibriSpeech/test-clean/61/70968/61-70968-0001.flac,61-70968-0001,orig1,target1,,False,[Errno 2] No such file or directory: 'LibriSpeech/test-clean/61/70968/61-70968-0000.flac',failed
+LibriSpeech/test-clean/61/70968/61-70968-0002.flac,61-70968-0002,orig2,target2,,False,[Errno 2] No such file or directory: 'LibriSpeech/test-clean/61/70968/61-70968-0000.flac',failed
+LibriSpeech/test-clean/61/70968/61-70968-0003.flac,61-70968-0003,orig3,target3,,False,[Errno 2] No such file or directory: 'LibriSpeech/test-clean/61/70968/61-70968-0000.flac',failed
+LibriSpeech/test-clean/61/70968/61-70968-0004.flac,61-70968-0004,orig4,target4,,False,[Errno 2] No such file or directory: 'LibriSpeech/test-clean/61/70968/61-70968-0000.flac',failed
+LibriSpeech/test-clean/61/70968/61-70968-0005.flac,61-70968-0005,orig5,target5,,False,[Errno 2] No such file or directory: 'LibriSpeech/test-clean/61/70968/61-70968-0000.flac',failed
+LibriSpeech/test-clean/61/70968/61-70968-0006.flac,61-70968-0006,orig6,target6,,False,[Errno 2] No such file or directory: 'LibriSpeech/test-clean/61/70968/61-70968-0000.flac',failed
+LibriSpeech/test-clean/61/70968/61-70968-0007.flac,61-70968-0007,orig7,target7,,False,[Errno 2] No such file or directory: 'LibriSpeech/test-clean/61/70968/61-70968-0000.flac',failed
+LibriSpeech/test-clean/61/70968/61-70968-0008.flac,61-70968-0008,orig8,target8,,False,[Errno 2] No such file or directory: 'LibriSpeech/test-clean/61/70968/61-70968-0000.flac',failed
+LibriSpeech/test-clean/61/70968/61-70968-0009.flac,61-70968-0009,orig9,target9,,False,[Errno 2] No such file or directory: 'LibriSpeech/test-clean/61/70968/61-70968-0000.flac',failed

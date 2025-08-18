@@ -1,0 +1,10 @@
+LibriSpeech/test-clean/61/70968/61-70968-0000.flac,orig0,target0
+LibriSpeech/test-clean/61/70968/61-70968-0001.flac,orig1,target1
+LibriSpeech/test-clean/61/70968/61-70968-0002.flac,orig2,target2
+LibriSpeech/test-clean/61/70968/61-70968-0003.flac,orig3,target3
+LibriSpeech/test-clean/61/70968/61-70968-0004.flac,orig4,target4
+LibriSpeech/test-clean/61/70968/61-70968-0005.flac,orig5,target5
+LibriSpeech/test-clean/61/70968/61-70968-0006.flac,orig6,target6
+LibriSpeech/test-clean/61/70968/61-70968-0007.flac,orig7,target7
+LibriSpeech/test-clean/61/70968/61-70968-0008.flac,orig8,target8
+LibriSpeech/test-clean/61/70968/61-70968-0009.flac,orig9,target9
