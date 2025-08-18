@@ -35,10 +35,10 @@ MODE="${1:-quick}"
 case $MODE in
     "quick")
         echo "Running QUICK test (5 examples, minimal iterations)..."
-        NUM_EXAMPLES=5
-        NUM_ITER_STAGE1=10
+        NUM_EXAMPLES=4
+        NUM_ITER_STAGE1=100
         NUM_ITER_STAGE2=10
-        BATCH_SIZE=5
+        BATCH_SIZE=2
         ;;
     "fast")
         echo "Running FAST test (20 examples, reduced iterations)..."
@@ -63,7 +63,7 @@ case $MODE in
         NUM_EXAMPLES=1000
         NUM_ITER_STAGE1=1000
         NUM_ITER_STAGE2=200
-        BATCH_SIZE=200  # Increased from 100 for better GPU utilization
+        BATCH_SIZE=10 # Increased from 100 for better GPU utilization
         ;;
     *)
         echo "Usage: $0 [quick|fast|standard|full]"

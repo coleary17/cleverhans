@@ -343,9 +343,9 @@ def main():
     
     # Override config for quick test
     if args.quick:
-        GridSearchConfig.LR_STAGE1_OPTIONS = [0.001, 0.005, 0.01, 0.05, 0.1]
+        GridSearchConfig.LR_STAGE1_OPTIONS = [0.0001, 0.0005]
         GridSearchConfig.LR_STAGE2_OPTIONS = [0.001]
-        GridSearchConfig.INITIAL_BOUND_OPTIONS = [0.05, 0.1, 0.15]
+        GridSearchConfig.INITIAL_BOUND_OPTIONS = [0.005, 0.01]
         GridSearchConfig.NUM_ITERATIONS_STAGE1 = 200
         GridSearchConfig.NUM_ITERATIONS_STAGE2 = 50
         GridSearchConfig.NUM_EXAMPLES = 10
