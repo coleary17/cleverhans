@@ -662,7 +662,10 @@ class AdversarialAttack:
                 
                 # Check predictions for all examples with transcription
                 for i in range(min(self.batch_size, audios.shape[0])):
-                    if success_iterations[i] != -1:
+                    if success_iterations[i] == -999:
+                        # Impossible example
+                        print(f"Example {i}: IMPOSSIBLE (inf/nan loss for target)")
+                    elif success_iterations[i] > -1:
                         # Already succeeded, skip detailed logging
                         print(f"Example {i}: SUCCESS (achieved at iteration {success_iterations[i]})")
                         continue
@@ -685,7 +688,7 @@ class AdversarialAttack:
                         max_pert = torch.max(torch.abs(perturbation)).item()
                         mean_pert = torch.mean(torch.abs(perturbation)).item()
                         
-                        if success and success_iterations[i] == -1:
+                        if success and success_iterations[i] == -1 and i not in impossible_examples:
                             success_iterations[i] = iteration
                             print(f"Example {i}: ✓ SUCCESS!")
                             print(f"  Target:   '{target_texts[i]}'")
@@ -721,12 +724,12 @@ class AdversarialAttack:
             elif batch_size_actual <= 20 and any(loss < 2.0 for loss in individual_losses):
                 # Only do opportunistic checking for small batches
                 for i in range(min(self.batch_size, audios.shape[0])):
-                    if success_iterations[i] == -1 and individual_losses[i] < 2.0:
+                    if success_iterations[i] == -1 and i not in impossible_examples and individual_losses[i] < 2.0:
                         try:
                             # Quick check for potential success
                             audio_sample_np = perturbed_audio[i, :lengths[i]].detach().cpu().numpy()
                             pred = self.asr_model.transcribe(audio_sample_np)
-                            if pred and pred.lower().strip() == target_texts[i].lower().strip():
+                            if pred and pred.lower().strip() == target_texts[i].lower().strip() and i not in impossible_examples:
                                 success_iterations[i] = iteration
                                 # Calculate perturbation stats
                                 perturbation = (perturbed_audio[i, :lengths[i]] - audios[i, :lengths[i]]).detach()
@@ -817,8 +820,8 @@ class AdversarialAttack:
                 'original_text': original_texts[i],
                 'target_text': target_texts[i],
                 'final_text': final_pred,
-                'success': success_iterations[i] != -1,
-                'success_iteration': success_iterations[i] if success_iterations[i] != -1 else self.num_iter_stage1,
+                'success': success_iterations[i] > -1,  # Only positive values are success, -1 is failed, -999 is impossible
+                'success_iteration': success_iterations[i] if success_iterations[i] > -1 else self.num_iter_stage1,
                 'final_loss': loss_val,
                 'max_perturbation': max_pert,
                 'mean_perturbation': mean_pert,
@@ -828,7 +831,10 @@ class AdversarialAttack:
             attack_results.append(result)
             
             # Print summary
-            if success_iterations[i] != -1:
+            if success_iterations[i] == -999:
+                # Already handled in impossible_examples section above
+                pass
+            elif success_iterations[i] > -1:
                 print(f"Example {i}: SUCCESS at iteration {success_iterations[i]}")
             else:
                 print(f"Example {i}: FAILED")
