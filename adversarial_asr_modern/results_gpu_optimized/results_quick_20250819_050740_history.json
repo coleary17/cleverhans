@@ -1,0 +1,51 @@
+{
+  "iterations": [
+    0,
+    99
+  ],
+  "losses": [
+    [
+      10.04285717010498
+    ],
+    [
+      11.296178817749023
+    ]
+  ],
+  "transcriptions": [
+    [
+      {
+        "example_idx": 0,
+        "original": "THE MORE SHE IS ENGAGED IN HER PROPER DUTIES THE LESS LEISURE WILL SHE HAVE FOR IT EVEN AS AN ACCOMPLISHMENT AND A RECREATION",
+        "target": "OLD WILL IS A FINE FELLOW BUT POOR AND HELPLESS SINCE MISSUS ROGERS HAD HER ACCIDENT",
+        "prediction": "The more she's engaged in her proper duties, the less leisure will she have for it, even as an accomplishment and a recreation.",
+        "success": false
+      }
+    ],
+    [
+      {
+        "example_idx": 0,
+        "original": "THE MORE SHE IS ENGAGED IN HER PROPER DUTIES THE LESS LEISURE WILL SHE HAVE FOR IT EVEN AS AN ACCOMPLISHMENT AND A RECREATION",
+        "target": "OLD WILL IS A FINE FELLOW BUT POOR AND HELPLESS SINCE MISSUS ROGERS HAD HER ACCIDENT",
+        "prediction": "In my last few days in my pocket, it's more slippery, I drink.",
+        "success": false
+      }
+    ]
+  ],
+  "perturbation_stats": [
+    [
+      {
+        "example_idx": 0,
+        "max_perturbation": 0.0,
+        "mean_perturbation": 0.0
+      }
+    ],
+    [
+      {
+        "example_idx": 0,
+        "max_perturbation": 0.15000000596046448,
+        "mean_perturbation": 0.09969072788953781
+      }
+    ]
+  ],
+  "gradients": []
+}

@@ -1,0 +1,129 @@
+{
+  "iterations": [
+    0,
+    99
+  ],
+  "losses": [
+    [
+      7.520101070404053,
+      8.11631965637207,
+      7.968804359436035,
+      6.798163414001465
+    ],
+    [
+      7.851236820220947,
+      8.763237953186035,
+      8.896782875061035,
+      7.576714515686035
+    ]
+  ],
+  "transcriptions": [
+    [
+      {
+        "example_idx": 0,
+        "original": "THE MORE SHE IS ENGAGED IN HER PROPER DUTIES THE LESS LEISURE WILL SHE HAVE FOR IT EVEN AS AN ACCOMPLISHMENT AND A RECREATION",
+        "target": "OLD WILL IS A FINE FELLOW BUT POOR AND HELPLESS SINCE MISSUS ROGERS HAD HER ACCIDENT",
+        "prediction": "The more she's engaged in her proper duties, the less leisure will she have for it, even as an accomplishment and a recreation.",
+        "success": false
+      },
+      {
+        "example_idx": 1,
+        "original": "AND HENCE WE FIND THE SAME SORT OF CLUMSINESS IN THE TIMAEUS OF PLATO WHICH CHARACTERIZES THE PHILOSOPHICAL POEM OF LUCRETIUS",
+        "target": "THE WOOD FLAMED UP SPLENDIDLY UNDER THE LARGE BREWING COPPER AND IT SIGHED SO DEEPLY",
+        "prediction": "And hence, we find the same sort of clumsiness in the timayas of Plato, which characterizes the philosophical poem of Lucretius.",
+        "success": false
+      },
+      {
+        "example_idx": 2,
+        "original": "ALTHOUGH THE BRETHREN WITH ME ARE NOT APOSTLES LIKE MYSELF YET THEY ARE ALL OF ONE MIND WITH ME THINK WRITE AND TEACH AS I DO",
+        "target": "I WOULD FAIN KNOW IF I AM DESTINED FOR SO GLORIOUS A CAREER CRIED THE TREE REJOICING",
+        "prediction": "Although the brethren with me are not apostles like myself, yet they are all of one mind with me, think, write, and teach as I do.",
+        "success": false
+      },
+      {
+        "example_idx": 3,
+        "original": "HE OBTAINED THE DESIRED SPEED AND LOAD WITH A FRICTION BRAKE ALSO REGULATOR OF SPEED BUT WAITED FOR AN INDICATOR TO VERIFY IT",
+        "target": "WE WILL GO OUT TOGETHER TO THE BOWER THERE IS A WAY DOWN TO THE COURT FROM MY WINDOW",
+        "prediction": "He obtained the desired speed and load with a friction break, also a regulator of speed, but waited for an indicator to verify it.",
+        "success": false
+      }
+    ],
+    [
+      {
+        "example_idx": 0,
+        "original": "THE MORE SHE IS ENGAGED IN HER PROPER DUTIES THE LESS LEISURE WILL SHE HAVE FOR IT EVEN AS AN ACCOMPLISHMENT AND A RECREATION",
+        "target": "OLD WILL IS A FINE FELLOW BUT POOR AND HELPLESS SINCE MISSUS ROGERS HAD HER ACCIDENT",
+        "prediction": "I'm not going to be able to do that.",
+        "success": false
+      },
+      {
+        "example_idx": 1,
+        "original": "AND HENCE WE FIND THE SAME SORT OF CLUMSINESS IN THE TIMAEUS OF PLATO WHICH CHARACTERIZES THE PHILOSOPHICAL POEM OF LUCRETIUS",
+        "target": "THE WOOD FLAMED UP SPLENDIDLY UNDER THE LARGE BREWING COPPER AND IT SIGHED SO DEEPLY",
+        "prediction": "So, X-Taction is a useful scientist present in a very different way than the original.",
+        "success": false
+      },
+      {
+        "example_idx": 2,
+        "original": "ALTHOUGH THE BRETHREN WITH ME ARE NOT APOSTLES LIKE MYSELF YET THEY ARE ALL OF ONE MIND WITH ME THINK WRITE AND TEACH AS I DO",
+        "target": "I WOULD FAIN KNOW IF I AM DESTINED FOR SO GLORIOUS A CAREER CRIED THE TREE REJOICING",
+        "prediction": "It was a very difficult time.",
+        "success": false
+      },
+      {
+        "example_idx": 3,
+        "original": "HE OBTAINED THE DESIRED SPEED AND LOAD WITH A FRICTION BRAKE ALSO REGULATOR OF SPEED BUT WAITED FOR AN INDICATOR TO VERIFY IT",
+        "target": "WE WILL GO OUT TOGETHER TO THE BOWER THERE IS A WAY DOWN TO THE COURT FROM MY WINDOW",
+        "prediction": "It gets a screw of 7-0-1.0. And 90-0-1. They're just like the rest of the day. All try anything right now, even though you're the last one of your supporters. We'll bring them 4-0-1.0. And 90-0-1. They're just like the rest of the day. All try anything right now, even though you're the last one of your supporters. We'll bring them 4-0-1. And 90-0-1.",
+        "success": false
+      }
+    ]
+  ],
+  "perturbation_stats": [
+    [
+      {
+        "example_idx": 0,
+        "max_perturbation": 0.0,
+        "mean_perturbation": 0.0
+      },
+      {
+        "example_idx": 1,
+        "max_perturbation": 0.0,
+        "mean_perturbation": 0.0
+      },
+      {
+        "example_idx": 2,
+        "max_perturbation": 0.0,
+        "mean_perturbation": 0.0
+      },
+      {
+        "example_idx": 3,
+        "max_perturbation": 0.0,
+        "mean_perturbation": 0.0
+      }
+    ],
+    [
+      {
+        "example_idx": 0,
+        "max_perturbation": 0.15000000596046448,
+        "mean_perturbation": 0.09956607967615128
+      },
+      {
+        "example_idx": 1,
+        "max_perturbation": 0.15000000596046448,
+        "mean_perturbation": 0.09999114274978638
+      },
+      {
+        "example_idx": 2,
+        "max_perturbation": 0.15000000596046448,
+        "mean_perturbation": 0.10000620037317276
+      },
+      {
+        "example_idx": 3,
+        "max_perturbation": 0.15000000596046448,
+        "mean_perturbation": 0.1002119779586792
+      }
+    ]
+  ],
+  "gradients": []
+}

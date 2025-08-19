@@ -1,0 +1,803 @@
+{
+  "iterations": [
+    0,
+    100,
+    200,
+    300,
+    400,
+    500,
+    600,
+    700,
+    800,
+    900,
+    999
+  ],
+  "losses": [
+    [
+      7.520101070404053,
+      8.11631965637207,
+      7.968804359436035,
+      6.798163414001465,
+      7.51708984375
+    ],
+    [
+      8.005045890808105,
+      9.07752799987793,
+      8.32105827331543,
+      7.456271648406982,
+      7.676852703094482
+    ],
+    [
+      8.192925453186035,
+      8.841959953308105,
+      8.819661140441895,
+      6.949273109436035,
+      7.833767414093018
+    ],
+    [
+      8.49685287475586,
+      8.94655990600586,
+      8.689141273498535,
+      7.653862953186035,
+      8.493000984191895
+    ],
+    [
+      7.265923500061035,
+      8.46229362487793,
+      8.22085189819336,
+      8.20887565612793,
+      8.004150390625
+    ],
+    [
+      8.57766342163086,
+      8.53097915649414,
+      8.517333984375,
+      6.485270023345947,
+      8.424126625061035
+    ],
+    [
+      7.363986492156982,
+      9.08702278137207,
+      8.47523307800293,
+      7.939670085906982,
+      8.37708854675293
+    ],
+    [
+      7.661783695220947,
+      8.489203453063965,
+      8.96499252319336,
+      7.62022590637207,
+      8.03553581237793
+    ],
+    [
+      8.14344596862793,
+      8.31407356262207,
+      8.676310539245605,
+      7.427029132843018,
+      8.7080078125
+    ],
+    [
+      8.095300674438477,
+      Infinity,
+      9.273006439208984,
+      7.369427680969238,
+      8.365808486938477
+    ],
+    [
+      7.848374366760254,
+      Infinity,
+      9.041877746582031,
+      7.564366817474365,
+      8.88005542755127
+    ]
+  ],
+  "transcriptions": [
+    [
+      {
+        "example_idx": 0,
+        "original": "THE MORE SHE IS ENGAGED IN HER PROPER DUTIES THE LESS LEISURE WILL SHE HAVE FOR IT EVEN AS AN ACCOMPLISHMENT AND A RECREATION",
+        "target": "OLD WILL IS A FINE FELLOW BUT POOR AND HELPLESS SINCE MISSUS ROGERS HAD HER ACCIDENT",
+        "prediction": "The more she's engaged in her proper duties, the less leisure will she have for it, even as an accomplishment and a recreation.",
+        "success": false
+      },
+      {
+        "example_idx": 1,
+        "original": "AND HENCE WE FIND THE SAME SORT OF CLUMSINESS IN THE TIMAEUS OF PLATO WHICH CHARACTERIZES THE PHILOSOPHICAL POEM OF LUCRETIUS",
+        "target": "THE WOOD FLAMED UP SPLENDIDLY UNDER THE LARGE BREWING COPPER AND IT SIGHED SO DEEPLY",
+        "prediction": "And hence, we find the same sort of clumsiness in the timayas of Plato, which characterizes the philosophical poem of Lucretius.",
+        "success": false
+      },
+      {
+        "example_idx": 2,
+        "original": "ALTHOUGH THE BRETHREN WITH ME ARE NOT APOSTLES LIKE MYSELF YET THEY ARE ALL OF ONE MIND WITH ME THINK WRITE AND TEACH AS I DO",
+        "target": "I WOULD FAIN KNOW IF I AM DESTINED FOR SO GLORIOUS A CAREER CRIED THE TREE REJOICING",
+        "prediction": "Although the brethren with me are not apostles like myself, yet they are all of one mind with me, think, write, and teach as I do.",
+        "success": false
+      },
+      {
+        "example_idx": 3,
+        "original": "HE OBTAINED THE DESIRED SPEED AND LOAD WITH A FRICTION BRAKE ALSO REGULATOR OF SPEED BUT WAITED FOR AN INDICATOR TO VERIFY IT",
+        "target": "WE WILL GO OUT TOGETHER TO THE BOWER THERE IS A WAY DOWN TO THE COURT FROM MY WINDOW",
+        "prediction": "He obtained the desired speed and load with a friction break, also a regulator of speed, but waited for an indicator to verify it.",
+        "success": false
+      },
+      {
+        "example_idx": 4,
+        "original": "THERE MAY BE A SPECIFIC FEELING WHICH COULD BE CALLED THE FEELING OF PASTNESS ESPECIALLY WHERE IMMEDIATE MEMORY IS CONCERNED",
+        "target": "FINALLY THE ONE PARTY WENT OFF EXULTING AND THE OTHER WAS LEFT IN DESOLATION AND WOE",
+        "prediction": "There may be a specific feeling which could be called the feeling of pastness, especially where immediate memory is concerned.",
+        "success": false
+      }
+    ],
+    [
+      {
+        "example_idx": 0,
+        "original": "THE MORE SHE IS ENGAGED IN HER PROPER DUTIES THE LESS LEISURE WILL SHE HAVE FOR IT EVEN AS AN ACCOMPLISHMENT AND A RECREATION",
+        "target": "OLD WILL IS A FINE FELLOW BUT POOR AND HELPLESS SINCE MISSUS ROGERS HAD HER ACCIDENT",
+        "prediction": "I'm a good female.",
+        "success": false
+      },
+      {
+        "example_idx": 1,
+        "original": "AND HENCE WE FIND THE SAME SORT OF CLUMSINESS IN THE TIMAEUS OF PLATO WHICH CHARACTERIZES THE PHILOSOPHICAL POEM OF LUCRETIUS",
+        "target": "THE WOOD FLAMED UP SPLENDIDLY UNDER THE LARGE BREWING COPPER AND IT SIGHED SO DEEPLY",
+        "prediction": "The",
+        "success": false
+      },
+      {
+        "example_idx": 2,
+        "original": "ALTHOUGH THE BRETHREN WITH ME ARE NOT APOSTLES LIKE MYSELF YET THEY ARE ALL OF ONE MIND WITH ME THINK WRITE AND TEACH AS I DO",
+        "target": "I WOULD FAIN KNOW IF I AM DESTINED FOR SO GLORIOUS A CAREER CRIED THE TREE REJOICING",
+        "prediction": "or the development of human amount of time that takes away trends. With all of the leading and existing efforts of the state, the United States seems to be more human than it seems.",
+        "success": false
+      },
+      {
+        "example_idx": 3,
+        "original": "HE OBTAINED THE DESIRED SPEED AND LOAD WITH A FRICTION BRAKE ALSO REGULATOR OF SPEED BUT WAITED FOR AN INDICATOR TO VERIFY IT",
+        "target": "WE WILL GO OUT TOGETHER TO THE BOWER THERE IS A WAY DOWN TO THE COURT FROM MY WINDOW",
+        "prediction": "The P2S KWWW is the winner of the United States International Airport. Our flight is now going down to St. Arslieb. It's going to be 410 in their day.",
+        "success": false
+      },
+      {
+        "example_idx": 4,
+        "original": "THERE MAY BE A SPECIFIC FEELING WHICH COULD BE CALLED THE FEELING OF PASTNESS ESPECIALLY WHERE IMMEDIATE MEMORY IS CONCERNED",
+        "target": "FINALLY THE ONE PARTY WENT OFF EXULTING AND THE OTHER WAS LEFT IN DESOLATION AND WOE",
+        "prediction": "We're not doing that because it's a good way to do it. So we're talking about the challenges of how it's going to take place. And this is where we're going to need our food.",
+        "success": false
+      }
+    ],
+    [
+      {
+        "example_idx": 0,
+        "original": "THE MORE SHE IS ENGAGED IN HER PROPER DUTIES THE LESS LEISURE WILL SHE HAVE FOR IT EVEN AS AN ACCOMPLISHMENT AND A RECREATION",
+        "target": "OLD WILL IS A FINE FELLOW BUT POOR AND HELPLESS SINCE MISSUS ROGERS HAD HER ACCIDENT",
+        "prediction": "No, I pay you only and I'm not going to be able to come. Because you're not simply an FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF",
+        "success": false
+      },
+      {
+        "example_idx": 1,
+        "original": "AND HENCE WE FIND THE SAME SORT OF CLUMSINESS IN THE TIMAEUS OF PLATO WHICH CHARACTERIZES THE PHILOSOPHICAL POEM OF LUCRETIUS",
+        "target": "THE WOOD FLAMED UP SPLENDIDLY UNDER THE LARGE BREWING COPPER AND IT SIGHED SO DEEPLY",
+        "prediction": "So, if you see the positive end, it would be physically wise experience to see what the positive end is.",
+        "success": false
+      },
+      {
+        "example_idx": 2,
+        "original": "ALTHOUGH THE BRETHREN WITH ME ARE NOT APOSTLES LIKE MYSELF YET THEY ARE ALL OF ONE MIND WITH ME THINK WRITE AND TEACH AS I DO",
+        "target": "I WOULD FAIN KNOW IF I AM DESTINED FOR SO GLORIOUS A CAREER CRIED THE TREE REJOICING",
+        "prediction": "So I do it with welding with the nodal touch, as well as the other different way to do it. The air is more deep, the other way to do it. So I can turn it over to the other two of the teeth, as it would be okay.",
+        "success": false
+      },
+      {
+        "example_idx": 3,
+        "original": "HE OBTAINED THE DESIRED SPEED AND LOAD WITH A FRICTION BRAKE ALSO REGULATOR OF SPEED BUT WAITED FOR AN INDICATOR TO VERIFY IT",
+        "target": "WE WILL GO OUT TOGETHER TO THE BOWER THERE IS A WAY DOWN TO THE COURT FROM MY WINDOW",
+        "prediction": "He is trained with the players in the middle of the room to get the coach to the room. All players can help with their energy from the air. With least the four users can get the coach to the room.",
+        "success": false
+      },
+      {
+        "example_idx": 4,
+        "original": "THERE MAY BE A SPECIFIC FEELING WHICH COULD BE CALLED THE FEELING OF PASTNESS ESPECIALLY WHERE IMMEDIATE MEMORY IS CONCERNED",
+        "target": "FINALLY THE ONE PARTY WENT OFF EXULTING AND THE OTHER WAS LEFT IN DESOLATION AND WOE",
+        "prediction": "In more D.F. use a rig of the swung jing to get a better grip. Simply call the cranks must have high difficulty. The swung jinger in medium speed will be possible.",
+        "success": false
+      }
+    ],
+    [
+      {
+        "example_idx": 0,
+        "original": "THE MORE SHE IS ENGAGED IN HER PROPER DUTIES THE LESS LEISURE WILL SHE HAVE FOR IT EVEN AS AN ACCOMPLISHMENT AND A RECREATION",
+        "target": "OLD WILL IS A FINE FELLOW BUT POOR AND HELPLESS SINCE MISSUS ROGERS HAD HER ACCIDENT",
+        "prediction": "It's a more like a small group of them and pop in them to the surface. They're allowed to introduce their team to every type of team. It's a reasonable outing with the entrance and the entrance and the entrance and the entire entrance.",
+        "success": false
+      },
+      {
+        "example_idx": 1,
+        "original": "AND HENCE WE FIND THE SAME SORT OF CLUMSINESS IN THE TIMAEUS OF PLATO WHICH CHARACTERIZES THE PHILOSOPHICAL POEM OF LUCRETIUS",
+        "target": "THE WOOD FLAMED UP SPLENDIDLY UNDER THE LARGE BREWING COPPER AND IT SIGHED SO DEEPLY",
+        "prediction": "is",
+        "success": false
+      },
+      {
+        "example_idx": 2,
+        "original": "ALTHOUGH THE BRETHREN WITH ME ARE NOT APOSTLES LIKE MYSELF YET THEY ARE ALL OF ONE MIND WITH ME THINK WRITE AND TEACH AS I DO",
+        "target": "I WOULD FAIN KNOW IF I AM DESTINED FOR SO GLORIOUS A CAREER CRIED THE TREE REJOICING",
+        "prediction": "The",
+        "success": false
+      },
+      {
+        "example_idx": 3,
+        "original": "HE OBTAINED THE DESIRED SPEED AND LOAD WITH A FRICTION BRAKE ALSO REGULATOR OF SPEED BUT WAITED FOR AN INDICATOR TO VERIFY IT",
+        "target": "WE WILL GO OUT TOGETHER TO THE BOWER THERE IS A WAY DOWN TO THE COURT FROM MY WINDOW",
+        "prediction": "Do you know why we need to do this? Do you know that the limit is a competition? Or just a competitive competition? What way to start a limit is the reason why it's a competition?",
+        "success": false
+      },
+      {
+        "example_idx": 4,
+        "original": "THERE MAY BE A SPECIFIC FEELING WHICH COULD BE CALLED THE FEELING OF PASTNESS ESPECIALLY WHERE IMMEDIATE MEMORY IS CONCERNED",
+        "target": "FINALLY THE ONE PARTY WENT OFF EXULTING AND THE OTHER WAS LEFT IN DESOLATION AND WOE",
+        "prediction": "some words the else in the quintess of the quintess of the quintess of the quintess of the quintess of the quintess of the quintess of the quintess of the quintess of the quintess of the quintess of the quintess of the quintess of the quintess of the quintess of the quintess of the quintess of the quintess of the quintess of the quintess of the quintess of the quintess of the quintess of the quintess of the quintess of the quintess of the quintess of the quintess of the quintess of the quintess of the quintess of the quintess of the quintess of the quintess of the quintess of the quintess of the quintess of the quintess of the quintess of the quintess of the quintess of the quintess of the quintess of the quintess of the quintess of the quintess of the quintess of the quintess of the quintess of the quintess of the quintess of the quintess of the quintess of the quintess of the quintess of the quintess of the quintess of the quintess of the quintess of the quintess of the quintess of the quintess of the quintess of the quintess of the quintess of the quintess of the quintess of the quintess of the quintess of the quintess of the quintess of the quintess of the quintess of the quintess of the quintess of the quintess of the quintess of the quintess of the quintess of the quintess of the quintess of the quintess of the quintess of the quintess of the quintess of the quintess of the quintess of the quintess of the quintess of the quintess of the quintess of the quintess of the quintess of the quintess of the quintess of the quintess of the quintess of the quintess of the quintess of the quintess of the quintess of the quintess of the quintess of the quintess of the quintess of the quintess of the quintess of the quintess of the quintess of the quintess",
+        "success": false
+      }
+    ],
+    [
+      {
+        "example_idx": 0,
+        "original": "THE MORE SHE IS ENGAGED IN HER PROPER DUTIES THE LESS LEISURE WILL SHE HAVE FOR IT EVEN AS AN ACCOMPLISHMENT AND A RECREATION",
+        "target": "OLD WILL IS A FINE FELLOW BUT POOR AND HELPLESS SINCE MISSUS ROGERS HAD HER ACCIDENT",
+        "prediction": "The more it's seen through the two best upper buildings, the faster the road is. These are the largest buildings in the world.",
+        "success": false
+      },
+      {
+        "example_idx": 1,
+        "original": "AND HENCE WE FIND THE SAME SORT OF CLUMSINESS IN THE TIMAEUS OF PLATO WHICH CHARACTERIZES THE PHILOSOPHICAL POEM OF LUCRETIUS",
+        "target": "THE WOOD FLAMED UP SPLENDIDLY UNDER THE LARGE BREWING COPPER AND IT SIGHED SO DEEPLY",
+        "prediction": "and find intelligence to be possible.",
+        "success": false
+      },
+      {
+        "example_idx": 2,
+        "original": "ALTHOUGH THE BRETHREN WITH ME ARE NOT APOSTLES LIKE MYSELF YET THEY ARE ALL OF ONE MIND WITH ME THINK WRITE AND TEACH AS I DO",
+        "target": "I WOULD FAIN KNOW IF I AM DESTINED FOR SO GLORIOUS A CAREER CRIED THE TREE REJOICING",
+        "prediction": "Now the law that's well-reinformed, we want to solve the things that are not in the form of a system. The FBI for the idea of the legal name is way too difficult to get to the wrong to be too strong to be a system that's not in the right order.",
+        "success": false
+      },
+      {
+        "example_idx": 3,
+        "original": "HE OBTAINED THE DESIRED SPEED AND LOAD WITH A FRICTION BRAKE ALSO REGULATOR OF SPEED BUT WAITED FOR AN INDICATOR TO VERIFY IT",
+        "target": "WE WILL GO OUT TOGETHER TO THE BOWER THERE IS A WAY DOWN TO THE COURT FROM MY WINDOW",
+        "prediction": "He will still in the middle of the road, behind the other day, no matter the foot home. Alex, I'll try to get rid of what's best in my head. Wait, when did the foot home use his skills I told her to find?",
+        "success": false
+      },
+      {
+        "example_idx": 4,
+        "original": "THERE MAY BE A SPECIFIC FEELING WHICH COULD BE CALLED THE FEELING OF PASTNESS ESPECIALLY WHERE IMMEDIATE MEMORY IS CONCERNED",
+        "target": "FINALLY THE ONE PARTY WENT OFF EXULTING AND THE OTHER WAS LEFT IN DESOLATION AND WOE",
+        "prediction": "of a clean river, or even clean different sources of different forms of activity, because the intelligence of clean river and it's unhealthy, it's important to have the different forms of activity.",
+        "success": false
+      }
+    ],
+    [
+      {
+        "example_idx": 0,
+        "original": "THE MORE SHE IS ENGAGED IN HER PROPER DUTIES THE LESS LEISURE WILL SHE HAVE FOR IT EVEN AS AN ACCOMPLISHMENT AND A RECREATION",
+        "target": "OLD WILL IS A FINE FELLOW BUT POOR AND HELPLESS SINCE MISSUS ROGERS HAD HER ACCIDENT",
+        "prediction": "You're all free to be a new friend of Kostya would ever let you go You're out there with a man, but you're not a fucking eye, you're dead You can't argue enough, man, but you're pretty enough, and you're not a man, but you're pretty enough, and you're not a man, but you're pretty enough, and you're not a man, but you're pretty enough, and you're not a man, but you're pretty enough, and you're not a man, but you're pretty enough, and you're not a man, but you're pretty enough, and you're not a man, but you're pretty enough, and you're not a man, but you're pretty enough, and you're not a man, but you're pretty enough, and you're not a man, but you're pretty enough, and you're not a man, but you're pretty enough, and you're not a man, but you're pretty enough, and you're not a man, but you're pretty enough, and you're not a man, but you're pretty enough, and you're not a man, but you're pretty enough, and you're not a man, but you're pretty enough, and you're pretty enough, and you're pretty enough, and you're pretty enough, and you're pretty enough, and you're pretty enough, and you're pretty enough, and you're pretty enough, and you're pretty enough, and you're pretty enough, and you're pretty enough, and you're pretty enough, and you're pretty enough, and you're pretty enough, and you're pretty enough, and you're pretty enough, and you're pretty enough, and you're pretty enough, and you're pretty enough, and you're pretty enough, and you're pretty enough, and you're pretty enough, and you're pretty enough, and you're pretty enough, and you're pretty enough, and you're pretty enough, and you're pretty enough, and you're pretty enough, and you're pretty enough, and you're pretty enough, and you're pretty enough, and you're pretty enough",
+        "success": false
+      },
+      {
+        "example_idx": 1,
+        "original": "AND HENCE WE FIND THE SAME SORT OF CLUMSINESS IN THE TIMAEUS OF PLATO WHICH CHARACTERIZES THE PHILOSOPHICAL POEM OF LUCRETIUS",
+        "target": "THE WOOD FLAMED UP SPLENDIDLY UNDER THE LARGE BREWING COPPER AND IT SIGHED SO DEEPLY",
+        "prediction": "So,",
+        "success": false
+      },
+      {
+        "example_idx": 2,
+        "original": "ALTHOUGH THE BRETHREN WITH ME ARE NOT APOSTLES LIKE MYSELF YET THEY ARE ALL OF ONE MIND WITH ME THINK WRITE AND TEACH AS I DO",
+        "target": "I WOULD FAIN KNOW IF I AM DESTINED FOR SO GLORIOUS A CAREER CRIED THE TREE REJOICING",
+        "prediction": "I'm sorry.",
+        "success": false
+      },
+      {
+        "example_idx": 3,
+        "original": "HE OBTAINED THE DESIRED SPEED AND LOAD WITH A FRICTION BRAKE ALSO REGULATOR OF SPEED BUT WAITED FOR AN INDICATOR TO VERIFY IT",
+        "target": "WE WILL GO OUT TOGETHER TO THE BOWER THERE IS A WAY DOWN TO THE COURT FROM MY WINDOW",
+        "prediction": "Oh!",
+        "success": false
+      },
+      {
+        "example_idx": 4,
+        "original": "THERE MAY BE A SPECIFIC FEELING WHICH COULD BE CALLED THE FEELING OF PASTNESS ESPECIALLY WHERE IMMEDIATE MEMORY IS CONCERNED",
+        "target": "FINALLY THE ONE PARTY WENT OFF EXULTING AND THE OTHER WAS LEFT IN DESOLATION AND WOE",
+        "prediction": "The",
+        "success": false
+      }
+    ],
+    [
+      {
+        "example_idx": 0,
+        "original": "THE MORE SHE IS ENGAGED IN HER PROPER DUTIES THE LESS LEISURE WILL SHE HAVE FOR IT EVEN AS AN ACCOMPLISHMENT AND A RECREATION",
+        "target": "OLD WILL IS A FINE FELLOW BUT POOR AND HELPLESS SINCE MISSUS ROGERS HAD HER ACCIDENT",
+        "prediction": "In order to be able to do something, you need to be able to ride a few rollercoats with a cross-like character. We will ask you something to learn to win a bit of effort.",
+        "success": false
+      },
+      {
+        "example_idx": 1,
+        "original": "AND HENCE WE FIND THE SAME SORT OF CLUMSINESS IN THE TIMAEUS OF PLATO WHICH CHARACTERIZES THE PHILOSOPHICAL POEM OF LUCRETIUS",
+        "target": "THE WOOD FLAMED UP SPLENDIDLY UNDER THE LARGE BREWING COPPER AND IT SIGHED SO DEEPLY",
+        "prediction": "So, as the data are 245 degrees different, all right?",
+        "success": false
+      },
+      {
+        "example_idx": 2,
+        "original": "ALTHOUGH THE BRETHREN WITH ME ARE NOT APOSTLES LIKE MYSELF YET THEY ARE ALL OF ONE MIND WITH ME THINK WRITE AND TEACH AS I DO",
+        "target": "I WOULD FAIN KNOW IF I AM DESTINED FOR SO GLORIOUS A CAREER CRIED THE TREE REJOICING",
+        "prediction": "If they look at the oldie wifes, we are more of the kinds of transactors that they are all in need of a new wifes, we are going to have two wifes as well.",
+        "success": false
+      },
+      {
+        "example_idx": 3,
+        "original": "HE OBTAINED THE DESIRED SPEED AND LOAD WITH A FRICTION BRAKE ALSO REGULATOR OF SPEED BUT WAITED FOR AN INDICATOR TO VERIFY IT",
+        "target": "WE WILL GO OUT TOGETHER TO THE BOWER THERE IS A WAY DOWN TO THE COURT FROM MY WINDOW",
+        "prediction": "We will see when we will return to the radar level to the total total system. All the total control and control training, specifically, with which you stored into the total control control system.",
+        "success": false
+      },
+      {
+        "example_idx": 4,
+        "original": "THERE MAY BE A SPECIFIC FEELING WHICH COULD BE CALLED THE FEELING OF PASTNESS ESPECIALLY WHERE IMMEDIATE MEMORY IS CONCERNED",
+        "target": "FINALLY THE ONE PARTY WENT OFF EXULTING AND THE OTHER WAS LEFT IN DESOLATION AND WOE",
+        "prediction": "If the talgent aerosensis is not in contact with the test results, the question we hear is, you know, the answer to the questions is first.",
+        "success": false
+      }
+    ],
+    [
+      {
+        "example_idx": 0,
+        "original": "THE MORE SHE IS ENGAGED IN HER PROPER DUTIES THE LESS LEISURE WILL SHE HAVE FOR IT EVEN AS AN ACCOMPLISHMENT AND A RECREATION",
+        "target": "OLD WILL IS A FINE FELLOW BUT POOR AND HELPLESS SINCE MISSUS ROGERS HAD HER ACCIDENT",
+        "prediction": "The",
+        "success": false
+      },
+      {
+        "example_idx": 1,
+        "original": "AND HENCE WE FIND THE SAME SORT OF CLUMSINESS IN THE TIMAEUS OF PLATO WHICH CHARACTERIZES THE PHILOSOPHICAL POEM OF LUCRETIUS",
+        "target": "THE WOOD FLAMED UP SPLENDIDLY UNDER THE LARGE BREWING COPPER AND IT SIGHED SO DEEPLY",
+        "prediction": "All right, body can be fully formed, present, and considered.",
+        "success": false
+      },
+      {
+        "example_idx": 2,
+        "original": "ALTHOUGH THE BRETHREN WITH ME ARE NOT APOSTLES LIKE MYSELF YET THEY ARE ALL OF ONE MIND WITH ME THINK WRITE AND TEACH AS I DO",
+        "target": "I WOULD FAIN KNOW IF I AM DESTINED FOR SO GLORIOUS A CAREER CRIED THE TREE REJOICING",
+        "prediction": "All four of the plenary which we know are very similar. The ball R is where you want to go. See if you take the virus and see if it's the plenary.",
+        "success": false
+      },
+      {
+        "example_idx": 3,
+        "original": "HE OBTAINED THE DESIRED SPEED AND LOAD WITH A FRICTION BRAKE ALSO REGULATOR OF SPEED BUT WAITED FOR AN INDICATOR TO VERIFY IT",
+        "target": "WE WILL GO OUT TOGETHER TO THE BOWER THERE IS A WAY DOWN TO THE COURT FROM MY WINDOW",
+        "prediction": "We will tell you where the virus is needed in the cocoa cream. Also, we will make a little freeze. What the reason for this is that we can go to the gym.",
+        "success": false
+      },
+      {
+        "example_idx": 4,
+        "original": "THERE MAY BE A SPECIFIC FEELING WHICH COULD BE CALLED THE FEELING OF PASTNESS ESPECIALLY WHERE IMMEDIATE MEMORY IS CONCERNED",
+        "target": "FINALLY THE ONE PARTY WENT OFF EXULTING AND THE OTHER WAS LEFT IN DESOLATION AND WOE",
+        "prediction": "and maybe the exosperator of the system is the huff and huff. So this hell is just going to make it high for the system. It's potentially going to be a new vehicle.",
+        "success": false
+      }
+    ],
+    [
+      {
+        "example_idx": 0,
+        "original": "THE MORE SHE IS ENGAGED IN HER PROPER DUTIES THE LESS LEISURE WILL SHE HAVE FOR IT EVEN AS AN ACCOMPLISHMENT AND A RECREATION",
+        "target": "OLD WILL IS A FINE FELLOW BUT POOR AND HELPLESS SINCE MISSUS ROGERS HAD HER ACCIDENT",
+        "prediction": "If you want to build a tree, you can't build a tree. We are now going to build a tree.",
+        "success": false
+      },
+      {
+        "example_idx": 1,
+        "original": "AND HENCE WE FIND THE SAME SORT OF CLUMSINESS IN THE TIMAEUS OF PLATO WHICH CHARACTERIZES THE PHILOSOPHICAL POEM OF LUCRETIUS",
+        "target": "THE WOOD FLAMED UP SPLENDIDLY UNDER THE LARGE BREWING COPPER AND IT SIGHED SO DEEPLY",
+        "prediction": "The",
+        "success": false
+      },
+      {
+        "example_idx": 2,
+        "original": "ALTHOUGH THE BRETHREN WITH ME ARE NOT APOSTLES LIKE MYSELF YET THEY ARE ALL OF ONE MIND WITH ME THINK WRITE AND TEACH AS I DO",
+        "target": "I WOULD FAIN KNOW IF I AM DESTINED FOR SO GLORIOUS A CAREER CRIED THE TREE REJOICING",
+        "prediction": "So I build a bread and it would be a real life. It comes with a much harder. And it's going to allow with 20 to the other.",
+        "success": false
+      },
+      {
+        "example_idx": 3,
+        "original": "HE OBTAINED THE DESIRED SPEED AND LOAD WITH A FRICTION BRAKE ALSO REGULATOR OF SPEED BUT WAITED FOR AN INDICATOR TO VERIFY IT",
+        "target": "WE WILL GO OUT TOGETHER TO THE BOWER THERE IS A WAY DOWN TO THE COURT FROM MY WINDOW",
+        "prediction": "The video is coming in with a recording of the new data and the other stuff that is available. Also, I hope you have a nice video to see you. But what if all of these are still available in the video?",
+        "success": false
+      },
+      {
+        "example_idx": 4,
+        "original": "THERE MAY BE A SPECIFIC FEELING WHICH COULD BE CALLED THE FEELING OF PASTNESS ESPECIALLY WHERE IMMEDIATE MEMORY IS CONCERNED",
+        "target": "FINALLY THE ONE PARTY WENT OFF EXULTING AND THE OTHER WAS LEFT IN DESOLATION AND WOE",
+        "prediction": "So the question is there is a ligion of some of the ligions of the chips in the chips.",
+        "success": false
+      }
+    ],
+    [
+      {
+        "example_idx": 0,
+        "original": "THE MORE SHE IS ENGAGED IN HER PROPER DUTIES THE LESS LEISURE WILL SHE HAVE FOR IT EVEN AS AN ACCOMPLISHMENT AND A RECREATION",
+        "target": "OLD WILL IS A FINE FELLOW BUT POOR AND HELPLESS SINCE MISSUS ROGERS HAD HER ACCIDENT",
+        "prediction": "In order to improve the potential during the next project, you can run and work out if you're successful. So you can see some of them are going to help you when a little form was like you did in the last few days.",
+        "success": false
+      },
+      {
+        "example_idx": 1,
+        "original": "AND HENCE WE FIND THE SAME SORT OF CLUMSINESS IN THE TIMAEUS OF PLATO WHICH CHARACTERIZES THE PHILOSOPHICAL POEM OF LUCRETIUS",
+        "target": "THE WOOD FLAMED UP SPLENDIDLY UNDER THE LARGE BREWING COPPER AND IT SIGHED SO DEEPLY",
+        "prediction": "is the same way to play works with points of specific.",
+        "success": false
+      },
+      {
+        "example_idx": 2,
+        "original": "ALTHOUGH THE BRETHREN WITH ME ARE NOT APOSTLES LIKE MYSELF YET THEY ARE ALL OF ONE MIND WITH ME THINK WRITE AND TEACH AS I DO",
+        "target": "I WOULD FAIN KNOW IF I AM DESTINED FOR SO GLORIOUS A CAREER CRIED THE TREE REJOICING",
+        "prediction": "of the",
+        "success": false
+      },
+      {
+        "example_idx": 3,
+        "original": "HE OBTAINED THE DESIRED SPEED AND LOAD WITH A FRICTION BRAKE ALSO REGULATOR OF SPEED BUT WAITED FOR AN INDICATOR TO VERIFY IT",
+        "target": "WE WILL GO OUT TOGETHER TO THE BOWER THERE IS A WAY DOWN TO THE COURT FROM MY WINDOW",
+        "prediction": "So it was at 420 visitors at the same time.",
+        "success": false
+      },
+      {
+        "example_idx": 4,
+        "original": "THERE MAY BE A SPECIFIC FEELING WHICH COULD BE CALLED THE FEELING OF PASTNESS ESPECIALLY WHERE IMMEDIATE MEMORY IS CONCERNED",
+        "target": "FINALLY THE ONE PARTY WENT OFF EXULTING AND THE OTHER WAS LEFT IN DESOLATION AND WOE",
+        "prediction": "is",
+        "success": false
+      }
+    ],
+    [
+      {
+        "example_idx": 0,
+        "original": "THE MORE SHE IS ENGAGED IN HER PROPER DUTIES THE LESS LEISURE WILL SHE HAVE FOR IT EVEN AS AN ACCOMPLISHMENT AND A RECREATION",
+        "target": "OLD WILL IS A FINE FELLOW BUT POOR AND HELPLESS SINCE MISSUS ROGERS HAD HER ACCIDENT",
+        "prediction": "More is new windows and they're happily making a big difference. We like to clean it up in the house and have it get wet. Even while being a pumpkin, it's fun to run away from the window.",
+        "success": false
+      },
+      {
+        "example_idx": 1,
+        "original": "AND HENCE WE FIND THE SAME SORT OF CLUMSINESS IN THE TIMAEUS OF PLATO WHICH CHARACTERIZES THE PHILOSOPHICAL POEM OF LUCRETIUS",
+        "target": "THE WOOD FLAMED UP SPLENDIDLY UNDER THE LARGE BREWING COPPER AND IT SIGHED SO DEEPLY",
+        "prediction": "is the same way to play works with points of specific.",
+        "success": false
+      },
+      {
+        "example_idx": 2,
+        "original": "ALTHOUGH THE BRETHREN WITH ME ARE NOT APOSTLES LIKE MYSELF YET THEY ARE ALL OF ONE MIND WITH ME THINK WRITE AND TEACH AS I DO",
+        "target": "I WOULD FAIN KNOW IF I AM DESTINED FOR SO GLORIOUS A CAREER CRIED THE TREE REJOICING",
+        "prediction": "Or the work of working with the ionic type of potentially soil. What's there all the funnily on these work?",
+        "success": false
+      },
+      {
+        "example_idx": 3,
+        "original": "HE OBTAINED THE DESIRED SPEED AND LOAD WITH A FRICTION BRAKE ALSO REGULATOR OF SPEED BUT WAITED FOR AN INDICATOR TO VERIFY IT",
+        "target": "WE WILL GO OUT TOGETHER TO THE BOWER THERE IS A WAY DOWN TO THE COURT FROM MY WINDOW",
+        "prediction": "Oh, I think you guys are going to be looking to see there. Where's your store and answer to your channel?",
+        "success": false
+      },
+      {
+        "example_idx": 4,
+        "original": "THERE MAY BE A SPECIFIC FEELING WHICH COULD BE CALLED THE FEELING OF PASTNESS ESPECIALLY WHERE IMMEDIATE MEMORY IS CONCERNED",
+        "target": "FINALLY THE ONE PARTY WENT OFF EXULTING AND THE OTHER WAS LEFT IN DESOLATION AND WOE",
+        "prediction": "The",
+        "success": false
+      }
+    ]
+  ],
+  "perturbation_stats": [
+    [
+      {
+        "example_idx": 0,
+        "max_perturbation": 0.0,
+        "mean_perturbation": 0.0
+      },
+      {
+        "example_idx": 1,
+        "max_perturbation": 0.0,
+        "mean_perturbation": 0.0
+      },
+      {
+        "example_idx": 2,
+        "max_perturbation": 0.0,
+        "mean_perturbation": 0.0
+      },
+      {
+        "example_idx": 3,
+        "max_perturbation": 0.0,
+        "mean_perturbation": 0.0
+      },
+      {
+        "example_idx": 4,
+        "max_perturbation": 0.0,
+        "mean_perturbation": 0.0
+      }
+    ],
+    [
+      {
+        "example_idx": 0,
+        "max_perturbation": 0.15000000596046448,
+        "mean_perturbation": 0.09984128922224045
+      },
+      {
+        "example_idx": 1,
+        "max_perturbation": 0.15000000596046448,
+        "mean_perturbation": 0.09992915391921997
+      },
+      {
+        "example_idx": 2,
+        "max_perturbation": 0.15000000596046448,
+        "mean_perturbation": 0.10006680339574814
+      },
+      {
+        "example_idx": 3,
+        "max_perturbation": 0.15000000596046448,
+        "mean_perturbation": 0.100180983543396
+      },
+      {
+        "example_idx": 4,
+        "max_perturbation": 0.15000000596046448,
+        "mean_perturbation": 0.1000591591000557
+      }
+    ],
+    [
+      {
+        "example_idx": 0,
+        "max_perturbation": 0.15000000596046448,
+        "mean_perturbation": 0.10014305263757706
+      },
+      {
+        "example_idx": 1,
+        "max_perturbation": 0.15000000596046448,
+        "mean_perturbation": 0.1002018004655838
+      },
+      {
+        "example_idx": 2,
+        "max_perturbation": 0.15000000596046448,
+        "mean_perturbation": 0.10032714158296585
+      },
+      {
+        "example_idx": 3,
+        "max_perturbation": 0.15000000596046448,
+        "mean_perturbation": 0.09992041438817978
+      },
+      {
+        "example_idx": 4,
+        "max_perturbation": 0.15000000596046448,
+        "mean_perturbation": 0.09987788647413254
+      }
+    ],
+    [
+      {
+        "example_idx": 0,
+        "max_perturbation": 0.15000000596046448,
+        "mean_perturbation": 0.10029495507478714
+      },
+      {
+        "example_idx": 1,
+        "max_perturbation": 0.15000000596046448,
+        "mean_perturbation": 0.10002847015857697
+      },
+      {
+        "example_idx": 2,
+        "max_perturbation": 0.15000000596046448,
+        "mean_perturbation": 0.09980509430170059
+      },
+      {
+        "example_idx": 3,
+        "max_perturbation": 0.15000000596046448,
+        "mean_perturbation": 0.0998690128326416
+      },
+      {
+        "example_idx": 4,
+        "max_perturbation": 0.15000000596046448,
+        "mean_perturbation": 0.10017659515142441
+      }
+    ],
+    [
+      {
+        "example_idx": 0,
+        "max_perturbation": 0.15000000596046448,
+        "mean_perturbation": 0.09987466037273407
+      },
+      {
+        "example_idx": 1,
+        "max_perturbation": 0.15000000596046448,
+        "mean_perturbation": 0.10007654130458832
+      },
+      {
+        "example_idx": 2,
+        "max_perturbation": 0.15000000596046448,
+        "mean_perturbation": 0.1000523492693901
+      },
+      {
+        "example_idx": 3,
+        "max_perturbation": 0.15000000596046448,
+        "mean_perturbation": 0.10040704905986786
+      },
+      {
+        "example_idx": 4,
+        "max_perturbation": 0.15000000596046448,
+        "mean_perturbation": 0.10002133250236511
+      }
+    ],
+    [
+      {
+        "example_idx": 0,
+        "max_perturbation": 0.15000000596046448,
+        "mean_perturbation": 0.10016007721424103
+      },
+      {
+        "example_idx": 1,
+        "max_perturbation": 0.15000000596046448,
+        "mean_perturbation": 0.10001328587532043
+      },
+      {
+        "example_idx": 2,
+        "max_perturbation": 0.15000000596046448,
+        "mean_perturbation": 0.1002630814909935
+      },
+      {
+        "example_idx": 3,
+        "max_perturbation": 0.15000000596046448,
+        "mean_perturbation": 0.09975563734769821
+      },
+      {
+        "example_idx": 4,
+        "max_perturbation": 0.15000000596046448,
+        "mean_perturbation": 0.10034920275211334
+      }
+    ],
+    [
+      {
+        "example_idx": 0,
+        "max_perturbation": 0.15000000596046448,
+        "mean_perturbation": 0.09994618594646454
+      },
+      {
+        "example_idx": 1,
+        "max_perturbation": 0.15000000596046448,
+        "mean_perturbation": 0.10004871338605881
+      },
+      {
+        "example_idx": 2,
+        "max_perturbation": 0.15000000596046448,
+        "mean_perturbation": 0.09995316714048386
+      },
+      {
+        "example_idx": 3,
+        "max_perturbation": 0.15000000596046448,
+        "mean_perturbation": 0.10015775263309479
+      },
+      {
+        "example_idx": 4,
+        "max_perturbation": 0.15000000596046448,
+        "mean_perturbation": 0.1002948135137558
+      }
+    ],
+    [
+      {
+        "example_idx": 0,
+        "max_perturbation": 0.15000000596046448,
+        "mean_perturbation": 0.09962943196296692
+      },
+      {
+        "example_idx": 1,
+        "max_perturbation": 0.15000000596046448,
+        "mean_perturbation": 0.09985450655221939
+      },
+      {
+        "example_idx": 2,
+        "max_perturbation": 0.15000000596046448,
+        "mean_perturbation": 0.09986501187086105
+      },
+      {
+        "example_idx": 3,
+        "max_perturbation": 0.15000000596046448,
+        "mean_perturbation": 0.10001619905233383
+      },
+      {
+        "example_idx": 4,
+        "max_perturbation": 0.15000000596046448,
+        "mean_perturbation": 0.10010329633951187
+      }
+    ],
+    [
+      {
+        "example_idx": 0,
+        "max_perturbation": 0.15000000596046448,
+        "mean_perturbation": 0.09980585426092148
+      },
+      {
+        "example_idx": 1,
+        "max_perturbation": 0.15000000596046448,
+        "mean_perturbation": 0.09958818554878235
+      },
+      {
+        "example_idx": 2,
+        "max_perturbation": 0.15000000596046448,
+        "mean_perturbation": 0.10025826841592789
+      },
+      {
+        "example_idx": 3,
+        "max_perturbation": 0.15000000596046448,
+        "mean_perturbation": 0.10018380731344223
+      },
+      {
+        "example_idx": 4,
+        "max_perturbation": 0.15000000596046448,
+        "mean_perturbation": 0.09957444667816162
+      }
+    ],
+    [
+      {
+        "example_idx": 0,
+        "max_perturbation": 0.15000000596046448,
+        "mean_perturbation": 0.0999557226896286
+      },
+      {
+        "example_idx": 1,
+        "max_perturbation": 0.15000000596046448,
+        "mean_perturbation": 0.0998987928032875
+      },
+      {
+        "example_idx": 2,
+        "max_perturbation": 0.15000000596046448,
+        "mean_perturbation": 0.09969903528690338
+      },
+      {
+        "example_idx": 3,
+        "max_perturbation": 0.15000000596046448,
+        "mean_perturbation": 0.10064788907766342
+      },
+      {
+        "example_idx": 4,
+        "max_perturbation": 0.15000000596046448,
+        "mean_perturbation": 0.09987867623567581
+      }
+    ],
+    [
+      {
+        "example_idx": 0,
+        "max_perturbation": 0.15000000596046448,
+        "mean_perturbation": 0.09976975619792938
+      },
+      {
+        "example_idx": 1,
+        "max_perturbation": 0.15000000596046448,
+        "mean_perturbation": 0.0998987928032875
+      },
+      {
+        "example_idx": 2,
+        "max_perturbation": 0.15000000596046448,
+        "mean_perturbation": 0.099765844643116
+      },
+      {
+        "example_idx": 3,
+        "max_perturbation": 0.15000000596046448,
+        "mean_perturbation": 0.10052817314863205
+      },
+      {
+        "example_idx": 4,
+        "max_perturbation": 0.15000000596046448,
+        "mean_perturbation": 0.10016240924596786
+      }
+    ]
+  ],
+  "gradients": []
+}
