@@ -199,7 +199,7 @@ class AdversarialAttack:
             'max_length': max_length
         }
     
-    def stage1_attack(self, batch: Dict) -> Tuple[torch.Tensor, List[Dict]]:
+    def stage1_attack(self, batch: Dict) -> Tuple[torch.Tensor, List[Dict], Dict]:
         """
         Stage 1: Optimize adversarial perturbations to fool the ASR model.
         
@@ -207,7 +207,7 @@ class AdversarialAttack:
             batch: Batch data dictionary
             
         Returns:
-            Adversarial audio tensor
+            Tuple of (adversarial audio tensor, attack results, iteration history)
         """
         print("=" * 60)
         print(f"Starting Stage 1 Attack... {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}")
@@ -778,8 +778,7 @@ class AdversarialAttack:
                     'max_perturbation': 0.0,
                     'mean_perturbation': 0.0,
                     'stage': 'stage1',
-                    'reason': 'impossible_target',
-                    'iteration_history': None
+                    'reason': 'impossible_target'
                 }
                 attack_results.append(result)
                 print(f"Example {i}: IMPOSSIBLE (inf/nan loss for target)")
@@ -826,8 +825,7 @@ class AdversarialAttack:
                 'final_loss': loss_val,
                 'max_perturbation': max_pert,
                 'mean_perturbation': mean_pert,
-                'stage': 'stage1',
-                'iteration_history': iteration_history if i == 0 else None  # Add history only to first result to avoid duplication
+                'stage': 'stage1'
             }
             attack_results.append(result)
             
@@ -844,7 +842,7 @@ class AdversarialAttack:
         
         print("=" * 60)
         
-        return final_audio, attack_results
+        return final_audio, attack_results, iteration_history
     
     def stage2_attack(self, batch: Dict, stage1_audio: torch.Tensor) -> Tuple[torch.Tensor, List[Dict]]:
         """
@@ -1177,6 +1175,7 @@ class AdversarialAttack:
         
         # Initialize results collection
         all_results = []
+        all_iteration_histories = []  # Store iteration histories from all batches
         
         # Parse data file
         data = parse_data_file(data_file)
@@ -1197,7 +1196,11 @@ class AdversarialAttack:
                 batch = self.prepare_batch(batch_data, root_dir)
                 
                 # Stage 1 attack
-                stage1_audio, stage1_results = self.stage1_attack(batch)
+                stage1_audio, stage1_results, iteration_history = self.stage1_attack(batch)
+                
+                # Store iteration history from this batch
+                if iteration_history and iteration_history.get('iterations'):
+                    all_iteration_histories.append(iteration_history)
                 
                 # Check Stage 1 success and conditionally run Stage 2
                 stage1_successes = [r.get('success', False) for r in stage1_results]
@@ -1310,30 +1313,28 @@ class AdversarialAttack:
         
         # Save results to file
         if results_file:
-            self.save_results(all_results, results_file)
+            self.save_results(all_results, results_file, all_iteration_histories)
         else:
             # Default filename with timestamp
             timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
             results_file = f"attack_results_{timestamp}.csv"
-            self.save_results(all_results, results_file)
+            self.save_results(all_results, results_file, all_iteration_histories)
         
         # Print summary
         self.print_summary(all_results)
     
-    def save_results(self, results: List[Dict], filepath: str):
+    def save_results(self, results: List[Dict], filepath: str, iteration_histories: List[Dict] = None):
         """Save attack results to CSV or JSON file."""
         filepath = Path(filepath)
         
-        # Extract iteration history from results (if present)
-        # Remove from ALL results to avoid CSV corruption when processing multiple batches
+        # Combine iteration histories if provided
         iteration_history = None
-        for result in results:
-            if result.get('iteration_history'):
-                if iteration_history is None:  # Keep the first one for saving
-                    iteration_history = result['iteration_history']
-                # Remove from ALL results to avoid CSV corruption
-                del result['iteration_history']
-        # Note: No break statement - we process ALL results
+        if iteration_histories and len(iteration_histories) > 0:
+            # Merge all iteration histories from different batches
+            # Take the first one as the base (or combine them if needed)
+            iteration_history = iteration_histories[0]
+            # If multiple batches, you could merge them here
+            # For now, we'll just use the first batch's history
         
         if filepath.suffix == '.json':
             # For JSON, we can include the iteration history

@@ -491,17 +491,26 @@ class DataParallelWhisperModel:
                 return_dict=True
             )
         
-        # Extract per-example losses from logits
-        logits = outputs.logits
+        # Use native Whisper loss - it's already properly computed
+        # Note: outputs.loss is the averaged loss for the entire batch
+        # To get per-example losses, we need to compute them individually
         losses = []
         
+        # Process each example individually to get per-example losses
         for i in range(batch_size):
-            shift_logits = logits[i, :-1, :].contiguous()
-            shift_labels = target_ids[i, 1:].contiguous()
+            mel_spec = mel_specs_batch[i:i+1]  # Keep batch dimension
+            target_id = target_ids[i:i+1]
+            attention_mask = attention_masks[i:i+1]
             
-            loss_fct = nn.CrossEntropyLoss(reduction='mean', ignore_index=self.processor.tokenizer.pad_token_id)
-            loss = loss_fct(shift_logits.view(-1, shift_logits.size(-1)), shift_labels.view(-1))
-            losses.append(loss)
+            # Get native loss for this single example
+            single_outputs = self.model(
+                input_features=mel_spec,
+                labels=target_id,
+                decoder_attention_mask=attention_mask,
+                return_dict=True
+            )
+            
+            losses.append(single_outputs.loss)
         
         return losses
     
